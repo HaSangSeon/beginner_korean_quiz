@@ -890,8 +890,6 @@ class _HomeScreenState extends State<HomeScreen> {
         'category': 'Honorifics',
         'emoji': '👔',
         'title': AppStrings.category('Honorifics', _selectedLangCode),
-        'sub': '식사하셨어요? vs 밥 먹었어요?',
-        'badge': AppStrings.category('Honorifics', _selectedLangCode),
         'color': const Color(0xFFEFF6FF),
         'borderColor': const Color(0xFFBFDBFE),
       },
@@ -899,8 +897,6 @@ class _HomeScreenState extends State<HomeScreen> {
         'category': 'Particles',
         'emoji': '🧩',
         'title': AppStrings.category('Particles', _selectedLangCode),
-        'sub': '은/는 vs 이/가',
-        'badge': AppStrings.category('Grammar', _selectedLangCode),
         'color': const Color(0xFFF0FDF4),
         'borderColor': const Color(0xFFBBF7D0),
       },
@@ -908,8 +904,6 @@ class _HomeScreenState extends State<HomeScreen> {
         'category': 'Real-life',
         'emoji': '🍲',
         'title': AppStrings.category('Real-life', _selectedLangCode),
-        'sub': '저기요! vs 이모!',
-        'badge': AppStrings.category('Practical', _selectedLangCode),
         'color': const Color(0xFFFFFBEB),
         'borderColor': const Color(0xFFFDE68A),
       },
@@ -917,8 +911,6 @@ class _HomeScreenState extends State<HomeScreen> {
         'category': 'Nuances',
         'emoji': '💬',
         'title': AppStrings.category('Nuances', _selectedLangCode),
-        'sub': '괜찮습니다 vs 싫어요',
-        'badge': AppStrings.category('Nuances', _selectedLangCode),
         'color': const Color(0xFFFAF5FF),
         'borderColor': const Color(0xFFE9D5FF),
       },
@@ -962,6 +954,8 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(height: 12),
         ...topics.map((t) {
           final cat = t['category'] as String;
+          final count = QuizRepository.getCountByCategory(cat);
+
           return Padding(
             padding: const EdgeInsets.only(bottom: 10.0),
             child: Material(
@@ -988,20 +982,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: [
                       Container(
-                        width: 42,
-                        height: 42,
+                        width: 44,
+                        height: 44,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: t['color'] as Color,
+                          color: isDark ? const Color(0xFF0F172A) : (t['color'] as Color),
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: t['borderColor'] as Color),
+                          border: Border.all(
+                            color: isDark ? const Color(0xFF334155) : (t['borderColor'] as Color),
+                          ),
                         ),
                         child: Text(
                           t['emoji'] as String,
-                          style: const TextStyle(fontSize: 20),
+                          style: const TextStyle(fontSize: 22),
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      const SizedBox(width: 14),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1012,7 +1008,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Text(
                                     t['title'] as String,
                                     style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                       color: isDark ? Colors.white : const Color(0xFF0F172A),
                                     ),
@@ -1023,29 +1019,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const SizedBox(width: 8),
                                 Container(
                                   padding: const EdgeInsets.symmetric(
-                                    horizontal: 6,
+                                    horizontal: 7,
                                     vertical: 2,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: (t['color'] as Color),
+                                    color: isDark
+                                        ? const Color(0xFF2563EB).withValues(alpha: 0.2)
+                                        : const Color(0xFFEFF6FF),
                                     borderRadius: BorderRadius.circular(6),
+                                    border: Border.all(
+                                      color: isDark
+                                          ? const Color(0xFF1D4ED8)
+                                          : const Color(0xFFBFDBFE),
+                                      width: 0.8,
+                                    ),
                                   ),
                                   child: Text(
-                                    t['badge'] as String,
-                                    style: const TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w700,
-                                      color: Color(0xFF475569),
+                                    AppStrings.tr(
+                                      'cat_count_badge',
+                                      _selectedLangCode,
+                                      {'count': count.toString()},
+                                    ),
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w800,
+                                      color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF2563EB),
                                     ),
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 2),
+                            const SizedBox(height: 3),
                             Text(
-                              t['sub'] as String,
+                              AppStrings.tr(
+                                'cat_ready_desc',
+                                _selectedLangCode,
+                                {'count': count.toString()},
+                              ),
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 12.5,
                                 color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                                 fontWeight: FontWeight.w500,
                               ),
@@ -1055,10 +1067,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                      const Icon(
+                      Icon(
                         Icons.chevron_right_rounded,
-                        color: Color(0xFF94A3B8),
-                        size: 20,
+                        color: isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
+                        size: 22,
                       ),
                     ],
                   ),

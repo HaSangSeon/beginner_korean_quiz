@@ -47,4 +47,11 @@ class QuizRepository {
         .toList();
     return filtered.isNotEmpty ? filtered : List.from(questions);
   }
+
+  /// Get question count for a specific category
+  static int getCountByCategory(String category) {
+    return questions
+        .where((q) => q.category.toLowerCase() == category.toLowerCase())
+        .length;
+  }
 }
