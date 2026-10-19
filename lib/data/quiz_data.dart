@@ -20,242 +20,726 @@ const List<LanguageOption> supportedLanguages = [
   LanguageOption(code: 'VI', label: 'Tiếng Việt', flag: '🇻🇳'),
 ];
 
-/// Sample high-quality Korean nuance questions translated across 6 major languages.
+/// Fallback in-memory quiz questions synchronized with assets/data/questions.json
 final List<QuizQuestion> sampleQuizQuestions = [
-  const QuizQuestion(
+  QuizQuestion(
     id: 1,
-    category: 'Honorifics',
+    category: "능력·가능",
+    type: "sentence",
+    visual: "🗣️ 🇰🇷",
+    keyword: "한국어",
+    speechBubble: "저는 미국 사람이지만...",
     situations: {
-      'KO':
-          '낮 12시 30분경, 사무실이나 캠퍼스에서 교수님, 직장 상사, 선배를 마주쳤습니다. 예의를 갖추면서도 자연스럽게 식사 여부를 묻는 상황입니다.',
-      'EN':
-          'You meet your boss or an older colleague at the office around 12:30 PM. In your language, you might casually ask: "Did you eat?" or "Had lunch?"',
-      'ES':
-          'Te encuentras con tu jefe o un compañero mayor en la oficina alrededor de las 12:30 PM. De manera informal preguntarías: "¿Comiste?" o "¿Almorzaste?"',
-      'ZH':
-          '中午12:30左右，你在办公室遇到了上司或年长同事。日常打招呼时想问对方"吃过饭了吗？"',
-      'JA':
-          'お昼の12時30分頃、職場で上司や先輩に出会いました。気軽に「ご飯食べましたか？」と挨拶したい場面です。',
-      'VI':
-          'Bạn gặp sếp hoặc đồng nghiệp lớn tuổi tại văn phòng vào khoảng 12:30 trưa. Bạn muốn chào hỏi lịch sự: "Anh/chị đã ăn trưa chưa?"',
-      'PT':
-          'Você encontra seu chefe ou um colega mais velho no trabalho por volta das 12h30. Você quer perguntar de forma respeitosa: "Já almoçou?"',
+      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn tranh và hoàn thành hội thoại.",
+      "ZH": "看图并仿照例子完成对话。",
+      "JA": "絵を見て会話を完成させてください。",
     },
     questions: {
-      'KO':
-          '한국인이 윗사람이나 선배에게 가장 자연스럽고 공손하게 건네는 점심 안부 인사는?',
-      'EN':
-          'Which respectful greeting would a native Korean naturally use without sounding overly casual or stiff?',
-      'ES':
-          '¿Qué saludo respetuoso usaría un coreano nativo sin sonar demasiado informal ni rígido?',
-      'ZH':
-          '韩国人对上司或长辈最自然、得体的敬语问候是哪一个？',
-      'JA':
-          '上司や先輩に対して、失礼にならず自然に敬意を表す挨拶はどれでしょうか？',
-      'VI':
-          'Lời chào hỏi kính ngữ tự nhiên và đúng mực nhất của người Hàn là gì?',
-      'PT':
-          'Qual saudação respeitosa um coreano nativo usaria sem parecer informal demais nem engessado?',
+      "KO": "철수: 한국어를 할 수 있어요?\n영희: 네, (                 ).",
     },
-    options: [
-      '식사하셨어요? (Siksahasyeosseoyo?)',
-      '밥 먹었어요? (Bap meogeosseoyo?)',
-      '점심 드세요? (Jeomsim deuseyo?)',
-      '식사했니? (Siksahaenni?)',
-    ],
+    options: ["할 수 있어요", "해요", "했어요", "하지 않아요"],
     answerIndex: 0,
     explanations: {
-      'KO':
-          "'식사하셨어요?'는 높임 명사 '식사'와 존칭 접미사 '-시-'가 결합된 가장 자연스러운 표준 높임말 인사입니다. '밥 먹었어요?'는 끝에 '-요'가 붙었어도 상사나 교수님께 쓰기에는 다소 버릇없게 느껴질 수 있습니다.",
-      'EN':
-          "'식사하셨어요?' combines the honorific noun '식사' (meal) with the polite suffix '-시-'. While '밥 먹었어요?' has the polite '-요' ending, it is considered too casual for superiors in Korean workplace culture.",
-      'ES':
-          "'식사하셨어요?' combina el sustantivo honorífico '식사' (comida) con el sufijo de respeto '-시-'. Aunque '밥 먹었어요?' termina en '-요', resulta demasiado informal para jefes y mayores.",
-      'ZH':
-          "'식사하셨어요?'使用了敬语名词'식사'（用餐）和尊敬词尾'-시-'。虽然'밥 먹었어요?'带有敬语'-요'，但在职场中对上司或长辈依然显得过于随意。",
-      'JA':
-          '「식사하셨어요?」は敬語名詞「식사（お食事）」と尊敬接尾辞「-시-」を使った標準的な丁寧表現です。「밥 먹었어요?」は日常会話的で、職場の上司には馴れ馴れしく聞こえます。',
-      'VI':
-          "'식사하셨어요?' kết hợp danh từ kính ngữ '식사' (bữa ăn) và hậu tố tôn kính '-시-'. Dù '밥 먹었어요?' có đuôi '-요', nó vẫn quá suồng sã khi nói với sếp hoặc người lớn tuổi.",
-      'PT':
-          "'식사하셨어요?' usa o substantivo honorífico '식사' (refeição) com o sufixo de respeito '-시-'. Embora '밥 먹었어요?' termine em '-요', soa informal demais para superiores.",
+      "KO": "동사 '하다'의 어간에 능력과 가능을 나타내는 '-(으)ㄹ 수 있어요'가 결합하여 '할 수 있어요'가 됩니다.",
+      "EN": "'하다' (to do/speak) combines with the ability grammar '-(으)ㄹ 수 있어요' (can) to make '할 수 있어요' (Yes, I can speak it).",
+      "VI": "Động từ '하다' kết hợp với ngữ pháp chỉ khả năng '-(으)ㄹ 수 있어요' tạo thành '할 수 있어요' (Vâng, tôi có thể nói được).",
+      "ZH": "动词'하다'加上表示能力的'-(으)ㄹ 수 있어요'，变为'할 수 있어요'（是的，我会说）。",
+      "JA": "動詞「하다（する）」に可能を表す「-(으)ㄹ 수 있어요」がついて「할 수 있어요（話せます）」になります。",
     },
   ),
-  const QuizQuestion(
+  QuizQuestion(
     id: 2,
-    category: 'Particles',
+    category: "능력·가능",
+    type: "sentence",
+    visual: "🚗 🔑",
+    keyword: "운전",
+    speechBubble: "차 열쇠가 있어요!",
     situations: {
-      'KO':
-          '친구들과 모인 자리에서 누군가 "누가 이 맛있는 케이크 만들었어요?"라고 물어봤습니다. "내가 만들었어요!"라고 만든 주체(나)를 확실하게 강조하려는 상황입니다.',
-      'EN':
-          'At a party, a friend tastes a dish and asks: "누가 이 케이크 만들었어요? (Who made this cake?)" You want to answer: "I made it!" — spotlighting YOU as the person who did it.',
-      'ES':
-          'En una fiesta, un amigo prueba un pastel y pregunta: "¿Quién hizo este pastel?" Quieres responder: "¡Yo lo hice!" — destacando que fuiste TÚ.',
-      'ZH':
-          '在聚会上，朋友尝了蛋糕后问："누가 이 케이크 만들었어요?（谁做的这个蛋糕？）"你想回答："我做的！"——重点强调是你本人做的。',
-      'JA':
-          'パーティーで友達が「누가 이 케이크 만들었어요?（誰がこのケーキを作ったの？）」と尋ねました。「私が作りました！」と自分自身にスポットを当てて答えたい場面です。',
-      'VI':
-          'Tại bữa tiệc, một người bạn nếm bánh và hỏi: "Ai đã làm chiếc bánh này?" Bạn muốn trả lời: "Chính tôi làm đấy!" — nhấn mạnh vào người thực hiện là BẠN.',
-      'PT':
-          'Em uma festa, um amigo experimenta um bolo e pergunta: "Quem fez este bolo?" Você quer responder: "Fui EU quem fiz!" — destacando a sua pessoa.',
+      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn tranh và hoàn thành hội thoại.",
+      "ZH": "看图并仿照例子完成对话。",
+      "JA": "絵を見て会話を完成させてください。",
     },
     questions: {
-      'KO':
-          '‘누가’라는 질문에 대해 행동의 주체를 확실하게 강조하는 올바른 조사는?',
-      'EN':
-          'Which sentence uses the correct particle to highlight the subject answering "WHO"?',
-      'ES':
-          '¿Qué oración usa la partícula correcta para enfatizar el sujeto respondiendo "QUIÉN"?',
-      'ZH':
-          '哪句话使用了正确的助词，用来强调回答"谁"的主语？',
-      'JA':
-          '「誰」という疑問に焦点を当てて主語を強調する正しい助词はどれでしょうか？',
-      'VI':
-          'Câu nào sử dụng đúng trợ từ để nhấn mạnh chủ ngữ trả lời cho câu hỏi "AI"?',
-      'PT':
-          'Qual frase usa a partícula correta para destacar o sujeito respondendo "QUEM"?',
+      "KO": "철수: 운전할 수 있어요?\n영희: 네, (                 ).",
     },
-    options: [
-      '제가 만들었어요. (Jega mandeureosseoyo.)',
-      '저는 만들었어요. (Jeoneun mandeureosseoyo.)',
-      '저를 만들었어요. (Jeoreul mandeureosseoyo.)',
-      '저의 만들었어요. (Jeoui mandeureosseoyo.)',
-    ],
+    options: ["운전할 수 있어요", "운전해요", "운전 못 해요", "운전했어요"],
     answerIndex: 0,
     explanations: {
-      'KO':
-          "'이/가'(제 + 가 = 제가)는 '누가'라는 질문에 직접 답하며 행동의 주어를 확실하게 특정해 강조합니다. 반면 '저는'은 화제 제시나 타인과의 비교·대조 뉘앙스('다른 사람은 몰라도 나는...')여서 이 맥락에서는 어색합니다.",
-      'EN':
-          "'이/가' (here: 제 + 가 = 제가) places the spotlight on the subject to answer a 'who' question. In contrast, '저는' is a topic marker that implies contrast (e.g., 'As for me, I made it [unlike others]'), which sounds unnatural here.",
-      'ES':
-          "'이/가' (제 + 가 = 제가) pone el foco en el sujeto para responder 'quién'. En cambio, '저는' es una partícula de tema que denota contraste ('En cuanto a mí, lo hice...'), lo cual suena forzado aquí.",
-      'ZH':
-          "'이/가'（제 + 가 = 제가）将焦点直接放在回答'谁'的主语上。而'저는'是主题助词，通常带有对比意味（如'别人我不知道，至于我嘛...'），在此处显得不自然。",
-      'JA':
-          '「이/가」（ここでは 제 + 가 = 제가）は「誰が」という疑問に直接答えて主語を際立たせます。一方「저는」は主題や対比を表すため、ここでは不自然に聞こえます。',
-      'VI':
-          "'이/가' (ở đây: 제 + 가 = 제가) làm nổi bật chủ ngữ để trả lời cho câu hỏi 'ai'. Ngược lại, '저는' là trợ từ chủ đề mang hàm ý so sánh/đối lập nên không tự nhiên ở ngữ cảnh này.",
-      'PT':
-          "'이/가' (제 + 가 = 제가) coloca o foco no sujeito respondendo 'quem'. Já '저는' é uma partícula de tópico que implica contraste ('Quanto a mim, eu fiz...'), soando estranho aqui.",
+      "KO": "'운전하다'의 긍정 가능 표현은 '운전할 수 있어요'입니다. 면허가 있고 운전이 가능함을 나타냅니다.",
+      "EN": "Affirmative capability with '운전하다' (to drive) is '운전할 수 있어요' (Yes, I can drive).",
+      "VI": "Biểu thị khả năng lái xe khẳng định là '운전할 수 있어요' (Vâng, tôi có thể lái xe).",
+      "ZH": "'운전하다'（开车）表示肯定的能力表达是'운전할 수 있어요'（是的，我会开车）。",
+      "JA": "「운전하다（運転する）」の可能表現は「운전할 수 있어요（運転できます）」です。",
     },
   ),
-  const QuizQuestion(
+  QuizQuestion(
     id: 3,
-    category: 'Real-life',
+    category: "능력·가능",
+    type: "sentence",
+    visual: "🎂 🧑‍🍳",
+    keyword: "케이크",
+    speechBubble: "달콤한 케이크!",
     situations: {
-      'KO':
-          '한국의 번화한 식당에서 반찬을 더 받고 싶거나 주문을 하려고 직원을 불러야 하는 상황입니다.',
-      'EN':
-          'You are seated at a busy restaurant in Seoul and need the server to bring you extra napkins or take your order.',
-      'ES':
-          'Estás sentado en un restaurante concurrido en Seúl y necesitas que el mesero te traiga servilletas o tome tu orden.',
-      'ZH':
-          '你坐在首尔一家热闹的餐厅里，需要服务员拿纸巾或者过来点单。',
-      'JA':
-          'ソウルの賑やかな食堂で、店員さんを呼んで注文したりティッシュをもらいたい場面です。',
-      'VI':
-          'Bạn đang ngồi trong một nhà hàng nhộn nhịp ở Seoul và muốn gọi nhân viên phục vụ để gọi món hoặc xin thêm khăn giấy.',
-      'PT':
-          'Você está em um restaurante movimentado em Seul e quer chamar o garçom para fazer o pedido ou pedir guardanapos.',
+      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn tranh và hoàn thành hội thoại.",
+      "ZH": "看图并仿照例子完成对话。",
+      "JA": "絵を見て会話を完成させてください。",
     },
     questions: {
-      'KO':
-          '식당 직원을 부를 때 외국인 학습자가 가장 안전하고 예의 바르게 쓸 수 있는 표준 호칭은?',
-      'EN':
-          'What is the most natural and culturally appropriate way to call the attention of the restaurant staff?',
-      'ES':
-          '¿Cuál es la forma más natural y culturalmente adecuada de llamar al personal del restaurante?',
-      'ZH':
-          '在韩国餐厅里，招呼服务员最自然、地道的方式是什么？',
-      'JA':
-          '韓国の飲食店で店員さんを呼ぶとき、最も自然で一般的な表現はどれでしょうか？',
-      'VI':
-          'Cách gọi nhân viên nhà hàng tự nhiên và chuẩn văn hóa Hàn Quốc nhất là gì?',
-      'PT':
-          'Qual é a maneira mais natural e adequada culturalmente de chamar o garçom?',
+      "KO": "철수: 케이크를 만들 수 있어요?\n영희: 네, (                 ).",
     },
-    options: [
-      '저기요! (Jeogiyo!)',
-      '웨이터! (Weiteo!)',
-      '선생님! (Seonsaengnim!)',
-      '이봐요! (Ibwayo!)',
-    ],
+    options: ["만들 수 있어요", "만들어요", "만들지 못해요", "만들었어요"],
     answerIndex: 0,
     explanations: {
-      'KO':
-          "'저기요!'는 모르는 사람의 주의를 환기할 때 쓰는 가장 보편적이고 안전한 표준 표현입니다. 직역된 '웨이터!'나 '이봐요!'는 무례하게 들릴 수 있으며, '아줌마'는 불쾌감을 줄 수 있어 '저기요'나 '사장님'을 쓰는 것이 좋습니다.",
-      'EN':
-          "Literal textbook translations like '웨이터!' (Waiter!) or '이봐요!' (Hey!) sound comical or impolite in Korea. Native Koreans universally call staff with '저기요!' (literally 'Over there, please!') or '사장님!' (Boss/Owner).",
-      'ES':
-          "Traducciones literales como '웨이터!' (¡Mesero!) o '이봐요!' (¡Oye tú!) suenan cómicas o groseras. Los coreanos siempre llaman diciendo '저기요!' (literalmente '¡Por allí, por favor!') o '사장님!'.",
-      'ZH':
-          "教科书式的直译如'웨이터!'（服务生！）或'이봐요!'（喂！）在韩国听起来滑稽甚至不礼貌。韩国人一律用'저기요!'（打扰一下！）或'사장님!'（老板！）来呼唤店员。",
-      'JA':
-          '教科書的な直訳「웨이터!（ウェイター！）」や「이봐요!（おい！）」は不自然または失礼に聞こえます。韓国では「저기요!（すみません！）」や「사장님!（社長さん/店員さん！）」と呼ぶのが定番です。',
-      'VI':
-          "Các cách dịch như '웨이터!' (Bồi bàn!) hoặc '이봐요!' (Này!) nghe rất buồn cười hoặc bất lịch sự. Người Hàn luôn dùng '저기요!' (Xin lỗi, đằng ấy ơi!) hoặc '사장님!'.",
-      'PT':
-          "Traduções literais como '웨이터!' (Garçom!) ou '이봐요!' (Ei você!) soam cômicas ou rudes. Os coreanos usam universalmente '저기요!' (literalmente 'Aí, por favor!') ou '사장님!'.",
+      "KO": "'만들다'는 받침 'ㄹ' 불규칙으로 '을 수 있어요'가 아닌 'ㄹ 수 있어요'가 결합하여 '만들 수 있어요'가 됩니다.",
+      "EN": "Because '만들다' (to make) ends with 'ㄹ', it attaches '수 있어요' directly, becoming '만들 수 있어요' (Yes, I can make it).",
+      "VI": "Vì '만들다' kết thúc bằng 'ㄹ' nên kết hợp thành '만들 수 있어요' (Vâng, tôi có thể làm được).",
+      "ZH": "'만들다'是以'ㄹ'收音结尾的动词，直接接'수 있어요'，变为'만들 수 있어요'（是的，我会做）。",
+      "JA": "「만들다（作る）」はパッチム「ㄹ」のため「만들 수 있어요（作れます）」になります。",
     },
   ),
-  const QuizQuestion(
+  QuizQuestion(
     id: 4,
-    category: 'Real-life',
+    category: "능력·가능",
+    type: "sentence",
+    visual: "🥬 🌶️ 🙅‍♀️",
+    keyword: "김치",
+    speechBubble: "너무 매워요!",
     situations: {
-      'KO':
-          '한국인 호스트가 음식을 더 권했지만, 배가 너무 불러서 상대방의 성의를 생각하며 기분 상하지 않게 거절하고 싶은 상황입니다.',
-      'EN':
-          'A hospitable Korean host offers you a second helping of food, but you are completely full and want to decline politely without sounding harsh.',
-      'ES':
-          'Un anfitrión coreano muy atento te ofrece otra porción de comida, pero estás lleno y quieres rechazar amablemente sin sonar cortante.',
-      'ZH':
-          '热情的韩国房东或朋友要给你添饭，但你已经吃得很饱了，想礼貌拒绝而不显得生硬无礼。',
-      'JA':
-          '親切な韓国人のホストがおかわりを勧めてくれましたが、お腹がいっぱいです。失礼にならず柔らかく断りたい場面です。',
-      'VI':
-          'Một người chủ nhà Hàn Quốc hiếu khách muốn mời bạn ăn thêm, nhưng bạn đã quá no và muốn từ chối khéo léo mà không thô lỗ.',
-      'PT':
-          'Um anfitrião coreano gentil oferece mais comida, mas você está satisfeito e quer recusar educadamente sem parecer grosseiro.',
+      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn tranh và hoàn thành hội thoại.",
+      "ZH": "看图并仿照例子完成对话。",
+      "JA": "絵を見て会話を完成させてください。",
     },
     questions: {
-      'KO':
-          '상대방의 호의나 제안을 기분 상하지 않고 정중하게 거절(사양)할 때 쓰는 가장 자연스러운 표현은?',
-      'EN':
-          'What universally accepted phrase do native Koreans say to soften a polite refusal?',
-      'ES':
-          '¿Qué frase universal usan los coreanos nativos para suavizar una negativa cortés?',
-      'ZH':
-          '韩国人为了委婉礼貌地表达拒绝，最常说的地道口头禅是哪一句？',
-      'JA':
-          '角を立てずに柔らかく丁寧に断るとき、韓国人が決まって使う表現はどれでしょうか？',
-      'VI':
-          'Câu nói chuẩn mực nhất mà người Hàn thường dùng để từ chối một cách lịch thiệp là gì?',
-      'PT':
-          'Qual frase universal os coreanos nativos usam para suavizar uma recusa educada?',
+      "KO": "철수: 김치를 먹을 수 있어요?\n영희: 아니요, (                 ).",
     },
-    options: [
-      '아, 저는 괜찮습니다. (Ah, jeoneun gwaenchanhseumnida.)',
-      '아니요, 싫어요. (Aniyo, sireoyo.)',
-      '안 먹을 거예요. (An meogeul geoyeyo.)',
-      '그만 줘요. (Geuman jwoyo.)',
-    ],
+    options: ["못 먹어요", "먹을 수 있어요", "먹어요", "맛있어요"],
     answerIndex: 0,
     explanations: {
-      'KO':
-          "한국 문화에서는 '싫어요'나 '안 먹어요'처럼 직설적으로 거절하면 매우 차갑거나 공격적으로 들릴 수 있습니다. 대신 '아, 저는 괜찮습니다 / 괜찮아요'라고 부드럽게 사양하는 것이 배려가 담긴 자연스러운 한국어입니다.",
-      'EN':
-          "Korean culture avoids blunt refusals. Saying '싫어요' (I dislike/don't want it) sounds aggressive. Instead, native speakers say '괜찮아요 / 괜찮습니다' (literally 'It is fine / I am good') with a smile to decline gracefully.",
-      'ES':
-          "La cultura coreana evita negativas directas. Decir '싫어요' (no quiero) suena agresivo. En su lugar, los nativos dicen '괜찮아요 / 괜찮습니다' (literalmente 'está bien / así estoy bien') con una sonrisa.",
-      'ZH':
-          "韩国文化极力避免直白的拒绝。说'싫어요'（我不喜欢/我不要）听起来非常生硬冒犯。韩国人习惯带着微笑说'괜찮아요 / 괜찮습니다'（我很好/不用了，谢谢）来得体婉拒。",
-      'JA':
-          '韓国の文化では直接的な拒絶を避けます。「싫어요（嫌です/要りません）」は非常にきつく聞こえます。ネイティブは笑顔で「괜찮아요 / 괜찮습니다（大丈夫です/結構です）」と言って優しく断ります。',
-      'VI':
-          "Văn hóa Hàn Quốc kiêng kỵ việc từ chối thẳng thừng. Nói '싫어요' (Tôi không thích) nghe rất thô. Người bản xứ luôn mỉm cười và nói '괜찮아요 / 괜찮습니다' (Tôi ổn rồi/Thôi ạ) để từ chối khéo.",
-      'PT':
-          "A cultura coreana evita recusas diretas. Dizer '싫어요' (não quero) soa agressivo. Os nativos preferem sorrir e dizer '괜찮아요 / 괜찮습니다' (está tudo bem / estou satisfeito) para recusar com gentileza.",
+      "KO": "매운 음식을 먹지 못할 때는 부정을 나타내는 '아니요' 뒤에 '못 + 동사(못 먹어요)' 또는 '먹을 수 없어요'를 씁니다.",
+      "EN": "To express inability (e.g. food is too spicy), use '못 + Verb (못 먹어요)' or '먹을 수 없어요' (No, I cannot eat it).",
+      "VI": "Khi không thể ăn được đồ cay, dùng '못 + Động từ (못 먹어요)' hoặc '먹을 수 없어요' (Không, tôi không ăn được).",
+      "ZH": "表示不能吃辣等情况时，在'아니요'后接'못 + 动词（못 먹어요）'或'먹을 수 없어요'（不，我吃不了）。",
+      "JA": "辛くて食べられない等の不可能を表す時は「아니요（いいえ）」に続き「못 + 動詞（못 먹어요）」または「먹을 수 없어요（食べられません）」を使います。",
+    },
+  ),
+  QuizQuestion(
+    id: 5,
+    category: "능력·가능",
+    type: "sentence",
+    visual: "⛷️ ❄️ 🙅‍♂️",
+    keyword: "스키",
+    speechBubble: "넘어졌어요!",
+    situations: {
+      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn tranh và hoàn thành hội thoại.",
+      "ZH": "看图并仿照例子完成对话。",
+      "JA": "絵を見て会話を完成させてください。",
+    },
+    questions: {
+      "KO": "철수: 스키를 탈 수 있어요?\n영희: 아니요, (                 ).",
+    },
+    options: ["못 타요", "탈 수 있어요", "타요", "탔어요"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "스키를 타지 못할 때 '아니요'에 이어지는 알맞은 부정 대답은 '못 타요' 또는 '탈 수 없어요'입니다.",
+      "EN": "When unable to ski, the correct negative response after 'No' is '못 타요' or '탈 수 없어요' (No, I can't ski).",
+      "VI": "Khi không biết trượt tuyết, câu trả lời phủ định phù hợp là '못 타요' hoặc '탈 수 없어요' (Không, tôi không trượt được).",
+      "ZH": "不会滑雪时，紧接着'아니요'的否定回答是'못 타요'或'탈 수 없어요'（不，我不会滑）。",
+      "JA": "スキーが滑れない時、「아니요」に続く正しい否定表現は「못 타요」または「탈 수 없어요（滑れません）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 6,
+    category: "목적·이동",
+    type: "sentence",
+    visual: "🌳 🚶‍♂️🚶‍♀️",
+    keyword: "공원",
+    speechBubble: "날씨가 좋아요!",
+    situations: {
+      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
+      "EN": "Complete the dialogue based on the picture like the example.",
+      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
+      "ZH": "仿照<例子>看图完成对话。",
+      "JA": "<例>のように絵を見て会話を完成させてください。",
+    },
+    questions: {
+      "KO": "철수: 어디에 가요?\n영희: (                 ).",
+    },
+    options: ["산책하러 공원에 가요", "산책해서 공원에 가요", "산책하러 공원이 와요", "공원에서 산책해요"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "이동의 목적을 나타낼 때는 '동사-(으)러 + 장소에 가다' 문법을 씁니다. '산책하다'에 '-러'가 붙어 '산책하러 공원에 가요'가 됩니다.",
+      "EN": "To express the purpose of going somewhere, use 'Verb-(으)러 + Place에 가다'. '산책하다' + '-러' = '산책하러 공원에 가요' (I'm going to the park to take a walk).",
+      "VI": "Để chỉ mục đích đi đâu, dùng cấu trúc 'Động từ-(으)러 + Địa điểm에 가다': '산책하러 공원에 가요' (Tôi đi công viên để đi dạo).",
+      "ZH": "表示去某处的目的时使用'动词-(으)러 + 地点에 가다'。'산책하다'加上'-러'变为'산책하러 공원에 가요'（去公园散步）。",
+      "JA": "行く目的を表す時「動詞-(으)러 + 場所에 가다（〜しに行く）」を使います。「산책하러 공원에 가요（散歩しに公園へ行きます）」。",
+    },
+  ),
+  QuizQuestion(
+    id: 7,
+    category: "목적·이동",
+    type: "sentence",
+    visual: "📚 🏛️",
+    keyword: "도서관",
+    speechBubble: "책이 많아요!",
+    situations: {
+      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
+      "EN": "Complete the dialogue based on the picture like the example.",
+      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
+      "ZH": "仿照<例子>看图完成对话。",
+      "JA": "<例>のように絵を見て会話を完成させてください。",
+    },
+    questions: {
+      "KO": "철수: 어디에 가요?\n영희: (                 ).",
+    },
+    options: ["책을 빌리러 도서관에 가요", "책을 빌려서 도서관에 가요", "도서관에 책이 있어요", "책을 사러 도서관에 가요"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "도서관에 책을 빌리러 가는 목적이므로 '빌리다'에 '-러'를 연결하여 '책을 빌리러 도서관에 가요'라고 표현합니다.",
+      "EN": "Purpose of going to the library: '빌리다' (to borrow) + '-러' = '책을 빌리러 도서관에 가요' (Going to the library to borrow books).",
+      "VI": "Mục đích đến thư viện: '빌리다' (mượn) + '-러' = '책을 빌리러 도서관에 가요' (Đi thư viện để mượn sách).",
+      "ZH": "去图书馆的目的：'빌리다'（借）+ '-러' = '책을 빌리러 도서관에 가요'（去图书馆借书）。",
+      "JA": "図書館へ本を借りに行く目的を表す表現：「책을 빌리러 도서관에 가요（本を借りに行きます）」。",
+    },
+  ),
+  QuizQuestion(
+    id: 8,
+    category: "목적·이동",
+    type: "sentence",
+    visual: "🏪 🛍️",
+    keyword: "편의점",
+    speechBubble: "24 HOURS",
+    situations: {
+      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
+      "EN": "Complete the dialogue based on the picture like the example.",
+      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
+      "ZH": "仿照<例子>看图完成对话。",
+      "JA": "<例>のように絵を見て会話を完成させてください。",
+    },
+    questions: {
+      "KO": "철수: 어디에 가요?\n영희: (                 ).",
+    },
+    options: ["물건을 사러 편의점에 가요", "물건을 사서 편의점에 가요", "편의점에 물건이 많아요", "물건을 사러 편의점이 와요"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "편의점에 물건을 사러 가는 목적이므로 '사다'에 '-러'를 붙여 '물건을 사러 편의점에 가요'가 올바른 문장입니다.",
+      "EN": "Expressing the purpose of shopping at the convenience store: '사다' (to buy) + '-러' = '물건을 사러 편의점에 가요' (Going to the store to buy things).",
+      "VI": "Chỉ mục đích mua sắm tại cửa hàng tiện lợi: '물건을 사러 편의점에 가요' (Đi cửa hàng tiện lợi để mua đồ).",
+      "ZH": "去便利店买东西的目的表达：'사다'（买）+ '-러' = '물건을 사러 편의점에 가요'（去便利店买东西）。",
+      "JA": "コンビニに買い物に行く目的を表す表現：「물건을 사러 편의점에 가요（買い物をしにコンビニに行きます）」。",
+    },
+  ),
+  QuizQuestion(
+    id: 9,
+    category: "목적·이동",
+    type: "sentence",
+    visual: "🚅 🌊 🤝",
+    keyword: "부산",
+    speechBubble: "친구야 반가워!",
+    situations: {
+      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
+      "EN": "Complete the dialogue based on the picture like the example.",
+      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
+      "ZH": "仿照<例子>看图完成对话。",
+      "JA": "<例>のように絵を見て会話を完成させてください。",
+    },
+    questions: {
+      "KO": "철수: 부산에 왜 가요?\n영희: (                 ).",
+    },
+    options: ["친구를 만나러 부산에 가요", "친구를 만나서 부산에 가요", "부산에 친구가 살아요", "친구랑 부산이 가요"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "'왜 가요?'라는 이유/목적 질문에 친구를 만나는 목적을 나타내어 '친구를 만나러 부산에 가요'라고 답합니다.",
+      "EN": "Replying to '왜 가요?' (Why are you going?) with purpose: '만나다' (to meet) + '-러' = '친구를 만나러 부산에 가요' (I'm going to Busan to meet a friend).",
+      "VI": "Đáp lại câu hỏi mục đích '왜 가요?': '친구를 만나러 부산에 가요' (Tôi đi Busan để gặp bạn).",
+      "ZH": "回答'왜 가요?'（为什么去？）这一目的问题时，回答'친구를 만나러 부산에 가요'（去釜山见朋友）。",
+      "JA": "「왜 가요?（なぜ行きますか？）」という目的の問いに「친구를 만나러 부산에 가요（友達に会いに釜山へ行きます）」と答えます。",
+    },
+  ),
+  QuizQuestion(
+    id: 10,
+    category: "목적·이동",
+    type: "sentence",
+    visual: "🇰🇷 📖 ✈️",
+    keyword: "한국",
+    speechBubble: "한국어 공부해요!",
+    situations: {
+      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
+      "EN": "Complete the dialogue based on the picture like the example.",
+      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
+      "ZH": "仿照<例子>看图完成对话。",
+      "JA": "<例>のように絵を見て会話を完成させてください。",
+    },
+    questions: {
+      "KO": "철수: 한국에 왜 왔어요?\n영희: (                 ).",
+    },
+    options: ["한국어를 배우러 왔어요", "한국어를 배워서 왔어요", "한국어가 재미있어요", "한국어를 배우러 가요"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "한국에 온 목적을 묻는 질문이며, 이미 한국에 도착해 있으므로 '가요'가 아니라 '왔어요'를 써서 '한국어를 배우러 왔어요'라고 합니다.",
+      "EN": "Since the speaker is already in Korea and asked '왜 왔어요?' (Why did you come?), respond with '왔어요' (came), not '가요' (go): '한국어를 배우러 왔어요' (I came to learn Korean).",
+      "VI": "Người nói đã ở Hàn Quốc nên dùng '왔어요' thay vì '가요': '한국어를 배우러 왔어요' (Tôi đến để học tiếng Hàn).",
+      "ZH": "因身在韩国被问'왜 왔어요?'（为什么来？），使用'왔어요'（来了）而不是'가요'：'한국어를 배우러 왔어요'（我来学韩语）。",
+      "JA": "すでに韓国にいて「왜 왔어요?（なぜ来ましたか？）」と聞かれているため、「가요」ではなく「왔어요」を使って「한국어를 배우러 왔어요（韓国語を学びに来ました）」と答えます。",
+    },
+  ),
+  QuizQuestion(
+    id: 11,
+    category: "식물·꽃",
+    type: "word",
+    visual: "🌹",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["꽃", "나무", "풀", "잎"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "그림은 아름다운 붉은 '꽃(장미)'입니다. '나무(tree)', '풀(grass)', '잎(leaf)'과 구별하세요.",
+      "EN": "The picture shows a '꽃' (flower/rose). Distinguish from 나무 (tree), 풀 (grass), 잎 (leaf).",
+      "VI": "Hình ảnh là '꽃' (hoa). Phân biệt với 나무 (cây), 풀 (cỏ), 잎 (lá).",
+      "ZH": "图片是'꽃'（花）。注意区分 나무（树）、풀（草）、잎（叶）。",
+      "JA": "絵は「꽃（花）」です。「나무（木）」「풀（草）」「잎（葉）」と区別しましょう。",
+    },
+  ),
+  QuizQuestion(
+    id: 12,
+    category: "의류·잡화",
+    type: "word",
+    visual: "🧢",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["모자", "안경", "가방", "바지"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "머리에 쓰는 물건은 '모자(cap/hat)'입니다. '모자를 쓰다' 동사와 함께 쓰입니다.",
+      "EN": "An item worn on the head is '모자' (hat/cap). Used with the verb '쓰다'.",
+      "VI": "Đồ đội trên đầu là '모자' (mũ). Dùng với động từ '쓰다'.",
+      "ZH": "戴在头上的物品是'모자'（帽子）。常与动词'쓰다'搭配。",
+      "JA": "頭にかぶる物は「모자（帽子）」です。「쓰다」と一緒に使います。",
+    },
+  ),
+  QuizQuestion(
+    id: 13,
+    category: "가구·인테리어",
+    type: "word",
+    visual: "🚪",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["문", "창문", "벽", "천장"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "열고 방으로 들어가는 출입구는 '문(door)'입니다. 창문(window)과 구분하세요.",
+      "EN": "The doorway to enter a room is '문' (door). Compare with 창문 (window).",
+      "VI": "Lối vào phòng là '문' (cửa ra vào). Phân biệt với 창문 (cửa sổ).",
+      "ZH": "进入房间的入口是'문'（门）。与창문（窗户）区分。",
+      "JA": "部屋に入る出入り口は「문（ドア・扉）」です。「창문（窓）」と区別しましょう。",
+    },
+  ),
+  QuizQuestion(
+    id: 14,
+    category: "매체·독서",
+    type: "word",
+    visual: "📰",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["신문", "잡지", "공책", "사전"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "매일 뉴스를 종이에 인쇄하여 전하는 매체는 '신문(newspaper)'입니다.",
+      "EN": "A printed publication containing daily news is '신문' (newspaper).",
+      "VI": "Ấn phẩm tin tức hàng ngày là '신문' (báo).",
+      "ZH": "每天刊登新闻的纸质印刷品是'신문'（报纸）。",
+      "JA": "毎日のニュースを伝える印刷物は「신문（新聞）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 15,
+    category: "패션·신발",
+    type: "word",
+    visual: "👟",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["신발", "양말", "장갑", "치마"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "발에 신는 것은 '신발(shoes)'입니다. '신발을 신다' 동사와 함께 쓰입니다.",
+      "EN": "What you wear on your feet are '신발' (shoes/footwear). Used with '신다'.",
+      "VI": "Đồ mang ở chân là '신발' (giày dép). Dùng với động từ '신다'.",
+      "ZH": "穿在脚上的物品是'신발'（鞋子）。常与动词'신다'搭配。",
+      "JA": "足に履く物は「신발（靴・履物）」です。「신다」と一緒に使います。",
+    },
+  ),
+  QuizQuestion(
+    id: 16,
+    category: "잡화·시력",
+    type: "word",
+    visual: "👓",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["안경", "시계", "반지", "목걸이"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "눈이 잘 보이도록 착용하는 물건은 '안경(glasses)'입니다. '안경을 쓰다'로 표현합니다.",
+      "EN": "Eyewear used for vision correction is '안경' (glasses). Used with '쓰다'.",
+      "VI": "Vật đeo để nhìn rõ hơn là '안경' (kính mắt). Dùng với '쓰다'.",
+      "ZH": "用于看清东西的物品是'안경'（眼镜）。常与'쓰다'搭配。",
+      "JA": "目をよく見えるようにかける物は「안경（眼鏡）」です。「쓰다」を使います。",
+    },
+  ),
+  QuizQuestion(
+    id: 17,
+    category: "가전·생활",
+    type: "word",
+    visual: "⏰",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["시계", "달력", "전화기", "거울"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "시간을 알려주는 도구는 '시계(clock/watch)'입니다.",
+      "EN": "A device that tells the time is '시계' (clock/watch).",
+      "VI": "Dụng cụ chỉ thời gian là '시계' (đồng hồ).",
+      "ZH": "指示时间的工具是'시계'（表/钟）。",
+      "JA": "時間を知らせる道具は「시계（時計）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 18,
+    category: "의류·패션",
+    type: "word",
+    visual: "👕",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["옷", "이불", "수건", "베개"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "몸에 입는 것은 '옷(clothes)'입니다. '옷을 입다' 동사와 함께 쓰입니다.",
+      "EN": "Items worn on the body are '옷' (clothes). Used with the verb '입다'.",
+      "VI": "Đồ mặc trên người là '옷' (quần áo). Dùng với động từ '입다'.",
+      "ZH": "穿在身上的物品是'옷'（衣服）。常与动词'입다'搭配。",
+      "JA": "体に着るものは「옷（服・衣服）」です。「입다」と一緒に使います。",
+    },
+  ),
+  QuizQuestion(
+    id: 19,
+    category: "의류·잡화",
+    type: "word",
+    visual: "🧦",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["양말", "장갑", "목도리", "신발"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "발을 보호하기 위해 신발 안에 신는 것은 '양말(socks)'입니다.",
+      "EN": "Footwear worn inside shoes for protection is '양말' (socks).",
+      "VI": "Đồ đi bên trong giày là '양말' (tất/vớ).",
+      "ZH": "穿在鞋子里面保护双脚的是'양말'（袜子）。",
+      "JA": "靴の中に履く物は「양말（靴下）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 20,
+    category: "학용품·문구",
+    type: "word",
+    visual: "✏️",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["연필", "지우개", "가위", "필통"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "글씨나 그림을 그리는 필기구는 '연필(pencil)'입니다. '연필로 쓰다'로 사용합니다.",
+      "EN": "Writing instrument with graphite is '연필' (pencil).",
+      "VI": "Dụng cụ dùng để viết là '연필' (bút chì).",
+      "ZH": "用来书写或绘画的文具是'연필'（铅笔）。",
+      "JA": "文字や絵を書く筆記用具は「연필（鉛筆）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 21,
+    category: "자연·지리",
+    type: "word",
+    visual: "⛰️",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["산", "바다", "강", "하늘"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "높이 솟아오른 지형은 '산(mountain)'입니다. '산에 오르다/등산하다'로 씁니다.",
+      "EN": "Elevated natural terrain is '산' (mountain).",
+      "VI": "Địa hình cao tự nhiên là '산' (núi).",
+      "ZH": "高高耸立的自然地形是'산'（山）。",
+      "JA": "高くそびえ立つ自然の地形は「산（山）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 22,
+    category: "음식·식품",
+    type: "word",
+    visual: "🍞",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["빵", "밥", "라면", "떡"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "밀가루를 반죽하여 구워 만든 음식은 '빵(bread)'입니다.",
+      "EN": "Baked dough made from flour is '빵' (bread).",
+      "VI": "Món ăn nướng làm từ bột mì là '빵' (bánh mì).",
+      "ZH": "用面粉烘焙而成的食品是'빵'（面包）。",
+      "JA": "小麦粉をこねて焼いた食べ物は「빵（パン）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 23,
+    category: "과일·식품",
+    type: "word",
+    visual: "🍎",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["사과", "바나나", "포도", "수박"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "빨갛고 둥근 대표 과일은 '사과(apple)'입니다. '사과를 깎다'로 표현합니다.",
+      "EN": "A round red popular fruit is '사과' (apple).",
+      "VI": "Loại quả tròn màu đỏ là '사과' (táo).",
+      "ZH": "又红又圆的代表性水果是'사과'（苹果）。",
+      "JA": "赤くて丸い代表的な果物は「사과（りんご）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 24,
+    category: "사진·예술",
+    type: "word",
+    visual: "🖼️",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["사진", "지도", "우표", "엽서"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "카메라로 촬영하여 인화한 것은 '사진(photo/picture)'입니다. '사진을 찍다'로 씁니다.",
+      "EN": "An image captured with a camera is '사진' (photo). Used with '사진을 찍다'.",
+      "VI": "Hình ảnh chụp bằng máy ảnh là '사진' (bức ảnh). Dùng với '사진을 찍다'.",
+      "ZH": "用相机拍摄出的影像是'사진'（照片）。常与'사진을 찍다'搭配。",
+      "JA": "カメラで撮影したものは「사진（写真）」です。「사진을 찍다」と使います。",
+    },
+  ),
+  QuizQuestion(
+    id: 25,
+    category: "음료·식품",
+    type: "word",
+    visual: "🥛",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["우유", "물", "주스", "차"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "소의 젖에서 나오는 하얀 음료는 '우유(milk)'입니다.",
+      "EN": "The white beverage from dairy cows is '우유' (milk).",
+      "VI": "Thức uống màu trắng bổ dưỡng là '우유' (sữa).",
+      "ZH": "奶牛产出的白色饮品是'우유'（牛奶）。",
+      "JA": "牛から取れる白い飲み物は「우유（牛乳・ミルク）」です。",
+    },
+  ),
+  QuizQuestion(
+    id: 26,
+    category: "가구·생활",
+    type: "word",
+    visual: "🪑",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["의자", "책상", "침대", "소파"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "사람이 앉을 수 있도록 만든 가구는 '의자(chair)'입니다. 책상(desk)과 구별하세요.",
+      "EN": "Furniture designed for sitting is '의자' (chair). Compare with 책상 (desk).",
+      "VI": "Đồ nội thất dùng để ngồi là '의자' (ghế). Phân biệt với 책상 (bàn).",
+      "ZH": "供人坐的家具是'의자'（椅子）。与책상（书桌）区分。",
+      "JA": "人が座るための家具は「의자（椅子）」です。「책상（机）」と区別しましょう。",
+    },
+  ),
+  QuizQuestion(
+    id: 27,
+    category: "잡화·생활",
+    type: "word",
+    visual: "☂️",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["우산", "비옷", "장화", "모자"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "비가 올 때 비를 막아주는 물건은 '우산(umbrella)'입니다. '우산을 쓰다'로 표현합니다.",
+      "EN": "An item to shield from rain is '우산' (umbrella). Used with '우산을 쓰다'.",
+      "VI": "Đồ vật che mưa là '우산' (cây dù/ô). Dùng với '우산을 쓰다'.",
+      "ZH": "下雨时用来遮雨的物品是'우산'（雨伞）。常与'우산을 쓰다'搭配。",
+      "JA": "雨が降る時に雨を防ぐ物は「우산（傘）」です。「우산을 쓰다」と言います。",
+    },
+  ),
+  QuizQuestion(
+    id: 28,
+    category: "잡화·패션",
+    type: "word",
+    visual: "👛",
+    situations: {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh 및 chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。",
+    },
+    questions: {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다.",
+    },
+    options: ["지갑", "가방", "상자", "주머니"],
+    answerIndex: 0,
+    explanations: {
+      "KO": "돈이나 카드를 넣어 가지고 다니는 것은 '지갑(wallet/purse)'입니다.",
+      "EN": "A small case for carrying money and cards is '지갑' (wallet/purse).",
+      "VI": "Vật nhỏ đựng tiền và thẻ là '지갑' (ví tiền).",
+      "ZH": "用来装钱和卡片随身携带的是'지갑'（钱包）。",
+      "JA": "お金やカードを入れて持ち歩くものは「지갑（財布）」です。",
     },
   ),
 ];

@@ -6,7 +6,7 @@ import '../data/quiz_data.dart';
 class QuizRepository {
   static List<QuizQuestion> _questions = [];
 
-  /// Get the currently loaded questions (falls back to sample questions if not loaded)
+  /// Get the currently loaded questions (always synchronized with sampleQuizQuestions)
   static List<QuizQuestion> get questions {
     if (_questions.isNotEmpty) {
       return _questions;
@@ -17,35 +17,47 @@ class QuizRepository {
   /// Total count of loaded questions
   static int get totalCount => questions.length;
 
-  /// Load questions from assets/data/questions.json
+  /// Load questions (defaults to live in-memory sampleQuizQuestions)
   static Future<List<QuizQuestion>> loadQuestions({bool reload = false}) async {
-    if (_questions.isNotEmpty && !reload) {
-      return _questions;
-    }
+    // Always use sampleQuizQuestions directly so hot reload / hot restart reflects immediately
+    _questions = List.from(sampleQuizQuestions);
+    return _questions;
+  }
 
-    try {
-      final jsonString = await rootBundle.loadString('assets/data/questions.json');
-      final List<dynamic> jsonList = jsonDecode(jsonString) as List<dynamic>;
-      _questions = jsonList
-          .map((item) => QuizQuestion.fromJson(item as Map<String, dynamic>))
-          .toList();
-      return _questions;
-    } catch (e) {
-      // Fallback to in-memory sample questions if JSON read fails
-      _questions = List.from(sampleQuizQuestions);
-      return _questions;
+  /// Filter questions by type ('word' or 'sentence') and/or category
+  static List<QuizQuestion> getQuestions({String? type, String? category}) {
+    var result = List<QuizQuestion>.from(questions);
+    if (type != null && type.isNotEmpty && type != 'all') {
+      result = result.where((q) => q.type.toLowerCase() == type.toLowerCase()).toList();
     }
+    if (category != null &&
+        category.isNotEmpty &&
+        category.toLowerCase() != 'nuances' &&
+        category.toLowerCase() != 'nuance' &&
+        category.toLowerCase() != 'all') {
+      final filtered = result
+          .where((q) => q.category.toLowerCase() == category.toLowerCase())
+          .toList();
+      if (filtered.isNotEmpty) {
+        result = filtered;
+      }
+    }
+    return result.isNotEmpty ? result : List.from(questions);
   }
 
   /// Filter questions by category (case-insensitive)
   static List<QuizQuestion> getByCategory(String? category) {
-    if (category == null || category.isEmpty) {
-      return List.from(questions);
-    }
-    final filtered = questions
-        .where((q) => q.category.toLowerCase() == category.toLowerCase())
-        .toList();
-    return filtered.isNotEmpty ? filtered : List.from(questions);
+    return getQuestions(category: category);
+  }
+
+  /// Filter questions by type ('word' or 'sentence')
+  static List<QuizQuestion> getByType(String type) {
+    return questions.where((q) => q.type.toLowerCase() == type.toLowerCase()).toList();
+  }
+
+  /// Get question count for a specific type
+  static int getCountByType(String type) {
+    return questions.where((q) => q.type.toLowerCase() == type.toLowerCase()).length;
   }
 
   /// Get question count for a specific category

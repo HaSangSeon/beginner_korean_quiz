@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String _selectedLangCode = 'KO';
+  String _selectedTrack = 'word'; // 'word' (기초 어휘) or 'sentence' (실전 문장·뉘앙스)
   bool _isWordBookmarked = false;
 
   @override
@@ -23,13 +24,14 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void _navigateToQuiz(BuildContext context, {String? category}) {
+  void _navigateToQuiz(BuildContext context, {String? category, String? quizType}) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => QuizScreen(
           initialLangCode: _selectedLangCode,
           category: category,
+          quizType: quizType ?? _selectedTrack,
         ),
       ),
     );
@@ -57,33 +59,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     _buildUserGreetingSection(context, isDark),
                     const SizedBox(height: 16),
 
-                    // 2. Language Selector Bar (7 Languages)
+                    // 2. Language Selector Bar (5 Languages)
                     _buildLanguageSelectorSection(context, isDark),
+                    const SizedBox(height: 16),
+
+                    // 3. Track Switcher Segmented Control (📚 기초 어휘 vs 💬 실전 문장·뉘앙스)
+                    _buildTrackSwitcherSection(context, isDark),
                     const SizedBox(height: 18),
 
-                    // 3. Main Hero Card (Interactive Category Tags)
+                    // 4. Main Hero Card (Adapts to _selectedTrack)
                     _buildHeroQuizCard(context, isDark),
                     const SizedBox(height: 18),
 
-                    // 4. Prominent [Start Quiz] CTA Button
-                    _buildMainStartButton(context, totalQuestions),
+                    // 5. Prominent [Start Quiz] CTA Button (Adapts to _selectedTrack)
+                    _buildMainStartButton(context, isDark),
                     const SizedBox(height: 22),
-
-                    // 5. Dynamic Stats Row (Synced with Real Question Count)
-                    _buildStatsRow(context, isDark, totalQuestions),
-                    const SizedBox(height: 24),
 
                     // 6. Word & Nuance of the Day
                     _buildWordOfTheDayCard(context, isDark),
-                    const SizedBox(height: 24),
-
-                    // 7. Core Nuance Modules (Each taps to that category quiz)
-                    _buildTopicsSection(context, isDark),
-                    const SizedBox(height: 24),
-
-                    // 8. Certified Instructor Trust Banner
-                    _buildInstructorTrustBanner(context, isDark),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),
@@ -122,13 +116,16 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(width: 10),
-          Text(
-            AppStrings.tr('app_title', _selectedLangCode),
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w800,
-              color: isDark ? Colors.white : const Color(0xFF1E3A8A),
-              letterSpacing: -0.3,
+          Expanded(
+            child: Text(
+              AppStrings.tr('app_title', _selectedLangCode),
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w800,
+                color: isDark ? Colors.white : const Color(0xFF1E3A8A),
+                letterSpacing: -0.3,
+              ),
+              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],
@@ -151,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const Icon(Icons.quiz_rounded, size: 14, color: Color(0xFF2563EB)),
               const SizedBox(width: 5),
               Text(
-                '$totalQuestions Qs',
+                '${QuizRepository.getCountByType(_selectedTrack)}/$totalQuestions Qs',
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
@@ -299,7 +296,141 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _buildTrackSwitcherSection(BuildContext context, bool isDark) {
+    final wordCount = QuizRepository.getCountByType('word');
+    final sentenceCount = QuizRepository.getCountByType('sentence');
+
+    return Container(
+      padding: const EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0).withValues(alpha: 0.6),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
+          width: 1,
+        ),
+      ),
+      child: Row(
+        children: [
+          // Track 1: 기초 어휘 (Vocabulary)
+          Expanded(
+            child: _buildTrackTabButton(
+              isDark: isDark,
+              isSelected: _selectedTrack == 'word',
+              label: AppStrings.tr('track_tab_vocab', _selectedLangCode),
+              badge: '$wordCount Qs',
+              activeColor: const Color(0xFF0D9488), // Teal 600
+              onTap: () {
+                if (_selectedTrack != 'word') {
+                  setState(() => _selectedTrack = 'word');
+                }
+              },
+            ),
+          ),
+          const SizedBox(width: 6),
+          // Track 2: 실전 문장·뉘앙스 (Sentences & Nuances)
+          Expanded(
+            child: _buildTrackTabButton(
+              isDark: isDark,
+              isSelected: _selectedTrack == 'sentence',
+              label: AppStrings.tr('track_tab_sentence', _selectedLangCode),
+              badge: '$sentenceCount Qs',
+              activeColor: const Color(0xFF2563EB), // Blue 600
+              onTap: () {
+                if (_selectedTrack != 'sentence') {
+                  setState(() => _selectedTrack = 'sentence');
+                }
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTrackTabButton({
+    required bool isDark,
+    required bool isSelected,
+    required String label,
+    required String badge,
+    required Color activeColor,
+    required VoidCallback onTap,
+  }) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+          decoration: BoxDecoration(
+            color: isSelected
+                ? (isDark ? activeColor.withValues(alpha: 0.3) : Colors.white)
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            border: isSelected
+                ? Border.all(
+                    color: isDark ? activeColor : const Color(0xFFBFDBFE),
+                    width: 1.5,
+                  )
+                : null,
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.06),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ]
+                : null,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
+                    color: isSelected
+                        ? (isDark ? Colors.white : const Color(0xFF0F172A))
+                        : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 6),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: isSelected
+                      ? (isDark ? activeColor : activeColor.withValues(alpha: 0.15))
+                      : (isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1)),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  badge,
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold,
+                    color: isSelected
+                        ? (isDark ? Colors.white : activeColor)
+                        : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569)),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildHeroQuizCard(BuildContext context, bool isDark) {
+    final isWordTrack = _selectedTrack == 'word';
     final currentLangLabel = supportedLanguages
         .firstWhere(
           (l) => l.code == _selectedLangCode,
@@ -307,21 +438,41 @@ class _HomeScreenState extends State<HomeScreen> {
         )
         .label;
 
-    return Container(
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [
+    final gradientColors = isWordTrack
+        ? const [
+            Color(0xFF064E3B), // Emerald 900
+            Color(0xFF0F766E), // Teal 700
+            Color(0xFF0369A1), // Sky 700
+          ]
+        : const [
             Color(0xFF0F172A), // Slate 900
             Color(0xFF1E3A8A), // Indigo 900
             Color(0xFF1D4ED8), // Blue 700
-          ],
+          ];
+
+    final watermarkText = isWordTrack ? '어휘' : '실전';
+    final heroBadgeText = isWordTrack
+        ? AppStrings.tr('hero_vocab_badge', _selectedLangCode)
+        : AppStrings.tr('hero_badge', _selectedLangCode);
+    final heroTitleText = isWordTrack
+        ? AppStrings.tr('hero_vocab_title', _selectedLangCode)
+        : AppStrings.tr('hero_title', _selectedLangCode);
+    final heroDescText = isWordTrack
+        ? AppStrings.tr('hero_vocab_desc', _selectedLangCode)
+        : AppStrings.tr('hero_desc', _selectedLangCode);
+
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: gradientColors,
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(26),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF1E3A8A).withValues(alpha: 0.35),
+            color: (isWordTrack ? const Color(0xFF0F766E) : const Color(0xFF1E3A8A))
+                .withValues(alpha: 0.35),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -334,9 +485,9 @@ class _HomeScreenState extends State<HomeScreen> {
             bottom: -15,
             child: Opacity(
               opacity: 0.08,
-              child: const Text(
-                '실전',
-                style: TextStyle(
+              child: Text(
+                watermarkText,
+                style: const TextStyle(
                   fontSize: 130,
                   fontWeight: FontWeight.w900,
                   color: Colors.white,
@@ -397,9 +548,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black.withValues(alpha: 0.25),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Text(
-                        'TOPIK & Daily',
-                        style: TextStyle(
+                      child: Text(
+                        isWordTrack ? '기초 단어' : '일상 대화',
+                        style: const TextStyle(
                           color: Color(0xFF93C5FD),
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
@@ -410,9 +561,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 16),
 
+                // Hero Badge
+                Text(
+                  heroBadgeText,
+                  style: const TextStyle(
+                    color: Color(0xFFFDE047),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 0.4,
+                  ),
+                ),
+                const SizedBox(height: 6),
+
                 // Main Title
                 Text(
-                  AppStrings.tr('hero_title', _selectedLangCode),
+                  heroTitleText,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 25,
@@ -425,7 +588,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 // Subtitle
                 Text(
-                  AppStrings.tr('hero_desc', _selectedLangCode),
+                  heroDescText,
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.9),
                     fontSize: 13.5,
@@ -438,33 +601,61 @@ class _HomeScreenState extends State<HomeScreen> {
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
-                  children: [
-                    _buildPillTag(
-                      icon: Icons.record_voice_over_rounded,
-                      label: AppStrings.category('Honorifics', _selectedLangCode),
-                      bgColor: Colors.white.withValues(alpha: 0.15),
-                      onTap: () => _navigateToQuiz(context, category: 'Honorifics'),
-                    ),
-                    _buildPillTag(
-                      icon: Icons.tune_rounded,
-                      label: AppStrings.category('Particles', _selectedLangCode),
-                      bgColor: Colors.white.withValues(alpha: 0.15),
-                      onTap: () => _navigateToQuiz(context, category: 'Particles'),
-                    ),
-                    _buildPillTag(
-                      icon: Icons.storefront_rounded,
-                      label: AppStrings.category('Real-life', _selectedLangCode),
-                      bgColor: Colors.white.withValues(alpha: 0.15),
-                      onTap: () => _navigateToQuiz(context, category: 'Real-life'),
-                    ),
-                    _buildPillTag(
-                      icon: Icons.lightbulb_rounded,
-                      label: AppStrings.category('Nuances', _selectedLangCode),
-                      bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
-                      iconColor: const Color(0xFFFDE047),
-                      onTap: () => _navigateToQuiz(context, category: 'Nuances'),
-                    ),
-                  ],
+                  children: isWordTrack
+                      ? [
+                          _buildPillTag(
+                            icon: Icons.backpack_rounded,
+                            label: AppStrings.category('Objects', _selectedLangCode),
+                            bgColor: Colors.white.withValues(alpha: 0.15),
+                            onTap: () => _navigateToQuiz(context, category: 'Objects'),
+                          ),
+                          _buildPillTag(
+                            icon: Icons.local_hospital_rounded,
+                            label: AppStrings.category('Health', _selectedLangCode),
+                            bgColor: Colors.white.withValues(alpha: 0.15),
+                            onTap: () => _navigateToQuiz(context, category: 'Health'),
+                          ),
+                          _buildPillTag(
+                            icon: Icons.compare_arrows_rounded,
+                            label: AppStrings.category('Antonyms', _selectedLangCode),
+                            bgColor: Colors.white.withValues(alpha: 0.15),
+                            onTap: () => _navigateToQuiz(context, category: 'Antonyms'),
+                          ),
+                          _buildPillTag(
+                            icon: Icons.bolt_rounded,
+                            label: AppStrings.category('Personality', _selectedLangCode),
+                            bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
+                            iconColor: const Color(0xFFFDE047),
+                            onTap: () => _navigateToQuiz(context, category: 'Personality'),
+                          ),
+                        ]
+                      : [
+                          _buildPillTag(
+                            icon: Icons.record_voice_over_rounded,
+                            label: AppStrings.category('Honorifics', _selectedLangCode),
+                            bgColor: Colors.white.withValues(alpha: 0.15),
+                            onTap: () => _navigateToQuiz(context, category: 'Honorifics'),
+                          ),
+                          _buildPillTag(
+                            icon: Icons.tune_rounded,
+                            label: AppStrings.category('Particles', _selectedLangCode),
+                            bgColor: Colors.white.withValues(alpha: 0.15),
+                            onTap: () => _navigateToQuiz(context, category: 'Particles'),
+                          ),
+                          _buildPillTag(
+                            icon: Icons.storefront_rounded,
+                            label: AppStrings.category('Real-life', _selectedLangCode),
+                            bgColor: Colors.white.withValues(alpha: 0.15),
+                            onTap: () => _navigateToQuiz(context, category: 'Real-life'),
+                          ),
+                          _buildPillTag(
+                            icon: Icons.lightbulb_rounded,
+                            label: AppStrings.category('Nuances', _selectedLangCode),
+                            bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
+                            iconColor: const Color(0xFFFDE047),
+                            onTap: () => _navigateToQuiz(context, category: 'Nuances'),
+                          ),
+                        ],
                 ),
               ],
             ),
@@ -518,13 +709,38 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildMainStartButton(BuildContext context, int totalQuestions) {
+  Widget _buildMainStartButton(BuildContext context, bool isDark) {
+    final isWordTrack = _selectedTrack == 'word';
+    final buttonGradient = isWordTrack
+        ? const LinearGradient(
+            colors: [
+              Color(0xFF0D9488), // Teal 600
+              Color(0xFF0F766E), // Teal 700
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          )
+        : const LinearGradient(
+            colors: [
+              Color(0xFF2563EB), // Blue 600
+              Color(0xFF1D4ED8), // Blue 700
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          );
+
+    final trackCount = QuizRepository.getCountByType(_selectedTrack);
+    final buttonSub = isWordTrack
+        ? '$trackCount문제 • 사물·장소·필수 단어'
+        : '$trackCount문제 • 일상 실전 대화 문장 연습';
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(22),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF2563EB).withValues(alpha: 0.35),
+            color: (isWordTrack ? const Color(0xFF0D9488) : const Color(0xFF2563EB))
+                .withValues(alpha: 0.35),
             blurRadius: 18,
             offset: const Offset(0, 8),
           ),
@@ -534,22 +750,15 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.transparent,
         child: Ink(
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [
-                Color(0xFF2563EB), // Blue 600
-                Color(0xFF1D4ED8), // Blue 700
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+            gradient: buttonGradient,
             borderRadius: BorderRadius.circular(22),
             border: Border.all(
-              color: const Color(0xFF60A5FA).withValues(alpha: 0.4),
+              color: Colors.white.withValues(alpha: 0.3),
               width: 1.5,
             ),
           ),
           child: InkWell(
-            onTap: () => _navigateToQuiz(context),
+            onTap: () => _navigateToQuiz(context, quizType: _selectedTrack),
             borderRadius: BorderRadius.circular(22),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
@@ -563,24 +772,40 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.white,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.play_arrow_rounded,
-                      color: Color(0xFF1D4ED8),
+                      color: isWordTrack ? const Color(0xFF0F766E) : const Color(0xFF1D4ED8),
                       size: 26,
                     ),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
-                    child: Text(
-                      AppStrings.tr('start_quiz_btn', _selectedLangCode),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.3,
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          AppStrings.tr('start_quiz_btn', _selectedLangCode),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: 0.3,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          buttonSub,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Colors.white.withValues(alpha: 0.85),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -605,131 +830,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildStatsRow(BuildContext context, bool isDark, int totalQuestions) {
-    return Row(
-      children: [
-        // 1. Difficulty Level
-        Expanded(
-          child: _buildSingleStatCard(
-            context: context,
-            isDark: isDark,
-            icon: Icons.psychology_outlined,
-            iconColor: const Color(0xFF10B981),
-            iconBg: const Color(0xFFD1FAE5),
-            label: AppStrings.tr('stat_level_label', _selectedLangCode),
-            value: AppStrings.tr('stat_level_val', _selectedLangCode),
-            onTap: () => _navigateToQuiz(context),
-          ),
-        ),
-        const SizedBox(width: 10),
-
-        // 2. Questions Count (Dynamically bound to totalQuestions)
-        Expanded(
-          child: _buildSingleStatCard(
-            context: context,
-            isDark: isDark,
-            icon: Icons.fact_check_outlined,
-            iconColor: const Color(0xFFF59E0B),
-            iconBg: const Color(0xFFFEF3C7),
-            label: AppStrings.tr('stat_questions_label', _selectedLangCode),
-            value: AppStrings.tr(
-              'stat_questions_val',
-              _selectedLangCode,
-              {'count': totalQuestions.toString()},
-            ),
-            onTap: () => _navigateToQuiz(context),
-          ),
-        ),
-        const SizedBox(width: 10),
-
-        // 3. Current Selected Language Code
-        Expanded(
-          child: _buildSingleStatCard(
-            context: context,
-            isDark: isDark,
-            icon: Icons.translate_rounded,
-            iconColor: const Color(0xFF3B82F6),
-            iconBg: const Color(0xFFDBEAFE),
-            label: AppStrings.tr('stat_lang_label', _selectedLangCode),
-            value: _selectedLangCode,
-            onTap: null,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSingleStatCard({
-    required BuildContext context,
-    required bool isDark,
-    required IconData icon,
-    required Color iconColor,
-    required Color iconBg,
-    required String label,
-    required String value,
-    VoidCallback? onTap,
-  }) {
-    return Material(
-      color: isDark ? const Color(0xFF1E293B) : Colors.white,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0xFF64748B).withValues(alpha: 0.05),
-                blurRadius: 8,
-                offset: const Offset(0, 3),
-              ),
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: iconBg,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(icon, color: iconColor, size: 16),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                value,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w800,
-                  color: isDark ? Colors.white : const Color(0xFF0F172A),
-                  letterSpacing: -0.3,
-                ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                label,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w500,
-                  color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
   Widget _buildWordOfTheDayCard(BuildContext context, bool isDark) {
     return Container(
@@ -874,269 +974,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E293B),
                       height: 1.35,
                     ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildTopicsSection(BuildContext context, bool isDark) {
-    final topics = [
-      {
-        'category': 'Honorifics',
-        'emoji': '👔',
-        'title': AppStrings.category('Honorifics', _selectedLangCode),
-        'color': const Color(0xFFEFF6FF),
-        'borderColor': const Color(0xFFBFDBFE),
-      },
-      {
-        'category': 'Particles',
-        'emoji': '🧩',
-        'title': AppStrings.category('Particles', _selectedLangCode),
-        'color': const Color(0xFFF0FDF4),
-        'borderColor': const Color(0xFFBBF7D0),
-      },
-      {
-        'category': 'Real-life',
-        'emoji': '🍲',
-        'title': AppStrings.category('Real-life', _selectedLangCode),
-        'color': const Color(0xFFFFFBEB),
-        'borderColor': const Color(0xFFFDE68A),
-      },
-      {
-        'category': 'Nuances',
-        'emoji': '💬',
-        'title': AppStrings.category('Nuances', _selectedLangCode),
-        'color': const Color(0xFFFAF5FF),
-        'borderColor': const Color(0xFFE9D5FF),
-      },
-    ];
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Text(
-                AppStrings.tr('topics_header', _selectedLangCode),
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
-                  color: isDark ? Colors.white : const Color(0xFF0F172A),
-                  letterSpacing: -0.3,
-                ),
-              ),
-            ),
-            TextButton(
-              onPressed: () => _navigateToQuiz(context),
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.zero,
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              ),
-              child: Text(
-                AppStrings.tr('topics_cta', _selectedLangCode),
-                style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xFF2563EB),
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 12),
-        ...topics.map((t) {
-          final cat = t['category'] as String;
-          final count = QuizRepository.getCountByCategory(cat);
-
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 10.0),
-            child: Material(
-              color: isDark ? const Color(0xFF1E293B) : Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              child: InkWell(
-                onTap: () => _navigateToQuiz(context, category: cat),
-                borderRadius: BorderRadius.circular(16),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                      color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0xFF64748B).withValues(alpha: 0.04),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 44,
-                        height: 44,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: isDark ? const Color(0xFF0F172A) : (t['color'] as Color),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: isDark ? const Color(0xFF334155) : (t['borderColor'] as Color),
-                          ),
-                        ),
-                        child: Text(
-                          t['emoji'] as String,
-                          style: const TextStyle(fontSize: 22),
-                        ),
-                      ),
-                      const SizedBox(width: 14),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Flexible(
-                                  child: Text(
-                                    t['title'] as String,
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w700,
-                                      color: isDark ? Colors.white : const Color(0xFF0F172A),
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                                const SizedBox(width: 8),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 7,
-                                    vertical: 2,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: isDark
-                                        ? const Color(0xFF2563EB).withValues(alpha: 0.2)
-                                        : const Color(0xFFEFF6FF),
-                                    borderRadius: BorderRadius.circular(6),
-                                    border: Border.all(
-                                      color: isDark
-                                          ? const Color(0xFF1D4ED8)
-                                          : const Color(0xFFBFDBFE),
-                                      width: 0.8,
-                                    ),
-                                  ),
-                                  child: Text(
-                                    AppStrings.tr(
-                                      'cat_count_badge',
-                                      _selectedLangCode,
-                                      {'count': count.toString()},
-                                    ),
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w800,
-                                      color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF2563EB),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 3),
-                            Text(
-                              AppStrings.tr(
-                                'cat_ready_desc',
-                                _selectedLangCode,
-                                {'count': count.toString()},
-                              ),
-                              style: TextStyle(
-                                fontSize: 12.5,
-                                color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                                fontWeight: FontWeight.w500,
-                              ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Icon(
-                        Icons.chevron_right_rounded,
-                        color: isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
-                        size: 22,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          );
-        }),
-      ],
-    );
-  }
-
-  Widget _buildInstructorTrustBanner(BuildContext context, bool isDark) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFEFF6FF),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: isDark ? const Color(0xFF334155) : const Color(0xFFBFDBFE),
-          width: 1.2,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF2563EB).withValues(alpha: 0.06),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: const Color(0xFF2563EB),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Icon(
-              Icons.verified_user_rounded,
-              color: Colors.white,
-              size: 22,
-            ),
-          ),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  AppStrings.tr('trust_banner_title', _selectedLangCode),
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                    color: isDark ? Colors.white : const Color(0xFF1E3A8A),
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  AppStrings.tr('trust_banner_desc', _selectedLangCode),
-                  style: TextStyle(
-                    fontSize: 12.5,
-                    color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF334155),
-                    height: 1.4,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],

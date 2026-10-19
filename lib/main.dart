@@ -17,7 +17,7 @@ class BeginnerKoreanQuizApp extends StatelessWidget {
     const primarySeedColor = Color(0xFF1E40AF);
 
     return MaterialApp(
-      title: 'Real Korean: Nuance & Grammar Quiz',
+      title: 'Beginner Korean Quiz',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
