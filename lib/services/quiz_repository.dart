@@ -22,6 +22,9 @@ class QuizRepository {
     return _questions;
   }
 
+  /// Global toggle for shuffling (can be set to false in widget tests)
+  static bool enableShuffle = true;
+
   /// Default number of questions in one lesson session.
   static const int sessionSize = 10;
 
@@ -61,7 +64,12 @@ class QuizRepository {
 
     var baseList = result.isNotEmpty ? result : List<QuizQuestion>.from(questions);
 
-    if (!shuffle) return baseList;
+    if (!shuffle || !enableShuffle) {
+      if (limit != null && baseList.length > limit) {
+        return baseList.sublist(0, limit);
+      }
+      return baseList;
+    }
 
     // Smart Duolingo-style Priority:
     // 1) Unlearned questions first (always fresh content for the learner)

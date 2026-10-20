@@ -2662,7 +2662,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "カフェでコーヒーをテイクアウトする時の表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 따뜻한 아메리카노 한 잔 (        ).\n직원: 네, 잠시만 기다려 주세요.",
+      "KO": "손님: 아메리카노 한 잔 (        ).\n직원: 네, 잠시만 기다려 주세요.",
     },
     options: ["포장해 주세요", "출발해 주세요", "도착해 주세요", "수영해 주세요"],
     answerIndex: 0,
@@ -2690,7 +2690,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "アイスドリンクで氷少なめを頼む時の表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 아이스티 한 잔 주시는데, 얼음은 (   ) 넣어주세요.\n직원: 네, 얼음 적게 넣어드릴게요.",
+      "KO": "손님: 얼음은 (   ) 넣어주세요.\n직원: 네, 알겠습니다.",
     },
     options: ["크게", "많이", "적게", "빨리"],
     answerIndex: 2,
@@ -2718,7 +2718,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "カフェでWi-Fiパスワードを尋ねる表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 저기요, 와이파이 (   )가 뭐예요?\n직원: 영수증 아래쪽에 적혀 있습니다.",
+      "KO": "손님: 와이파이 (   )가 뭐예요?\n직원: 영수증에 적혀 있어요.",
     },
     options: ["비밀번호", "주민등록번호", "전화번호", "계좌번호"],
     answerIndex: 0,
@@ -2746,7 +2746,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "呼び出しベルが鳴ったら受け取りに来てくださいという店員の表現を選んでください。",
     },
     questions: {
-      "KO": "직원: 진동벨이 울리면 음료 (        ) 오세요.\n손님: 네, 감사합니다.",
+      "KO": "직원: 벨이 울리면 음료 (        ) 오세요.\n손님: 네, 감사합니다.",
     },
     options: ["받으러", "버리러", "만들러", "청소하러"],
     answerIndex: 0,
@@ -2774,7 +2774,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "お会計後にレシートが不要な場合の丁寧な表現を選んでください。",
     },
     questions: {
-      "KO": "직원: 영수증 드릴까요?\n손님: 아니요, 영수증은 (        ).",
+      "KO": "직원: 영수증 드릴까요?\n손님: 아니요, (        ).",
     },
     options: ["버려 주세요", "사 주세요", "먹어 주세요", "타 주세요"],
     answerIndex: 0,
@@ -2802,7 +2802,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "洋服屋さんで試着したい時に尋ねる表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 저기요, 이 옷 한번 (        )?\n직원: 네, 피팅룸은 안쪽에 있어요.",
+      "KO": "손님: 이 옷 한번 (        )?\n직원: 네, 피팅룸에서 입어보세요.",
     },
     options: ["입어 봐도 돼요", "버려 봐도 돼요", "찢어 봐도 돼요", "씻어 봐도 돼요"],
     answerIndex: 0,
@@ -2830,7 +2830,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "コンビニやマートでレジ袋が必要か尋ねる表現を選んでください。",
     },
     questions: {
-      "KO": "직원: 담아갈 봉투 (        )?\n손님: 네, 종량제 봉투 한 장 주세요.",
+      "KO": "직원: 담아갈 봉투 (        )?\n손님: 네, 한 장 주세요.",
     },
     options: ["필요하세요", "출발하세요", "청소하세요", "요리하세요"],
     answerIndex: 0,
@@ -2858,7 +2858,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "レジでカード決済することを伝える表現を選んでください。",
     },
     questions: {
-      "KO": "직원: 계산 도와드릴게요.\n손님: 네, 카드로 (        ).",
+      "KO": "직원: 계산할게요.\n손님: 카드로 (        ).",
     },
     options: ["결제할게요", "출발할게요", "청소할게요", "요리할게요"],
     answerIndex: 0,
@@ -2886,7 +2886,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "友達からすごい朗報を聞いて驚きと祝福を表すリアクションを選んでください。",
     },
     questions: {
-      "KO": "친구: 나 한국어 시험 1등 했어!\n나: 와, (   )! 정말 축하해!",
+      "KO": "친구: 나 한국어 시험 100점 받았어!\n나: 와, (   )! 축하해!",
     },
     options: ["대박", "슬픔", "고장", "출구"],
     answerIndex: 0,
@@ -2914,7 +2914,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "信じられない事実を聞いて丁寧に聞き返す表現を選んでください。",
     },
     questions: {
-      "KO": "지수: 내일부터 할인 행사를 시작한대요.\n민수: (   )? 우와, 몰랐어요!",
+      "KO": "지수: 내일부터 할인 행사 시작해요.\n민수: (   )? 몰랐어요!",
     },
     options: ["진짜요", "싫어요", "아파요", "더워요"],
     answerIndex: 0,
@@ -2942,7 +2942,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "予期せぬショックや呆れた時に思わず出る感嘆詞を選んでください。",
     },
     questions: {
-      "KO": "친구: 마지막 지하철을 놓쳐버렸어.\n나: (   )... 택시 타고 가야겠네.",
+      "KO": "친구: 지하철 놓쳤어...\n나: (   )... 어떡해.",
     },
     options: ["봄", "헐", "책", "물"],
     answerIndex: 1,
@@ -2970,7 +2970,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "試験や大事な仕事を控えた友達を励ます応援表現を選んでください。",
     },
     questions: {
-      "KO": "친구: 오늘 면접 잘 보고 올게!\n나: 응, 긴장하지 말고 (   )!",
+      "KO": "친구: 오늘 시험 잘 보고 올게!\n나: 힘내, (   )!",
     },
     options: ["화이팅", "안녕히", "죄송합니다", "실례합니다"],
     answerIndex: 0,
@@ -2998,7 +2998,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "コンビニで交通カードにお金をチャージしてほしい時の表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 교통카드 10,000원만 (        ).\n직원: 네, 카드 올려주세요.",
+      "KO": "손님: 교통카드 (        ).\n직원: 네, 카드 올려주세요.",
     },
     options: ["충전해 주세요", "요리해 주세요", "청소해 주세요", "출발해 주세요"],
     answerIndex: 0,
@@ -3026,7 +3026,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "地下鉄駅で目的地に行くには何番出口から出ればいいか尋ねる表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 명동성당에 가려면 몇 번 (   )로 나가야 해요?\n직원: 8번 출구로 나가시면 돼요.",
+      "KO": "손님: 몇 번 (   )로 나가요?\n직원: 8번 출구로 나가세요.",
     },
     options: ["입구", "출구", "식당", "교실"],
     answerIndex: 1,
@@ -3054,7 +3054,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "地下鉄やバスを別の路線に乗り換える行為を表す単語を選んでください。",
     },
     questions: {
-      "KO": "승객: 홍대입구역에 가려면 어디서 (        )?\n안내원: 이번 역에서 2호선으로 갈아타세요.",
+      "KO": "승객: 2호선으로 어디서 (        )?\n직원: 이번 역에서 갈아타세요.",
     },
     options: ["환승해야 해요", "출국해야 해요", "식사해야 해요", "취소해야 해요"],
     answerIndex: 0,
@@ -3082,7 +3082,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "ある場所まで移動するのにどれくらい時間がかかるか尋ねる表現を選んでください。",
     },
     questions: {
-      "KO": "여행객: 여기서 남산타워까지 얼마나 (   )?\n안내원: 버스로 20분 정도 걸려요.",
+      "KO": "손님: 거기까지 얼마나 (   )?\n안내원: 20분 정도 걸려요.",
     },
     options: ["마셔요", "걸려요", "먹어요", "입어요"],
     answerIndex: 1,
@@ -3110,7 +3110,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "K-POPコンサートなどの入場チケットを表す言葉を選んでください。",
     },
     questions: {
-      "KO": "친구: 좋아하는 가수 콘서트 (   ) 예매 성공했어?\n나: 응! 드디어 보러 갈 수 있어!",
+      "KO": "친구: 콘서트 (   ) 샀어?\n나: 응, 성공했어!",
     },
     options: ["티켓", "비자", "여권", "약관"],
     answerIndex: 0,
@@ -3138,7 +3138,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "コンサートでペンライトがつかない時に必要な電力を表す言葉を選んでください。",
     },
     questions: {
-      "KO": "친구: 어? 응원봉 불이 꺼졌어.\n나: 안에 (   )가 다 된 것 같아. 새 건전지 줄게.",
+      "KO": "친구: 불이 꺼졌어!\n나: (   )가 다 됐어. 새 건전지 줄게.",
     },
     options: ["우산", "배터리", "안경", "지갑"],
     answerIndex: 1,
@@ -3166,7 +3166,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "歌手が曲を収録して発売するCD・アルバムを指す言葉を選んでください。",
     },
     questions: {
-      "KO": "친구: 좋아하는 가수의 새 (   )이 나왔대!\n나: 정말? 포토카드도 들어있겠다!",
+      "KO": "친구: 좋아하는 가수 새 (   ) 나왔대!\n나: 정말? 사러 가자!",
     },
     options: ["여권", "앨범", "사전", "영수증"],
     answerIndex: 1,
@@ -3194,7 +3194,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "会場に多くの人が集まっている状態を表す形容詞を選んでください。",
     },
     questions: {
-      "KO": "친구: 오늘 팬미팅 현장 분위기 어때?\n나: 사람이 정말 (   )! 자리가 꽉 찼어.",
+      "KO": "친구: 사람 많아?\n나: 응, 사람이 정말 (   )!",
     },
     options: ["작아요", "많아요", "차가워요", "어두워요"],
     answerIndex: 1,

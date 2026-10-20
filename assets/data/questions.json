@@ -3762,5 +3762,533 @@
       "ZH": "表示人多热闹时使用形容词'많다'，说'사람이 정말 많아요'（人真的好多）。",
       "JA": "人がたくさん集まっている時は「사람이 정말 많아요（人が本当に多いです）」と言います。"
     }
+  },
+  {
+    "id": 117,
+    "category": "편의점·서바이벌",
+    "type": "survival",
+    "level": 1,
+    "visual": "🏪 🛍️",
+    "speechBubble": "봉투 담아드릴까요?",
+    "keyword": "종량제 봉투",
+    "situations": {
+      "KO": "편의점에서 물건을 사고 담아갈 봉투를 요청하는 표현을 고르세요.",
+      "EN": "Choose the expression to ask for a paid waste bag at a convenience store.",
+      "VI": "Chọn biểu hiện yêu cầu mua túi rác chuyên dụng đựng đồ tại cửa hàng tiện lợi.",
+      "ZH": "选择在便利店购买商品后索要付费垃圾袋装东西的表达。",
+      "JA": "コンビニで商品を入れる有料ゴミ袋を頼む時の表現を選んでください。"
+    },
+    "questions": {
+      "KO": "알바생: 봉투 필요하세요?\n손님: 네, 100원짜리 (   ) 하나 주세요."
+    },
+    "options": [
+      "종량제 봉투",
+      "우편 봉투",
+      "축의금 봉투",
+      "편지 봉투"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국 편의점에서는 일반 비닐봉투 무상 제공이 금지되어 있어 100~200원 상당의 '종량제 봉투(쓰레기 봉투)' 또는 종이봉투를 구매해 물건을 담아갑니다.",
+      "EN": "In Korea, free plastic bags are banned. Stores sell standard pay-as-you-throw garbage bags ('종량제 봉투') for 100–200 Won to carry items home.",
+      "VI": "Tại Hàn Quốc cấm túi nilon miễn phí, cửa hàng bán 'túi rác chuyên dụng (종량제 봉투)' giá 100-200 Won để khách đựng đồ và tái sử dụng đựng rác.",
+      "ZH": "韩国便利店禁止免费提供塑料袋，通常购买100~200韩元的'计量垃圾袋（종량제 봉투）'装东西，带回家后还可作为垃圾袋使用。",
+      "JA": "韓国ではレジ袋の無料配布が禁止されているため、100〜200ウォンの「従量制ゴミ袋（종량제 봉투）」を購入して持ち帰るのが一般的です。"
+    }
+  },
+  {
+    "id": 118,
+    "category": "편의점·서바이벌",
+    "type": "survival",
+    "level": 1,
+    "visual": "🏷️ 🎁",
+    "speechBubble": "1+1 행사 중이에요!",
+    "keyword": "원 플러스 원",
+    "situations": {
+      "KO": "편의점 행사 상품(1+1) 안내를 듣고 알맞은 행동을 고르세요.",
+      "EN": "Choose the correct dialogue when informed about a 1+1 (Buy 1 Get 1) promotion.",
+      "VI": "Chọn hội thoại thích hợp khi được thông báo sản phẩm khuyến mãi mua 1 tặng 1 (1+1).",
+      "ZH": "选择买一赠一（1+1）促销活动时的恰当回答。",
+      "JA": "コンビニの1+1（1つ買うと1つ無料）セール案内での正しい受け答えを選んでください。"
+    },
+    "questions": {
+      "KO": "알바생: 손님, 이 과자는 1+1 상품이라서 하나 더 (   ).\n손님: 아, 정말요? 얼른 가져올게요!"
+    },
+    "options": [
+      "가져오셔야 돼요",
+      "버리셔야 돼요",
+      "숨기셔야 돼요",
+      "팔아야 돼요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국 편의점에서는 '1+1(원 플러스 원)' 행사 시 고객이 직접 매대에서 덤 상품을 하나 더 가져와야 결제가 적용됩니다.",
+      "EN": "When purchasing a '1+1' (Buy 1 Get 1) promo item in Korean convenience stores, you must grab the second free item from the shelf yourself.",
+      "VI": "Khi mua hàng '1+1' tại cửa hàng tiện lợi Hàn Quốc, khách hàng cần tự lấy thêm một món từ kệ để quầy quét mã miễn phí.",
+      "ZH": "在韩国便利店购买'1+1'（买一赠一）商品时，顾客需要自己去货架上再拿一个过来扫码享受优惠。",
+      "JA": "韓国のコンビニの「1+1（ワンプラスワン）」セールでは、客自身が棚からもう1つ商品を持ってくることで割引が適用されます。"
+    }
+  },
+  {
+    "id": 119,
+    "category": "편의점·서바이벌",
+    "type": "survival",
+    "level": 2,
+    "visual": "🧾 🗑️",
+    "speechBubble": "영수증 필요 없어요!",
+    "keyword": "버려주세요",
+    "situations": {
+      "KO": "계산 후 영수증을 받지 않고 버려달라고 직원에게 말하는 표현을 고르세요.",
+      "EN": "Choose what to say when you don't need a receipt and want the cashier to discard it.",
+      "VI": "Chọn cách nói khi không cần lấy hóa đơn và nhờ nhân viên vứt giúp.",
+      "ZH": "选择结账后不需要小票、让店员帮忙扔掉的常用表达。",
+      "JA": "お会計後にレシートが不要で捨ててほしい時の表現を選んでください。"
+    },
+    "questions": {
+      "KO": "알바생: 영수증 드릴까요?\n손님: 아니요, (   )."
+    },
+    "options": [
+      "버려주세요",
+      "돌려주세요",
+      "만들어주세요",
+      "도와주세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "영수증이 필요 없을 때는 '아니요, 버려주세요' 또는 '괜찮습니다'라고 공손하게 말하면 됩니다.",
+      "EN": "When you don't need the paper receipt, politely say '아니요, 버려주세요' (No thanks, please throw it away) or '괜찮습니다'.",
+      "VI": "Khi không lấy hóa đơn thanh toán, câu nói tự nhiên và lịch sự nhất là '아니요, 버려주세요' (Dạ thôi, vứt giúp tôi ạ).",
+      "ZH": "结账不要小票时，礼貌且地道的说法是'아니요, 버려주세요'（不用了，请帮我扔掉吧）。",
+      "JA": "レシートが不要な時は「아니요, 버려주세요（いいえ、捨ててください）」または「괜찮습니다（大丈夫です）」と言います。"
+    }
+  },
+  {
+    "id": 120,
+    "category": "편의점·서바이벌",
+    "type": "survival",
+    "level": 2,
+    "visual": "🍱 ♨️",
+    "speechBubble": "따뜻하게 데워 드세요!",
+    "keyword": "데워 먹을",
+    "situations": {
+      "KO": "편의점에서 도시락을 전자레인지로 데워 먹을 수 있는지 묻는 표현을 고르세요.",
+      "EN": "Choose how to ask if you can heat up your lunchbox in the store microwave.",
+      "VI": "Chọn cách hỏi xem có thể quay nóng hộp cơm bằng lò vi sóng tại quán không.",
+      "ZH": "选择询问便利店内是否有微波炉可以加热便当的表达。",
+      "JA": "コンビニでお弁当を電子レンジで温めて食べられるか尋ねる表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 도시락 사면 여기서 (   ) 수 있어요?\n알바생: 네, 저쪽 전자레인지 이용하시면 됩니다."
+    },
+    "options": [
+      "데워 먹을",
+      "얼려 먹을",
+      "심어 놓을",
+      "날려 보낼"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "음식을 따뜻하게 온도를 높여 먹을 때는 '데우다'를 사용하여 '데워 먹다'라고 표현합니다.",
+      "EN": "To heat up and eat food in a microwave, use '데우다' (to warm/microwave) -> '데워 먹을 수 있어요?' (Can I heat it up and eat it?).",
+      "VI": "Làm nóng thức ăn bằng lò vi sóng dùng động từ '데우다' (hâm nóng) -> '데워 먹을 수 있어요?'.",
+      "ZH": "加热食物食用时使用动词'데우다'（加热），'데워 먹을 수 있어요?'表示'可以加热吃吗？'。",
+      "JA": "電子レンジなどで温めて食べる時は「데우다（温める）」を使い、「데워 먹을 수 있어요?（温めて食べられますか？）」と言います。"
+    }
+  },
+  {
+    "id": 121,
+    "category": "카톡·SNS 뉘앙스",
+    "type": "survival",
+    "level": 1,
+    "visual": "💬 📱 😅",
+    "speechBubble": "ㅋ 하나는 무서워요!",
+    "keyword": "카톡 ㅋ",
+    "situations": {
+      "KO": "카톡 메시지에서 'ㅋ' 개수에 따른 한국인 감정 뉘앙스를 고르세요.",
+      "EN": "Choose the emotion implied by a single 'ㅋ' in Korean texting culture.",
+      "VI": "Chọn sắc thái cảm xúc khi người Hàn nhắn một chữ 'ㅋ' trên KakaoTalk.",
+      "ZH": "选择在KakaoTalk发单字'ㅋ'时所蕴含的微妙情感与语境。",
+      "JA": "カカオトークで「ㅋ」を1文字だけ送った時のニュアンスを選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 내 카톡에 'ㅋ' 딱 하나만 보냈네... 혹시 기분 (   )?\n나: 앗, 오타야! 진짜 재미있었어 ㅋㅋㅋ"
+    },
+    "options": [
+      "상했어",
+      "좋았어",
+      "행복했어",
+      "설렜어"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국 카톡 문화에서 'ㅋ' 하나는 시큰둥하거나 기분 상했을 때로 오해받기 쉽고, 진짜 웃길 때는 'ㅋㅋㅋ'처럼 여러 개를 연속해서 씁니다.",
+      "EN": "In Korean texting, a single 'ㅋ' can feel cold or sarcastic ('Are you upset?'). Use multiple 'ㅋㅋㅋ' to show genuine laughter!",
+      "VI": "Trong văn hóa nhắn tin Hàn, một chữ 'ㅋ' dễ gây cảm giác lạnh nhạt hoặc giận dỗi. Khi cười thật vui hãy gõ nhiều 'ㅋㅋㅋ'.",
+      "ZH": "在韩国网聊文化中，单发一个'ㅋ'容易被误解为敷衍或生气，真正觉得好笑时要连打多个'ㅋㅋㅋ'。",
+      "JA": "韓国のメッセージ文化で「ㅋ」1文字は冷淡・不機嫌と誤解されやすいため、本当に面白い時は「ㅋㅋㅋ」と複数打ちます。"
+    }
+  },
+  {
+    "id": 122,
+    "category": "카톡·SNS 뉘앙스",
+    "type": "survival",
+    "level": 1,
+    "visual": "🍚 👋 🤝",
+    "speechBubble": "식사하셨어요?",
+    "keyword": "밥 먹었어",
+    "situations": {
+      "KO": "한국인이 만났을 때 '밥 먹었어?'라고 묻는 진짜 문화적 의미를 고르세요.",
+      "EN": "Choose the cultural meaning behind Koreans greeting each other with 'Did you eat?'.",
+      "VI": "Chọn ý nghĩa văn hóa khi người Hàn gặp nhau hỏi 'Đã ăn cơm chưa?'.",
+      "ZH": "选择韩国人见面问候'吃过饭了吗？'背后的真正文化含义。",
+      "JA": "韓国人が挨拶で「ご飯食べた？」と尋ねる文化的な本当の意味を選んでください。"
+    },
+    "questions": {
+      "KO": "외국인: 한국 사람들은 왜 만나자마자 '밥 먹었어?'라고 물어봐요?\n한국인: 진짜 식사 여부도 있지만, 잘 지내는지 묻는 (   )의 의미가 커요."
+    },
+    "options": [
+      "안부 인사",
+      "숙제 검사",
+      "음식 배달",
+      "가격 흥정"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국에서 '밥 먹었어?' 또는 '식사하셨어요?'는 과거 어려운 시절 서로의 끼니와 건강을 챙기던 정에서 비롯된 대표적인 '안부 인사'입니다.",
+      "EN": "'Did you eat?' ('밥 먹었어?') is Korea's iconic caring greeting to ask 'How are you doing?', originating from caring about each other's well-being.",
+      "VI": "Câu '밥 먹었어?' (Ăn cơm chưa?) ở Hàn Quốc thực chất là lời chào hỏi thăm sức khỏe và quan tâm chu đáo ('Bạn có khỏe không?').",
+      "ZH": "在韩国'밥 먹었어?'（吃过饭了吗？）不仅仅是问饮食，更是一种关怀对方近况的经典'问候礼（안부 인사）'。",
+      "JA": "韓国の「밥 먹었어?（ご飯食べた？）」は食事の有無だけでなく、元気にしてる？という親愛を込めた「安否の挨拶」です。"
+    }
+  },
+  {
+    "id": 123,
+    "category": "카톡·SNS 뉘앙스",
+    "type": "survival",
+    "level": 2,
+    "visual": "🤝 ⏰ 🗓️",
+    "speechBubble": "다음에 꼭 봐요!",
+    "keyword": "밥 한번 먹자",
+    "situations": {
+      "KO": "한국인들이 헤어질 때 가볍게 건네는 '다음에 밥 한번 먹자'의 속뜻을 고르세요.",
+      "EN": "Choose the context behind the common farewell phrase 'Let's have a meal sometime'.",
+      "VI": "Chọn hàm ý thực sự của câu chia tay xã giao 'Hôm nào ăn bữa cơm nhé'.",
+      "ZH": "选择韩国人告别时常说的'改天一起吃个饭'背后的真实含义。",
+      "JA": "別れ際の決まり文句「今度ご飯食べよう」に込められた意味を選んでください。"
+    },
+    "questions": {
+      "KO": "선배: 오늘 수고 많았어! 다음에 밥 한번 (   ).\n후배: 네 선배님, 감사했습니다! 조심히 들어가세요!"
+    },
+    "options": [
+      "먹자",
+      "던지자",
+      "팔자",
+      "흘리자"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국인이 헤어질 때 '언제 밥 한번 먹자'고 하는 말은 구체적인 약속이라기보다 좋은 관계를 유지하자는 친근한 '작별 인사(인사치레)'인 경우가 많습니다.",
+      "EN": "'다음에 밥 한번 먹자' (Let's eat sometime) is often a polite, friendly farewell rather than an immediate plan on the calendar.",
+      "VI": "Câu '다음에 밥 한번 먹자' của người Hàn khi chia tay thường chỉ là lời chào xã giao lịch thiệp chứ chưa hẳn là hẹn lịch cụ thể.",
+      "ZH": "韩国人道别说的'다음에 밥 한번 먹자'（改天一起吃顿饭）通常是表示友好的客套问候，不必立即拿出日历定日子。",
+      "JA": "別れ際に言う「다음에 밥 한번 먹자」は具体的な約束というより、また会いましょうという親近感を込めた挨拶です。"
+    }
+  },
+  {
+    "id": 124,
+    "category": "카톡·SNS 뉘앙스",
+    "type": "survival",
+    "level": 2,
+    "visual": "👀 ❌ 📵",
+    "speechBubble": "답장이 안 와요!",
+    "keyword": "읽씹",
+    "situations": {
+      "KO": "메시지를 읽고도 답장을 보내지 않는 행동을 뜻하는 신조어를 고르세요.",
+      "EN": "Choose the Korean slang term for leaving someone on read without replying.",
+      "VI": "Chọn từ lóng chỉ hành động 'đã xem nhưng không trả lời' tin nhắn.",
+      "ZH": "选择形容看过了消息却已读不回的韩国网络流行语。",
+      "JA": "メッセージを既読にしたまま返信しないことを意味する流行語を選んでください。"
+    },
+    "questions": {
+      "KO": "민수: 지호한테 카톡 보냈는데 하루 종일 답장이 없어.\n수진: 숫자 '1'이 사라졌는데도 안 온 거면 (   ) 당한 거 아니야?"
+    },
+    "options": [
+      "읽씹",
+      "칭찬",
+      "선물",
+      "추천"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'읽고 씹다(무시하다)'의 줄임말인 '읽씹'은 상대방이 메시지를 확인했으면서도 고의로 답장하지 않는 상황을 이르는 신조어입니다.",
+      "EN": "'읽씹' (Read and ignore) is the Korean slang for 'left on read' (when the unread count '1' disappears on KakaoTalk but no reply arrives).",
+      "VI": "'읽씹' là từ lóng viết tắt của 'đọc và phớt lờ', tương đương hiện tượng 'đã xem nhưng không thèm rep' trong tiếng Việt.",
+      "ZH": "'읽씹'是'已读不回（已读并无视）'的缩写流行语，指KakaoTalk上的未读标识'1'消失后对方依然不回话。",
+      "JA": "「읽씹（イクシプ）」は「既読スルー」を意味する韓国の流行語で、メッセージを読んだのに返信しないことを指します。"
+    }
+  },
+  {
+    "id": 125,
+    "category": "배달·택시 실전",
+    "type": "survival",
+    "level": 1,
+    "visual": "🚖 🛑 🚦",
+    "speechBubble": "여기서 세워주세요!",
+    "keyword": "내려주세요",
+    "situations": {
+      "KO": "택시를 타고 가다가 원하는 목적지 앞에서 세워달라고 요청하는 표현을 고르세요.",
+      "EN": "Choose what to say to ask the taxi driver to let you off right here.",
+      "VI": "Chọn câu đề nghị tài xế taxi cho xuống xe tại điểm dừng mong muốn.",
+      "ZH": "选择乘坐出租车时请求司机在指定地点停车下车的标准表达。",
+      "JA": "タクシー乗車中に希望の場所で降ろしてほしい時の表現を選んでください。"
+    },
+    "questions": {
+      "KO": "승객: 기사님, 저기 신호등 앞에서 (   ).\n기사: 네, 갓길에 안전하게 세워 드릴게요."
+    },
+    "options": [
+      "내려주세요",
+      "올려주세요",
+      "자고 갈게요",
+      "춤춰주세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "택시나 버스에서 목적지에 도달해 하차할 때는 '여기서 내려주세요' 또는 '세워주세요'라고 말합니다.",
+      "EN": "When you want to get out of a taxi, say '여기서 내려주세요' (Please let me off here) or '세워주세요' (Please stop here).",
+      "VI": "Khi muốn xuống taxi, hãy nói câu lịch sự chuẩn xác: '여기서 내려주세요' (Làm ơn cho tôi xuống ở đây).",
+      "ZH": "在出租车要下车时，最地道礼貌的说法是'여기서 내려주세요'（请让我在前面下车）或'세워주세요'。",
+      "JA": "タクシーから降りたい時は「여기서 내려주세요（ここで降ろしてください）」または「세워주세요」と言います。"
+    }
+  },
+  {
+    "id": 126,
+    "category": "배달·택시 실전",
+    "type": "survival",
+    "level": 1,
+    "visual": "💳 🚕 📳",
+    "speechBubble": "카드로 결제할게요!",
+    "keyword": "결제해도",
+    "situations": {
+      "KO": "택시 요금을 교통카드나 신용카드로 지불할 수 있는지 묻는 표현을 고르세요.",
+      "EN": "Choose how to ask if you can pay the taxi fare with a card.",
+      "VI": "Chọn cách hỏi tài xế taxi có thanh toán bằng thẻ được không.",
+      "ZH": "选择询问出租车司机能否用交通卡或信用卡结账的表达。",
+      "JA": "タクシー料金をカードで決済できるか尋ねる表現を選んでください。"
+    },
+    "questions": {
+      "KO": "승객: 기사님, 택시비 교통카드로 (   ) 되나요?\n기사: 네, 앞쪽 단말기에 카드를 대주세요."
+    },
+    "options": [
+      "결제해도",
+      "요리해도",
+      "입어도",
+      "노래해도"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "물건이나 서비스 요금을 카드로 지불할 때는 '카드로 결제하다' 또는 '카드로 계산하다'를 써서 '결제해도 되나요?'라고 묻습니다.",
+      "EN": "To ask if card payment is accepted in taxis or shops, ask '카드로 결제해도 되나요?' (Can I pay by card?).",
+      "VI": "Khi hỏi thanh toán bằng thẻ (giao thông/tín dụng), dùng cấu trúc '카드로 결제해도 되나요?'.",
+      "ZH": "询问是否可以用卡支付车费时，使用'결제해도 되나요?'（可以刷卡结账吗？）。",
+      "JA": "カード決済できるか確認する時は「카드로 결제해도 되나요?（カードで決済してもいいですか？）」と尋ねます。"
+    }
+  },
+  {
+    "id": 127,
+    "category": "배달·택시 실전",
+    "type": "survival",
+    "level": 2,
+    "visual": "🛵 🚪 🔔",
+    "speechBubble": "문 앞에 두고 가세요!",
+    "keyword": "벨",
+    "situations": {
+      "KO": "배달 주문 시 비대면으로 문 앞에 음식을 두고 가라는 요청사항 표현을 고르세요.",
+      "EN": "Choose the common delivery request instruction to leave food at the door.",
+      "VI": "Chọn ghi chú yêu cầu giao hàng không tiếp xúc: để trước cửa và bấm chuông.",
+      "ZH": "选择外卖订单中备注'放在门前并按门铃'的经典无接触配送表达。",
+      "JA": "デリバリー注文時に「ドアの前に置いてベルを押してください」と頼む表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 배달 요청사항에 뭐라고 적으면 좋아요?\n친구: '문 앞에 두고 (   ) 눌러주세요'라고 적으면 돼."
+    },
+    "options": [
+      "벨",
+      "코",
+      "공",
+      "책"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국의 배달앱 요청사항에서 가장 많이 쓰이는 문구는 '문 앞에 두고 벨(초인종) 눌러주세요'입니다.",
+      "EN": "The most standard Korean contactless delivery note is '문 앞에 두고 벨 눌러주세요' (Please leave it at the door and ring the doorbell).",
+      "VI": "Ghi chú giao đồ ăn phổ biến nhất ở Hàn Quốc là '문 앞에 두고 벨 눌러주세요' (Để trước cửa và bấm chuông giúp tôi).",
+      "ZH": "韩国外卖App上最常用的无接触配送备注是'문 앞에 두고 벨 눌러주세요'（请放在门前并按门铃）。",
+      "JA": "韓国の出前アプリで定番の置き配メッセージは「문 앞에 두고 벨 눌러주세요（ドアの前に置いてチャイムを押してください）」です。"
+    }
+  },
+  {
+    "id": 128,
+    "category": "배달·택시 실전",
+    "type": "survival",
+    "level": 2,
+    "visual": "⏱️ 🛣️ 💨",
+    "speechBubble": "빨리 가야 해요!",
+    "keyword": "가장 빠른",
+    "situations": {
+      "KO": "시간이 촉박해 택시 기사님께 가장 빠른 길로 가달라고 정중히 부탁하는 표현을 고르세요.",
+      "EN": "Choose how to politely ask the taxi driver to take the fastest route when in a rush.",
+      "VI": "Chọn cách nhờ tài xế taxi đi đường nhanh nhất khi đang gấp thời gian.",
+      "ZH": "选择因赶时间请求出租车司机走最快路线的礼貌表达。",
+      "JA": "急ぎの用事があり、タクシーの運転手さんに一番早い道で行ってほしいと頼む表現を選んでください。"
+    },
+    "questions": {
+      "KO": "승객: 기사님, 비행기 시간이 촉박해서 그런데 (   ) 길로 가주실 수 있나요?\n기사: 네, 안 막히는 도로로 빠르게 가겠습니다."
+    },
+    "options": [
+      "가장 빠른",
+      "가장 둥근",
+      "가장 어두운",
+      "가장 시끄러운"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "급한 상황에서 시간을 단축하고자 할 때는 최상급 표현인 '가장 빠른 길'을 써서 요청합니다.",
+      "EN": "When in a hurry, say '가장 빠른 길로 가주실 수 있나요?' (Could you please take the fastest route?).",
+      "VI": "Khi đang vội, dùng câu '가장 빠른 길로 가주실 수 있나요?' để nhờ tài xế đi tuyến đường ngắn và nhanh nhất.",
+      "ZH": "赶时间时，用'가장 빠른 길로 가주실 수 있나요?'礼貌请求司机师傅走速度最快的路线。",
+      "JA": "急いでいる時は「가장 빠른 길로 가주실 수 있나요?（一番早い道で行っていただけますか？）」と頼みます。"
+    }
+  },
+  {
+    "id": 129,
+    "category": "실전 에티켓·문화",
+    "type": "survival",
+    "level": 1,
+    "visual": "🥓 🥬 🧄",
+    "speechBubble": "상추에 싸서 드세요!",
+    "keyword": "쌈",
+    "situations": {
+      "KO": "고깃집에서 상추나 깻잎에 고기를 싸서 먹는 한국의 음식 문화를 고르세요.",
+      "EN": "Choose the term for wrapping grilled meat in lettuce with garlic and sauce.",
+      "VI": "Chọn từ chỉ văn hóa gói thịt nướng trong rau xà lách cùng tỏi và tương của người Hàn.",
+      "ZH": "选择在烤肉店用生菜叶包肉、蒜和酱料食用的韩国代表性饮食文化表达。",
+      "JA": "焼肉店でサンチュに肉や味噌を包んで食べる韓国特有の文化用語を選んでください。"
+    },
+    "questions": {
+      "KO": "외국인: 삼겹살은 어떻게 먹는 게 제일 맛있어요?\n한국인: 상추에 고기랑 쌈장, 마늘을 올려서 (   )을 싸서 드셔보세요!"
+    },
+    "options": [
+      "쌈",
+      "잠",
+      "꿈",
+      "짐"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "잎채소 위에 고기와 양념을 얹어 한 입 크기로 싸 먹는 음식을 '쌈'이라고 하며, '쌈을 싸다/싸 먹다'라고 표현합니다.",
+      "EN": "Wrapping grilled Korean BBQ (samgyeopsal) with lettuce and sauce is called '쌈' (Ssam), verb: '쌈을 싸 먹다' (to wrap and eat).",
+      "VI": "Món thịt cuốn rau xà lách kèm tương gọi là '쌈' (Ssam), hành động gọi là '쌈을 싸 먹다'.",
+      "ZH": "用生菜叶将烤肉、包饭酱和大蒜包起来吃的吃法在韩语中称为'쌈'（Ssam），动作表述为'쌈을 싸 먹다'。",
+      "JA": "サンチュなどで肉や調味料を一口大に包んで食べる料理を「쌈（サム）」といい、「쌈을 싸 먹다」と表現します。"
+    }
+  },
+  {
+    "id": 130,
+    "category": "실전 에티켓·문화",
+    "type": "survival",
+    "level": 1,
+    "visual": "🥣 🍲 🥄",
+    "speechBubble": "앞접시 드릴게요!",
+    "keyword": "앞접시",
+    "situations": {
+      "KO": "식당에서 찌개나 음식을 덜어 먹기 위해 개인용 작은 접시를 요청하는 표현을 고르세요.",
+      "EN": "Choose the word to ask for an individual side plate to share stew or soup.",
+      "VI": "Chọn từ xin thêm đĩa/bát nhỏ cá nhân để chia thức ăn tại quán ăn Hàn Quốc.",
+      "ZH": "选择在餐厅为了分盛汤品或炖锅而向店员索要个人小碟子的词汇。",
+      "JA": "飲食店で鍋料理などを取り分けて食べるための小皿を頼む表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 저기요, 찌개 덜어먹게 (   ) 두 개만 더 주세요.\n직원: 네, 바로 가져다 드리겠습니다."
+    },
+    "options": [
+      "앞접시",
+      "신발장",
+      "선풍기",
+      "재활용"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "여럿이 함께 먹는 음식에서 각자 먹을 만큼 덜어 놓는 개인용 작은 그릇/접시를 '앞접시'라고 부릅니다.",
+      "EN": "An individual small plate used to scoop soup or dishes from a shared pot is called '앞접시' (side plate / individual dish).",
+      "VI": "Đĩa hoặc chén nhỏ dùng để chia thức ăn từ nồi chung vào phần riêng của mỗi người gọi là '앞접시'.",
+      "ZH": "用餐时用来从公共大锅或盘子里分取食物的个人小餐盘/小碗叫作'앞접시'（分餐碟）。",
+      "JA": "鍋料理や大皿料理を取り分けて食べるための小皿・取り皿のことを「앞접시」と言います。"
+    }
+  },
+  {
+    "id": 131,
+    "category": "실전 에티켓·문화",
+    "type": "survival",
+    "level": 2,
+    "visual": "🍻 🥂 🙇",
+    "speechBubble": "짠! 건배해요!",
+    "keyword": "낮게",
+    "situations": {
+      "KO": "한국 술자리에서 윗사람이나 선배와 건배할 때 지켜야 할 예절을 고르세요.",
+      "EN": "Choose the proper etiquette when clinking glasses with seniors in Korean drinking culture.",
+      "VI": "Chọn phép lịch sự khi cụng ly với tiền bối hoặc người lớn tuổi trong văn hóa bàn tiệc Hàn Quốc.",
+      "ZH": "选择在韩国酒桌文化中与长辈或前辈碰杯时应遵守的礼仪。",
+      "JA": "韓国のお酒の席で目上の人や先輩と乾杯する時のマナーを選んでください。"
+    },
+    "questions": {
+      "KO": "후배: 선배님과 건배할 때 유리잔 높이는 어떻게 맞추나요?\n선배: 어른이나 선배보다 잔을 조금 더 (   ) 부딪치는 게 공경의 예의야."
+    },
+    "options": [
+      "낮게",
+      "높게",
+      "멀리",
+      "거칠게"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국 술자리 예절에서는 선배나 웃어른을 공경하는 의미로 상대방의 잔보다 자신의 잔을 살짝 '낮게' 부딪치며 건배합니다.",
+      "EN": "In Korean drinking etiquette, clink your glass slightly lower ('낮게') than the senior person's glass as a sign of mutual respect.",
+      "VI": "Trong văn hóa cụng ly Hàn Quốc, bạn nên đặt mép ly của mình hơi thấp hơn ('낮게') ly của người lớn tuổi để thể hiện sự tôn trọng.",
+      "ZH": "在韩国饮酒礼仪中，为了表示对长辈或前辈的尊敬，碰杯时要将自己的酒杯位置放得略低于（'낮게'）对方的酒杯。",
+      "JA": "韓国のお酒のマナーでは、先輩や目上の人への敬意を示すため、相手のグラスより少し低め（낮게）にして乾杯します。"
+    }
+  },
+  {
+    "id": 132,
+    "category": "실전 에티켓·문화",
+    "type": "survival",
+    "level": 2,
+    "visual": "🍺 🍗 🌙",
+    "speechBubble": "다음 장소로 가요!",
+    "keyword": "2차",
+    "situations": {
+      "KO": "식사를 마친 후 자리를 옮겨 술이나 차를 마시는 한국의 모임 차수 문화를 고르세요.",
+      "EN": "Choose the term for moving to a second venue (bar/cafe) in Korean social outings.",
+      "VI": "Chọn thuật ngữ chỉ việc chuyển sang địa điểm tiếp theo (tăng 2) trong các buổi tụ tập tại Hàn.",
+      "ZH": "选择聚餐结束后转移阵地去第二家店（第二轮）的韩国聚餐轮次文化表达。",
+      "JA": "1軒目を終えて次の店に移動する「2次会」を表す韓国語を選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 1차 삼겹살 배부르게 먹었다! 이제 시원한 생맥주 마시러 (   ) 갈까?\n나: 좋아! 분위기 좋은 펍으로 가자."
+    },
+    "options": [
+      "2차",
+      "2층",
+      "2초",
+      "2일"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국에서는 모임 시 한 곳에서 끝내지 않고 장소를 옮겨가며 '1차(식사) -> 2차(술/호프) -> 3차(노래방/카페)'로 이어지는 '차수 문화'가 있습니다.",
+      "EN": "Korean gatherings often move between multiple venues sequentially: '1차' (Round 1: Dinner) -> '2차' (Round 2: Pub/Beer) -> '3차' (Round 3: Karaoke/Cafe).",
+      "VI": "Người Hàn có văn hóa tụ tập theo 'tăng': '1차' (Tăng 1 ăn tối) -> '2차' (Tăng 2 uống bia) -> '3차' (Tăng 3 đi hát karaoke).",
+      "ZH": "韩国聚餐文化通常会换地方继续下一轮：'1차'（一轮正餐）-> '2차'（二轮酒馆）-> '3차'（三轮练歌房等）。",
+      "JA": "韓国の飲み会文化では場所を変えて飲み直す習慣があり、1軒目を「1차」、2軒目（2次会）を「2차」と呼びます。"
+    }
   }
 ]

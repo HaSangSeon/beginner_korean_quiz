@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/app_localization.dart';
 import '../data/quiz_data.dart';
+import '../services/ad_service.dart';
 import '../services/progress_service.dart';
 import '../services/quiz_repository.dart';
 import '../services/tts_service.dart';
@@ -26,6 +27,10 @@ const Map<String, String> _categoryEmoji = {
   '이유·원인': '💡',
   '시간·일과': '⏰',
   '카페·테이크아웃': '☕',
+  '편의점·서바이벌': '🏪',
+  '카톡·SNS 뉘앙스': '📱',
+  '배달·택시 실전': '🚕',
+  '실전 에티켓·문화': '🥩',
   '쇼핑·결제': '🛍️',
   'K-리액션·감탄사': '✨',
   '길찾기·교통': '🚇',
@@ -56,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   late String _selectedLangCode;
-  String _selectedTrack = 'word'; // 'word' (기초 단어) or 'sentence' (생활 대화)
+  String _selectedTrack = 'survival'; // Default to 'survival' (K-라이프 실전) for high immersion
   bool _isWordBookmarked = false;
 
   @override
@@ -125,6 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.transparent,
       builder: (bottomSheetContext) {
         return Container(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.sizeOf(context).height * 0.85,
+          ),
           decoration: BoxDecoration(
             color: isDark ? const Color(0xFF1E293B) : Colors.white,
             borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
@@ -139,10 +147,12 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.fromLTRB(20, 12, 20, 28),
           child: SafeArea(
             top: false,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                 Center(
                   child: Container(
                     width: 40,
@@ -340,7 +350,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-        );
+        ),
+      );
       },
     );
   }
@@ -354,51 +365,46 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, _) => Scaffold(
         backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
         appBar: _buildCustomAppBar(context, isDark),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 14.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      // 1. Greeting + Daily Goal / Streak / Learned stats
-                      _buildDailyGoalCard(context, isDark),
-                      const SizedBox(height: 18),
+        body: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.fromLTRB(20.0, 14.0, 20.0, 0.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // 1. Greeting + Daily Goal / Streak / Learned stats
+                    _buildDailyGoalCard(context, isDark),
+                    const SizedBox(height: 18),
 
-                      // 2. Track Switcher Segmented Control (📚 기초 어휘 vs 💬 실전 문장·뉘앙스)
-                      _buildTrackSwitcherSection(context, isDark),
-                      const SizedBox(height: 18),
+                    // 2. Track Switcher Segmented Control (📚 기초 어휘 vs 💬 실전 문장·뉘앙스)
+                    _buildTrackSwitcherSection(context, isDark),
+                    const SizedBox(height: 18),
 
-                      // 3. Main Hero Card (Adapts to _selectedTrack)
-                      _buildHeroQuizCard(context, isDark),
-                      const SizedBox(height: 18),
+                    // 3. Main Hero Card (Adapts to _selectedTrack)
+                    _buildHeroQuizCard(context, isDark),
+                    const SizedBox(height: 18),
 
-                      // 4. Prominent [Start Quiz] CTA Button (Adapts to _selectedTrack)
-                      _buildMainStartButton(context, isDark),
-                      const SizedBox(height: 14),
+                    // 4. Prominent [Start Quiz] CTA Button (Adapts to _selectedTrack)
+                    _buildMainStartButton(context, isDark),
+                    const SizedBox(height: 14),
 
-                      // 5. Mistake Review (only when there are mistakes in this track)
-                      _buildReviewCard(context, isDark),
+                    // 5. Mistake Review (only when there are mistakes in this track)
+                    _buildReviewCard(context, isDark),
 
-                      // 6. Topic list with per-topic progress
-                      _buildCategorySection(context, isDark),
-                      const SizedBox(height: 22),
+                    // 6. Topic list with per-topic progress
+                    _buildCategorySection(context, isDark),
+                    const SizedBox(height: 22),
 
-                      // 7. Word & Nuance of the Day
-                      _buildWordOfTheDayCard(context, isDark),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
+                    // 7. Word & Nuance of the Day
+                    _buildWordOfTheDayCard(context, isDark),
+                  ],
                 ),
               ),
-
-              // AdMob Banner Placeholder
-              _buildAdMobBanner(context, isDark),
-            ],
-          ),
+            ),
+            const BottomBannerAdWidget(),
+          ],
         ),
       ),
     );
@@ -445,9 +451,49 @@ class _HomeScreenState extends State<HomeScreen> {
       actions: [
         _buildStreakChip(isDark),
         const SizedBox(width: 8),
+        _buildThemeToggle(context, isDark),
+        const SizedBox(width: 8),
         _buildLanguageMenu(isDark),
         const SizedBox(width: 16),
       ],
+    );
+  }
+
+  Widget _buildThemeToggle(BuildContext context, bool isDark) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: () {
+          ProgressService().toggleTheme(context);
+        },
+        child: Container(
+          width: 36,
+          height: 36,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: isDark ? const Color(0xFF1E293B) : Colors.white,
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+              width: 1.2,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: (isDark ? Colors.black : const Color(0xFF64748B))
+                    .withValues(alpha: isDark ? 0.3 : 0.05),
+                blurRadius: 4,
+                offset: const Offset(0, 1),
+              ),
+            ],
+          ),
+          child: Icon(
+            isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+            size: 17,
+            color: isDark ? const Color(0xFFFCD34D) : const Color(0xFF475569),
+          ),
+        ),
+      ),
     );
   }
 
@@ -721,14 +767,18 @@ class _HomeScreenState extends State<HomeScreen> {
           Text(emoji, style: const TextStyle(fontSize: 14)),
           const SizedBox(width: 6),
           Expanded(
-            child: Text(
-              value,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 12.5,
-                fontWeight: FontWeight.w700,
-                color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF334155),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Text(
+                value,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w700,
+                  color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF334155),
+                ),
               ),
             ),
           ),
@@ -839,18 +889,23 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 12),
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            childAspectRatio: 1.45,
-          ),
-          itemCount: categories.length,
-          itemBuilder: (context, index) {
+        Builder(
+          builder: (context) {
+            final screenWidth = MediaQuery.sizeOf(context).width;
+            final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
+            final double dynamicAspectRatio = (screenWidth < 360 || textScale > 1.1) ? 1.24 : 1.35;
+
+            return GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: dynamicAspectRatio,
+              ),
+              itemCount: categories.length,
+              itemBuilder: (context, index) {
             final cat = categories[index];
             final catIds = QuizRepository.getIdsByCategory(cat);
             final total = catIds.length;
@@ -961,11 +1016,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-            );
-          },
-        ),
-      ],
-    );
+              );
+            },
+          );
+        },
+      ),
+    ],
+  );
   }
 
   Widget _buildTrackSwitcherSection(BuildContext context, bool isDark) {
@@ -974,38 +1031,48 @@ class _HomeScreenState extends State<HomeScreen> {
     final survivalCount = QuizRepository.getCountByType('survival');
 
     return Container(
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0).withValues(alpha: 0.6),
-        borderRadius: BorderRadius.circular(16),
+        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFF1F5F9),
+        borderRadius: BorderRadius.circular(18),
         border: Border.all(
           color: isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
-          width: 1,
+          width: 1.2,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: (isDark ? Colors.black : const Color(0xFF64748B))
+                .withValues(alpha: isDark ? 0.25 : 0.05),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         children: [
-          // Track 1: 기초 어휘 (Vocabulary)
+          // Track 1: K-라이프 실전 (K-Life & Survival)
           Expanded(
             child: _buildTrackTabButton(
               isDark: isDark,
-              isSelected: _selectedTrack == 'word',
-              label: AppStrings.tr('track_tab_vocab', _selectedLangCode),
-              badge: '$wordCount',
-              activeColor: const Color(0xFF0D9488), // Teal 600
+              isSelected: _selectedTrack == 'survival',
+              emoji: '🇰🇷',
+              label: AppStrings.tr('track_tab_survival', _selectedLangCode),
+              badge: '$survivalCount',
+              activeColor: const Color(0xFFEA580C), // Orange 600
               onTap: () {
-                if (_selectedTrack != 'word') {
-                  setState(() => _selectedTrack = 'word');
+                if (_selectedTrack != 'survival') {
+                  setState(() => _selectedTrack = 'survival');
                 }
               },
             ),
           ),
-          const SizedBox(width: 4),
+          const SizedBox(width: 5),
           // Track 2: 실전 문장·뉘앙스 (Sentences & Nuances)
           Expanded(
             child: _buildTrackTabButton(
               isDark: isDark,
               isSelected: _selectedTrack == 'sentence',
+              emoji: '💬',
               label: AppStrings.tr('track_tab_sentence', _selectedLangCode),
               badge: '$sentenceCount',
               activeColor: const Color(0xFF2563EB), // Blue 600
@@ -1016,18 +1083,19 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          const SizedBox(width: 4),
-          // Track 3: K-라이프 실전 (K-Life & Survival)
+          const SizedBox(width: 5),
+          // Track 3: 기초 어휘 (Vocabulary)
           Expanded(
             child: _buildTrackTabButton(
               isDark: isDark,
-              isSelected: _selectedTrack == 'survival',
-              label: AppStrings.tr('track_tab_survival', _selectedLangCode),
-              badge: '$survivalCount',
-              activeColor: const Color(0xFFEA580C), // Orange 600
+              isSelected: _selectedTrack == 'word',
+              emoji: '📚',
+              label: AppStrings.tr('track_tab_vocab', _selectedLangCode),
+              badge: '$wordCount',
+              activeColor: const Color(0xFF0D9488), // Teal 600
               onTap: () {
-                if (_selectedTrack != 'survival') {
-                  setState(() => _selectedTrack = 'survival');
+                if (_selectedTrack != 'word') {
+                  setState(() => _selectedTrack = 'word');
                 }
               },
             ),
@@ -1040,6 +1108,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildTrackTabButton({
     required bool isDark,
     required bool isSelected,
+    required String emoji,
     required String label,
     required String badge,
     required Color activeColor,
@@ -1049,65 +1118,81 @@ class _HomeScreenState extends State<HomeScreen> {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 4),
+          duration: const Duration(milliseconds: 220),
+          curve: Curves.easeOutCubic,
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
           decoration: BoxDecoration(
             color: isSelected
-                ? (isDark ? activeColor.withValues(alpha: 0.3) : Colors.white)
+                ? (isDark ? activeColor.withValues(alpha: 0.25) : Colors.white)
                 : Colors.transparent,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(14),
             border: isSelected
                 ? Border.all(
-                    color: isDark ? activeColor : activeColor.withValues(alpha: 0.5),
+                    color: isDark ? activeColor : activeColor.withValues(alpha: 0.6),
                     width: 1.5,
                   )
                 : null,
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.06),
+                      color: (isDark ? Colors.black : activeColor)
+                          .withValues(alpha: isDark ? 0.3 : 0.12),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
                   ]
                 : null,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Flexible(
+              // Top Row: Emoji + Count Badge
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(emoji, style: const TextStyle(fontSize: 14)),
+                  const SizedBox(width: 4),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? (isDark ? activeColor : activeColor.withValues(alpha: 0.15))
+                          : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Text(
+                      badge,
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w800,
+                        color: isSelected
+                            ? (isDark ? Colors.white : activeColor)
+                            : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 3.5),
+              // Bottom Label: Full width, clean, legible without truncation
+              FittedBox(
+                fit: BoxFit.scaleDown,
                 child: Text(
                   label,
                   maxLines: 1,
+                  textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 11.5,
+                    fontSize: 12.5,
                     fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
+                    letterSpacing: -0.3,
                     color: isSelected
                         ? (isDark ? Colors.white : const Color(0xFF0F172A))
                         : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 4),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
-                decoration: BoxDecoration(
-                  color: isSelected
-                      ? (isDark ? activeColor : activeColor.withValues(alpha: 0.15))
-                      : (isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1)),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  badge,
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold,
-                    color: isSelected
-                        ? (isDark ? Colors.white : activeColor)
-                        : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569)),
                   ),
                 ),
               ),
@@ -1426,12 +1511,15 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Icon(icon, size: 14, color: iconColor),
               const SizedBox(width: 5),
-              Text(
-                label,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
+              Flexible(
+                child: Text(
+                  label,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               const SizedBox(width: 3),
@@ -1604,30 +1692,35 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                decoration: BoxDecoration(
-                  color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF1F5F9),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.lightbulb_outline_rounded, size: 15, color: Color(0xFF2563EB)),
-                    const SizedBox(width: 5),
-                    Text(
-                      AppStrings.tr('wotd_badge', _selectedLangCode),
-                      style: const TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w800,
-                        color: Color(0xFF2563EB),
-                        letterSpacing: 0.5,
-                      ),
+              Flexible(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF1F5F9),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
                     ),
-                  ],
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.lightbulb_outline_rounded, size: 15, color: Color(0xFF2563EB)),
+                      const SizedBox(width: 5),
+                      Flexible(
+                        child: Text(
+                          AppStrings.tr('wotd_badge', _selectedLangCode),
+                          style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w800,
+                            color: Color(0xFF2563EB),
+                            letterSpacing: 0.5,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               IconButton(
@@ -1774,47 +1867,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildAdMobBanner(BuildContext context, bool isDark) {
-    return Container(
-      height: 50,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFF1F5F9),
-        border: Border(
-          top: BorderSide(
-            color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-            width: 1,
-          ),
-        ),
-      ),
-      alignment: Alignment.center,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.ad_units_rounded,
-            size: 16,
-            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-          ),
-          const SizedBox(width: 6),
-          Flexible(
-            child: Text(
-              'AdMob Banner Ad (320x50)',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                letterSpacing: 0.3,
-              ),
             ),
           ),
         ],

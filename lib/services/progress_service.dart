@@ -1,8 +1,8 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Persists learner progress: daily streak, daily XP goal,
-/// learned (correctly answered) question IDs and mistakes to review.
+/// theme mode preference, learned question IDs and mistakes.
 class ProgressService extends ChangeNotifier {
   static final ProgressService _instance = ProgressService._internal();
   factory ProgressService() => _instance;
@@ -17,6 +17,7 @@ class ProgressService extends ChangeNotifier {
   static const _kXpToday = 'progress_xp_today';
   static const _kLearned = 'progress_learned_ids';
   static const _kWrong = 'progress_wrong_ids';
+  static const _kThemeMode = 'app_theme_mode';
 
   SharedPreferences? _prefs;
   int _streak = 0;
@@ -25,6 +26,7 @@ class ProgressService extends ChangeNotifier {
   int _xpToday = 0;
   Set<int> _learned = {};
   List<int> _wrong = [];
+  ThemeMode _themeMode = ThemeMode.system;
 
   Future<void> init() async {
     try {
@@ -41,9 +43,43 @@ class ProgressService extends ChangeNotifier {
           .map(int.tryParse)
           .whereType<int>()
           .toList();
+
+      final savedTheme = _prefs!.getString(_kThemeMode);
+      if (savedTheme == 'light') {
+        _themeMode = ThemeMode.light;
+      } else if (savedTheme == 'dark') {
+        _themeMode = ThemeMode.dark;
+      } else {
+        _themeMode = ThemeMode.system;
+      }
     } catch (e) {
       debugPrint('ProgressService init error: $e');
     }
+  }
+
+  ThemeMode get themeMode => _themeMode;
+
+  /// Toggles between light and dark mode, saving the preference
+  void toggleTheme(BuildContext context) {
+    final isCurrentlyDark = _themeMode == ThemeMode.dark ||
+        (_themeMode == ThemeMode.system &&
+            MediaQuery.platformBrightnessOf(context) == Brightness.dark);
+
+    _themeMode = isCurrentlyDark ? ThemeMode.light : ThemeMode.dark;
+    _prefs?.setString(_kThemeMode, _themeMode == ThemeMode.dark ? 'dark' : 'light');
+    notifyListeners();
+  }
+
+  void setThemeMode(ThemeMode mode) {
+    if (_themeMode == mode) return;
+    _themeMode = mode;
+    final modeStr = mode == ThemeMode.dark
+        ? 'dark'
+        : mode == ThemeMode.light
+            ? 'light'
+            : 'system';
+    _prefs?.setString(_kThemeMode, modeStr);
+    notifyListeners();
   }
 
   static String _dateKey(DateTime d) =>

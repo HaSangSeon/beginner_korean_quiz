@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/app_localization.dart';
 import '../data/quiz_data.dart';
+import '../services/ad_service.dart';
 import 'quiz_screen.dart';
 
 class ResultScreen extends StatefulWidget {
@@ -147,15 +148,17 @@ class _ResultScreenState extends State<ResultScreen> {
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(height: 8),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(24.0, 16.0, 24.0, 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 8),
 
-              // Trophy / Result Icon Badge
+                  // Trophy / Result Icon Badge
               Center(
                 child: Container(
                   width: 80,
@@ -308,9 +311,12 @@ class _ResultScreenState extends State<ResultScreen> {
                   );
                 },
                 icon: const Icon(Icons.replay_rounded),
-                label: Text(
-                  AppStrings.tr('result_retry', widget.langCode),
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                label: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    AppStrings.tr('result_retry', widget.langCode),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
                 ),
                 style: FilledButton.styleFrom(
                   backgroundColor: const Color(0xFF2563EB),
@@ -328,12 +334,15 @@ class _ResultScreenState extends State<ResultScreen> {
                   Navigator.popUntil(context, (route) => route.isFirst);
                 },
                 icon: const Icon(Icons.home_rounded),
-                label: Text(
-                  AppStrings.tr('result_home', widget.langCode),
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E3A8B),
+                label: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    AppStrings.tr('result_home', widget.langCode),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E3A8B),
+                    ),
                   ),
                 ),
                 style: OutlinedButton.styleFrom(
@@ -352,6 +361,9 @@ class _ResultScreenState extends State<ResultScreen> {
           ),
         ),
       ),
-    );
+      const BottomBannerAdWidget(),
+    ],
+  ),
+);
   }
 }
