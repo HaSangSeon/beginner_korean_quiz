@@ -7,12 +7,18 @@ class ResultScreen extends StatefulWidget {
   final int score;
   final int totalQuestions;
   final String langCode;
+  final String? quizType;
+  final String? category;
+  final int? level;
 
   const ResultScreen({
     super.key,
     required this.score,
     required this.totalQuestions,
     this.langCode = 'KO',
+    this.quizType,
+    this.category,
+    this.level,
   });
 
   @override
@@ -124,6 +130,7 @@ class _ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final percentage = widget.totalQuestions > 0
         ? widget.score / widget.totalQuestions
         : 0.0;
@@ -134,7 +141,7 @@ class _ResultScreenState extends State<ResultScreen> {
     );
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC),
+      backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
       appBar: AppBar(
         title: Text(AppStrings.tr('result_title', widget.langCode)),
         centerTitle: true,
@@ -171,7 +178,7 @@ class _ResultScreenState extends State<ResultScreen> {
                 AppStrings.tr('result_finished', widget.langCode),
                 style: theme.textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF0F172A),
+                  color: isDark ? Colors.white : const Color(0xFF0F172A),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -180,11 +187,11 @@ class _ResultScreenState extends State<ResultScreen> {
               // Score Card
               Card(
                 elevation: 0,
-                color: Colors.white,
+                color: isDark ? const Color(0xFF1E293B) : Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
-                  side: const BorderSide(
-                    color: Color(0xFFE2E8F0),
+                  side: BorderSide(
+                    color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
                     width: 1.2,
                   ),
                 ),
@@ -198,7 +205,7 @@ class _ResultScreenState extends State<ResultScreen> {
                           Text(
                             AppStrings.tr('result_your_score', widget.langCode),
                             style: theme.textTheme.titleMedium?.copyWith(
-                              color: const Color(0xFF64748B),
+                              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -209,7 +216,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               vertical: 2,
                             ),
                             decoration: BoxDecoration(
-                              color: const Color(0xFFEFF6FF),
+                              color: isDark ? const Color(0xFF0F172A) : const Color(0xFFEFF6FF),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Row(
@@ -240,17 +247,17 @@ class _ResultScreenState extends State<ResultScreen> {
                             'total': '${widget.totalQuestions}',
                           },
                         ),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w900,
-                          color: Color(0xFF1E3A8A),
+                          color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF1E3A8A),
                         ),
                       ),
                       const SizedBox(height: 4),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFEFF6FF),
+                          color: isDark ? const Color(0xFF0F172A) : const Color(0xFFEFF6FF),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
@@ -266,12 +273,12 @@ class _ResultScreenState extends State<ResultScreen> {
                           ),
                         ),
                       ),
-                      const Divider(height: 28, color: Color(0xFFE2E8F0)),
+                      Divider(height: 28, color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
                       Text(
                         _getLocalizedEncouragement(percentage),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 14,
-                          color: Color(0xFF334155),
+                          color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF334155),
                           height: 1.45,
                           fontWeight: FontWeight.w500,
                         ),
@@ -291,7 +298,12 @@ class _ResultScreenState extends State<ResultScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => QuizScreen(initialLangCode: widget.langCode),
+                      builder: (context) => QuizScreen(
+                        initialLangCode: widget.langCode,
+                        quizType: widget.quizType,
+                        category: widget.category,
+                        level: widget.level,
+                      ),
                     ),
                   );
                 },
@@ -318,15 +330,18 @@ class _ResultScreenState extends State<ResultScreen> {
                 icon: const Icon(Icons.home_rounded),
                 label: Text(
                   AppStrings.tr('result_home', widget.langCode),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF1E293B),
+                    color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E3A8B),
                   ),
                 ),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 15),
-                  side: const BorderSide(color: Color(0xFFCBD5E1), width: 1.2),
+                  side: BorderSide(
+                    color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
+                    width: 1.2,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),

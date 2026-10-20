@@ -1,7 +1,6 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
 import '../models/quiz_question.dart';
 import '../data/quiz_data.dart';
+import 'progress_service.dart';
 
 class QuizRepository {
   static List<QuizQuestion> _questions = [];
@@ -19,16 +18,33 @@ class QuizRepository {
 
   /// Load questions (defaults to live in-memory sampleQuizQuestions)
   static Future<List<QuizQuestion>> loadQuestions({bool reload = false}) async {
-    // Always use sampleQuizQuestions directly so hot reload / hot restart reflects immediately
     _questions = List.from(sampleQuizQuestions);
     return _questions;
   }
 
-  /// Filter questions by type ('word' or 'sentence') and/or category
-  static List<QuizQuestion> getQuestions({String? type, String? category}) {
+  /// Default number of questions in one lesson session.
+  static const int sessionSize = 10;
+
+  /// Filter questions by type ('word' or 'sentence'), category, and level.
+  /// Unlearned questions are prioritized so returning users always get fresh content.
+  static List<QuizQuestion> getQuestions({
+    String? type,
+    String? category,
+    int? level,
+    List<int>? ids,
+    int? limit,
+    bool shuffle = true,
+  }) {
     var result = List<QuizQuestion>.from(questions);
+    if (ids != null) {
+      final idSet = ids.toSet();
+      result = result.where((q) => idSet.contains(q.id)).toList();
+    }
     if (type != null && type.isNotEmpty && type != 'all') {
       result = result.where((q) => q.type.toLowerCase() == type.toLowerCase()).toList();
+    }
+    if (level != null && level > 0) {
+      result = result.where((q) => q.level == level).toList();
     }
     if (category != null &&
         category.isNotEmpty &&
@@ -42,7 +58,43 @@ class QuizRepository {
         result = filtered;
       }
     }
-    return result.isNotEmpty ? result : List.from(questions);
+
+    var baseList = result.isNotEmpty ? result : List<QuizQuestion>.from(questions);
+
+    if (!shuffle) return baseList;
+
+    // Smart Duolingo-style Priority:
+    // 1) Unlearned questions first (always fresh content for the learner)
+    // 2) Mastered questions second (for spaced review)
+    final learned = ProgressService().learnedIds;
+    final unlearned = baseList.where((q) => !learned.contains(q.id)).toList()..shuffle();
+    final mastered = baseList.where((q) => learned.contains(q.id)).toList()..shuffle();
+    baseList = [...unlearned, ...mastered];
+
+    if (limit != null && baseList.length > limit) {
+      baseList = baseList.sublist(0, limit);
+    }
+
+    // Dynamically shuffle options for each question so answers are always randomized
+    return baseList.map((q) {
+      final correctAnswer = q.options[q.answerIndex];
+      final shuffledOptions = List<String>.from(q.options)..shuffle();
+      final newAnswerIndex = shuffledOptions.indexOf(correctAnswer);
+
+      return QuizQuestion(
+        id: q.id,
+        category: q.category,
+        type: q.type,
+        visual: q.visual,
+        keyword: q.keyword,
+        speechBubble: q.speechBubble,
+        situations: q.situations,
+        questions: q.questions,
+        options: shuffledOptions,
+        answerIndex: newAnswerIndex >= 0 ? newAnswerIndex : q.answerIndex,
+        explanations: q.explanations,
+      );
+    }).toList();
   }
 
   /// Filter questions by category (case-insensitive)
@@ -65,5 +117,38 @@ class QuizRepository {
     return questions
         .where((q) => q.category.toLowerCase() == category.toLowerCase())
         .length;
+  }
+
+  /// Ordered list of categories for a track (in order of first appearance)
+  static List<String> getCategoriesByType(String type) {
+    final seen = <String>{};
+    for (final q in questions) {
+      if (q.type.toLowerCase() == type.toLowerCase()) seen.add(q.category);
+    }
+    return seen.toList();
+  }
+
+  /// Question IDs belonging to a category
+  static List<int> getIdsByCategory(String category) {
+    return questions.where((q) => q.category == category).map((q) => q.id).toList();
+  }
+
+  /// Get available levels for a category
+  static List<int> getLevelsByCategory(String category) {
+    final levels = questions
+        .where((q) => q.category.toLowerCase() == category.toLowerCase())
+        .map((q) => q.level)
+        .toSet()
+        .toList();
+    levels.sort();
+    return levels.isEmpty ? [1] : levels;
+  }
+
+  /// Question IDs belonging to a category and specific level
+  static List<int> getIdsByCategoryAndLevel(String category, int level) {
+    return questions
+        .where((q) => q.category.toLowerCase() == category.toLowerCase() && q.level == level)
+        .map((q) => q.id)
+        .toList();
   }
 }

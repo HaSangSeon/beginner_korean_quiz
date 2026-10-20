@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../data/app_localization.dart';
 import '../data/quiz_data.dart';
 import '../models/quiz_question.dart';
+import '../services/progress_service.dart';
 import '../services/quiz_repository.dart';
 import '../services/tts_service.dart';
 import 'result_screen.dart';
@@ -10,12 +12,16 @@ class QuizScreen extends StatefulWidget {
   final String initialLangCode;
   final String? category;
   final String? quizType; // 'word' or 'sentence'
+  final int? level; // Stage level (1, 2, 3...)
+  final List<int>? reviewIds; // mistake review mode
 
   const QuizScreen({
     super.key,
     this.initialLangCode = 'KO',
     this.category,
     this.quizType,
+    this.level,
+    this.reviewIds,
   });
 
   @override
@@ -25,8 +31,11 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   late List<QuizQuestion> _questions;
   late String _currentLangCode;
+  late int _sessionSize; // unique questions (excluding re-queued retries)
+  final Set<int> _retryIndexes = {}; // indexes of re-queued (retry) questions
   int _currentIndex = 0;
   int _score = 0;
+  int _combo = 0;
   int? _selectedOptionIndex;
   bool _isAnswered = false;
 
@@ -34,10 +43,15 @@ class _QuizScreenState extends State<QuizScreen> {
   void initState() {
     super.initState();
     _currentLangCode = widget.initialLangCode;
+    final isReview = widget.reviewIds != null && widget.reviewIds!.isNotEmpty;
     _questions = QuizRepository.getQuestions(
-      type: widget.quizType,
-      category: widget.category,
+      type: isReview ? null : widget.quizType,
+      category: isReview ? null : widget.category,
+      level: isReview ? null : widget.level,
+      ids: isReview ? widget.reviewIds : null,
+      limit: QuizRepository.sessionSize,
     );
+    _sessionSize = _questions.length;
   }
 
   @override
@@ -46,26 +60,77 @@ class _QuizScreenState extends State<QuizScreen> {
     super.dispose();
   }
 
+  bool get _isRetryQuestion => _retryIndexes.contains(_currentIndex);
+
+  /// Copy a question with freshly shuffled options (used when re-queuing a mistake)
+  QuizQuestion _reshuffled(QuizQuestion q) {
+    final correct = q.options[q.answerIndex];
+    final options = List<String>.from(q.options)..shuffle();
+    return QuizQuestion(
+      id: q.id,
+      category: q.category,
+      type: q.type,
+      visual: q.visual,
+      keyword: q.keyword,
+      speechBubble: q.speechBubble,
+      situations: q.situations,
+      questions: q.questions,
+      options: options,
+      answerIndex: options.indexOf(correct),
+      explanations: q.explanations,
+    );
+  }
+
+  /// Replace the blank "(     )" in a dialogue line with [answer]
+  static final RegExp _blankPattern = RegExp(r'\(\s*\)|_{3,}');
+  String _fillBlank(String line, String answer) => line.replaceFirst(_blankPattern, answer);
+
+  /// Full Korean answer line with the correct option filled in (for TTS)
+  String _completedAnswerLine(QuizQuestion q) {
+    final turns = _parseQuestionDialogue(q.getQuestion('KO'));
+    final answer = q.options[q.answerIndex];
+    final target = turns.firstWhere(
+      (t) => _blankPattern.hasMatch(t.content),
+      orElse: () => turns.last,
+    );
+    return _blankPattern.hasMatch(target.content) ? _fillBlank(target.content, answer) : answer;
+  }
+
   void _onOptionSelected(int index) {
     if (_isAnswered) return;
 
     final currentQuestion = _questions[_currentIndex];
     final isCorrect = index == currentQuestion.answerIndex;
-    final selectedText = currentQuestion.options[index];
 
-    // Play native TTS pronunciation for the selected Korean option
-    TtsService().speak(selectedText);
+    if (isCorrect) {
+      HapticFeedback.lightImpact();
+    } else {
+      HapticFeedback.heavyImpact();
+    }
+
+    // Read the completed answer sentence aloud so learners hear the correct Korean
+    TtsService().speak(_completedAnswerLine(currentQuestion));
+
+    ProgressService().recordAnswer(currentQuestion.id, isCorrect);
 
     setState(() {
       _selectedOptionIndex = index;
       _isAnswered = true;
       if (isCorrect) {
-        _score++;
+        if (!_isRetryQuestion) _score++;
+        _combo++;
+      } else {
+        _combo = 0;
+        // Duolingo-style: ask a missed question once more at the end of the session
+        if (!_isRetryQuestion) {
+          _questions.add(_reshuffled(currentQuestion));
+          _retryIndexes.add(_questions.length - 1);
+        }
       }
     });
   }
 
-  void _nextQuestion() {
+  Future<void> _nextQuestion() async {
     TtsService().stop();
     if (_currentIndex < _questions.length - 1) {
       setState(() {
@@ -74,13 +139,18 @@ class _QuizScreenState extends State<QuizScreen> {
         _isAnswered = false;
       });
     } else {
+      await ProgressService().completeSession();
+      if (!mounted) return;
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => ResultScreen(
             score: _score,
-            totalQuestions: _questions.length,
+            totalQuestions: _sessionSize,
             langCode: _currentLangCode,
+            quizType: widget.quizType,
+            category: widget.category,
+            level: widget.level,
           ),
         ),
       );
@@ -102,9 +172,13 @@ class _QuizScreenState extends State<QuizScreen> {
           return '基础词汇测验';
         case 'JA':
           return '基礎単語クイズ';
+        case 'ES':
+          return 'Quiz de Vocabulario';
+        case 'PT':
+          return 'Quiz de Vocabulário';
         case 'KO':
         default:
-          return '기초 어휘 퀴즈';
+          return '기초 단어 퀴즈';
       }
     } else {
       switch (_currentLangCode) {
@@ -116,9 +190,13 @@ class _QuizScreenState extends State<QuizScreen> {
           return '实战句子练习';
         case 'JA':
           return '実践文練習';
+        case 'ES':
+          return 'Práctica de Frases';
+        case 'PT':
+          return 'Prática de Frases';
         case 'KO':
         default:
-          return '실전 문장 연습';
+          return '생활 대화 연습';
       }
     }
   }
@@ -134,6 +212,10 @@ class _QuizScreenState extends State<QuizScreen> {
           return '词汇解析与技巧';
         case 'JA':
           return '単語の解説＆ポイント';
+        case 'ES':
+          return 'Explicación del Vocabulario';
+        case 'PT':
+          return 'Explicação do Vocabulário';
         case 'KO':
         default:
           return '단어 해설 & 팁';
@@ -148,6 +230,10 @@ class _QuizScreenState extends State<QuizScreen> {
           return '句子解析与技巧';
         case 'JA':
           return '文の解説＆ポイント';
+        case 'ES':
+          return 'Explicación de la Frase';
+        case 'PT':
+          return 'Explicação da Frase';
         case 'KO':
         default:
           return '문장 해설 & 팁';
@@ -699,6 +785,43 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                       const SizedBox(width: 8),
 
+                      // Retry (re-queued mistake) badge
+                      if (_isRetryQuestion) ...[
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4.5),
+                          decoration: BoxDecoration(
+                            color: isDark
+                                ? const Color(0xFF78350F).withValues(alpha: 0.45)
+                                : const Color(0xFFFEF3C7),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: isDark ? const Color(0xFFF59E0B) : const Color(0xFFFCD34D),
+                              width: 1.1,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.replay_rounded,
+                                size: 13,
+                                color: isDark ? const Color(0xFFFCD34D) : const Color(0xFFB45309),
+                              ),
+                              const SizedBox(width: 3),
+                              Text(
+                                AppStrings.tr('quiz_review_badge', _currentLangCode),
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w800,
+                                  color: isDark ? const Color(0xFFFCD34D) : const Color(0xFFB45309),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 6),
+                      ],
+
                       // Category Badge
                       Container(
                         padding: const EdgeInsets.symmetric(
@@ -740,11 +863,18 @@ class _QuizScreenState extends State<QuizScreen> {
                   const SizedBox(height: 8),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(6),
-                    child: LinearProgressIndicator(
-                      value: progress,
-                      minHeight: 6,
-                      backgroundColor: isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0),
-                      valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF2563EB)),
+                    child: TweenAnimationBuilder<double>(
+                      tween: Tween(begin: 0, end: progress),
+                      duration: const Duration(milliseconds: 350),
+                      curve: Curves.easeOutCubic,
+                      builder: (context, value, _) => LinearProgressIndicator(
+                        value: value,
+                        minHeight: 8,
+                        backgroundColor: isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0),
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          _combo >= 3 ? const Color(0xFFF59E0B) : const Color(0xFF22C55E),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -943,6 +1073,13 @@ class _QuizScreenState extends State<QuizScreen> {
     // Robust Dialogue Parsing
     final turns = _parseQuestionDialogue(rawQuestion);
 
+    // The keyword caption must not give away the answer (e.g. 🇯🇵 + "일본" → answer "일본")
+    final correctAnswer = currentQuestion.options[currentQuestion.answerIndex];
+    final keyword = currentQuestion.keyword;
+    final keywordRevealsAnswer = keyword != null && correctAnswer.contains(keyword);
+    final showKeyword = keyword != null && (!keywordRevealsAnswer || _isAnswered);
+    final answeredCorrectly = _isAnswered && _selectedOptionIndex == currentQuestion.answerIndex;
+
     return Container(
       margin: const EdgeInsets.only(bottom: 14),
       padding: const EdgeInsets.all(16),
@@ -1005,25 +1142,26 @@ class _QuizScreenState extends State<QuizScreen> {
                       ? currentQuestion.getSituation('KO')
                       : '※ ${currentQuestion.getSituation('KO')}',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 11.5,
                     fontWeight: FontWeight.w700,
                     color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF334155),
+                    height: 1.3,
                   ),
-                  maxLines: 1,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 10),
 
           // Central Picture Illustration Frame with Speech Bubble and Keyword Badge
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             decoration: BoxDecoration(
               color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(14),
               border: Border.all(
                 color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
                 width: 1,
@@ -1034,11 +1172,11 @@ class _QuizScreenState extends State<QuizScreen> {
               children: [
                 if (currentQuestion.speechBubble != null) ...[
                   Container(
-                    margin: const EdgeInsets.only(bottom: 8),
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    margin: const EdgeInsets.only(bottom: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2.5),
                     decoration: BoxDecoration(
                       color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         color: isDark ? const Color(0xFF3B82F6) : const Color(0xFF93C5FD),
                         width: 1,
@@ -1047,11 +1185,11 @@ class _QuizScreenState extends State<QuizScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Text('💬 ', style: TextStyle(fontSize: 12)),
+                        const Text('💬 ', style: TextStyle(fontSize: 11)),
                         Text(
                           currentQuestion.speechBubble!,
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 11,
                             fontWeight: FontWeight.w700,
                             color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
                           ),
@@ -1066,34 +1204,35 @@ class _QuizScreenState extends State<QuizScreen> {
                         visual.endsWith('.webp') ||
                         visual.endsWith('.png') ||
                         visual.endsWith('.jpg');
+                    final imgSize = isWordQuiz ? 100.0 : 54.0;
                     if (isImagePath) {
                       return ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(10),
                         child: Image.asset(
                           visual,
-                          width: 130,
-                          height: 130,
+                          width: imgSize,
+                          height: imgSize,
                           fit: BoxFit.contain,
-                          errorBuilder: (context, error, stackTrace) => const Text(
+                          errorBuilder: (context, error, stackTrace) => Text(
                             '🖼️',
-                            style: TextStyle(fontSize: 68),
+                            style: TextStyle(fontSize: isWordQuiz ? 52 : 28),
                           ),
                         ),
                       );
                     }
                     return Text(
                       visual,
-                      style: const TextStyle(fontSize: 68),
+                      style: TextStyle(fontSize: isWordQuiz ? 52 : 28),
                     );
                   },
                 ),
-                if (currentQuestion.keyword != null) ...[
-                  const SizedBox(height: 8),
+                if (showKeyword) ...[
+                  const SizedBox(height: 4),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 3),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                     decoration: BoxDecoration(
                       color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(6),
                       border: Border.all(
                         color: isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
                         width: 1,
@@ -1102,10 +1241,10 @@ class _QuizScreenState extends State<QuizScreen> {
                     child: Text(
                       currentQuestion.keyword!,
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: 11.5,
                         fontWeight: FontWeight.w800,
                         color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B),
-                        letterSpacing: 0.5,
+                        letterSpacing: 0.3,
                       ),
                     ),
                   ),
@@ -1113,7 +1252,7 @@ class _QuizScreenState extends State<QuizScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
 
           // Symmetrical Dialogue Section: [철수] Question Row + Separated [영희] Answer Row
           ...List.generate(turns.length, (turnIndex) {
@@ -1121,45 +1260,46 @@ class _QuizScreenState extends State<QuizScreen> {
             final isFirst = turn.isFirst;
 
             return Padding(
-              padding: EdgeInsets.only(top: turnIndex > 0 ? 10.0 : 0.0),
+              padding: EdgeInsets.only(top: turnIndex > 0 ? 6.0 : 0.0),
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                 decoration: BoxDecoration(
                   color: isFirst
                       ? (isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC))
                       : (isDark
                           ? const Color(0xFF1E293B).withValues(alpha: 0.85)
                           : const Color(0xFFF5F3FF)),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     color: isFirst
                         ? (isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1))
                         : (isDark
                             ? const Color(0xFF6366F1).withValues(alpha: 0.5)
                             : const Color(0xFFC7D2FE)),
-                    width: isFirst ? 1.1 : 1.3,
+                    width: isFirst ? 1.0 : 1.2,
                   ),
                   boxShadow: [
                     if (!isFirst)
                       BoxShadow(
                         color: (isDark ? const Color(0xFF6366F1) : const Color(0xFF818CF8))
                             .withValues(alpha: isDark ? 0.15 : 0.08),
-                        blurRadius: 6,
-                        offset: const Offset(0, 2),
+                        blurRadius: 4,
+                        offset: const Offset(0, 1.5),
                       ),
                   ],
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Symmetrical Speaker Pill Badge (철수 vs 영희)
+                    // Dynamic Speaker Pill Badge
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+                      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
                       decoration: BoxDecoration(
                         color: isFirst
                             ? (isDark ? const Color(0xFF1E293B) : const Color(0xFFEFF6FF))
                             : (isDark ? const Color(0xFF312E81) : const Color(0xFFEDE9FE)),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(6),
                         border: Border.all(
                           color: isFirst
                               ? (isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.4) : const Color(0xFFBFDBFE))
@@ -1171,14 +1311,14 @@ class _QuizScreenState extends State<QuizScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            isFirst ? '🙋‍♂️' : '🙋‍♀️',
+                            turn.emoji,
                             style: const TextStyle(fontSize: 12),
                           ),
-                          const SizedBox(width: 4),
+                          const SizedBox(width: 3),
                           Text(
                             turn.speakerName,
                             style: TextStyle(
-                              fontSize: 12.5,
+                              fontSize: 11.5,
                               fontWeight: FontWeight.w800,
                               color: isFirst
                                   ? (isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8))
@@ -1188,33 +1328,34 @@ class _QuizScreenState extends State<QuizScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(width: 11),
+                    const SizedBox(width: 8),
 
-                    // Dialogue content text
+                    // Dialogue content text with non-breaking, stylish interactive blank capsule
                     Expanded(
-                      child: Text(
-                        turn.content,
-                        style: TextStyle(
-                          fontSize: isFirst ? 16 : 16.5,
-                          fontWeight: isFirst ? FontWeight.w700 : FontWeight.w800,
-                          color: isFirst
-                              ? (isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A))
-                              : (isDark ? const Color(0xFFA5B4FC) : const Color(0xFF4338CA)),
-                          letterSpacing: isFirst ? -0.2 : 0.2,
-                          height: 1.35,
-                        ),
+                      child: _buildDialogueContent(
+                        line: turn.content,
+                        isFirst: isFirst,
+                        correctAnswer: correctAnswer,
+                        answeredCorrectly: answeredCorrectly,
+                        isDark: isDark,
                       ),
                     ),
+                    const SizedBox(width: 4),
 
-                    // Trailing Action: TTS Button for Question, Edit hint icon for Answer
-                    if (isFirst)
+                    // Trailing Action: TTS Button for question/answer lines
+                    if (isFirst || _isAnswered)
                       Material(
                         color: Colors.transparent,
                         child: InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () => TtsService().speak(turn.content),
+                          borderRadius: BorderRadius.circular(16),
+                          onTap: () {
+                            final textToSpeak = turn.isBlankTarget
+                                ? (_isAnswered ? _fillBlank(turn.content, correctAnswer) : turn.content.replaceAll(_blankPattern, ''))
+                                : turn.content;
+                            TtsService().speak(textToSpeak);
+                          },
                           child: Container(
-                            padding: const EdgeInsets.all(7),
+                            padding: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: isDark ? const Color(0xFF1E293B) : Colors.white,
                               shape: BoxShape.circle,
@@ -1225,14 +1366,14 @@ class _QuizScreenState extends State<QuizScreen> {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.04),
-                                  blurRadius: 4,
+                                  blurRadius: 3,
                                   offset: const Offset(0, 1),
                                 ),
                               ],
                             ),
                             child: Icon(
                               Icons.volume_up_rounded,
-                              size: 18,
+                              size: 16,
                               color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
                             ),
                           ),
@@ -1240,16 +1381,16 @@ class _QuizScreenState extends State<QuizScreen> {
                       )
                     else
                       Container(
-                        padding: const EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
                           color: isDark
                               ? const Color(0xFF312E81).withValues(alpha: 0.5)
                               : const Color(0xFFEDE9FE),
-                          borderRadius: BorderRadius.circular(6),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         child: Icon(
                           Icons.edit_note_rounded,
-                          size: 19,
+                          size: 16,
                           color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF4F46E5),
                         ),
                       ),
@@ -1263,28 +1404,150 @@ class _QuizScreenState extends State<QuizScreen> {
     );
   }
 
+  /// Builds dialogue text with non-breaking, stylish interactive blank capsule
+  Widget _buildDialogueContent({
+    required String line,
+    required bool isFirst,
+    required String correctAnswer,
+    required bool answeredCorrectly,
+    required bool isDark,
+  }) {
+    final hasBlank = _blankPattern.hasMatch(line);
+    final baseStyle = TextStyle(
+      fontSize: 14.0,
+      fontWeight: FontWeight.w700,
+      color: isFirst
+          ? (isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A))
+          : (isDark ? const Color(0xFFA5B4FC) : const Color(0xFF4338CA)),
+      letterSpacing: -0.2,
+      height: 1.35,
+    );
+
+    if (!hasBlank) {
+      return Text(line, style: baseStyle);
+    }
+
+    final match = _blankPattern.firstMatch(line)!;
+    final prefix = line.substring(0, match.start);
+    final suffix = line.substring(match.end);
+
+    final endsWithPunctuation = suffix.startsWith('.') ||
+        suffix.startsWith('?') ||
+        suffix.startsWith('!') ||
+        suffix.startsWith(',');
+
+    Widget blankWidget;
+    if (_isAnswered) {
+      final answerColor = answeredCorrectly
+          ? (isDark ? const Color(0xFF4ADE80) : const Color(0xFF16A34A))
+          : (isDark ? const Color(0xFF93C5FD) : const Color(0xFF2563EB));
+
+      blankWidget = Container(
+        margin: EdgeInsets.only(left: 3, right: endsWithPunctuation ? 1 : 3),
+        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 1.5),
+        decoration: BoxDecoration(
+          color: (answeredCorrectly
+                  ? const Color(0xFF22C55E)
+                  : const Color(0xFF3B82F6))
+              .withValues(alpha: isDark ? 0.25 : 0.12),
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(
+            color: answeredCorrectly
+                ? const Color(0xFF22C55E)
+                : const Color(0xFF3B82F6),
+            width: 1.2,
+          ),
+        ),
+        child: Text(
+          correctAnswer,
+          style: TextStyle(
+            fontSize: 13.5,
+            fontWeight: FontWeight.w900,
+            color: answerColor,
+            letterSpacing: -0.2,
+          ),
+        ),
+      );
+    } else {
+      // Clean modern blank slot: no question marks, pure educational blank indicator
+      blankWidget = Container(
+        width: 48,
+        height: 20,
+        margin: EdgeInsets.only(left: 3, right: endsWithPunctuation ? 1 : 3),
+        decoration: BoxDecoration(
+          color: isDark ? const Color(0xFF1E293B) : const Color(0xFFF1F5F9),
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(
+            color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
+            width: 1.2,
+          ),
+        ),
+        child: Center(
+          child: Container(
+            width: 24,
+            height: 2.2,
+            decoration: BoxDecoration(
+              color: isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
+              borderRadius: BorderRadius.circular(1),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Text.rich(
+      TextSpan(
+        style: baseStyle,
+        children: [
+          if (prefix.isNotEmpty) TextSpan(text: prefix),
+          WidgetSpan(
+            alignment: PlaceholderAlignment.middle,
+            child: blankWidget,
+          ),
+          if (suffix.isNotEmpty) TextSpan(text: suffix),
+        ],
+      ),
+    );
+  }
+
+  static String _getSpeakerEmoji(String speaker, bool isFirst) {
+    final s = speaker.toLowerCase().trim();
+    if (s.contains('선생님') || s.contains('교사') || s.contains('교수')) return '👩‍🏫';
+    if (s.contains('학생')) return '🧑‍🎓';
+    if (s.contains('의사')) return '👨‍⚕️';
+    if (s.contains('약사') || s.contains('간호사')) return '👩‍⚕️';
+    if (s.contains('환자')) return '🤒';
+    if (s.contains('손님') || s.contains('고객')) return '🙋';
+    if (s.contains('직원') || s.contains('점원') || s.contains('주인')) return '💁';
+    if (s.contains('엄마') || s.contains('어머니')) return '👩';
+    if (s.contains('아빠') || s.contains('아버지')) return '👨';
+    if (s.contains('기사') || s.contains('운전')) return '🚕';
+    if (s.contains('철수') || s.contains('민수') || s == '가' || s == 'a') return '🙋‍♂️';
+    if (s.contains('영희') || s.contains('지수') || s == '나' || s == 'b') return '🙋‍♀️';
+    return isFirst ? '🙋‍♂️' : '🙋‍♀️';
+  }
+
   List<_DialogueTurn> _parseQuestionDialogue(String rawQuestion) {
     // 1. Unescape literal '\n' and normalize all line breaks
-    final normalized = rawQuestion
+    var normalized = rawQuestion
         .replaceAll(r'\n', '\n')
         .replaceAll(r'\r\n', '\n')
         .replaceAll('\r', '\n');
 
+    // Normalize excessive spaces inside parentheses (e.g. "(                 )" -> "(   )")
+    normalized = normalized.replaceAll(RegExp(r'\(\s{2,}\)'), '(   )');
+
     List<String> rawLines = [];
     if (normalized.contains('\n')) {
       rawLines = normalized.split('\n');
-    } else if (normalized.contains(RegExp(r'(?:나|영희|지수|B)\s*:'))) {
-      final match = RegExp(r'^(.*?)(?=(?:나|영희|지수|B)\s*:)').firstMatch(normalized);
-      if (match != null && match.group(1) != null) {
-        rawLines = [
-          match.group(1)!,
-          normalized.substring(match.group(1)!.length),
-        ];
+    } else {
+      // Split if secondary speaker prefix occurs inline: e.g. "선생님: ... 학생들: ..."
+      final inlineSpeakerPattern = RegExp(r'(?<=[.?!~])\s+(?=[^:\n\r]{1,8}\s*:)');
+      if (inlineSpeakerPattern.hasMatch(normalized)) {
+        rawLines = normalized.split(inlineSpeakerPattern);
       } else {
         rawLines = [normalized];
       }
-    } else {
-      rawLines = [normalized];
     }
 
     final List<_DialogueTurn> turns = [];
@@ -1292,27 +1555,26 @@ class _QuizScreenState extends State<QuizScreen> {
       final line = rawLines[i].trim();
       if (line.isEmpty) continue;
 
-      String speakerName = (i == 0) ? '철수' : '영희';
+      String speakerName = (i == 0) ? '가' : '나';
       String content = line;
 
-      // Extract speaker prefix if present
-      final prefixMatch = RegExp(r'^(?:가|나|철수|영희|민수|지수|[A-D])\s*:\s*(.*)$').firstMatch(line);
+      // Extract ANY speaker prefix: e.g. "선생님: ...", "학생들: ...", "철수: ..."
+      final prefixMatch = RegExp(r'^([^:\n\r]{1,10})\s*:\s*(.*)$').firstMatch(line);
       if (prefixMatch != null) {
-        content = prefixMatch.group(1)!.trim();
-        final rawSpeaker = line.split(':')[0].trim();
-        if (rawSpeaker == '가' || rawSpeaker == '철수' || rawSpeaker == '민수' || rawSpeaker == 'A') {
-          speakerName = '철수';
-        } else if (rawSpeaker == '나' || rawSpeaker == '영희' || rawSpeaker == '지수' || rawSpeaker == 'B') {
-          speakerName = '영희';
-        } else {
-          speakerName = rawSpeaker;
-        }
+        speakerName = prefixMatch.group(1)!.trim();
+        content = prefixMatch.group(2)!.trim();
       }
+
+      // Compact any remaining multi-spaces inside parentheses
+      content = content.replaceAll(RegExp(r'\(\s{2,}\)'), '(   )');
+
+      final emoji = _getSpeakerEmoji(speakerName, i == 0);
 
       turns.add(_DialogueTurn(
         speakerName: speakerName,
+        emoji: emoji,
         content: content,
-        isBlankTarget: content.contains('(') || content.contains('_____'),
+        isBlankTarget: _blankPattern.hasMatch(content),
         isFirst: (i == 0),
       ));
     }
@@ -1320,7 +1582,8 @@ class _QuizScreenState extends State<QuizScreen> {
     // Fallback if empty
     if (turns.isEmpty) {
       turns.add(_DialogueTurn(
-        speakerName: '철수',
+        speakerName: '가',
+        emoji: '🙋‍♂️',
         content: rawQuestion,
         isBlankTarget: false,
         isFirst: true,
@@ -1514,18 +1777,54 @@ class _QuizScreenState extends State<QuizScreen> {
                 size: 26,
               ),
               const SizedBox(width: 10),
-              Text(
-                isCorrect
-                    ? AppStrings.tr('quiz_correct_feedback', _currentLangCode)
-                    : AppStrings.tr('quiz_incorrect_feedback', _currentLangCode),
-                style: TextStyle(
-                  fontSize: 19,
-                  fontWeight: FontWeight.w800,
-                  color: isCorrect
-                      ? (isDark ? const Color(0xFF4ADE80) : const Color(0xFF15803D))
-                      : (isDark ? const Color(0xFFF87171) : const Color(0xFFB91C1C)),
+              Expanded(
+                child: Text(
+                  isCorrect
+                      ? AppStrings.tr('quiz_correct_feedback', _currentLangCode)
+                      : AppStrings.tr('quiz_incorrect_feedback', _currentLangCode),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 19,
+                    fontWeight: FontWeight.w800,
+                    color: isCorrect
+                        ? (isDark ? const Color(0xFF4ADE80) : const Color(0xFF15803D))
+                        : (isDark ? const Color(0xFFF87171) : const Color(0xFFB91C1C)),
+                  ),
                 ),
               ),
+              if (isCorrect) ...[
+                const SizedBox(width: 8),
+                TweenAnimationBuilder<double>(
+                  key: ValueKey('combo_$_currentIndex'),
+                  tween: Tween(begin: 0.6, end: 1.0),
+                  duration: const Duration(milliseconds: 380),
+                  curve: Curves.elasticOut,
+                  builder: (context, scale, child) => Transform.scale(scale: scale, child: child),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: isDark
+                          ? const Color(0xFF78350F).withValues(alpha: 0.45)
+                          : const Color(0xFFFEF3C7),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: isDark ? const Color(0xFFF59E0B) : const Color(0xFFFCD34D),
+                      ),
+                    ),
+                    child: Text(
+                      _combo >= 2
+                          ? '🔥 ${AppStrings.tr('quiz_combo', _currentLangCode, {'n': '$_combo'})}'
+                          : '+${ProgressService.xpPerCorrect} XP',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                        color: isDark ? const Color(0xFFFCD34D) : const Color(0xFFB45309),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ],
           ),
           if (!isCorrect) ...[
@@ -1680,12 +1979,14 @@ class _QuizScreenState extends State<QuizScreen> {
 
 class _DialogueTurn {
   final String speakerName;
+  final String emoji;
   final String content;
   final bool isBlankTarget;
   final bool isFirst;
 
   const _DialogueTurn({
     required this.speakerName,
+    required this.emoji,
     required this.content,
     required this.isBlankTarget,
     required this.isFirst,

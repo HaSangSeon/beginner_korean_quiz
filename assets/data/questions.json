@@ -14,22 +14,23 @@
       "JA": "絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 한국어를 할 수 있어요?\n영희: 네, (                 )."
+      "KO": "철수: 한국어를 할 수 있어요?\n영희: 네, (   )."
     },
     "options": [
+      "하지 않아요",
       "할 수 있어요",
-      "해요",
       "했어요",
-      "하지 않아요"
+      "해요"
     ],
-    "answerIndex": 0,
+    "answerIndex": 1,
     "explanations": {
       "KO": "동사 '하다'의 어간에 능력과 가능을 나타내는 '-(으)ㄹ 수 있어요'가 결합하여 '할 수 있어요'가 됩니다.",
       "EN": "'하다' (to do/speak) combines with the ability grammar '-(으)ㄹ 수 있어요' (can) to make '할 수 있어요' (Yes, I can speak it).",
       "VI": "Động từ '하다' kết hợp với ngữ pháp chỉ khả năng '-(으)ㄹ 수 있어요' tạo thành '할 수 있어요' (Vâng, tôi có thể nói được).",
       "ZH": "动词'하다'加上表示能力的'-(으)ㄹ 수 있어요'，变为'할 수 있어요'（是的，我会说）。",
       "JA": "動詞「하다（する）」に可能を表す「-(으)ㄹ 수 있어요」がついて「할 수 있어요（話せます）」になります。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 2,
@@ -46,22 +47,23 @@
       "JA": "絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 운전할 수 있어요?\n영희: 네, (                 )."
+      "KO": "철수: 운전할 수 있어요?\n영희: 네, (   )."
     },
     "options": [
-      "운전할 수 있어요",
-      "운전해요",
       "운전 못 해요",
-      "운전했어요"
+      "운전해요",
+      "운전했어요",
+      "운전할 수 있어요"
     ],
-    "answerIndex": 0,
+    "answerIndex": 3,
     "explanations": {
       "KO": "'운전하다'의 긍정 가능 표현은 '운전할 수 있어요'입니다. 면허가 있고 운전이 가능함을 나타냅니다.",
       "EN": "Affirmative capability with '운전하다' (to drive) is '운전할 수 있어요' (Yes, I can drive).",
       "VI": "Biểu thị khả năng lái xe khẳng định là '운전할 수 있어요' (Vâng, tôi có thể lái xe).",
       "ZH": "'운전하다'（开车）表示肯定的能力表达是'운전할 수 있어요'（是的，我会开车）。",
       "JA": "「운전하다（運転する）」の可能表現は「운전할 수 있어요（運転できます）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 3,
@@ -78,13 +80,13 @@
       "JA": "絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 케이크를 만들 수 있어요?\n영희: 네, (                 )."
+      "KO": "철수: 케이크를 만들 수 있어요?\n영희: 네, (   )."
     },
     "options": [
       "만들 수 있어요",
+      "만들었어요",
       "만들어요",
-      "만들지 못해요",
-      "만들었어요"
+      "만들지 못해요"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -93,7 +95,8 @@
       "VI": "Vì '만들다' kết thúc bằng 'ㄹ' nên kết hợp thành '만들 수 있어요' (Vâng, tôi có thể làm được).",
       "ZH": "'만들다'是以'ㄹ'收音结尾的动词，直接接'수 있어요'，变为'만들 수 있어요'（是的，我会做）。",
       "JA": "「만들다（作る）」はパッチム「ㄹ」のため「만들 수 있어요（作れます）」になります。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 4,
@@ -110,22 +113,23 @@
       "JA": "絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 김치를 먹을 수 있어요?\n영희: 아니요, (                 )."
+      "KO": "철수: 김치를 먹을 수 있어요?\n영희: 아니요, (   )."
     },
     "options": [
-      "못 먹어요",
       "먹을 수 있어요",
       "먹어요",
+      "못 먹어요",
       "맛있어요"
     ],
-    "answerIndex": 0,
+    "answerIndex": 2,
     "explanations": {
       "KO": "매운 음식을 먹지 못할 때는 부정을 나타내는 '아니요' 뒤에 '못 + 동사(못 먹어요)' 또는 '먹을 수 없어요'를 씁니다.",
       "EN": "To express inability (e.g. food is too spicy), use '못 + Verb (못 먹어요)' or '먹을 수 없어요' (No, I cannot eat it).",
       "VI": "Khi không thể ăn được đồ cay, dùng '못 + Động từ (못 먹어요)' hoặc '먹을 수 없어요' (Không, tôi không ăn được).",
       "ZH": "表示不能吃辣等情况时，在'아니요'后接'못 + 动词（못 먹어요）'或'먹을 수 없어요'（不，我吃不了）。",
       "JA": "辛くて食べられない等の不可能を表す時は「아니요（いいえ）」に続き「못 + 動詞（못 먹어요）」または「먹을 수 없어요（食べられません）」を使います。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 5,
@@ -142,22 +146,23 @@
       "JA": "絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 스키를 탈 수 있어요?\n영희: 아니요, (                 )."
+      "KO": "철수: 스키를 탈 수 있어요?\n영희: 아니요, (   )."
     },
     "options": [
-      "못 타요",
       "탈 수 있어요",
+      "못 타요",
       "타요",
       "탔어요"
     ],
-    "answerIndex": 0,
+    "answerIndex": 1,
     "explanations": {
       "KO": "스키를 타지 못할 때 '아니요'에 이어지는 알맞은 부정 대답은 '못 타요' 또는 '탈 수 없어요'입니다.",
       "EN": "When unable to ski, the correct negative response after 'No' is '못 타요' or '탈 수 없어요' (No, I can't ski).",
       "VI": "Khi không biết trượt tuyết, câu trả lời phủ định phù hợp là '못 타요' hoặc '탈 수 없어요' (Không, tôi không trượt được).",
       "ZH": "不会滑雪时，紧接着'아니요'的否定回答是'못 타요'或'탈 수 없어요'（不，我不会滑）。",
       "JA": "スキーが滑れない時、「아니요」に続く正しい否定表現は「못 타요」または「탈 수 없어요（滑れません）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 6,
@@ -174,22 +179,23 @@
       "JA": "<例>のように絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 어디에 가요?\n영희: (                 )."
+      "KO": "철수: 어디에 가요?\n영희: (   )."
     },
     "options": [
+      "산책하러 공원이 와요",
       "산책하러 공원에 가요",
       "산책해서 공원에 가요",
-      "산책하러 공원이 와요",
       "공원에서 산책해요"
     ],
-    "answerIndex": 0,
+    "answerIndex": 1,
     "explanations": {
       "KO": "이동의 목적을 나타낼 때는 '동사-(으)러 + 장소에 가다' 문법을 씁니다. '산책하다'에 '-러'가 붙어 '산책하러 공원에 가요'가 됩니다.",
       "EN": "To express the purpose of going somewhere, use 'Verb-(으)러 + Place에 가다'. '산책하다' + '-러' = '산책하러 공원에 가요' (I'm going to the park to take a walk).",
       "VI": "Để chỉ mục đích đi đâu, dùng cấu trúc 'Động từ-(으)러 + Địa điểm에 가다': '산책하러 공원에 가요' (Tôi đi công viên để đi dạo).",
       "ZH": "表示去某处的目的时使用'动词-(으)러 + 地点에 가다'。'산책하다'加上'-러'变为'산책하러 공원에 가요'（去公园散步）。",
       "JA": "行く目的を表す時「動詞-(으)러 + 場所에 가다（〜しに行く）」を使います。「산책하러 공원에 가요（散歩しに公園へ行きます）」。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 7,
@@ -206,22 +212,23 @@
       "JA": "<例>のように絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 어디에 가요?\n영희: (                 )."
+      "KO": "철수: 어디에 가요?\n영희: (   )."
     },
     "options": [
-      "책을 빌리러 도서관에 가요",
-      "책을 빌려서 도서관에 가요",
       "도서관에 책이 있어요",
+      "책을 빌려서 도서관에 가요",
+      "책을 빌리러 도서관에 가요",
       "책을 사러 도서관에 가요"
     ],
-    "answerIndex": 0,
+    "answerIndex": 2,
     "explanations": {
       "KO": "도서관에 책을 빌리러 가는 목적이므로 '빌리다'에 '-러'를 연결하여 '책을 빌리러 도서관에 가요'라고 표현합니다.",
       "EN": "Purpose of going to the library: '빌리다' (to borrow) + '-러' = '책을 빌리러 도서관에 가요' (Going to the library to borrow books).",
       "VI": "Mục đích đến thư viện: '빌리다' (mượn) + '-러' = '책을 빌리러 도서관에 가요' (Đi thư viện để mượn sách).",
       "ZH": "去图书馆的目的：'빌리다'（借）+ '-러' = '책을 빌리러 도서관에 가요'（去图书馆借书）。",
       "JA": "図書館へ本を借りに行く目的を表す表現：「책을 빌리러 도서관에 가요（本を借りに行きます）」。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 8,
@@ -238,22 +245,23 @@
       "JA": "<例>のように絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 어디에 가요?\n영희: (                 )."
+      "KO": "철수: 어디에 가요?\n영희: (   )."
     },
     "options": [
-      "물건을 사러 편의점에 가요",
-      "물건을 사서 편의점에 가요",
       "편의점에 물건이 많아요",
-      "물건을 사러 편의점이 와요"
+      "물건을 사러 편의점이 와요",
+      "물건을 사서 편의점에 가요",
+      "물건을 사러 편의점에 가요"
     ],
-    "answerIndex": 0,
+    "answerIndex": 3,
     "explanations": {
       "KO": "편의점에 물건을 사러 가는 목적이므로 '사다'에 '-러'를 붙여 '물건을 사러 편의점에 가요'가 올바른 문장입니다.",
       "EN": "Expressing the purpose of shopping at the convenience store: '사다' (to buy) + '-러' = '물건을 사러 편의점에 가요' (Going to the store to buy things).",
       "VI": "Chỉ mục đích mua sắm tại cửa hàng tiện lợi: '물건을 사러 편의점에 가요' (Đi cửa hàng tiện lợi để mua đồ).",
       "ZH": "去便利店买东西的目的表达：'사다'（买）+ '-러' = '물건을 사러 편의점에 가요'（去便利店买东西）。",
       "JA": "コンビニに買い物に行く目的を表す表現：「물건을 사러 편의점에 가요（買い物をしにコンビニに行きます）」。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 9,
@@ -270,13 +278,13 @@
       "JA": "<例>のように絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 부산에 왜 가요?\n영희: (                 )."
+      "KO": "철수: 부산에 왜 가요?\n영희: (   )."
     },
     "options": [
       "친구를 만나러 부산에 가요",
+      "친구랑 부산이 가요",
       "친구를 만나서 부산에 가요",
-      "부산에 친구가 살아요",
-      "친구랑 부산이 가요"
+      "부산에 친구가 살아요"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -285,7 +293,8 @@
       "VI": "Đáp lại câu hỏi mục đích '왜 가요?': '친구를 만나러 부산에 가요' (Tôi đi Busan để gặp bạn).",
       "ZH": "回答'왜 가요?'（为什么去？）这一目的问题时，回答'친구를 만나러 부산에 가요'（去釜山见朋友）。",
       "JA": "「왜 가요?（なぜ行きますか？）」という目的の問いに「친구를 만나러 부산에 가요（友達に会いに釜山へ行きます）」と答えます。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 10,
@@ -302,22 +311,23 @@
       "JA": "<例>のように絵を見て会話を完成させてください。"
     },
     "questions": {
-      "KO": "철수: 한국에 왜 왔어요?\n영희: (                 )."
+      "KO": "철수: 한국에 왜 왔어요?\n영희: (   )."
     },
     "options": [
-      "한국어를 배우러 왔어요",
-      "한국어를 배워서 왔어요",
       "한국어가 재미있어요",
-      "한국어를 배우러 가요"
+      "한국어를 배우러 가요",
+      "한국어를 배워서 왔어요",
+      "한국어를 배우러 왔어요"
     ],
-    "answerIndex": 0,
+    "answerIndex": 3,
     "explanations": {
       "KO": "한국에 온 목적을 묻는 질문이며, 이미 한국에 도착해 있으므로 '가요'가 아니라 '왔어요'를 써서 '한국어를 배우러 왔어요'라고 합니다.",
       "EN": "Since the speaker is already in Korea and asked '왜 왔어요?' (Why did you come?), respond with '왔어요' (came), not '가요' (go): '한국어를 배우러 왔어요' (I came to learn Korean).",
       "VI": "Người nói đã ở Hàn Quốc nên dùng '왔어요' thay vì '가요': '한국어를 배우러 왔어요' (Tôi đến để học tiếng Hàn).",
       "ZH": "因身在韩国被问'왜 왔어요?'（为什么来？），使用'왔어요'（来了）而不是'가요'：'한국어를 배우러 왔어요'（我来学韩语）。",
       "JA": "すでに韓国にいて「왜 왔어요?（なぜ来ましたか？）」と聞かれているため、「가요」ではなく「왔어요」を使って「한국어를 배우러 왔어요（韓国語を学びに来ました）」と答えます。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 11,
@@ -332,22 +342,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "꽃",
       "나무",
+      "잎",
       "풀",
-      "잎"
+      "꽃"
     ],
-    "answerIndex": 0,
+    "answerIndex": 3,
     "explanations": {
       "KO": "그림은 아름다운 붉은 '꽃(장미)'입니다. '나무(tree)', '풀(grass)', '잎(leaf)'과 구별하세요.",
       "EN": "The picture shows a '꽃' (flower/rose). Distinguish from 나무 (tree), 풀 (grass), 잎 (leaf).",
       "VI": "Hình ảnh là '꽃' (hoa). Phân biệt với 나무 (cây), 풀 (cỏ), 잎 (lá).",
       "ZH": "图片是'꽃'（花）。注意区分 나무（树）、풀（草）、잎（叶）。",
       "JA": "絵は「꽃（花）」です。「나무（木）」「풀（草）」「잎（葉）」と区別しましょう。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 12,
@@ -362,13 +373,13 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
       "모자",
       "안경",
-      "가방",
-      "바지"
+      "바지",
+      "가방"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -377,7 +388,8 @@
       "VI": "Đồ đội trên đầu là '모자' (mũ). Dùng với động từ '쓰다'.",
       "ZH": "戴在头上的物品是'모자'（帽子）。常与动词'쓰다'搭配。",
       "JA": "頭にかぶる物は「모자（帽子）」です。「쓰다」と一緒に使います。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 13,
@@ -392,22 +404,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "문",
-      "창문",
+      "천장",
       "벽",
-      "천장"
+      "창문",
+      "문"
     ],
-    "answerIndex": 0,
+    "answerIndex": 3,
     "explanations": {
       "KO": "열고 방으로 들어가는 출입구는 '문(door)'입니다. 창문(window)과 구분하세요.",
       "EN": "The doorway to enter a room is '문' (door). Compare with 창문 (window).",
       "VI": "Lối vào phòng là '문' (cửa ra vào). Phân biệt với 창문 (cửa sổ).",
       "ZH": "进入房间的入口是'문'（门）。与창문（窗户）区分。",
       "JA": "部屋に入る出入り口は「문（ドア・扉）」です。「창문（窓）」と区別しましょう。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 14,
@@ -422,22 +435,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "신문",
+      "사전",
       "잡지",
-      "공책",
-      "사전"
+      "신문",
+      "공책"
     ],
-    "answerIndex": 0,
+    "answerIndex": 2,
     "explanations": {
       "KO": "매일 뉴스를 종이에 인쇄하여 전하는 매체는 '신문(newspaper)'입니다.",
       "EN": "A printed publication containing daily news is '신문' (newspaper).",
       "VI": "Ấn phẩm tin tức hàng ngày là '신문' (báo).",
       "ZH": "每天刊登新闻的纸质印刷品是'신문'（报纸）。",
       "JA": "毎日のニュースを伝える印刷物は「신문（新聞）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 15,
@@ -452,22 +466,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "신발",
       "양말",
       "장갑",
-      "치마"
+      "치마",
+      "신발"
     ],
-    "answerIndex": 0,
+    "answerIndex": 3,
     "explanations": {
       "KO": "발에 신는 것은 '신발(shoes)'입니다. '신발을 신다' 동사와 함께 쓰입니다.",
       "EN": "What you wear on your feet are '신발' (shoes/footwear). Used with '신다'.",
       "VI": "Đồ mang ở chân là '신발' (giày dép). Dùng với động từ '신다'.",
       "ZH": "穿在脚上的物品是'신발'（鞋子）。常与动词'신다'搭配。",
       "JA": "足に履く物は「신발（靴・履物）」です。「신다」と一緒に使います。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 16,
@@ -482,22 +497,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
+      "반지",
       "안경",
       "시계",
-      "반지",
       "목걸이"
     ],
-    "answerIndex": 0,
+    "answerIndex": 1,
     "explanations": {
       "KO": "눈이 잘 보이도록 착용하는 물건은 '안경(glasses)'입니다. '안경을 쓰다'로 표현합니다.",
       "EN": "Eyewear used for vision correction is '안경' (glasses). Used with '쓰다'.",
       "VI": "Vật đeo để nhìn rõ hơn là '안경' (kính mắt). Dùng với '쓰다'.",
       "ZH": "用于看清东西的物品是'안경'（眼镜）。常与'쓰다'搭配。",
       "JA": "目をよく見えるようにかける物は「안경（眼鏡）」です。「쓰다」を使います。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 17,
@@ -512,12 +528,12 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
       "시계",
-      "달력",
       "전화기",
+      "달력",
       "거울"
     ],
     "answerIndex": 0,
@@ -527,7 +543,8 @@
       "VI": "Dụng cụ chỉ thời gian là '시계' (đồng hồ).",
       "ZH": "指示时间的工具是'시계'（表/钟）。",
       "JA": "時間を知らせる道具は「시계（時計）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 18,
@@ -542,22 +559,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
+      "수건",
       "옷",
       "이불",
-      "수건",
       "베개"
     ],
-    "answerIndex": 0,
+    "answerIndex": 1,
     "explanations": {
       "KO": "몸에 입는 것은 '옷(clothes)'입니다. '옷을 입다' 동사와 함께 쓰입니다.",
       "EN": "Items worn on the body are '옷' (clothes). Used with the verb '입다'.",
       "VI": "Đồ mặc trên người là '옷' (quần áo). Dùng với động từ '입다'.",
       "ZH": "穿在身上的物品是'옷'（衣服）。常与动词'입다'搭配。",
       "JA": "体に着るものは「옷（服・衣服）」です。「입다」と一緒に使います。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 19,
@@ -572,22 +590,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "양말",
-      "장갑",
+      "신발",
       "목도리",
-      "신발"
+      "양말",
+      "장갑"
     ],
-    "answerIndex": 0,
+    "answerIndex": 2,
     "explanations": {
       "KO": "발을 보호하기 위해 신발 안에 신는 것은 '양말(socks)'입니다.",
       "EN": "Footwear worn inside shoes for protection is '양말' (socks).",
       "VI": "Đồ đi bên trong giày là '양말' (tất/vớ).",
       "ZH": "穿在鞋子里面保护双脚的是'양말'（袜子）。",
       "JA": "靴の中に履く物は「양말（靴下）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 20,
@@ -602,22 +621,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "연필",
       "지우개",
+      "필통",
       "가위",
-      "필통"
+      "연필"
     ],
-    "answerIndex": 0,
+    "answerIndex": 3,
     "explanations": {
       "KO": "글씨나 그림을 그리는 필기구는 '연필(pencil)'입니다. '연필로 쓰다'로 사용합니다.",
       "EN": "Writing instrument with graphite is '연필' (pencil).",
       "VI": "Dụng cụ dùng để viết là '연필' (bút chì).",
       "ZH": "用来书写或绘画的文具是'연필'（铅笔）。",
       "JA": "文字や絵を書く筆記用具は「연필（鉛筆）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 21,
@@ -632,22 +652,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "산",
-      "바다",
       "강",
+      "바다",
+      "산",
       "하늘"
     ],
-    "answerIndex": 0,
+    "answerIndex": 2,
     "explanations": {
       "KO": "높이 솟아오른 지형은 '산(mountain)'입니다. '산에 오르다/등산하다'로 씁니다.",
       "EN": "Elevated natural terrain is '산' (mountain).",
       "VI": "Địa hình cao tự nhiên là '산' (núi).",
       "ZH": "高高耸立的自然地形是'산'（山）。",
       "JA": "高くそびえ立つ自然の地形は「산（山）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 22,
@@ -662,7 +683,7 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
       "빵",
@@ -677,7 +698,8 @@
       "VI": "Món ăn nướng làm từ bột mì là '빵' (bánh mì).",
       "ZH": "用面粉烘焙而成的食品是'빵'（面包）。",
       "JA": "小麦粉をこねて焼いた食べ物は「빵（パン）」です。"
-    }
+    },
+    "level": 2
   },
   {
     "id": 23,
@@ -692,13 +714,13 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
       "사과",
-      "바나나",
       "포도",
-      "수박"
+      "수박",
+      "바나나"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -707,7 +729,8 @@
       "VI": "Loại quả tròn màu đỏ là '사과' (táo).",
       "ZH": "又红又圆的代表性水果是'사과'（苹果）。",
       "JA": "赤くて丸い代表的な果物は「사과（りんご）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 24,
@@ -722,22 +745,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
+      "엽서",
       "사진",
-      "지도",
       "우표",
-      "엽서"
+      "지도"
     ],
-    "answerIndex": 0,
+    "answerIndex": 1,
     "explanations": {
       "KO": "카메라로 촬영하여 인화한 것은 '사진(photo/picture)'입니다. '사진을 찍다'로 씁니다.",
       "EN": "An image captured with a camera is '사진' (photo). Used with '사진을 찍다'.",
       "VI": "Hình ảnh chụp bằng máy ảnh là '사진' (bức ảnh). Dùng với '사진을 찍다'.",
       "ZH": "用相机拍摄出的影像是'사진'（照片）。常与'사진을 찍다'搭配。",
       "JA": "カメラで撮影したものは「사진（写真）」です。「사진을 찍다」と使います。"
-    }
+    },
+    "level": 2
   },
   {
     "id": 25,
@@ -752,13 +776,13 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
       "우유",
       "물",
-      "주스",
-      "차"
+      "차",
+      "주스"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -767,7 +791,8 @@
       "VI": "Thức uống màu trắng bổ dưỡng là '우유' (sữa).",
       "ZH": "奶牛产出的白色饮品是'우유'（牛奶）。",
       "JA": "牛から取れる白い飲み物は「우유（牛乳・ミルク）」です。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 26,
@@ -782,22 +807,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "의자",
-      "책상",
       "침대",
-      "소파"
+      "소파",
+      "의자",
+      "책상"
     ],
-    "answerIndex": 0,
+    "answerIndex": 2,
     "explanations": {
       "KO": "사람이 앉을 수 있도록 만든 가구는 '의자(chair)'입니다. 책상(desk)과 구별하세요.",
       "EN": "Furniture designed for sitting is '의자' (chair). Compare with 책상 (desk).",
       "VI": "Đồ nội thất dùng để ngồi là '의자' (ghế). Phân biệt với 책상 (bàn).",
       "ZH": "供人坐的家具是'의자'（椅子）。与책상（书桌）区分。",
       "JA": "人が座るための家具は「의자（椅子）」です。「책상（机）」と区別しましょう。"
-    }
+    },
+    "level": 2
   },
   {
     "id": 27,
@@ -812,22 +838,23 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
-      "우산",
       "비옷",
       "장화",
-      "모자"
+      "모자",
+      "우산"
     ],
-    "answerIndex": 0,
+    "answerIndex": 3,
     "explanations": {
       "KO": "비가 올 때 비를 막아주는 물건은 '우산(umbrella)'입니다. '우산을 쓰다'로 표현합니다.",
       "EN": "An item to shield from rain is '우산' (umbrella). Used with '우산을 쓰다'.",
       "VI": "Đồ vật che mưa là '우산' (cây dù/ô). Dùng với '우산을 쓰다'.",
       "ZH": "下雨时用来遮雨的物品是'우산'（雨伞）。常与'우산을 쓰다'搭配。",
       "JA": "雨が降る時に雨を防ぐ物は「우산（傘）」です。「우산을 쓰다」と言います。"
-    }
+    },
+    "level": 1
   },
   {
     "id": 28,
@@ -842,13 +869,13 @@
       "JA": "絵を見て正しいものを選んでください。"
     },
     "questions": {
-      "KO": "철수: 이것이 무엇입니까?\n영희: (       )입니다."
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
     },
     "options": [
       "지갑",
-      "가방",
+      "주머니",
       "상자",
-      "주머니"
+      "가방"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -857,6 +884,2883 @@
       "VI": "Vật nhỏ đựng tiền và thẻ là '지갑' (ví tiền).",
       "ZH": "用来装钱和卡片随身携带的是'지갑'（钱包）。",
       "JA": "お金やカードを入れて持ち歩くものは「지갑（財布）」です。"
+    },
+    "level": 2
+  },
+  {
+    "id": 29,
+    "category": "국적·소개",
+    "type": "sentence",
+    "visual": "🇯🇵 🗻",
+    "speechBubble": "후지산이 아름다워요!",
+    "keyword": "일본",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 어느 나라 사람이에요?\n나: (   ) 사람이에요."
+    },
+    "options": [
+      "일본",
+      "중국",
+      "미국",
+      "독일"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "일장기(🇯🇵)와 후지산은 '일본(Japan)'을 나타냅니다. '일본 사람이에요'라고 답합니다.",
+      "EN": "The Japanese flag (🇯🇵) and Mt. Fuji represent '일본' (Japan). Say '일본 사람이에요' (I am Japanese).",
+      "VI": "Quốc kỳ Nhật Bản (🇯🇵) và núi Phú Sĩ thể hiện '일본' (Nhật Bản). Trả lời '일본 사람이에요' (Tôi là người Nhật Bản).",
+      "ZH": "日本国旗（🇯🇵）和富士山代表'일본'（日本）。回答：'일본 사람이에요'（我是日本人）。",
+      "JA": "日本の国旗（🇯🇵）と富士山は「일본（日本）」を表します。「일본 사람이에요（日本人です）」と答えます。"
+    },
+    "level": 1
+  },
+  {
+    "id": 30,
+    "category": "국적·소개",
+    "type": "sentence",
+    "visual": "🇩🇪 🍺",
+    "speechBubble": "옥토버페스트 축제예요!",
+    "keyword": "독일",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 어느 나라 사람이에요?\n나: (   ) 사람이에요."
+    },
+    "options": [
+      "호주",
+      "영국",
+      "프랑스",
+      "독일"
+    ],
+    "answerIndex": 3,
+    "explanations": {
+      "KO": "검정·빨강·노랑 3색 국기(🇩🇪)와 축제 맥주는 '독일(Germany)'을 나타냅니다. '독일 사람이에요'라고 답합니다.",
+      "EN": "The German flag (🇩🇪) represents '독일' (Germany). Say '독일 사람이에요' (I am German).",
+      "VI": "Quốc kỳ ba màu (🇩🇪) đại diện cho '독일' (nước Đức). Trả lời '독일 사람이에요' (Tôi là người Đức).",
+      "ZH": "德国国旗（🇩🇪）代表'독일'（德国）。回答：'독일 사람이에요'（我是德国人）。",
+      "JA": "ドイツの国旗（🇩🇪）は「독일（ドイツ）」を表します。「독일 사람이에요（ドイツ人です）」と答えます。"
+    },
+    "level": 2
+  },
+  {
+    "id": 31,
+    "category": "국적·소개",
+    "type": "sentence",
+    "visual": "🇨🇳 🏮",
+    "speechBubble": "만리장성이 있어요!",
+    "keyword": "중국",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 어느 나라 사람이에요?\n나: (   ) 사람이에요."
+    },
+    "options": [
+      "중국",
+      "베트남",
+      "태국",
+      "일본"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "붉은 바탕에 노란 별이 있는 국기(🇨🇳)와 만리장성은 '중국(China)'을 나타냅니다. '중국 사람이에요'라고 답합니다.",
+      "EN": "The flag (🇨🇳) and Great Wall represent '중국' (China). Say '중국 사람이에요' (I am Chinese).",
+      "VI": "Quốc kỳ (🇨🇳) và Vạn Lý Trường Thành là '중국' (Trung Quốc). Trả lời '중국 사람이에요' (Tôi là người Trung Quốc).",
+      "ZH": "五星红旗（🇨🇳）和万里长城代表'중국'（中国）。回答：'중국 사람이에요'（我是中国人）。",
+      "JA": "中国の国旗（🇨🇳）と万里の長城は「중국（中国）」を表します。「중국 사람이에요（中国人です）」と答えます。"
+    },
+    "level": 1
+  },
+  {
+    "id": 32,
+    "category": "출신·인사",
+    "type": "sentence",
+    "visual": "🇦🇺 🦘",
+    "speechBubble": "시드니 오페라하우스가 있어요!",
+    "keyword": "호주",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 어디에서 왔어요?\n나: (   )에서 왔어요."
+    },
+    "options": [
+      "미국",
+      "캐나다",
+      "호주",
+      "영국"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "국기(🇦🇺)와 캥거루, 오페라하우스는 '호주(Australia)'를 나타냅니다. 출발지를 나타내는 조사 '-에서'와 결합하여 '호주에서 왔어요'가 됩니다.",
+      "EN": "The flag (🇦🇺) and kangaroo represent '호주' (Australia). Combined with '-에서' (from), say '호주에서 왔어요' (I came from Australia).",
+      "VI": "Quốc kỳ (🇦🇺) và chuột túi là '호주' (Úc). Đi kèm trợ từ '-에서' (từ), trả lời '호주에서 왔어요' (Tôi đến từ Úc).",
+      "ZH": "国旗（🇦🇺）和袋鼠代表'호주'（澳大利亚）。接助词'-에서'（从），回答：'호주에서 왔어요'（我来自澳大利亚）。",
+      "JA": "国旗（🇦🇺）とカンガルーは「호주（オーストラリア）」です。助詞「-에서（〜から）」を付けて「호주에서 왔어요（オーストラリアから来ました）」となります。"
+    },
+    "level": 2
+  },
+  {
+    "id": 33,
+    "category": "출신·인사",
+    "type": "sentence",
+    "visual": "🇫🇷 🗼",
+    "speechBubble": "파리 에펠탑이 유명해요!",
+    "keyword": "프랑스",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 어디에서 왔어요?\n나: (   )에서 왔어요."
+    },
+    "options": [
+      "독일",
+      "프랑스",
+      "이탈리아",
+      "스페인"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "파란색·흰색·빨간색 3색기(🇫🇷)와 에펠탑은 '프랑스(France)'입니다. '프랑스에서 왔어요'라고 말합니다.",
+      "EN": "The Tricolour flag (🇫🇷) and Eiffel Tower represent '프랑스' (France). Say '프랑스에서 왔어요' (I came from France).",
+      "VI": "Cờ ba màu (🇫🇷) và tháp Eiffel đại diện cho '프랑스' (Pháp). Nói '프랑스에서 왔어요' (Tôi đến từ Pháp).",
+      "ZH": "三色旗（🇫🇷）和埃菲尔铁塔代表'프랑스'（法国）。回答：'프랑스에서 왔어요'（我来自法国）。",
+      "JA": "三色旗（🇫🇷）とエッフェル塔は「프랑스（フランス）」です。「프랑스에서 왔어요（フランスから来ました）」と答えます。"
+    },
+    "level": 1
+  },
+  {
+    "id": 34,
+    "category": "직업·소개",
+    "type": "sentence",
+    "visual": "👩‍🏫 📚",
+    "speechBubble": "교실에서 학생들을 가르쳐요!",
+    "keyword": "선생님",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 직업이 뭐예요?\n나: (   )이에요."
+    },
+    "options": [
+      "학생",
+      "의사",
+      "선생님",
+      "회사원"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "학교나 학원에서 가르치는 사람은 '선생님(teacher)'입니다. '선생님'은 받침 'ㅁ'이 있으므로 '-이에요'가 결합하여 '선생님이에요'가 됩니다.",
+      "EN": "'선생님' means teacher. Since '선생님' ends with a final consonant (받침 'ㅁ'), attach '-이에요' -> '선생님이에요' (I am a teacher).",
+      "VI": "'선생님' là giáo viên. Do có phụ âm cuối (받침 'ㅁ') nên kết hợp với '-이에요' -> '선생님이에요' (Tôi là giáo viên).",
+      "ZH": "'선생님'是老师。因有收音（받침 'ㅁ'），接'-이에요'，变为'선생님이에요'（我是老师）。",
+      "JA": "教える人は「선생님（先生）」です。パッチム「ㅁ」があるため「-이에요」がつき「선생님이에요（先生です）」になります。"
+    },
+    "level": 2
+  },
+  {
+    "id": 35,
+    "category": "직업·소개",
+    "type": "sentence",
+    "visual": "👨‍💼 💻",
+    "speechBubble": "사무실에서 컴퓨터로 일해요!",
+    "keyword": "회사원",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 직업이 뭐예요?\n나: (   )이에요."
+    },
+    "options": [
+      "가수",
+      "회사원",
+      "경찰관",
+      "요리사"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "회사에서 일하는 직원은 '회사원(office worker)'입니다. 받침 'ㄴ'이 있으므로 '-이에요'와 결합하여 '회사원이에요'가 됩니다.",
+      "EN": "'회사원' means office worker. Since it has a final consonant ('ㄴ'), it takes '-이에요' -> '회사원이에요' (I am an office worker).",
+      "VI": "'회사원' là nhân viên văn phòng. Có phụ âm cuối ('ㄴ') nên kết hợp với '-이에요' -> '회사원이에요' (Tôi là nhân viên công ty).",
+      "ZH": "'회사원'是公司职员。有收音（'ㄴ'），接'-이에요' -> '회사원이에요'（我是公司职员）。",
+      "JA": "会社で働く人は「회사원（会社員）」です。パッチム「ㄴ」があるため「-이에요」がつき「회사원이에요（会社員です）」になります。"
+    },
+    "level": 1
+  },
+  {
+    "id": 36,
+    "category": "직업·소개",
+    "type": "sentence",
+    "visual": "👨‍⚕️ 🩺",
+    "speechBubble": "병원에서 아픈 환자를 진료해요!",
+    "keyword": "의사",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 직업이 뭐예요?\n나: (   )예요."
+    },
+    "options": [
+      "학생",
+      "회사원",
+      "의사",
+      "선생님"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "환자를 진료하는 사람은 '의사(doctor)'입니다. '의사'는 받침이 없으므로 '-예요'와 결합하여 '의사예요'가 됩니다.",
+      "EN": "'의사' means doctor. Since '의사' has no final consonant (no 받침), attach '-예요' -> '의사예요' (I am a doctor).",
+      "VI": "'의사' là bác sĩ. Từ này không có phụ âm cuối (không có 받침) nên đi với '-예요' -> '의사예요' (Tôi là bác sĩ).",
+      "ZH": "'의사'是医生。词尾无收音（无받침），接'-예요' -> '의사예요'（我是医生）。",
+      "JA": "患者を診察する人は「의사（医者）」です。パッチムがないため「-예요」がつき「의사예요（医者です）」になります。"
+    },
+    "level": 2
+  },
+  {
+    "id": 37,
+    "category": "국적·소개",
+    "type": "sentence",
+    "visual": "🇻🇳 🌾",
+    "speechBubble": "하노이와 쌀국수가 유명해요!",
+    "keyword": "베트남",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 어느 나라 사람이에요?\n나: (   ) 사람이에요."
+    },
+    "options": [
+      "중국",
+      "한국",
+      "필리핀",
+      "베트남"
+    ],
+    "answerIndex": 3,
+    "explanations": {
+      "KO": "붉은 바탕 가운데 노란 큰 별이 있는 국기(🇻🇳)는 '베트남(Vietnam)'입니다. '베트남 사람이에요'라고 답합니다.",
+      "EN": "The red flag with a golden star (🇻🇳) represents '베트남' (Vietnam). Say '베트남 사람이에요' (I am Vietnamese).",
+      "VI": "Cờ đỏ sao vàng (🇻🇳) là biểu tượng của '베트남' (Việt Nam). Trả lời '베트남 사람이에요' (Tôi là người Việt Nam).",
+      "ZH": "红底金星旗帜（🇻🇳）代表'베트남'（越南）。回答：'베트남 사람이에요'（我是越南人）。",
+      "JA": "赤地に金星の国旗（🇻🇳）は「베트남（ベトナム）」を表します。「베트남 사람이에요（ベトナム人です）」と答えます。"
+    },
+    "level": 1
+  },
+  {
+    "id": 38,
+    "category": "국적·소개",
+    "type": "sentence",
+    "visual": "🇰🇷 🏛️",
+    "speechBubble": "서울에 살아요!",
+    "keyword": "한국",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 어느 나라 사람이에요?\n나: (   ) 사람이에요."
+    },
+    "options": [
+      "호주",
+      "한국",
+      "독일",
+      "미국"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "태극기(🇰🇷)와 경복궁은 '한국(Korea)'을 나타냅니다. '한국 사람이에요'라고 답합니다.",
+      "EN": "Taegeukgi (🇰🇷) represents '한국' (Korea). Say '한국 사람이에요' (I am Korean).",
+      "VI": "Quốc kỳ Taegeukgi (🇰🇷) đại diện cho '한국' (Hàn Quốc). Nói '한국 사람이에요' (Tôi là người Hàn Quốc).",
+      "ZH": "太极旗（🇰🇷）代表'한국'（韩国）。回答：'한국 사람이에요'（我是韩国人）。",
+      "JA": "太極旗（🇰🇷）は「한국（韓国）」を表します。「한국 사람이에요（韓国人です）」と答えます。"
+    },
+    "level": 2
+  },
+  {
+    "id": 39,
+    "category": "출신·인사",
+    "type": "sentence",
+    "visual": "🇺🇸 🗽",
+    "speechBubble": "자유의 여신상이 있어요!",
+    "keyword": "미국",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 어디에서 왔어요?\n나: (   )에서 왔어요."
+    },
+    "options": [
+      "호주",
+      "미국",
+      "영국",
+      "캐나다"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "성조기(🇺🇸)와 자유의 여신상은 '미국(USA)'을 나타냅니다. '미국에서 왔어요'라고 답합니다.",
+      "EN": "The Stars and Stripes (🇺🇸) and Statue of Liberty represent '미국' (USA). Say '미국에서 왔어요' (I came from the USA).",
+      "VI": "Cờ sọc sao (🇺🇸) và Tượng Nữ thần Tự do là '미국' (nước Mỹ). Nói '미국에서 왔어요' (Tôi đến từ Mỹ).",
+      "ZH": "星条旗（🇺🇸）和自由女神像代表'미국'（美国）。回答：'미국에서 왔어요'（我来自美国）。",
+      "JA": "星条旗（🇺🇸）と自由の女神像は「미국（アメリカ）」です。「미국에서 왔어요（アメリカから来ました）」と答えます。"
+    },
+    "level": 1
+  },
+  {
+    "id": 40,
+    "category": "직업·소개",
+    "type": "sentence",
+    "visual": "🧑‍🎓 🎒",
+    "speechBubble": "대학교에서 한국어를 공부해요!",
+    "keyword": "학생",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 직업이 뭐예요?\n나: (   )이에요."
+    },
+    "options": [
+      "선생님",
+      "회사원",
+      "학생",
+      "요리사"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "학교에서 공부하는 사람은 '학생(student)'입니다. 받침 'ㅇ'이 있으므로 '-이에요'와 결합하여 '학생이에요'가 됩니다.",
+      "EN": "'학생' means student. Since '학생' ends with a consonant ('ㅇ'), attach '-이에요' -> '학생이에요' (I am a student).",
+      "VI": "'학생' là học sinh / sinh viên. Có phụ âm cuối ('ㅇ') nên đi cùng '-이에요' -> '학생이에요' (Tôi là sinh viên/học sinh).",
+      "ZH": "'학생'是学生。有收音（'ㅇ'），接'-이에요' -> '학생이에요'（我是学生）。",
+      "JA": "学校で勉強する人は「학생（学生）」です。パッチム「ㅇ」があるため「-이에요」がつき「학생이에요（学生です）」になります。"
+    },
+    "level": 2
+  },
+  {
+    "id": 41,
+    "category": "직업·소개",
+    "type": "sentence",
+    "visual": "👩‍⚕️ 🏥",
+    "speechBubble": "병원에서 환자를 돌봐요!",
+    "keyword": "간호사",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 직업이 뭐예요?\n나: (   )예요."
+    },
+    "options": [
+      "약사",
+      "의사",
+      "간호사",
+      "선생님"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "병원에서 환자를 간호하고 돌보는 사람은 '간호사(nurse)'입니다. 받침이 없으므로 '-예요'와 결합하여 '간호사예요'가 됩니다.",
+      "EN": "'간호사' means nurse. Since it ends with a vowel (no 받침), it pairs with '-예요' -> '간호사예요' (I am a nurse).",
+      "VI": "'간호사' là y tá / điều dưỡng. Không có phụ âm cuối nên kết hợp với '-예요' -> '간호사예요' (Tôi là y tá).",
+      "ZH": "'간호사'是护士。无收音，接'-예요' -> '간호사예요'（我是护士）。",
+      "JA": "病院で患者の世話をする人は「간호사（看護師）」です。パッチムがないため「-예요」がつき「간호사예요（看護師です）」になります。"
+    },
+    "level": 1
+  },
+  {
+    "id": 42,
+    "category": "직업·소개",
+    "type": "sentence",
+    "visual": "👨‍🍳 🍳",
+    "speechBubble": "식당에서 맛있는 요리를 만들어요!",
+    "keyword": "요리사",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 직업이 뭐예요?\n나: (   )예요."
+    },
+    "options": [
+      "요리사",
+      "의사",
+      "회사원",
+      "경찰관"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "음식을 전문적으로 만드는 사람은 '요리사(chef/cook)'입니다. 받침이 없으므로 '-예요'와 결합하여 '요리사예요'가 됩니다.",
+      "EN": "'요리사' means chef/cook. With no final consonant, use '-예요' -> '요리사예요' (I am a chef).",
+      "VI": "'요리사' là đầu bếp. Không có phụ âm cuối nên dùng '-예요' -> '요리사예요' (Tôi là đầu bếp).",
+      "ZH": "'요리사'是厨师。无收音，接'-예요' -> '요리사예요'（我是厨师）。",
+      "JA": "料理を作る人は「요리사（料理人・シェフ）」です。パッチムがないため「-예요」がつき「요리사예요（料理人です）」になります。"
+    },
+    "level": 2
+  },
+  {
+    "id": 43,
+    "category": "직업·소개",
+    "type": "sentence",
+    "visual": "👮 🚓",
+    "speechBubble": "시민의 안전을 지켜요!",
+    "keyword": "경찰관",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 직업이 뭐예요?\n나: (   )이에요."
+    },
+    "options": [
+      "소방관",
+      "군인",
+      "경찰관",
+      "선생님"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "치안과 범죄 예방을 담당하는 사람은 '경찰관(police officer)'입니다. 받침 'ㄴ'이 있으므로 '-이에요'와 결합합니다.",
+      "EN": "'경찰관' means police officer. Since it ends with consonant 'ㄴ', use '-이에요' -> '경찰관이에요' (I am a police officer).",
+      "VI": "'경찰관' là cảnh sát. Có phụ âm cuối 'ㄴ' nên đi với '-이에요' -> '경찰관이에요' (Tôi là cảnh sát).",
+      "ZH": "'경찰관'是警察。以'ㄴ'收音结尾，接'-이에요' -> '경찰관이에요'（我是警察）。",
+      "JA": "治安を守る人は「경찰관（警察官）」です。パッチム「ㄴ」があるため「-이에요」がつき「경찰관이에요（警察官です）」になります。"
+    },
+    "level": 1
+  },
+  {
+    "id": 44,
+    "category": "직업·소개",
+    "type": "sentence",
+    "visual": "🧑‍🎤 🎤",
+    "speechBubble": "K-POP 노래를 불러요!",
+    "keyword": "가수",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 직업이 뭐예요?\n나: (   )예요."
+    },
+    "options": [
+      "배우",
+      "작가",
+      "선생님",
+      "가수"
+    ],
+    "answerIndex": 3,
+    "explanations": {
+      "KO": "노래를 부르는 직업은 '가수(singer)'입니다. 받침이 없으므로 '-예요'와 결합하여 '가수예요'가 됩니다.",
+      "EN": "'가수' means singer. Since it ends in a vowel, use '-예요' -> '가수예요' (I am a singer).",
+      "VI": "'가수' là ca sĩ. Kết thúc bằng nguyên âm (không có phụ âm cuối) nên dùng '-예요' -> '가수예요' (Tôi là ca sĩ).",
+      "ZH": "'가수'是歌手。词尾无收音，接'-예요' -> '가수예요'（我是歌手）。",
+      "JA": "歌を歌う職業は「가수（歌手）」です。パッチムがないため「-예요」がつき「가수예요（歌手です）」になります。"
+    },
+    "level": 2
+  },
+  {
+    "id": 45,
+    "category": "사물·지칭",
+    "type": "sentence",
+    "visual": "🛂 📕",
+    "speechBubble": "공항 출입국 때 보여줘요!",
+    "keyword": "여권",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 이것이 무엇입니까?\n나: (   )입니다."
+    },
+    "options": [
+      "통장",
+      "여권",
+      "지갑",
+      "신분증"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "외국에 여행갈 때 신분을 증명하는 여행 증서는 '여권(passport)'입니다. 격식체 종결형 '-입니다'와 결합하여 '여권입니다'가 됩니다.",
+      "EN": "'여권' is passport, essential for international travel and immigration. Say '여권입니다' (It is a passport).",
+      "VI": "'여권' là hộ chiếu, giấy tờ bắt buộc khi xuất nhập cảnh tại sân bay. Kết hợp với '-입니다' -> '여권입니다' (Là hộ chiếu).",
+      "ZH": "'여권'是护照，出入境和国际旅行时的必备身份证件。加上'-입니다' -> '여권입니다'（是护照）。",
+      "JA": "海外旅行や空港で提示する身分証明書は「여권（パスポート）」です。「여권입니다（パスポートです）」となります。"
+    },
+    "level": 1
+  },
+  {
+    "id": 46,
+    "category": "장소·생활",
+    "type": "sentence",
+    "visual": "🏥 🚑",
+    "speechBubble": "의사 선생님과 구급차가 있어요!",
+    "keyword": "병원",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 여기가 어디예요?\n나: (   )이에요."
+    },
+    "options": [
+      "은행",
+      "병원",
+      "약국",
+      "학교"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "의사 선생님이 아픈 환자를 치료하는 장소는 '병원(hospital)'입니다. 받침 'ㄴ'이 있으므로 '-이에요'와 결합하여 '병원이에요'가 됩니다.",
+      "EN": "'병원' is hospital/clinic. Since '병원' has final consonant 'ㄴ', attach '-이에요' -> '병원이에요' (It is a hospital).",
+      "VI": "'병원' là bệnh viện/phòng khám. Có phụ âm cuối 'ㄴ' nên kết hợp với '-이에요' -> '병원이에요' (Đây là bệnh viện).",
+      "ZH": "'병원'是医院。有收音'ㄴ'，接'-이에요' -> '병원이에요'（这里是医院）。",
+      "JA": "医師が治療を行う場所は「병원（病院）」です。パッチム「ㄴ」があるため「-이에요」がつき「병원이에요（病院です）」になります。"
+    },
+    "level": 2
+  },
+  {
+    "id": 47,
+    "category": "장소·생활",
+    "type": "sentence",
+    "visual": "📚 🏛️",
+    "speechBubble": "조용히 책을 읽고 빌려요!",
+    "keyword": "도서관",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 여기가 어디예요?\n나: (   )이에요."
+    },
+    "options": [
+      "식당",
+      "영화관",
+      "공항",
+      "도서관"
+    ],
+    "answerIndex": 3,
+    "explanations": {
+      "KO": "많은 책이 보관되어 있고 조용히 공부하는 장소는 '도서관(library)'입니다. 받침 'ㄴ'이 있으므로 '-이에요'가 결합합니다.",
+      "EN": "'도서관' is library. It ends with consonant 'ㄴ', taking '-이에요' -> '도서관이에요' (It is a library).",
+      "VI": "'도서관' là thư viện. Có phụ âm cuối 'ㄴ' nên kết hợp với '-이에요' -> '도서관이에요' (Đây là thư viện).",
+      "ZH": "'도서관'是图书馆。有收音'ㄴ'，接'-이에요' -> '도서관이에요'（这里是图书馆）。",
+      "JA": "本を読んだり借りたりする静かな場所は「도서관（図書館）」です。パッチム「ㄴ」があるため「도서관이에요（図書館です）」になります。"
+    },
+    "level": 1
+  },
+  {
+    "id": 48,
+    "category": "장소·생활",
+    "type": "sentence",
+    "visual": "🍽️ 🥘",
+    "speechBubble": "맛있는 밥을 먹어요!",
+    "keyword": "식당",
+    "situations": {
+      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
+      "EN": "Look at the picture and complete the dialogue.",
+      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
+      "ZH": "看图并选择恰当的词语完成对话。",
+      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 여기가 어디예요?\n나: (   )이에요."
+    },
+    "options": [
+      "식당",
+      "카페",
+      "편의점",
+      "약국"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "음식을 주문해서 먹는 곳은 '식당(restaurant)'입니다. 받침 'ㅇ'이 있으므로 '-이에요'와 결합하여 '식당이에요'가 됩니다.",
+      "EN": "'식당' is restaurant. Ending with consonant 'ㅇ', it takes '-이에요' -> '식당이에요' (It is a restaurant).",
+      "VI": "'식당' là nhà hàng/quán ăn. Có phụ âm cuối 'ㅇ' nên đi với '-이에요' -> '식당이에요' (Đây là quán ăn).",
+      "ZH": "'식당'是餐厅/饭馆。有收音'ㅇ'，接'-이에요' -> '식당이에요'（这里是餐厅）。",
+      "JA": "料理を注文して食べる場所は「식당（食堂・レストラン）」です。パッチム「ㅇ」があるため「-이에요」がつき「식당이에요（食堂です）」になります。"
+    },
+    "level": 2
+  },
+  {
+    "id": 49,
+    "category": "음식·음료",
+    "type": "word",
+    "level": 1,
+    "visual": "🍙",
+    "keyword": "김밥",
+    "situations": {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "김밥",
+      "라면",
+      "만두",
+      "떡볶이"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "밥에 여러 재료를 넣고 김으로 말아서 싼 한국의 대표 소풍 음식은 '김밥(Gimbap)'입니다.",
+      "EN": "'김밥' (Gimbap) is Korean seaweed rice roll filled with various ingredients.",
+      "VI": "'김밥' (Gimbap) là cơm cuộn rong biển truyền thống của Hàn Quốc.",
+      "ZH": "'김밥'（紫菜包饭）是用紫菜卷米饭和各种蔬菜的韩国代表性食物。",
+      "JA": "海苔でご飯と具材を巻いた韓国の定番料理は「김밥（キンパ・海苔巻き）」です。"
+    }
+  },
+  {
+    "id": 50,
+    "category": "음식·음료",
+    "type": "word",
+    "level": 1,
+    "visual": "🍲 🥢",
+    "keyword": "비빔밥",
+    "situations": {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "불고기",
+      "비빔밥",
+      "찌개",
+      "잡채"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "밥 위에 나물, 고기, 고추장을 넣고 비벼 먹는 음식은 '비빔밥(Bibimbap)'입니다.",
+      "EN": "'비빔밥' (Bibimbap) is a bowl of mixed rice with seasoned vegetables and chili paste.",
+      "VI": "'비빔밥' (Bibimbap) là món cơm trộn với rau thơm, thịt và tương ớt.",
+      "ZH": "'비빔밥'（石锅/拌饭）是在米饭上放各种蔬菜和辣椒酱拌着吃的料理。",
+      "JA": "ご飯にナムルやコチュジャンを混ぜて食べる料理は「비빔밥（ビビンバ）」です。"
+    }
+  },
+  {
+    "id": 51,
+    "category": "음식·음료",
+    "type": "word",
+    "level": 1,
+    "visual": "🍜",
+    "keyword": "라면",
+    "situations": {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "국수",
+      "스파게티",
+      "라면",
+      "우동"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "얼큰한 국물과 꼬들꼬들한 면발이 인기 있는 한국의 인스턴트 국수는 '라면(Ramyeon)'입니다.",
+      "EN": "'라면' (Ramyeon) is Korean instant noodles served in spicy hot broth.",
+      "VI": "'라면' (Ramyeon) là mì tôm/mì ăn liền cay rất phổ biến ở Hàn Quốc.",
+      "ZH": "'라면'（方便面/拉面）是韩国最受欢迎的辛辣汤面速食。",
+      "JA": "辛いスープとちぢれ麺が人気のインスタント麺は「라면（ラーメン）」です。"
+    }
+  },
+  {
+    "id": 52,
+    "category": "음식·음료",
+    "type": "word",
+    "level": 2,
+    "visual": "🥩 🧅",
+    "keyword": "불고기",
+    "situations": {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "삼겹살",
+      "갈비탕",
+      "불고기",
+      "치킨"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "달콤하고 짭짤한 간장 양념에 얇게 썬 소고기를 볶은 음식은 '불고기(Bulgogi)'입니다.",
+      "EN": "'불고기' (Bulgogi) is sweet and savory marinated thinly sliced beef.",
+      "VI": "'불고기' (Bulgogi) là món thịt bò xào ướp gia vị tương ngọt đậm đà.",
+      "ZH": "'불고기'（烤牛肉）是用甜咸酱油腌制后炒熟的薄切牛肉料理。",
+      "JA": "甘辛い醤油ダレで味付けした薄切り牛肉の料理は「불고기（プルコギ）」です。"
+    }
+  },
+  {
+    "id": 53,
+    "category": "음식·음료",
+    "type": "word",
+    "level": 1,
+    "visual": "☕",
+    "keyword": "커피",
+    "situations": {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "우유",
+      "커피",
+      "주스",
+      "콜라"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "향긋한 원두를 내려서 따뜻하거나 차갑게 마시는 음료는 '커피(Coffee)'입니다.",
+      "EN": "'커피' is coffee, the most common daily beverage in Korea.",
+      "VI": "'커피' là cà phê, thức uống quen thuộc hằng ngày.",
+      "ZH": "'커피'是咖啡（Coffee）。",
+      "JA": "毎日の定番の飲み物は「커피（コーヒー）」です。"
+    }
+  },
+  {
+    "id": 54,
+    "category": "음식·음료",
+    "type": "word",
+    "level": 2,
+    "visual": "🍵 🍃",
+    "keyword": "녹차",
+    "situations": {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "보리차",
+      "녹차",
+      "홍차",
+      "유자차"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "초록빛 찻잎을 우려내어 향긋하고 깔끔한 맛을 내는 전통 차는 '녹차(Green tea)'입니다.",
+      "EN": "'녹차' (Nokcha) is green tea made from tea leaves.",
+      "VI": "'녹차' là trà xanh, thức uống thanh mát có lợi cho sức khỏe.",
+      "ZH": "'녹차'是绿茶（Green tea）。",
+      "JA": "茶葉を淹れたすっきりとしたお茶は「녹차（緑茶）」です。"
+    }
+  },
+  {
+    "id": 55,
+    "category": "음식·음료",
+    "type": "word",
+    "level": 1,
+    "visual": "🍦",
+    "keyword": "아이스크림",
+    "situations": {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "케이크",
+      "사탕",
+      "초콜릿",
+      "아이스크림"
+    ],
+    "answerIndex": 3,
+    "explanations": {
+      "KO": "달콤하고 시원하게 얼려 먹는 여름 대표 간식은 '아이스크림(Ice cream)'입니다.",
+      "EN": "'아이스크림' is ice cream, a cold and sweet dessert.",
+      "VI": "'아이스크림' là kem (ice cream), món tráng miệng mát lạnh.",
+      "ZH": "'아이스크림'是冰淇淋（Ice cream）。",
+      "JA": "甘くて冷たいデザートは「아이스크림（アイスクリーム）」です。"
+    }
+  },
+  {
+    "id": 56,
+    "category": "음식·음료",
+    "type": "word",
+    "level": 1,
+    "visual": "🍬",
+    "keyword": "사탕",
+    "situations": {
+      "KO": "그림을 보고 알맞은 것을 고르십시오.",
+      "EN": "Look at the picture and choose the correct answer.",
+      "VI": "Nhìn tranh và chọn đáp án đúng.",
+      "ZH": "看图选择正确的答案。",
+      "JA": "絵を見て正しいものを選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "사탕",
+      "과자",
+      "빵",
+      "껌"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "달콤하고 딱딱하여 입에 물고 녹여 먹는 것은 '사탕(Candy)'입니다.",
+      "EN": "'사탕' is candy/sweets.",
+      "VI": "'사탕' là kẹo (candy).",
+      "ZH": "'사탕'是糖果（Candy）。",
+      "JA": "甘くて口の中で溶かすお菓子は「사탕（飴・キャンディ）」です。"
+    }
+  },
+  {
+    "id": 57,
+    "category": "신체·건강",
+    "type": "word",
+    "level": 1,
+    "visual": "🧑‍🦲 💆",
+    "keyword": "머리",
+    "situations": {
+      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
+      "EN": "Look at the picture and choose the correct body part.",
+      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
+      "ZH": "看图选择正确的身体部位。",
+      "JA": "絵を見て正しい体の部位を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "얼굴",
+      "머리",
+      "어깨",
+      "목"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "몸의 맨 위에 위치한 부위는 '머리(head/hair)'입니다. '머리가 아파요(두통)' 등에 쓰입니다.",
+      "EN": "'머리' means head (or hair). Often used in '머리가 아파요' (I have a headache).",
+      "VI": "'머리' là đầu (hoặc tóc). Ví dụ: '머리가 아파요' (Tôi bị đau đầu).",
+      "ZH": "'머리'是头或头发。常用于'머리가 아파요'（头痛）。",
+      "JA": "体の最上部にある部位は「머리（頭・髪）」です。「머리가 아파요（頭が痛いです）」などでよく使います。"
+    }
+  },
+  {
+    "id": 58,
+    "category": "신체·건강",
+    "type": "word",
+    "level": 1,
+    "visual": "👁️",
+    "keyword": "눈",
+    "situations": {
+      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
+      "EN": "Look at the picture and choose the correct body part.",
+      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
+      "ZH": "看图选择正确的身体部位。",
+      "JA": "絵を見て正しい体の部位を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "코",
+      "귀",
+      "눈",
+      "입"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "사물을 보고 시각을 느끼는 얼굴의 부위는 '눈(eye)'입니다. 하늘에서 내리는 눈(snow)과도 글자가 같습니다.",
+      "EN": "'눈' is eye. It is a homonym with '눈' (snow).",
+      "VI": "'눈' là mắt. Từ này đồng âm với '눈' (tuyết).",
+      "ZH": "'눈'是眼睛（Eye）。该词与下雪的'눈'同音同字。",
+      "JA": "物を見る顔の部位は「눈（目）」です。空から降る「눈（雪）」と同じ表記です。"
+    }
+  },
+  {
+    "id": 59,
+    "category": "신체·건강",
+    "type": "word",
+    "level": 1,
+    "visual": "👃",
+    "keyword": "코",
+    "situations": {
+      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
+      "EN": "Look at the picture and choose the correct body part.",
+      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
+      "ZH": "看图选择正确的身体部位。",
+      "JA": "絵を見て正しい体の部位を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "코",
+      "입",
+      "턱",
+      "볼"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "숨을 쉬고 냄새를 맡는 얼굴 중앙의 부위는 '코(nose)'입니다. 감기 걸렸을 때 '콧물(runny nose)'이 납니다.",
+      "EN": "'코' is nose, used to smell and breathe.",
+      "VI": "'코' là mũi, dùng để thở và ngửi mùi.",
+      "ZH": "'코'是鼻子（Nose）。",
+      "JA": "においを嗅いだり呼吸をする部位は「코（鼻）」です。"
+    }
+  },
+  {
+    "id": 60,
+    "category": "신체·건강",
+    "type": "word",
+    "level": 1,
+    "visual": "👄",
+    "keyword": "입",
+    "situations": {
+      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
+      "EN": "Look at the picture and choose the correct body part.",
+      "VI": "Nhìn tranh và chọn bộ phận cơ체 đúng.",
+      "ZH": "看图选择正确的身体部位。",
+      "JA": "絵を見て正しい体の部位を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "이",
+      "입",
+      "혀",
+      "목"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "말을 하고 음식을 먹는 입술 부위는 '입(mouth)'입니다.",
+      "EN": "'입' is mouth, used for speaking and eating.",
+      "VI": "'입' là miệng, dùng để nói và ăn uống.",
+      "ZH": "'입'是嘴巴（Mouth）。",
+      "JA": "話をしたり食事をする部位は「입（口）」です。"
+    }
+  },
+  {
+    "id": 61,
+    "category": "신체·건강",
+    "type": "word",
+    "level": 1,
+    "visual": "👂",
+    "keyword": "귀",
+    "situations": {
+      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
+      "EN": "Look at the picture and choose the correct body part.",
+      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
+      "ZH": "看图选择正确的身体部位。",
+      "JA": "絵を見て正しい体の部位を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "눈",
+      "목",
+      "귀",
+      "턱"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "소리를 듣는 얼굴 양쪽의 부위는 '귀(ear)'입니다.",
+      "EN": "'귀' is ear, used for hearing sounds.",
+      "VI": "'귀' là tai, dùng để nghe âm thanh.",
+      "ZH": "'귀'是耳朵（Ear）。",
+      "JA": "音を聞く部位は「귀（耳）」です。"
+    }
+  },
+  {
+    "id": 62,
+    "category": "신체·건강",
+    "type": "word",
+    "level": 1,
+    "visual": "✋",
+    "keyword": "손",
+    "situations": {
+      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
+      "EN": "Look at the picture and choose the correct body part.",
+      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
+      "ZH": "看图选择正确的身体部位。",
+      "JA": "絵を見て正しい体の部位を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "발",
+      "손",
+      "팔",
+      "다리"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "물건을 잡고 글씨를 쓰는 다섯 손가락이 있는 부위는 '손(hand)'입니다.",
+      "EN": "'손' is hand, with five fingers used to hold objects.",
+      "VI": "'손' là bàn tay.",
+      "ZH": "'손'是手（Hand）。",
+      "JA": "物を持ったり文字を書く部位は「손（手）」です。"
+    }
+  },
+  {
+    "id": 63,
+    "category": "신체·건강",
+    "type": "word",
+    "level": 1,
+    "visual": "🦶",
+    "keyword": "발",
+    "situations": {
+      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
+      "EN": "Look at the picture and choose the correct body part.",
+      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
+      "ZH": "看图选择正确的身体部位。",
+      "JA": "絵を見て正しい体の部位を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "손",
+      "발",
+      "무릎",
+      "배"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "신발이나 양말을 신는 다리 맨 아래 부위는 '발(foot)'입니다.",
+      "EN": "'발' is foot, where shoes and socks are worn.",
+      "VI": "'발' là bàn chân, nơi đi tất và giày.",
+      "ZH": "'발'是脚（Foot）。",
+      "JA": "靴や靴下を履く足先の部位は「발（足・足首から下）」です。"
+    }
+  },
+  {
+    "id": 64,
+    "category": "신체·건강",
+    "type": "word",
+    "level": 2,
+    "visual": "🦵",
+    "keyword": "다리",
+    "situations": {
+      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
+      "EN": "Look at the picture and choose the correct body part.",
+      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
+      "ZH": "看图选择正确的身体部位。",
+      "JA": "絵を見て正しい体の部位を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "팔",
+      "허리",
+      "다리",
+      "등"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "걷거나 달릴 때 몸을 지탱하는 부위는 '다리(leg)'입니다. 강을 건너는 다리(bridge)와 동음이의어입니다.",
+      "EN": "'다리' is leg. It is also a homonym with '다리' (bridge).",
+      "VI": "'다리' là chân/cẳng chân. Từ này cũng đồng âm với '다리' (cây cầu).",
+      "ZH": "'다리'是腿（Leg）。同时也是桥梁（Bridge）的同音词。",
+      "JA": "歩くために体を支える部位は「다리（脚・足全体）」です。橋（Bridge）と同じ発音・表記です。"
+    }
+  },
+  {
+    "id": 65,
+    "category": "교통·이동",
+    "type": "word",
+    "level": 1,
+    "visual": "🚌",
+    "keyword": "버스",
+    "situations": {
+      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
+      "EN": "Look at the picture and choose the correct transportation.",
+      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
+      "ZH": "看图选择正确的交通工具。",
+      "JA": "絵を見て正しい交通手段を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "택시",
+      "버스",
+      "트럭",
+      "기차"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "많은 승객이 타고 정류장에서 멈추는 대중교통은 '버스(Bus)'입니다. '버스를 타다'로 씁니다.",
+      "EN": "'버스' is bus. Use with the verb '타다' (to ride): '버스를 타요'.",
+      "VI": "'버스' là xe buýt (bus). Đi với động từ '타다' -> '버스를 타요' (đi xe buýt).",
+      "ZH": "'버스'是公交车/巴士（Bus）。搭配动词'타다'（乘坐）。",
+      "JA": "停留所で乗り降りする大衆交通は「버스（バス）」です。「버스를 타다（バスに乗る）」と使います。"
+    }
+  },
+  {
+    "id": 66,
+    "category": "교통·이동",
+    "type": "word",
+    "level": 1,
+    "visual": "🚇",
+    "keyword": "지하철",
+    "situations": {
+      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
+      "EN": "Look at the picture and choose the correct transportation.",
+      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
+      "ZH": "看图选择正确的交通工具。",
+      "JA": "絵を見て正しい交通手段を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "기차",
+      "비행기",
+      "지하철",
+      "오토바이"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "지하 선로를 따라 빠르고 정확하게 달리는 도시 철도는 '지하철(Subway/Metro)'입니다.",
+      "EN": "'지하철' (Jihacheol) is subway/metro railway system.",
+      "VI": "'지하철' là tàu điện ngầm (subway/metro).",
+      "ZH": "'지하철'是地铁（Subway）。",
+      "JA": "地下を走る便利な鉄道は「지하철（地下鉄）」です。"
+    }
+  },
+  {
+    "id": 67,
+    "category": "교통·이동",
+    "type": "word",
+    "level": 1,
+    "visual": "🚕",
+    "keyword": "택시",
+    "situations": {
+      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
+      "EN": "Look at the picture and choose the correct transportation.",
+      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
+      "ZH": "看图选择正确的交通工具。",
+      "JA": "絵を見て正しい交通手段を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "승용차",
+      "택시",
+      "자전거",
+      "경찰차"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "요금을 내고 원하는 목적지까지 편하게 타고 가는 노란색/주황색 차량은 '택시(Taxi)'입니다.",
+      "EN": "'택시' is taxi/cab.",
+      "VI": "'택시' là xe tắc xi (taxi).",
+      "ZH": "'택시'是出租车/的士（Taxi）。",
+      "JA": "目的地まで乗る自動車は「택시（タクシー）」です。"
+    }
+  },
+  {
+    "id": 68,
+    "category": "교통·이동",
+    "type": "word",
+    "level": 1,
+    "visual": "✈️",
+    "keyword": "비행기",
+    "situations": {
+      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
+      "EN": "Look at the picture and choose the correct transportation.",
+      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
+      "ZH": "看图选择正确的交通工具。",
+      "JA": "絵を見て正しい交通手段を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "비행기",
+      "헬리콥터",
+      "우주선",
+      "배"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "공항에서 타고 하늘을 날아 다른 나라나 지역으로 가는 교통수단은 '비행기(Airplane)'입니다.",
+      "EN": "'비행기' is airplane/flight.",
+      "VI": "'비행기' là máy bay, phương tiện di chuyển hàng không.",
+      "ZH": "'비행기'是飞机（Airplane）。",
+      "JA": "空港から空を飛んで移動する乗り物は「비행기（飛行機）」です。"
+    }
+  },
+  {
+    "id": 69,
+    "category": "교통·이동",
+    "type": "word",
+    "level": 1,
+    "visual": "🚆",
+    "keyword": "기차",
+    "situations": {
+      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
+      "EN": "Look at the picture and choose the correct transportation.",
+      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
+      "ZH": "看图选择正确的交通工具。",
+      "JA": "絵を見て正しい交通手段を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "지하철",
+      "기차",
+      "고속버스",
+      "케이블카"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "철길 레일을 따라 다른 도시로 장거리 이동할 때 타는 열차는 '기차(Train)'입니다 (KTX 등).",
+      "EN": "'기차' is train (intercity rail such as KTX).",
+      "VI": "'기차' là tàu hỏa/xe lửa liên tỉnh (như KTX).",
+      "ZH": "'기차'是火车/列车（Train，如KTX高速列车）。",
+      "JA": "線路を走る都市間列車は「기차（汽車・列車・KTX）」です。"
+    }
+  },
+  {
+    "id": 70,
+    "category": "교통·이동",
+    "type": "word",
+    "level": 2,
+    "visual": "🚲",
+    "keyword": "자전거",
+    "situations": {
+      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
+      "EN": "Look at the picture and choose the correct transportation.",
+      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
+      "ZH": "看图选择正确的交通工具。",
+      "JA": "絵を見て正しい交通手段を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이것이 무엇입니까?\n영희: (   )입니다."
+    },
+    "options": [
+      "오토바이",
+      "킥보드",
+      "인라인스케이트",
+      "자전거"
+    ],
+    "answerIndex": 3,
+    "explanations": {
+      "KO": "페달을 발로 밟아 두 바퀴로 달리는 친환경 이동수단은 '자전거(Bicycle)'입니다.",
+      "EN": "'자전거' is bicycle/bike.",
+      "VI": "'자전거' là xe đạp.",
+      "ZH": "'자전거'是自行车（Bicycle）。",
+      "JA": "ペダルをこいで進む二輪車は「자전거（自転車）」です。"
+    }
+  },
+  {
+    "id": 71,
+    "category": "자연",
+    "type": "word",
+    "level": 1,
+    "visual": "🌧️ ☔",
+    "keyword": "비",
+    "situations": {
+      "KO": "그림을 보고 알맞은 날씨를 고르십시오.",
+      "EN": "Look at the picture and choose the correct weather.",
+      "VI": "Nhìn tranh và chọn thời tiết đúng.",
+      "ZH": "看图选择正确的天气。",
+      "JA": "絵を見て正しい天気を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 하늘에서 무엇이 내려요?\n영희: (   )가 내려요."
+    },
+    "options": [
+      "눈",
+      "비",
+      "안개",
+      "이슬"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "구름에서 물방울이 떨어지는 날씨 현상은 '비(rain)'입니다. '비가 와요 / 비가 내려요'로 표현합니다.",
+      "EN": "'비' is rain. Expressed as '비가 와요' (It is raining).",
+      "VI": "'비' là mưa. Nói '비가 와요' (Trời đang mưa).",
+      "ZH": "'비'是雨（Rain）。常用表达'비가 와요'（下雨）。",
+      "JA": "空から降る水滴は「비（雨）」です。「비가 와요（雨が降ります）」と言います。"
+    }
+  },
+  {
+    "id": 72,
+    "category": "자연",
+    "type": "word",
+    "level": 1,
+    "visual": "❄️ ☃️",
+    "keyword": "눈",
+    "situations": {
+      "KO": "그림을 보고 알맞은 날씨를 고르십시오.",
+      "EN": "Look at the picture and choose the correct weather.",
+      "VI": "Nhìn tranh và chọn thời tiết đúng.",
+      "ZH": "看图选择正确的天气。",
+      "JA": "絵を見て正しい天気を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 하늘에서 무엇이 내려요?\n영희: 하얀 (   )이 내려요."
+    },
+    "options": [
+      "비",
+      "눈",
+      "바람",
+      "구름"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "겨울에 하늘에서 하얗게 얼어서 내리는 결정체는 '눈(snow)'입니다. '눈이 와요'라고 합니다.",
+      "EN": "'눈' is snow. Say '눈이 와요' (It is snowing).",
+      "VI": "'눈' là tuyết. Nói '눈이 와요' (Tuyết rơi).",
+      "ZH": "'눈'是雪（Snow）。表达为'눈이 와요'（下雪）。",
+      "JA": "冬に空から白く降るものは「눈（雪）」です。「눈이 와요（雪が降ります）」。"
+    }
+  },
+  {
+    "id": 73,
+    "category": "자연",
+    "type": "word",
+    "level": 1,
+    "visual": "💨 🍃",
+    "keyword": "바람",
+    "situations": {
+      "KO": "그림을 보고 알맞은 자연 현상을 고르십시오.",
+      "EN": "Look at the picture and choose the correct phenomenon.",
+      "VI": "Nhìn tranh và chọn hiện tượng đúng.",
+      "ZH": "看图选择正确的自然现象。",
+      "JA": "絵を見て正しい現象を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 무엇이 시원하게 불어요?\n영희: (   )이 불어요."
+    },
+    "options": [
+      "비",
+      "눈",
+      "바람",
+      "햇빛"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "공기가 움직여 부는 현상은 '바람(wind)'입니다. 동사 '불다'와 함께 '바람이 불어요'라고 합니다.",
+      "EN": "'바람' is wind. Used with '불다' (to blow): '바람이 불어요' (The wind is blowing).",
+      "VI": "'바람' là gió. Đi với động từ '불다' -> '바람이 불어요' (Gió đang thổi).",
+      "ZH": "'바람'是风（Wind）。与动词'불다'搭配 -> '바람이 불어요'（刮风）。",
+      "JA": "空気が動いて吹く現象は「바람（風）」です。「바람이 불어요（風が吹きます）」。"
+    }
+  },
+  {
+    "id": 74,
+    "category": "자연",
+    "type": "word",
+    "level": 1,
+    "visual": "☁️",
+    "keyword": "구름",
+    "situations": {
+      "KO": "그림을 보고 알맞은 자연 현상을 고르십시오.",
+      "EN": "Look at the picture and choose the correct phenomenon.",
+      "VI": "Nhìn tranh và chọn hiện tượng đúng.",
+      "ZH": "看图选择正确的自然现象。",
+      "JA": "絵を見て正しい現象を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 하늘에 무엇이 떠 있어요?\n영희: 하얀 (   )이 떠 있어요."
+    },
+    "options": [
+      "달",
+      "별",
+      "구름",
+      "해"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "하늘에 뭉게뭉게 떠 있는 수증기 덩어리는 '구름(cloud)'입니다. '구름이 많아요(흐려요)' 등에 씁니다.",
+      "EN": "'구름' is cloud. '구름이 많아요' means it is cloudy.",
+      "VI": "'구름' là mây (cloud). '구름이 많아요' nghĩa là nhiều mây/u ám.",
+      "ZH": "'구름'是云（Cloud）。常用于'구름이 많아요'（多云）。",
+      "JA": "空に浮かぶ水蒸気の塊は「구름（雲）」です。「구름이 많아요（曇っています）」。"
+    }
+  },
+  {
+    "id": 75,
+    "category": "자연",
+    "type": "word",
+    "level": 2,
+    "visual": "🌸 🌿",
+    "keyword": "봄",
+    "situations": {
+      "KO": "그림을 보고 알맞은 계절을 고르십시오.",
+      "EN": "Look at the picture and choose the correct season.",
+      "VI": "Nhìn tranh và chọn mùa đúng.",
+      "ZH": "看图选择正确的季节。",
+      "JA": "絵を見て正しい季節を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 꽃이 피고 따뜻한 계절은 언제예요?\n영희: (   )이에요."
+    },
+    "options": [
+      "봄",
+      "여름",
+      "가을",
+      "겨울"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "겨울이 지나고 벚꽃이 피며 따뜻해지는 첫 번째 계절은 '봄(Spring)'입니다.",
+      "EN": "'봄' is spring, the warm season when cherry blossoms bloom.",
+      "VI": "'봄' là mùa xuân, mùa ấm áp hoa nở rực rỡ.",
+      "ZH": "'봄'是春天（Spring），樱花盛开、温暖和煦的季节。",
+      "JA": "花が咲き暖かくなる季節は「봄（春）」です。"
+    }
+  },
+  {
+    "id": 76,
+    "category": "자연",
+    "type": "word",
+    "level": 2,
+    "visual": "🍁 🍂",
+    "keyword": "가을",
+    "situations": {
+      "KO": "그림을 보고 알맞은 계절을 고르십시오.",
+      "EN": "Look at the picture and choose the correct season.",
+      "VI": "Nhìn tranh và chọn mùa đúng.",
+      "ZH": "看图选择正确的季节。",
+      "JA": "絵を見て正しい季節を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 단풍이 들고 시원한 계절은 언제예요?\n영희: (   )이에요."
+    },
+    "options": [
+      "여름",
+      "겨울",
+      "가을",
+      "봄"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "선선한 바람이 불고 붉은 단풍잎이 물드는 아름다운 계절은 '가을(Autumn/Fall)'입니다.",
+      "EN": "'가을' is autumn/fall, known for cool breeze and colorful foliage.",
+      "VI": "'가을' là mùa thu, thời tiết mát mẻ lá phong đỏ rực.",
+      "ZH": "'가을'是秋天（Autumn），天气凉爽、枫叶染红的季节。",
+      "JA": "涼しい風が吹き紅葉が美しい季節は「가을（秋）」です。"
+    }
+  },
+  {
+    "id": 77,
+    "category": "식당·주문",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🍲 🙋‍♂️",
+    "speechBubble": "맛있겠다!",
+    "keyword": "주문",
+    "situations": {
+      "KO": "식당에서 음식을 주문하는 자연스러운 표현을 고르세요.",
+      "EN": "Choose the natural expression to order food at a restaurant.",
+      "VI": "Chọn cách nói tự nhiên khi gọi món ở nhà hàng.",
+      "ZH": "选择在餐厅点餐时的自然表达。",
+      "JA": "飲食店で料理を注文する自然な表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 사장님, 비빔밥 하나 (   ).\n영희: 네, 알겠습니다."
+    },
+    "options": [
+      "주세요",
+      "먹어요",
+      "있어요",
+      "가세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "식당이나 가게에서 물건이나 음식을 요청할 때는 명사 뒤에 '주세요(Please give me)'를 씁니다.",
+      "EN": "To order food or request items in Korea, attach '주세요' (Please give me): '비빔밥 하나 주세요'.",
+      "VI": "Khi gọi món hoặc xin đồ tại quán, dùng '주세요' (Hãy cho tôi): '비빔밥 하나 주세요'.",
+      "ZH": "在餐厅点餐或请求物品时使用'주세요'（请给我）：'비빔밥 하나 주세요'（请给我一份拌饭）。",
+      "JA": "飲食店で注文する時は「주세요（〜をください）」を使います。「비빔밥 하나 주세요（ビビンバを1つください）」。"
+    }
+  },
+  {
+    "id": 78,
+    "category": "식당·주문",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🏷️ 💵",
+    "speechBubble": "얼마일까?",
+    "keyword": "가격",
+    "situations": {
+      "KO": "물건의 가격을 묻고 답하는 알맞은 표현을 고르세요.",
+      "EN": "Choose the correct expression for asking and answering prices.",
+      "VI": "Chọn cách nói hỏi và trả lời giá cả phù hợp.",
+      "ZH": "选择询问和回答价格的正确表达。",
+      "JA": "値段を尋ねて答える正しい表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 이거 얼마예요?\n영희: 삼천 (   )."
+    },
+    "options": [
+      "명이에요",
+      "개예요",
+      "원이에요",
+      "시예요"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "한국의 화폐 단위는 '원(KRW)'입니다. 받침 'ㄴ'이 있으므로 '-이에요'와 결합하여 '3,000원이에요'가 됩니다.",
+      "EN": "The Korean currency unit is '원' (Won). With consonant ending, attach '-이에요' -> '3,000원이에요' (It's 3,000 won).",
+      "VI": "Đơn vị tiền tệ của Hàn Quốc là '원' (Won). Có phụ âm cuối nên đi với '-이에요' -> '3,000원이에요' (Là 3.000 won).",
+      "ZH": "韩国的货币单位是'원'（韩元）。有收音'ㄴ'，接'-이에요' -> '3,000원이에요'（三千韩元）。",
+      "JA": "韓国のお金の単位は「원（ウォン）」です。パッチムがあるため「3,000원이에요（3,000ウォンです）」となります。"
+    }
+  },
+  {
+    "id": 79,
+    "category": "식당·주문",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🌶️ 🥘",
+    "speechBubble": "물이 필요해요!",
+    "keyword": "맛",
+    "situations": {
+      "KO": "음식의 맛을 표현하는 자연스러운 말을 고르세요.",
+      "EN": "Choose the natural sentence describing taste.",
+      "VI": "Chọn câu diễn đạt vị món ăn tự nhiên nhất.",
+      "ZH": "选择描述食物味道的自然表达。",
+      "JA": "味を表現する自然な表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 떡볶이가 어때요?\n영희: 조금 (   ). 하지만 맛있어요!"
+    },
+    "options": [
+      "매워요",
+      "시원해요",
+      "차가워요",
+      "비싸요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "고추장이나 고춧가루가 들어가 매콤할 때는 형용사 '맵다'의 해요체인 '매워요(It's spicy)'를 씁니다.",
+      "EN": "When food has spicy chili flavor, use '매워요' (It is spicy), from '맵다'.",
+      "VI": "Khi đồ ăn có vị cay của ớt, dùng '매워요' (Cay lắm), từ tính từ '맵다'.",
+      "ZH": "食物有辣椒辛辣味道时，使用'맵다'的非格式体'매워요'（有点辣）。",
+      "JA": "唐辛子などで辛い時は「맵다（辛い）」の活用形「매워요（辛いです）」を使います。"
+    }
+  },
+  {
+    "id": 80,
+    "category": "식당·주문",
+    "type": "sentence",
+    "level": 1,
+    "visual": "💧 🥛",
+    "speechBubble": "목이 말라요!",
+    "keyword": "요청",
+    "situations": {
+      "KO": "식당에서 물을 정중하게 요청하는 표현을 고르세요.",
+      "EN": "Choose the polite way to ask for water at a restaurant.",
+      "VI": "Chọn cách xin nước uống lịch sự ở quán ăn.",
+      "ZH": "选择在餐厅礼貌要水的表达。",
+      "JA": "飲食店でお水を丁寧に頼む表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 저기요, 물 좀 (   ).\n영희: 네, 여기 있습니다."
+    },
+    "options": [
+      "마셔요",
+      "주세요",
+      "사요",
+      "버려요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "식당에서 종업원에게 물이나 반찬을 더 달라고 할 때는 '물 좀 주세요'라고 정중하게 말합니다.",
+      "EN": "To ask for water politely in a restaurant, say '물 좀 주세요' (Please give me some water).",
+      "VI": "Để xin nước lọc tại quán ăn, nói lịch sự: '물 좀 주세요' (Cho tôi xin chút nước ạ).",
+      "ZH": "在餐厅礼貌要水时说：'물 좀 주세요'（请给我来点水）。",
+      "JA": "飲食店でお水を頼む時は「물 좀 주세요（お水を少しください）」と丁寧に言います。"
+    }
+  },
+  {
+    "id": 81,
+    "category": "식당·주문",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🥡 🛍️",
+    "speechBubble": "집에 가져갈래요!",
+    "keyword": "포장",
+    "situations": {
+      "KO": "남은 음식을 포장해 달라고 할 때의 알맞은 말을 고르세요.",
+      "EN": "Choose the correct phrase to ask for food to-go / doggy bag.",
+      "VI": "Chọn cách nói xin gói mang về khi ăn không hết.",
+      "ZH": "选择打包剩菜时的正确表达。",
+      "JA": "残った料理を持ち帰り（テイクアウト）にする表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 남은 음식 포장해 주세요.\n영희: 네, (   ) 드릴게요."
+    },
+    "options": [
+      "버려",
+      "포장해",
+      "먹어",
+      "계산해"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "음식을 싸서 가지고 갈 때는 '포장하다(to pack/to go)'를 씁니다. '포장해 드릴게요(I will pack it for you)'라고 답합니다.",
+      "EN": "'포장하다' means to pack to-go. Say '포장해 드릴게요' (I will pack it for you).",
+      "VI": "'포장하다' là gói mang về (takeout). Trả lời: '포장해 드릴게요' (Tôi sẽ gói lại cho bạn).",
+      "ZH": "'포장하다'是打包/外带。店员回答：'포장해 드릴게요'（我为您打包）。",
+      "JA": "料理を持ち帰り用に包む動詞は「포장하다」です。「포장해 드릴게요（お包みしますね）」と答えます。"
+    }
+  },
+  {
+    "id": 82,
+    "category": "식당·주문",
+    "type": "sentence",
+    "level": 2,
+    "visual": "😋 👍",
+    "speechBubble": "배불러요!",
+    "keyword": "만족",
+    "situations": {
+      "KO": "식사를 마친 후 감사의 소감을 말하는 표현을 고르세요.",
+      "EN": "Choose the expression to compliment a meal after dining.",
+      "VI": "Chọn câu khen ngợi món ăn ngon sau khi dùng bữa xong.",
+      "ZH": "选择用餐完毕后称赞食物好吃的表达。",
+      "JA": "食後に美味しかった感想を伝える表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 맛있게 드셨어요?\n영희: 네, 정말 (   )."
+    },
+    "options": [
+      "맛없었어요",
+      "맛있었어요",
+      "배고파요",
+      "먹지 않아요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "과거에 먹은 음식이 맛있었음을 나타낼 때는 과거형 '맛있었어요(It was delicious)'를 씁니다.",
+      "EN": "To express that the meal was delicious in past tense, use '맛있었어요' (It was delicious).",
+      "VI": "Khen món ăn vừa ăn xong ở thì quá khứ dùng '맛있었어요' (Ngon lắm ạ).",
+      "ZH": "对刚刚吃过的美食表示称赞，使用过去时'맛있었어요'（真的很好吃）。",
+      "JA": "過去に食べたものが美味しかった感想は過去形「맛있었어요（美味しかったです）」と言います。"
+    }
+  },
+  {
+    "id": 83,
+    "category": "희망·의도",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🎬 🍿",
+    "speechBubble": "주말 계획!",
+    "keyword": "영화",
+    "situations": {
+      "KO": "자신이 하고 싶은 일을 나타내는 대화를 완성하세요.",
+      "EN": "Complete the dialogue expressing what you want to do.",
+      "VI": "Hoàn thành hội thoại thể hiện mong muốn làm gì.",
+      "ZH": "完成表达自己想做某事的对话。",
+      "JA": "自分がやりたいことを表す会話を完成させてください。"
+    },
+    "questions": {
+      "KO": "철수: 주말에 뭐 하고 싶어요?\n영희: 한국 영화를 (   )."
+    },
+    "options": [
+      "보고 싶어요",
+      "봤어요",
+      "보지 않아요",
+      "봐요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "희망이나 소망을 나타낼 때는 동사 어간에 '-고 싶어요(want to)'를 연결합니다. '보다' + '-고 싶어요' = '보고 싶어요'.",
+      "EN": "To express hope/desire 'want to', attach '-고 싶어요' to verb stem: '보고 싶어요' (I want to watch).",
+      "VI": "Để biểu thị mong muốn 'muốn làm gì', gắn '-고 싶어요' vào thân động từ: '보고 싶어요' (Tôi muốn xem phim).",
+      "ZH": "表示说话者的愿望'想做某事'时，动词词干接'-고 싶어요'：'보고 싶어요'（想看韩国电影）。",
+      "JA": "希望「〜したい」を表す時は動詞の語幹に「-고 싶어요」を付けます。「보고 싶어요（見たいです）」。"
+    }
+  },
+  {
+    "id": 84,
+    "category": "희망·의도",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🌴 ✈️ 🌊",
+    "speechBubble": "방학 때 여행!",
+    "keyword": "제주도",
+    "situations": {
+      "KO": "가고 싶은 여행지를 묻고 답하는 대화를 완성하세요.",
+      "EN": "Complete the dialogue about travel destinations you want to visit.",
+      "VI": "Hoàn thành hội thoại nói về nơi muốn đi du lịch.",
+      "ZH": "完成询问和回答想去旅行地点的对话。",
+      "JA": "行きたい旅行先について答える会話を完成させてください。"
+    },
+    "questions": {
+      "KO": "철수: 이번 방학에 어디에 가고 싶어요?\n영희: 제주도에 (   )."
+    },
+    "options": [
+      "갔어요",
+      "가고 싶어요",
+      "가지 않아요",
+      "오세요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "'가다'에 희망 표현 '-고 싶어요'가 붙어 '가고 싶어요(I want to go)'가 됩니다.",
+      "EN": "'가다' (to go) + '-고 싶어요' (want to) = '가고 싶어요' (I want to go to Jeju Island).",
+      "VI": "'가다' (đi) + '-고 싶어요' (muốn) = '가고 싶어요' (Tôi muốn đi đảo Jeju).",
+      "ZH": "'가다'（去）加上愿望语法'-고 싶어요'变为'가고 싶어요'（想去济州岛）。",
+      "JA": "「가다（行く）」に希望の「-고 싶어요」がついて「가고 싶어요（行きたいです）」になります。"
+    }
+  },
+  {
+    "id": 85,
+    "category": "희망·의도",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🥩 🥢",
+    "speechBubble": "배고파요!",
+    "keyword": "불고기",
+    "situations": {
+      "KO": "먹고 싶은 음식을 묻고 답하는 대화를 완성하세요.",
+      "EN": "Complete the dialogue expressing what food you want to eat.",
+      "VI": "Hoàn thành hội thoại thể hiện món muốn ăn.",
+      "ZH": "完成表达想吃什么的对话。",
+      "JA": "食べたい料理を答える会話を完成させてください。"
+    },
+    "questions": {
+      "KO": "철수: 점심에 무엇을 먹고 싶어요?\n영희: 불고기를 (   )."
+    },
+    "options": [
+      "먹었어요",
+      "먹지 않아요",
+      "먹고 싶어요",
+      "만들어요"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "'먹다'에 희망 표현 '-고 싶어요'를 붙여 '먹고 싶어요(I want to eat)'라고 답합니다.",
+      "EN": "'먹다' (to eat) + '-고 싶어요' = '먹고 싶어요' (I want to eat Bulgogi).",
+      "VI": "'먹다' (ăn) + '-고 싶어요' = '먹고 싶어요' (Tôi muốn ăn thịt nướng Bulgogi).",
+      "ZH": "'먹다'（吃）接'-고 싶어요'变为'먹고 싶어요'（我想吃烤牛肉）。",
+      "JA": "「먹다（食べる）」に「-고 싶어요」がつき「먹고 싶어요（食べたいです）」となります。"
+    }
+  },
+  {
+    "id": 86,
+    "category": "희망·의도",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🥋 🥋",
+    "speechBubble": "멋진 운동!",
+    "keyword": "태권도",
+    "situations": {
+      "KO": "배우고 싶은 취미를 나타내는 대화를 완성하세요.",
+      "EN": "Complete the dialogue expressing what skill you want to learn.",
+      "VI": "Hoàn thành hội thoại thể hiện kỹ năng muốn học.",
+      "ZH": "完成表达想学什么爱好的对话。",
+      "JA": "習いたいことについて答える会話を完成させてください。"
+    },
+    "questions": {
+      "KO": "철수: 한국에서 무엇을 배우고 싶어요?\n영희: 태권도를 (   )."
+    },
+    "options": [
+      "배우지 않아요",
+      "배웠어요",
+      "배우고 싶어요",
+      "가르쳐요"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "'배우다(to learn)'의 어간에 '-고 싶어요'가 결합하여 '배우고 싶어요(I want to learn Taekwondo)'가 됩니다.",
+      "EN": "'배우다' (to learn) + '-고 싶어요' = '배우고 싶어요' (I want to learn Taekwondo).",
+      "VI": "'배우다' (học) + '-고 싶어요' = '배우고 싶어요' (Tôi muốn học Taekwondo).",
+      "ZH": "'배우다'（学习）+ '-고 싶어요' = '배우고 싶어요'（我想学跆拳道）。",
+      "JA": "「배우다（習う）」に「-고 싶어요」がつき「배우고 싶어요（習いたいです）」になります。"
+    }
+  },
+  {
+    "id": 87,
+    "category": "요청·예절",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🪑 🙇‍♂️",
+    "speechBubble": "어서 오세요!",
+    "keyword": "의자",
+    "situations": {
+      "KO": "손님에게 정중하게 자리를 권하는 표현을 고르세요.",
+      "EN": "Choose the polite phrase offering a seat to a guest.",
+      "VI": "Chọn câu mời khách ngồi lịch sự chuẩn người Hàn.",
+      "ZH": "选择向客人礼貌让座的自然表达。",
+      "JA": "お客様に丁寧に席を勧める表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 손님, 이쪽 의자에 (   ).\n영희: 네, 감사합니다."
+    },
+    "options": [
+      "앉으세요",
+      "서세요",
+      "오세요",
+      "누우세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "정중한 명령이나 권유를 할 때는 '동사-(으)세요'를 씁니다. '앉다'는 받침이 있으므로 '앉으세요(Please sit down)'가 됩니다.",
+      "EN": "To make a polite request/invitation, use '-(으)세요'. Since '앉다' ends in a consonant, attach '-으세요' -> '앉으세요'.",
+      "VI": "Khi yêu cầu hoặc mời mọc lịch sự, dùng '-(으)세요': '앉다' có phụ âm cuối -> '앉으세요' (Xin mời ngồi).",
+      "ZH": "表示礼貌的请求或邀请时使用'-(으)세요'。'앉다'有收音，接'-으세요' -> '앉으세요'（请坐）。",
+      "JA": "丁寧な勧めを表す時は「-(으)세요（〜してください）」を使います。「앉다」にはパッチムがあるので「앉으세요（お座りください）」。"
+    }
+  },
+  {
+    "id": 88,
+    "category": "요청·예절",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🍵 🤲",
+    "speechBubble": "따뜻해요!",
+    "keyword": "대접",
+    "situations": {
+      "KO": "음료를 권할 때 쓰는 정중한 존댓말 표현을 고르세요.",
+      "EN": "Choose the honorific polite phrase offering a beverage.",
+      "VI": "Chọn câu kính ngữ lịch sự khi mời ai uống trà/nước.",
+      "ZH": "选择招待别人喝茶时的礼貌敬语表达。",
+      "JA": "飲み物を勧める丁寧な尊敬語表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 따뜻한 차 한잔 (   ).\n영희: 고맙습니다. 잘 마실게요."
+    },
+    "options": [
+      "먹어요",
+      "드세요",
+      "마시지 마세요",
+      "사세요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "'마시다'와 '먹다'의 높은 존댓말 동사는 '들다/잡수시다'이며, 권유할 때는 '드세요(Please have / Please drink)'를 씁니다.",
+      "EN": "'드세요' is the honorific polite form of 'eat/drink' used when offering food or drink: '차 한잔 드세요' (Please enjoy this tea).",
+      "VI": "'드세요' là dạng kính ngữ của '먹다/마시다', dùng khi mời người khác dùng bữa/uống trà: '차 한잔 드세요' (Xin mời dùng trà).",
+      "ZH": "'드세요'是'먹다/마시다'的敬语劝诱形式，用于礼貌招待：'차 한잔 드세요'（请喝杯茶）。",
+      "JA": "「마시다（飲む）」の尊敬語は「드시다」で、勧める時は「드세요（お召し上がりください・どうぞ）」を使います。"
+    }
+  },
+  {
+    "id": 89,
+    "category": "요청·예절",
+    "type": "sentence",
+    "level": 2,
+    "visual": "👉 🚪",
+    "speechBubble": "출구는 저쪽이에요!",
+    "keyword": "안내",
+    "situations": {
+      "KO": "길이나 방향을 친절하게 안내하는 말을 고르세요.",
+      "EN": "Choose the expression kindly guiding someone towards a direction.",
+      "VI": "Chọn câu hướng dẫn phương hướng lịch sự.",
+      "ZH": "选择亲切指引方向的礼貌表达。",
+      "JA": "方向を案内する丁寧な表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 출구가 어디예요?\n영희: 저쪽 문으로 (   )."
+    },
+    "options": [
+      "오세요",
+      "가세요",
+      "앉으세요",
+      "보세요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "'가다'는 받침이 없으므로 '-세요'가 연결되어 '가세요(Please go that way)'가 됩니다.",
+      "EN": "'가다' (to go) ends with a vowel, so attach '-세요' -> '가세요' (Please go that way).",
+      "VI": "'가다' kết thúc bằng nguyên âm nên kết hợp với '-세요' -> '가세요' (Xin hãy đi lối kia).",
+      "ZH": "'가다'词干无收音，接'-세요' -> '가세요'（请往那边走）。",
+      "JA": "「가다」は母音で終わるため「-세요」がつき「가세요（あちらへどうぞ・行ってください）」になります。"
+    }
+  },
+  {
+    "id": 90,
+    "category": "요청·예절",
+    "type": "sentence",
+    "level": 2,
+    "visual": "📖 👩‍🏫",
+    "speechBubble": "수업 시작합니다!",
+    "keyword": "교실",
+    "situations": {
+      "KO": "교실에서 선생님이 학생에게 책을 펴라고 하는 표현을 고르세요.",
+      "EN": "Choose what the teacher politely instructs students in a classroom.",
+      "VI": "Chọn câu giáo viên bảo học sinh mở sách trong lớp.",
+      "ZH": "选择课堂上老师指示学生翻开课本的表达。",
+      "JA": "授業中に先生が本を開くよう指示する表現を選んでください。"
+    },
+    "questions": {
+      "KO": "선생님: 여러분, 책 10쪽을 (   ).\n학생들: 네, 선생님."
+    },
+    "options": [
+      "접으세요",
+      "덮으세요",
+      "펴세요",
+      "찢으세요"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "책을 열어 펼칠 때는 동사 '펴다'에 '-세요'가 붙어 '펴세요(Please open your books)'가 됩니다.",
+      "EN": "'펴다' means to open (a book). Attach '-세요' -> '책을 펴세요' (Please open your book to page 10).",
+      "VI": "'펴다' là mở (sách) ra. Kết hợp thành '책을 펴세요' (Xin mời các bạn mở sách trang 10).",
+      "ZH": "'펴다'是翻开/打开书。接'-세요' -> '책을 펴세요'（请翻开书第10页）。",
+      "JA": "本を開く動詞は「펴다」です。「책을 펴세요（本を開いてください）」となります。"
+    }
+  },
+  {
+    "id": 91,
+    "category": "이유·원인",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🚗 🚙 🚦",
+    "speechBubble": "차가 안 움직여요!",
+    "keyword": "교통 체증",
+    "situations": {
+      "KO": "약속에 늦은 이유를 설명하는 자연스러운 말을 고르세요.",
+      "EN": "Choose the natural phrase explaining why you were late due to traffic.",
+      "VI": "Chọn câu giải thích lý do bị trễ hẹn do kẹt xe tự nhiên nhất.",
+      "ZH": "选择因堵车迟到时说明原因的自然表达。",
+      "JA": "渋滞で遅刻した理由を説明する自然な表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 왜 약속에 늦었어요?\n영희: 길이 (   ) 늦었어요. 미안해요!"
+    },
+    "options": [
+      "한가해서",
+      "막혀서",
+      "좋아서",
+      "넓어서"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "교통이 정체될 때는 '길/차가 막히다'를 씁니다. 이유를 나타내는 '-어서'와 결합하여 '막혀서 늦었어요(I was late because traffic was jammed)'가 됩니다.",
+      "EN": "When traffic is jammed, use '막히다'. Attach reason connector '-어서' -> '길이 막혀서 늦었어요'.",
+      "VI": "Khi tắc đường dùng '막히다'. Gắn ngữ pháp chỉ nguyên nhân '-어서' -> '길이 막혀서 늦었어요' (Tôi đến muộn vì tắc đường).",
+      "ZH": "堵车用'길이 막히다'。接表示原因的'-어서' -> '길이 막혀서 늦었어요'（路上堵车所以迟到了）。",
+      "JA": "道が混んでいる時は「막히다」を使います。理由の「-어서」がつき「길이 막혀서 늦었어요（道が混んでいて遅れました）」。"
+    }
+  },
+  {
+    "id": 92,
+    "category": "이유·원인",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🥶 🧥 ❄️",
+    "speechBubble": "덜덜 떨려요!",
+    "keyword": "날씨",
+    "situations": {
+      "KO": "외투를 입은 이유를 날씨와 연결하여 설명하는 표현을 고르세요.",
+      "EN": "Choose the expression explaining why you wore a coat due to cold weather.",
+      "VI": "Chọn câu giải thích lý do mặc áo khoác vì trời lạnh.",
+      "ZH": "选择因天气冷而穿大衣说明原因的表达。",
+      "JA": "寒いのでコートを着た理由を説明する表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 오늘 왜 두꺼운 코트를 입었어요?\n영희: 날씨가 (   ) 입었어요."
+    },
+    "options": [
+      "더워서",
+      "추워서",
+      "밝아서",
+      "따뜻해서"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "'춥다(cold)'는 'ㅂ' 불규칙 형용사로 '-어서'와 결합할 때 '추워서(because it's cold)'로 바뀝니다.",
+      "EN": "'춥다' (cold) is an irregular predicate that becomes '추워서' (because it is cold) when combined with '-어서'.",
+      "VI": "'춥다' (lạnh) là bất quy tắc 'ㅂ', khi kết hợp với '-어서' biến thành '추워서' (vì trời lạnh).",
+      "ZH": "'춥다'（冷）是'ㅂ'不规则词，与'-어서'结合时变为'추워서'（因为天气冷）。",
+      "JA": "「춥다（寒い）」は変則活用で「-어서」と合わさると「추워서（寒いので）」になります。"
+    }
+  },
+  {
+    "id": 93,
+    "category": "이유·원인",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🤢 🏥",
+    "speechBubble": "아야!",
+    "keyword": "복통",
+    "situations": {
+      "KO": "병원에 가는 이유를 증상과 함께 말하는 표현을 고르세요.",
+      "EN": "Choose the phrase explaining why you are going to the hospital.",
+      "VI": "Chọn câu giải thích lý do đi bệnh viện vì đau bụng.",
+      "ZH": "说明去医院原因的自然表达。",
+      "JA": "病院へ行く理由を症状とともに説明する表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 오늘 왜 병원에 가요?\n영희: 배가 (   ) 가요."
+    },
+    "options": [
+      "불러서",
+      "아파서",
+      "고파서",
+      "좋아서"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "신체 통증이 있을 때는 형용사 '아프다'를 씁니다. 원인을 나타내는 '-아서'와 결합하여 '아파서(because it hurts)'가 됩니다.",
+      "EN": "For pain/sickness, use '아프다'. With reason '-아서' -> '배가 아파서 가요' (Going because my stomach hurts).",
+      "VI": "Khi đau ốm dùng '아프다'. Đi với '-아서' -> '배가 아파서 가요' (Tôi đi vì bị đau bụng).",
+      "ZH": "身体疼痛时用'아프다'。加上表示原因的'-아서' -> '배가 아파서 가요'（因为肚子疼所以去）。",
+      "JA": "痛みがある時は「아프다」を使います。理由の「-아서」がつき「배가 아파서 가요（お腹が痛いので行きます）」。"
+    }
+  },
+  {
+    "id": 94,
+    "category": "이유·원인",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🎉 🥳 💯",
+    "speechBubble": "만세!",
+    "keyword": "기분",
+    "situations": {
+      "KO": "시험이 끝나서 기쁜 감정을 표현하는 말을 고르세요.",
+      "EN": "Choose the expression showing happiness after exams finished.",
+      "VI": "Chọn câu thể hiện cảm xúc vui mừng sau khi thi xong.",
+      "ZH": "表达考试结束后愉快心情的表达。",
+      "JA": "試験が終わって嬉しい気持ちを表現する言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 오늘 기분이 어때요?\n영희: 시험이 끝나서 정말 (   )."
+    },
+    "options": [
+      "슬퍼요",
+      "피곤해요",
+      "기뻐요",
+      "심심해요"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "좋은 일이 있어 마음이 즐겁고 흐뭇할 때는 형용사 '기쁘다'의 해요체인 '기뻐요(I am happy/glad)'를 씁니다.",
+      "EN": "When feeling happy/glad, use '기뻐요', from '기쁘다' (to be happy).",
+      "VI": "Khi vui vẻ dùng '기뻐요' (Tôi rất vui), từ tính từ '기쁘다'.",
+      "ZH": "感到高兴、开心时使用'기쁘다'的非格式体'기뻐요'（非常高兴）。",
+      "JA": "嬉しい気持ちを表す形容詞は「기쁘다」で、「기뻐요（嬉しいです）」と言います。"
+    }
+  },
+  {
+    "id": 95,
+    "category": "시간·일과",
+    "type": "sentence",
+    "level": 1,
+    "visual": "⏰ 🌅",
+    "speechBubble": "하품~ 좋은 아침!",
+    "keyword": "기상",
+    "situations": {
+      "KO": "아침에 일어나는 시간을 묻고 답하는 일상 대화를 고르세요.",
+      "EN": "Choose the daily routine expression about wake-up time.",
+      "VI": "Chọn câu đối thoại hỏi đáp về thời gian thức dậy buổi sáng.",
+      "ZH": "选择询问和回答早起时间的日常表达。",
+      "JA": "朝起きる時間について答える日常会話を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 보통 아침 몇 시에 일어나요?\n영희: 아침 7시에 (   )."
+    },
+    "options": [
+      "자요",
+      "일어나요",
+      "일해요",
+      "출근해요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "잠에서 깨어 자리를 털고 일어나는 행동은 '일어나다(to wake up/get up)'입니다. '일어나요'라고 답합니다.",
+      "EN": "'일어나다' means to wake up / get up. Say '아침 7시에 일어나요' (I wake up at 7 AM).",
+      "VI": "'일어나다' là thức dậy. Trả lời: '아침 7시에 일어나요' (Tôi dậy lúc 7 giờ sáng).",
+      "ZH": "'일어나다'是起床。回答：'아침 7시에 일어나요'（早上7点起床）。",
+      "JA": "朝ベッドから起きる行動は「일어나다」です。「아침 7시에 일어나요（朝7時に起きます）」。"
+    }
+  },
+  {
+    "id": 96,
+    "category": "시간·일과",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🏢 🕕 💼",
+    "speechBubble": "퇴근 시간이에요!",
+    "keyword": "퇴근",
+    "situations": {
+      "KO": "퇴근 시간이나 일하는 시간을 묻고 답하는 표현을 고르세요.",
+      "EN": "Choose the expression talking about work hours.",
+      "VI": "Chọn câu đối thoại nói về thời gian làm việc trong ngày.",
+      "ZH": "选择询问和回答下班及工作时间的表达。",
+      "JA": "仕事が終わる時間について答える表現を選んでください。"
+    },
+    "questions": {
+      "KO": "철수: 매일 몇 시까지 일해요?\n영희: 오후 6시까지 (   ). 그리고 퇴근해요."
+    },
+    "options": [
+      "쉬어요",
+      "일해요",
+      "운동해요",
+      "쇼핑해요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "직장에서 업무를 수행하는 것은 '일하다(to work)'입니다. 끝나는 시점을 나타내는 조사 '-까지'와 결합하여 '6시까지 일해요'가 됩니다.",
+      "EN": "'일하다' means to work. Combined with '-까지' (until) -> '오후 6시까지 일해요' (I work until 6 PM).",
+      "VI": "'일하다' là làm việc. Đi với trợ từ '-까지' (đến) -> '오후 6시까지 일해요' (Tôi làm việc đến 6 giờ chiều).",
+      "ZH": "'일하다'是工作。与表示时间终点的助词'-까지'（到……为止）搭配 -> '오후 6시까지 일해요'（工作到下午6点）。",
+      "JA": "働く動詞は「일하다」です。期限を表す「-까지（〜まで）」とともに「오후 6시까지 일해요（午後6時まで働きます）」となります。"
+    }
+  },
+  {
+    "id": 97,
+    "category": "카페·테이크아웃",
+    "type": "survival",
+    "level": 1,
+    "visual": "☕ 🥡",
+    "keyword": "테이크아웃",
+    "speechBubble": "포장해 드릴까요?",
+    "situations": {
+      "KO": "카페에서 커피를 매장 밖으로 가지고 나갈 때 하는 표현을 고르세요.",
+      "EN": "Choose the expression to take out coffee at a cafe.",
+      "VI": "Chọn biểu hiện mang cà phê về (take-out) tại quán cà phê.",
+      "ZH": "选择在咖啡厅打包外带咖啡时的表达。",
+      "JA": "カフェでコーヒーをテイクアウトする時の表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 따뜻한 아메리카노 한 잔 (        ).\n직원: 네, 잠시만 기다려 주세요."
+    },
+    "options": [
+      "포장해 주세요",
+      "출발해 주세요",
+      "도착해 주세요",
+      "수영해 주세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "음식이나 음료를 매장 밖으로 가져갈 때는 '포장해 주세요' 또는 '테이크아웃해 주세요'라고 말합니다.",
+      "EN": "When taking food or drinks outside the cafe/restaurant, say '포장해 주세요' (Please pack it / Take out).",
+      "VI": "Khi mang đồ ăn hoặc thức uống ra ngoài, người Hàn nói '포장해 주세요' hoặc '테이크아웃해 주세요'.",
+      "ZH": "将餐点或饮料打包带走时，使用'포장해 주세요'（请帮我打包/外带）。",
+      "JA": "飲食店やカフェで持ち帰りをする時は「포장해 주세요（テイクアウトしてください）」と言います。"
+    }
+  },
+  {
+    "id": 98,
+    "category": "카페·테이크아웃",
+    "type": "survival",
+    "level": 1,
+    "visual": "🧊 🥤",
+    "keyword": "얼음",
+    "speechBubble": "얼음 어떻게 해드릴까요?",
+    "situations": {
+      "KO": "아이스 음료를 주문할 때 얼음 양을 줄여달라는 표현을 고르세요.",
+      "EN": "Choose what to say to ask for less ice in an iced drink.",
+      "VI": "Chọn cách nói yêu cầu cho ít đá trong đồ uống lạnh.",
+      "ZH": "选择要求少放冰块时的表达。",
+      "JA": "アイスドリンクで氷少なめを頼む時の表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 아이스티 한 잔 주시는데, 얼음은 (   ) 넣어주세요.\n직원: 네, 얼음 적게 넣어드릴게요."
+    },
+    "options": [
+      "크게",
+      "많이",
+      "적게",
+      "빨리"
+    ],
+    "answerIndex": 2,
+    "explanations": {
+      "KO": "얼음 양을 적게 넣고 싶을 때는 '얼음 적게 넣어주세요' 또는 '얼음 조금만 넣어주세요'라고 합니다.",
+      "EN": "To ask for less ice, say '얼음 적게 넣어주세요' (Please put less ice).",
+      "VI": "Để yêu cầu ít đá, hãy nói '얼음 적게 넣어주세요'.",
+      "ZH": "要求少放冰块时说'얼음 적게 넣어주세요'（请少放点冰块）。",
+      "JA": "氷を少なめにしたい時は「얼음 적게 넣어주세요」と言います。"
+    }
+  },
+  {
+    "id": 99,
+    "category": "카페·테이크아웃",
+    "type": "survival",
+    "level": 2,
+    "visual": "📶 📱",
+    "keyword": "와이파이",
+    "speechBubble": "와이파이 이용 가능합니다.",
+    "situations": {
+      "KO": "카페에서 무료 인터넷 접속 정보를 직원에게 물어보는 표현을 고르세요.",
+      "EN": "Choose how to ask for the Wi-Fi password at a cafe.",
+      "VI": "Chọn cách hỏi mật khẩu Wi-Fi tại quán cà phê.",
+      "ZH": "选择在咖啡厅询问Wi-Fi密码的表达。",
+      "JA": "カフェでWi-Fiパスワードを尋ねる表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 저기요, 와이파이 (   )가 뭐예요?\n직원: 영수증 아래쪽에 적혀 있습니다."
+    },
+    "options": [
+      "비밀번호",
+      "주민등록번호",
+      "전화번호",
+      "계좌번호"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "Wi-Fi 접속 비밀번호는 '와이파이 비밀번호' 또는 줄여서 '비번'이라고 합니다.",
+      "EN": "Wi-Fi password is '와이파이 비밀번호' (often shortened to '비번' in casual speech).",
+      "VI": "Mật khẩu Wi-Fi là '와이파이 비밀번호', trong khẩu ngữ thường gọi tắt là '비번'.",
+      "ZH": "Wi-Fi密码在韩语中是'와이파이 비밀번호'，口语中常简称为'비번'。",
+      "JA": "Wi-Fiパスワードは「와이파이 비밀번호」または略して「비번」と言います。"
+    }
+  },
+  {
+    "id": 100,
+    "category": "카페·테이크아웃",
+    "type": "survival",
+    "level": 2,
+    "visual": "🔔 ☕",
+    "keyword": "진동벨",
+    "speechBubble": "벨이 울리면 픽업대로 오세요.",
+    "situations": {
+      "KO": "음료가 준비되면 진동벨을 가지고 픽업대로 오라는 직원의 안내 표현을 고르세요.",
+      "EN": "Choose the staff's instruction to pick up the drink when the buzzer vibrates.",
+      "VI": "Chọn câu nhân viên hướng dẫn nhận đồ uống khi chuông rung báo hiệu.",
+      "ZH": "选择饮品准备好、取餐器震动时前来取餐的指示表达。",
+      "JA": "呼び出しベルが鳴ったら受け取りに来てくださいという店員の表現を選んでください。"
+    },
+    "questions": {
+      "KO": "직원: 진동벨이 울리면 음료 (        ) 오세요.\n손님: 네, 감사합니다."
+    },
+    "options": [
+      "받으러",
+      "버리러",
+      "만들러",
+      "청소하러"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "주문한 음료를 찾아갈 때는 목적을 나타내는 '-(으)러'를 써서 '음료 받으러 오세요' 또는 '찾으러 오세요'라고 합니다.",
+      "EN": "To pick up the prepared drink, use '받으러 오세요' or '찾으러 오세요' (Please come pick it up).",
+      "VI": "Khi đến lấy đồ uống đã làm xong, người ta dùng '음료 받으러 오세요' hoặc '찾으러 오세요'.",
+      "ZH": "前来领取准备好的饮料时，使用'음료 받으러 오세요'（请来取饮料）。",
+      "JA": "準備ができたドリンクを受け取りに行く時は「음료 받으러 오세요」と言います。"
+    }
+  },
+  {
+    "id": 101,
+    "category": "쇼핑·결제",
+    "type": "survival",
+    "level": 1,
+    "visual": "🧾 🗑️",
+    "keyword": "영수증",
+    "speechBubble": "영수증 드릴까요?",
+    "situations": {
+      "KO": "결제 후 영수증이 필요 없을 때 정중하게 사양하는 표현을 고르세요.",
+      "EN": "Choose the natural phrase when you do not need the receipt.",
+      "VI": "Chọn cách nói khi bạn không cần lấy hóa đơn sau khi thanh toán.",
+      "ZH": "选择结账后不需要收据时的地道表达。",
+      "JA": "お会計後にレシートが不要な場合の丁寧な表現を選んでください。"
+    },
+    "questions": {
+      "KO": "직원: 영수증 드릴까요?\n손님: 아니요, 영수증은 (        )."
+    },
+    "options": [
+      "버려 주세요",
+      "사 주세요",
+      "먹어 주세요",
+      "타 주세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "영수증이 필요 없을 때는 '영수증은 버려주세요' 또는 '괜찮아요'라고 말하는 것이 한국 생활의 대표적인 표현입니다.",
+      "EN": "When you don't need a receipt, say '영수증은 버려주세요' (Please throw it away) or '괜찮아요'.",
+      "VI": "Khi không cần lấy hóa đơn, người Hàn hay nói '영수증은 버려주세요' (Xin bỏ giúp tôi ạ).",
+      "ZH": "不需要收据时，韩国人常说'영수증은 버려주세요'（收据帮我扔掉就好/不用了）。",
+      "JA": "レシートが不要な時は「영수증은 버려주세요（捨ててください）」と言うのが定番です。"
+    }
+  },
+  {
+    "id": 102,
+    "category": "쇼핑·결제",
+    "type": "survival",
+    "level": 1,
+    "visual": "👗 🪞",
+    "keyword": "피팅",
+    "speechBubble": "피팅룸은 저쪽입니다.",
+    "situations": {
+      "KO": "옷가게에서 마음에 드는 옷을 입어보고 싶을 때 직원에게 묻는 표현을 고르세요.",
+      "EN": "Choose how to ask to try on clothes in a clothing store.",
+      "VI": "Chọn câu hỏi để thử đồ tại cửa hàng quần áo.",
+      "ZH": "选择在服装店询问是否可以试穿的表达。",
+      "JA": "洋服屋さんで試着したい時に尋ねる表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 저기요, 이 옷 한번 (        )?\n직원: 네, 피팅룸은 안쪽에 있어요."
+    },
+    "options": [
+      "입어 봐도 돼요",
+      "버려 봐도 돼요",
+      "찢어 봐도 돼요",
+      "씻어 봐도 돼요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "옷을 입어보는 시도를 물을 때는 '입다'에 '-아/어 보다'를 결합해 '입어봐도 돼요?'라고 묻습니다.",
+      "EN": "To ask if you can try on clothes, say '입어봐도 돼요?' (May I try this on?).",
+      "VI": "Hỏi xem có được thử quần áo không: '입어봐도 돼요?'.",
+      "ZH": "试穿衣服时使用动词'입다'接'-아/어 보다'，构成'입어봐도 돼요?'（可以试穿一下吗？）。",
+      "JA": "服を試着したい時は「입어봐도 돼요?（試着してもいいですか？）」と尋ねます。"
+    }
+  },
+  {
+    "id": 103,
+    "category": "쇼핑·결제",
+    "type": "survival",
+    "level": 2,
+    "visual": "🛍️ 🏪",
+    "keyword": "봉투",
+    "speechBubble": "봉투 필요하세요?",
+    "situations": {
+      "KO": "편의점이나 마트에서 직원이 봉투가 필요한지 물어볼 때 쓰는 표현을 고르세요.",
+      "EN": "Choose the question the cashier asks about needing a bag.",
+      "VI": "Chọn câu nhân viên thu ngân hỏi bạn có cần mua túi nilon không.",
+      "ZH": "选择收银员询问是否需要购物塑料袋的常用表达。",
+      "JA": "コンビニやマートでレジ袋が必要か尋ねる表現を選んでください。"
+    },
+    "questions": {
+      "KO": "직원: 담아갈 봉투 (        )?\n손님: 네, 종량제 봉투 한 장 주세요."
+    },
+    "options": [
+      "필요하세요",
+      "출발하세요",
+      "청소하세요",
+      "요리하세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "물건을 담아갈 봉투가 필요한지 물을 때는 '봉투 필요하세요?'라고 묻습니다.",
+      "EN": "To ask if a bag is needed: '봉투 필요하세요?' (Do you need a shopping bag?).",
+      "VI": "Hỏi xem khách có cần túi đựng không: '봉투 필요하세요?'.",
+      "ZH": "询问是否需要袋子时说'봉투 필요하세요?'（需要袋子吗？）。",
+      "JA": "レジ袋が必要か尋ねる時は「봉투 필요하세요?」と聞かれます。"
+    }
+  },
+  {
+    "id": 104,
+    "category": "쇼핑·결제",
+    "type": "survival",
+    "level": 2,
+    "visual": "💳 📱",
+    "keyword": "카드결제",
+    "speechBubble": "결제 도와드리겠습니다.",
+    "situations": {
+      "KO": "계산대에서 신용카드나 모바일 페이로 값을 치르겠다고 말하는 표현을 고르세요.",
+      "EN": "Choose how to say you will pay by credit card.",
+      "VI": "Chọn cách nói bạn sẽ thanh toán bằng thẻ.",
+      "ZH": "选择在结账时表示用信用卡支付的表达。",
+      "JA": "レジでカード決済することを伝える表現を選んでください。"
+    },
+    "questions": {
+      "KO": "직원: 계산 도와드릴게요.\n손님: 네, 카드로 (        )."
+    },
+    "options": [
+      "결제할게요",
+      "출발할게요",
+      "청소할게요",
+      "요리할게요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "값을 치를 때는 '결제하다' 또는 '계산하다'를 써서 '카드로 결제할게요'라고 말합니다.",
+      "EN": "To pay by card, say '카드로 결제할게요' or '카드로 계산할게요' (I will pay by card).",
+      "VI": "Để thanh toán bằng thẻ, nói '카드로 결제할게요' hoặc '카드로 계산할게요'.",
+      "ZH": "用卡结账时说'카드로 결제할게요'（我刷卡结账）。",
+      "JA": "カードで支払う時は「카드로 결제할게요（カードで決済します）」と言います。"
+    }
+  },
+  {
+    "id": 105,
+    "category": "K-리액션·감탄사",
+    "type": "survival",
+    "level": 1,
+    "visual": "🎉 😲",
+    "keyword": "대박",
+    "speechBubble": "대박! 축하해!",
+    "situations": {
+      "KO": "친구가 엄청나게 좋은 소식을 전했을 때 놀람과 축하를 나타내는 리액션을 고르세요.",
+      "EN": "Choose the popular reaction expressing amazement and excitement.",
+      "VI": "Chọn câu cảm thán khen ngợi, ngạc nhiên cực kỳ phổ biến của người Hàn.",
+      "ZH": "选择听到令人惊喜的好消息时表示惊叹和祝贺的地道反应。",
+      "JA": "友達からすごい朗報を聞いて驚きと祝福を表すリアクションを選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 나 한국어 시험 1등 했어!\n나: 와, (   )! 정말 축하해!"
+    },
+    "options": [
+      "대박",
+      "슬픔",
+      "고장",
+      "출구"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'대박!'은 대단하거나 엄청난 소식을 들었을 때 감탄과 축하의 뜻으로 매우 자주 쓰는 실전 리액션입니다.",
+      "EN": "'대박!' (Awesome! Wow!) is the quintessential Korean reaction for exciting, surprising news.",
+      "VI": "'대박!' (Đỉnh quá! Tuyệt vời!) là câu cảm thán vô cùng phổ biến khi nghe tin vui bất ngờ.",
+      "ZH": "'대박!'（太赞了！神了！）是韩语中最地道、使用频率极高的惊喜赞叹反应。",
+      "JA": "「대박!（やばい！すごい！）」は素晴らしい知らせを聞いた時の一番定番のリアクションです。"
+    }
+  },
+  {
+    "id": 106,
+    "category": "K-리액션·감탄사",
+    "type": "survival",
+    "level": 1,
+    "visual": "👀 😯",
+    "keyword": "진짜요",
+    "speechBubble": "진짜요? 몰랐어요!",
+    "situations": {
+      "KO": "믿기 어려운 사실을 듣고 예의 바르게 되물으며 놀라는 표현을 고르세요.",
+      "EN": "Choose the polite phrase to react with surprise: 'Really?'",
+      "VI": "Chọn cách nói biểu cảm ngạc nhiên lịch sự: 'Thật vậy ạ?'",
+      "ZH": "选择礼貌表达惊讶并反问'真的吗？'的韩语表达。",
+      "JA": "信じられない事実を聞いて丁寧に聞き返す表現を選んでください。"
+    },
+    "questions": {
+      "KO": "지수: 내일부터 할인 행사를 시작한대요.\n민수: (   )? 우와, 몰랐어요!"
+    },
+    "options": [
+      "진짜요",
+      "싫어요",
+      "아파요",
+      "더워요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "상대방의 말에 놀라며 사실인지 정중히 되물을 때는 '진짜요?' 또는 '정말요?'라고 합니다.",
+      "EN": "'진짜요?' (Really? / Is that true?) is the polite and most common reaction to surprising information.",
+      "VI": "'진짜요?' (Thật thế ạ?) là cách phản xạ lịch sự và phổ biến nhất khi nghe tin bất ngờ.",
+      "ZH": "'진짜요?'（真的吗？）是听到意外事实时最自然礼貌的反应。",
+      "JA": "相手の話に驚いて聞き返す時は「진짜요?（本当ですか？）」と言います。"
+    }
+  },
+  {
+    "id": 107,
+    "category": "K-리액션·감탄사",
+    "type": "survival",
+    "level": 2,
+    "visual": "😱 🤦",
+    "keyword": "헐",
+    "speechBubble": "헐... 어떡해...",
+    "situations": {
+      "KO": "예상치 못한 황당하거나 안타까운 상황에서 쓰는 한국 특유의 감탄사를 고르세요.",
+      "EN": "Choose the iconic Korean exclamation for shock or dismay: 'OMG / No way'.",
+      "VI": "Chọn thán từ độc đáo của giới trẻ Hàn thể hiện sự sững sờ, ngỡ ngàng.",
+      "ZH": "选择在感到荒唐、震惊或遗憾时脱口而出的标志性韩语感叹词。",
+      "JA": "予期せぬショックや呆れた時に思わず出る感嘆詞を選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 마지막 지하철을 놓쳐버렸어.\n나: (   )... 택시 타고 가야겠네."
+    },
+    "options": [
+      "봄",
+      "헐",
+      "책",
+      "물"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "'헐!'은 어이없거나 충격적인 상황, 난감한 일을 마주했을 때 전 연령대가 사용하는 대표적인 일상 감탄사입니다.",
+      "EN": "'헐!' (OMG / Oh no / What the...) is an iconic exclamation when faced with a shocking or dismaying situation.",
+      "VI": "'헐!' (Trời ơi! / Hả!) là câu cảm thán kinh điển khi gặp tình huống dở khóc dở cười hoặc sốc.",
+      "ZH": "'헐!'（天哪！无语！）是遇到令人震惊、尴尬或倒霉事时的灵魂感叹词。",
+      "JA": "「헐!（えっ…マジで…）」は困惑やショックな出来事に出くわした時の超定番の感嘆詞です。"
+    }
+  },
+  {
+    "id": 108,
+    "category": "K-리액션·감탄사",
+    "type": "survival",
+    "level": 2,
+    "visual": "✊ 🔥",
+    "keyword": "화이팅",
+    "speechBubble": "오늘도 힘내자! 화이팅!",
+    "situations": {
+      "KO": "시험이나 힘든 일을 앞둔 친구에게 응원과 힘을 북돋워 주는 표현을 고르세요.",
+      "EN": "Choose the famous Korean cheer expression: 'You can do it! / Cheer up!'",
+      "VI": "Chọn câu cổ vũ tinh thần phổ biến nhất của người Hàn: 'Cố lên!'",
+      "ZH": "选择为面临考试或挑战的朋友加油打气的标志性表达。",
+      "JA": "試験や大事な仕事を控えた友達を励ます応援表現を選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 오늘 면접 잘 보고 올게!\n나: 응, 긴장하지 말고 (   )!"
+    },
+    "options": [
+      "화이팅",
+      "안녕히",
+      "죄송합니다",
+      "실례합니다"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "상대방에게 용기를 주고 응원할 때는 '화이팅!' 또는 '파이팅!'이라고 외칩니다.",
+      "EN": "'화이팅!' (Fighting! / Cheer up! / You can do it!) is the most beloved cheering phrase in Korea.",
+      "VI": "'화이팅!' (Cố lên!) là khẩu hiệu cổ vũ tinh thần thân thuộc và tràn đầy năng lượng nhất.",
+      "ZH": "'화이팅!'（加油！）是韩国人在鼓励他人、注入力量时最常用的呐喊。",
+      "JA": "相手を励ましてエールを送る時は「화이팅!（ファイティン！応援してるよ！）」と言います。"
+    }
+  },
+  {
+    "id": 109,
+    "category": "길찾기·교통",
+    "type": "survival",
+    "level": 1,
+    "visual": "🚌 💳",
+    "keyword": "충전",
+    "speechBubble": "교통카드 충전해 주세요.",
+    "situations": {
+      "KO": "편의점에서 대중교통 카드의 잔액을 채워달라고 요청하는 표현을 고르세요.",
+      "EN": "Choose how to ask to top up your transit card at a convenience store.",
+      "VI": "Chọn cách nhờ nhân viên nạp thêm tiền vào thẻ giao thông tại cửa hàng tiện lợi.",
+      "ZH": "选择在便利店请店员为交通卡充值的表达。",
+      "JA": "コンビニで交通カードにお金をチャージしてほしい時の表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 교통카드 10,000원만 (        ).\n직원: 네, 카드 올려주세요."
+    },
+    "options": [
+      "충전해 주세요",
+      "요리해 주세요",
+      "청소해 주세요",
+      "출발해 주세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "교통카드에 돈을 넣을 때는 '충전하다'를 써서 '교통카드 충전해 주세요'라고 말합니다.",
+      "EN": "To top up a transit card with balance, use '충전하다' -> '교통카드 충전해 주세요'.",
+      "VI": "Để nạp tiền vào thẻ giao thông, dùng từ '충전하다' -> '교통카드 충전해 주세요'.",
+      "ZH": "给交通卡充钱时使用'충전하다'（充值），说'교통카드 충전해 주세요'。",
+      "JA": "交通カードにお金をチャージする時は「충전해 주세요（チャージしてください）」と言います。"
+    }
+  },
+  {
+    "id": 110,
+    "category": "길찾기·교통",
+    "type": "survival",
+    "level": 1,
+    "visual": "🚪 🚇",
+    "keyword": "출구",
+    "speechBubble": "몇 번 출구로 나가야 해요?",
+    "situations": {
+      "KO": "지하철역에서 목적지로 가기 위해 몇 번 문으로 나가야 하는지 묻는 표현을 고르세요.",
+      "EN": "Choose how to ask which exit number to take at a subway station.",
+      "VI": "Chọn câu hỏi cần đi ra cửa số mấy tại ga tàu điện ngầm.",
+      "ZH": "选择在地铁站询问应该从几号出口出来的表达。",
+      "JA": "地下鉄駅で目的地に行くには何番出口から出ればいいか尋ねる表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 명동성당에 가려면 몇 번 (   )로 나가야 해요?\n직원: 8번 출구로 나가시면 돼요."
+    },
+    "options": [
+      "입구",
+      "출구",
+      "식당",
+      "교실"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "지하철역 밖으로 나가는 문은 '출구(Exit)'라고 하며, '몇 번 출구로 나가야 해요?'라고 묻습니다.",
+      "EN": "The door to exit a subway station is '출구' (Exit). Ask '몇 번 출구로 나가야 해요?' (Which exit should I take?).",
+      "VI": "Cửa ra khỏi ga tàu điện ngầm là '출구'. Hỏi: '몇 번 출구로 나가야 해요?'.",
+      "ZH": "从车站出去的门是'출구'（出口）。询问时说'몇 번 출구로 나가야 해요?'（要从几号出口出去？）。",
+      "JA": "外へ出るドアは「출구（出口）」と言い、「몇 번 출구로 나가야 해요?」と尋ねます。"
+    }
+  },
+  {
+    "id": 111,
+    "category": "길찾기·교통",
+    "type": "survival",
+    "level": 2,
+    "visual": "🔄 🚇",
+    "keyword": "환승",
+    "speechBubble": "2호선으로 갈아타세요.",
+    "situations": {
+      "KO": "지하철이나 버스 노선을 다른 노선으로 갈아타는 행위를 나타내는 단어를 고르세요.",
+      "EN": "Choose the word for transferring to another subway or bus line.",
+      "VI": "Chọn từ chỉ hành động đổi/chuyển sang tuyến xe buýt hoặc tàu khác.",
+      "ZH": "选择换乘到另一条地铁或公交线路的韩语专业表达。",
+      "JA": "地下鉄やバスを別の路線に乗り換える行為を表す単語を選んでください。"
+    },
+    "questions": {
+      "KO": "승객: 홍대입구역에 가려면 어디서 (        )?\n안내원: 이번 역에서 2호선으로 갈아타세요."
+    },
+    "options": [
+      "환승해야 해요",
+      "출국해야 해요",
+      "식사해야 해요",
+      "취소해야 해요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "교통수단을 갈아타는 것을 한자어로 '환승' 또는 순우리말로 '갈아타기'라고 합니다.",
+      "EN": "Transferring between transit lines is '환승' (Transfer) or '갈아타다'.",
+      "VI": "Chuyển đổi phương tiện giao thông gọi là '환승' (hoán thặng - chuyển tuyến) hoặc '갈아타다'.",
+      "ZH": "换乘交通线路称为'환승'（换乘）或'갈아타다'。",
+      "JA": "交通機関を乗り換えることは「환승（換乗・乗り換え）」または「갈아타다」と言います。"
+    }
+  },
+  {
+    "id": 112,
+    "category": "길찾기·교통",
+    "type": "survival",
+    "level": 2,
+    "visual": "⏱️ 🚶",
+    "keyword": "시간",
+    "speechBubble": "얼마나 걸려요?",
+    "situations": {
+      "KO": "어떤 장소까지 이동하는 데 시간이 얼마나 소요되는지 묻는 필수 질문을 고르세요.",
+      "EN": "Choose the essential question to ask how long it takes to get somewhere.",
+      "VI": "Chọn câu hỏi thiết yếu để hỏi mất bao lâu thời gian để đi đến một địa điểm.",
+      "ZH": "选择询问去某地需要花费多少时间的必备句型。",
+      "JA": "ある場所まで移動するのにどれくらい時間がかかるか尋ねる表現を選んでください。"
+    },
+    "questions": {
+      "KO": "여행객: 여기서 남산타워까지 얼마나 (   )?\n안내원: 버스로 20분 정도 걸려요."
+    },
+    "options": [
+      "마셔요",
+      "걸려요",
+      "먹어요",
+      "입어요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "시간이 소요되는 것을 물을 때는 동사 '걸리다'를 써서 '얼마나 걸려요?'라고 질문합니다.",
+      "EN": "To ask about time duration, use the verb '걸리다' -> '얼마나 걸려요?' (How long does it take?).",
+      "VI": "Hỏi mất bao lâu thời gian, dùng động từ '걸리다' -> '얼마나 걸려요?' (Mất bao lâu ạ?).",
+      "ZH": "询问耗费多少时间时使用动词'걸리다'，说'얼마나 걸려요?'（需要多长时间？）。",
+      "JA": "所要時間を尋ねる時は動詞「걸리다」を使い「얼마나 걸려요?（どれくらいかかりますか？）」と聞きます。"
+    }
+  },
+  {
+    "id": 113,
+    "category": "K-컬처·팬문화",
+    "type": "survival",
+    "level": 1,
+    "visual": "🎟️ 🖥️",
+    "keyword": "티켓",
+    "speechBubble": "티켓팅 성공했어요!",
+    "situations": {
+      "KO": "K-POP 콘서트나 공연 입장권을 예매할 때 쓰는 표현을 고르세요.",
+      "EN": "Choose the word for admission tickets to a K-POP concert.",
+      "VI": "Chọn từ chỉ vé vào cửa cho các buổi hòa nhạc K-POP.",
+      "ZH": "选择K-POP演唱会门票的常用韩语词汇。",
+      "JA": "K-POPコンサートなどの入場チケットを表す言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 좋아하는 가수 콘서트 (   ) 예매 성공했어?\n나: 응! 드디어 보러 갈 수 있어!"
+    },
+    "options": [
+      "티켓",
+      "비자",
+      "여권",
+      "약관"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "공연이나 영화의 입장권은 '티켓' 또는 '입장권'이라고 하며, 예매 과정을 '티켓팅'이라고 부릅니다.",
+      "EN": "Concert admission is '티켓' (Ticket), and the process of booking tickets is famously called '티켓팅'.",
+      "VI": "Vé xem biểu diễn là '티켓', và việc săn vé được người trẻ gọi là '티켓팅'.",
+      "ZH": "演出门票称为'티켓'（Ticket），抢票的过程在韩国常被称为'티켓팅'。",
+      "JA": "コンサートなどのチケットは「티켓」と言い、チケット予約競争は「티켓팅」と呼ばれます。"
+    }
+  },
+  {
+    "id": 114,
+    "category": "K-컬처·팬문화",
+    "type": "survival",
+    "level": 1,
+    "visual": "🪄 🔋",
+    "keyword": "배터리",
+    "speechBubble": "건전지 갈아 끼워야 해요.",
+    "situations": {
+      "KO": "콘서트장에서 응원봉에 불이 안 들어올 때 필요한 부품을 고르세요.",
+      "EN": "Choose the item needed when the cheering light stick runs out of power.",
+      "VI": "Chọn linh kiện cần thiết khi gậy cổ vũ (lightstick) bị hết điện.",
+      "ZH": "选择应援棒没电时需要更换的电量部件名称。",
+      "JA": "コンサートでペンライトがつかない時に必要な電力を表す言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 어? 응원봉 불이 꺼졌어.\n나: 안에 (   )가 다 된 것 같아. 새 건전지 줄게."
+    },
+    "options": [
+      "우산",
+      "배터리",
+      "안경",
+      "지갑"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "전자기기나 응원봉의 전력이 다했을 때는 '배터리(또는 건전지)가 다 됐다'라고 표현합니다.",
+      "EN": "When a device or light stick runs out of juice, say '배터리가 다 됐다' (The battery is dead).",
+      "VI": "Khi thiết bị hay gậy cổ vũ hết điện, người ta nói '배터리가 다 됐다'.",
+      "ZH": "应援棒或设备没电时表达为'배터리가 다 됐다'（电池没电了）。",
+      "JA": "機器の充電や電池が切れた時は「배터리가 다 됐다（バッテリーが切れた）」と言います。"
+    }
+  },
+  {
+    "id": 115,
+    "category": "K-컬처·팬문화",
+    "type": "survival",
+    "level": 2,
+    "visual": "💿 🎵",
+    "keyword": "앨범",
+    "speechBubble": "새 음반이 발매되었습니다.",
+    "situations": {
+      "KO": "가수의 노래들이 수록된 실물 음반을 일컫는 말을 고르세요.",
+      "EN": "Choose the word for a music record/album released by an artist.",
+      "VI": "Chọn từ chỉ đĩa nhạc/album ca khúc được phát hành bởi ca sĩ.",
+      "ZH": "选择歌手收录歌曲发行的正规唱片/专辑词汇。",
+      "JA": "歌手が曲を収録して発売するCD・アルバムを指す言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 좋아하는 가수의 새 (   )이 나왔대!\n나: 정말? 포토카드도 들어있겠다!"
+    },
+    "options": [
+      "여권",
+      "앨범",
+      "사전",
+      "영수증"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "가수가 발표하는 음반을 '앨범(Album)'이라고 하며, K-POP 앨범에는 포토카드가 들어있는 경우가 많습니다.",
+      "EN": "A singer's music record is called an '앨범' (Album), famous for containing photocards.",
+      "VI": "Đĩa nhạc của ca sĩ gọi là '앨범', thường đi kèm photocard sưu tầm.",
+      "ZH": "歌手发行的唱片称为'앨범'（专辑/Album），常附赠收藏用小卡。",
+      "JA": "アーティストの音楽作品は「앨범（アルバム）」と呼ばれ、フォトカードが封入されます。"
+    }
+  },
+  {
+    "id": 116,
+    "category": "K-컬처·팬문화",
+    "type": "survival",
+    "level": 2,
+    "visual": "👥 🏟️",
+    "keyword": "인파",
+    "speechBubble": "팬들이 정말 많이 모였어요!",
+    "situations": {
+      "KO": "공연장에 모인 사람들의 수가 엄청나게 많은 상태를 묘사하는 형용사 표현을 고르세요.",
+      "EN": "Choose the adjective describing a huge crowd gathered at a venue.",
+      "VI": "Chọn tính từ miêu tả đông đảo người tụ tập tại điểm biểu diễn.",
+      "ZH": "选择形容演出现场聚集了大量人群的形容词表达。",
+      "JA": "会場に多くの人が集まっている状態を表す形容詞を選んでください。"
+    },
+    "questions": {
+      "KO": "친구: 오늘 팬미팅 현장 분위기 어때?\n나: 사람이 정말 (   )! 자리가 꽉 찼어."
+    },
+    "options": [
+      "작아요",
+      "많아요",
+      "차가워요",
+      "어두워요"
+    ],
+    "answerIndex": 1,
+    "explanations": {
+      "KO": "사람이나 사물의 수가 풍부하게 많을 때는 형용사 '많다'를 써서 '사람이 정말 많아요'라고 합니다.",
+      "EN": "To express a large crowd, use the adjective '많다' -> '사람이 정말 많아요' (There are so many people).",
+      "VI": "Chỉ số lượng người đông đúc, dùng '많다' -> '사람이 정말 많아요'.",
+      "ZH": "表示人多热闹时使用形容词'많다'，说'사람이 정말 많아요'（人真的好多）。",
+      "JA": "人がたくさん集まっている時は「사람이 정말 많아요（人が本当に多いです）」と言います。"
     }
   }
 ]
