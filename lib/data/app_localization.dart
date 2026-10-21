@@ -133,6 +133,15 @@ class AppStrings {
       'cat_chat_nuance': 'KakaoTalk & Sắc thái',
       'cat_taxi_delivery': 'Taxi & Giao hàng',
       'cat_etiquette': 'Văn hóa & Phép tắc',
+      'cat_nature_weather': 'Tự nhiên & Thời tiết',
+      'cat_fashion_clothes': 'Thời trang & Quần áo',
+      'cat_intro_jobs': 'Tự giới thiệu & Nghề nghiệp',
+      'cat_daily_places': 'Đời sống & Địa điểm',
+      'cat_dining_moving': 'Nhà hàng & Đi lại',
+      'cat_core_expressions': 'Mẫu câu & Giao tiếp',
+      'cat_survival_food_store': 'Ăn uống & Cửa hàng',
+      'cat_survival_shopping_transit': 'Mua sắm & Đi lại',
+      'cat_survival_culture_chat': 'K-Culture & Trò chuyện',
       'streak_days': '{n} ngày liên tiếp',
       'daily_goal_title': 'Mục tiêu hôm nay',
       'daily_goal_done': 'Hoàn thành mục tiêu! 🎉',
@@ -276,6 +285,15 @@ class AppStrings {
       'cat_chat_nuance': 'K-Chat与网聊潜台词',
       'cat_taxi_delivery': '打车与外卖实战',
       'cat_etiquette': '聚会礼仪与餐桌文化',
+      'cat_nature_weather': '自然·天气',
+      'cat_fashion_clothes': '时尚·服饰',
+      'cat_intro_jobs': '自我介绍·职业',
+      'cat_daily_places': '日常生活·场所',
+      'cat_dining_moving': '餐饮·外出移动',
+      'cat_core_expressions': '核心表达·沟通',
+      'cat_survival_food_store': '餐饮·便利店·礼仪',
+      'cat_survival_shopping_transit': '购物·交通·出行',
+      'cat_survival_culture_chat': 'K-Culture·影视与聊天',
       'streak_days': '连续{n}天',
       'daily_goal_title': '今日目标',
       'daily_goal_done': '今日目标已完成！🎉',
@@ -422,6 +440,15 @@ class AppStrings {
       'cat_chat_nuance': 'K-Texting & Nuance',
       'cat_taxi_delivery': 'Taxi & Delivery',
       'cat_etiquette': 'Manners & Culture',
+      'cat_nature_weather': 'Nature & Weather',
+      'cat_fashion_clothes': 'Fashion & Clothes',
+      'cat_intro_jobs': 'Introductions & Jobs',
+      'cat_daily_places': 'Daily Life & Places',
+      'cat_dining_moving': 'Dining & Outing',
+      'cat_core_expressions': 'Key Expressions & Intentions',
+      'cat_survival_food_store': 'Food, Store & Manners',
+      'cat_survival_shopping_transit': 'Shopping, Transit & Taxi',
+      'cat_survival_culture_chat': 'K-Culture & Chat',
       'streak_days': '{n}-day streak',
       'daily_goal_title': 'Daily goal',
       'daily_goal_done': 'Goal complete! 🎉',
@@ -565,6 +592,15 @@ class AppStrings {
       'cat_chat_nuance': 'カトク・SNSニュアンス',
       'cat_taxi_delivery': 'タクシー・出前実戦',
       'cat_etiquette': 'マナーと食文化',
+      'cat_nature_weather': '自然・天気',
+      'cat_fashion_clothes': 'ファッション・衣類',
+      'cat_intro_jobs': '自己紹介・職業',
+      'cat_daily_places': '日常生活・場所',
+      'cat_dining_moving': '外食・移動',
+      'cat_core_expressions': '必須表現・意思疎通',
+      'cat_survival_food_store': '飲食・コンビニ・マナー',
+      'cat_survival_shopping_transit': '買い物・交通・おでかけ',
+      'cat_survival_culture_chat': 'K-Culture・チャット表現',
       'streak_days': '{n}日連続',
       'daily_goal_title': '今日の目標',
       'daily_goal_done': '目標達成！🎉',
@@ -708,6 +744,15 @@ class AppStrings {
       'cat_chat_nuance': '카톡·SNS 뉘앙스',
       'cat_taxi_delivery': '배달·택시 실전',
       'cat_etiquette': '실전 에티켓·문화',
+      'cat_nature_weather': '자연·날씨',
+      'cat_fashion_clothes': '패션·의류',
+      'cat_intro_jobs': '자기소개·직업',
+      'cat_daily_places': '일상생활·장소',
+      'cat_dining_moving': '식당·외식·이동',
+      'cat_core_expressions': '핵심표현·의사소통',
+      'cat_survival_food_store': '식음료·편의점',
+      'cat_survival_shopping_transit': '쇼핑·교통·외출',
+      'cat_survival_culture_chat': 'K-컬처·소통',
       'streak_days': '{n}일 연속',
       'daily_goal_title': '오늘의 목표',
       'daily_goal_done': '오늘 목표 달성! 🎉',
@@ -854,6 +899,15 @@ class AppStrings {
       'cat_chat_nuance': 'K-Chat y Matices',
       'cat_taxi_delivery': 'Taxi y Domicilio',
       'cat_etiquette': 'Modales y Cultura',
+      'cat_nature_weather': 'Naturaleza y clima',
+      'cat_fashion_clothes': 'Moda y ropa',
+      'cat_intro_jobs': 'Presentación y trabajo',
+      'cat_daily_places': 'Vida diaria y lugares',
+      'cat_dining_moving': 'Restaurantes y salidas',
+      'cat_core_expressions': 'Expresiones clave e intención',
+      'cat_survival_food_store': 'Comida, tiendas y modales',
+      'cat_survival_shopping_transit': 'Compras, transporte y taxi',
+      'cat_survival_culture_chat': 'K-Culture, dramas y chat',
       'streak_days': 'Racha de {n} días',
       'daily_goal_title': 'Meta diaria',
       'daily_goal_done': '¡Meta cumplida! 🎉',
@@ -1000,6 +1054,15 @@ class AppStrings {
       'cat_chat_nuance': 'K-Chat e Nuances',
       'cat_taxi_delivery': 'Táxi e Delivery',
       'cat_etiquette': 'Etiqueta e Cultura',
+      'cat_nature_weather': 'Natureza e clima',
+      'cat_fashion_clothes': 'Moda e roupas',
+      'cat_intro_jobs': 'Apresentação e profissão',
+      'cat_daily_places': 'Vida diária e lugares',
+      'cat_dining_moving': 'Restaurantes e passeios',
+      'cat_core_expressions': 'Expressões-chave e intenções',
+      'cat_survival_food_store': 'Comida, lojas e etiquetas',
+      'cat_survival_shopping_transit': 'Compras, transporte e táxi',
+      'cat_survival_culture_chat': 'K-Culture, doramas e chat',
       'streak_days': 'Sequência de {n} dias',
       'daily_goal_title': 'Meta diária',
       'daily_goal_done': 'Meta concluída! 🎉',
@@ -1035,6 +1098,42 @@ class AppStrings {
   /// Localize category name
   static String category(String categoryKey, String langCode) {
     switch (categoryKey) {
+      // Word Categories
+      case '음식·음료':
+        return tr('cat_food', langCode);
+      case '신체·건강':
+        return tr('cat_body', langCode);
+      case '자연·날씨':
+      case '자연':
+        return tr('cat_nature_weather', langCode);
+      case '생활·사물':
+        return tr('cat_things', langCode);
+      case '패션·의류':
+      case '의류·잡화':
+      case '의류·패션':
+      case '패션·신발':
+        return tr('cat_fashion_clothes', langCode);
+      case '교통·이동':
+        return tr('cat_transit', langCode);
+
+      // Sentence Categories
+      case '자기소개·직업':
+        return tr('cat_intro_jobs', langCode);
+      case '일상생활·장소':
+        return tr('cat_daily_places', langCode);
+      case '식당·외식·이동':
+        return tr('cat_dining_moving', langCode);
+      case '핵심표현·의사소통':
+        return tr('cat_core_expressions', langCode);
+
+      // Survival Categories
+      case '식음료·편의점':
+        return tr('cat_survival_food_store', langCode);
+      case '쇼핑·교통·외출':
+        return tr('cat_survival_shopping_transit', langCode);
+      case 'K-컬처·소통':
+        return tr('cat_survival_culture_chat', langCode);
+
       case 'Nationality':
       case '생활·대화':
       case '생활대화':
@@ -1056,18 +1155,6 @@ class AppStrings {
         return tr('cat_ability', langCode);
       case '목적·이동':
         return tr('cat_purpose', langCode);
-      case '의류·잡화':
-        return tr('cat_clothing', langCode);
-      case '생활·사물':
-        return tr('cat_things', langCode);
-      case '음식·음료':
-        return tr('cat_food', langCode);
-      case '자연':
-        return tr('cat_nature', langCode);
-      case '신체·건강':
-        return tr('cat_body', langCode);
-      case '교통·이동':
-        return tr('cat_transit', langCode);
       case '식당·주문':
         return tr('cat_dining', langCode);
       case '희망·의도':

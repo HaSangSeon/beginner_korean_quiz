@@ -3,6 +3,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import '../data/app_localization.dart';
 import '../data/dialogue_data.dart';
+import '../services/tts_service.dart';
 
 /// 상황별 대화문 보기 화면 + 실제 사람 같은 원어민 고음질 전체 오디오 플레이어
 class DialogueScreen extends StatefulWidget {
@@ -111,7 +112,9 @@ class _DialogueScreenState extends State<DialogueScreen> {
         await _player.play(AssetSource(asset), volume: 1.0);
       }
     } catch (e) {
-      debugPrint('Play error: $e');
+      debugPrint('Play error: $e - fallback to TTS');
+      final fullText = widget.dialogue.lines.map((l) => l.text).join(' ');
+      TtsService().speak(fullText);
     }
   }
 
@@ -123,7 +126,9 @@ class _DialogueScreenState extends State<DialogueScreen> {
       await _player.seek(Duration.zero);
       await _player.play(AssetSource(asset), volume: 1.0);
     } catch (e) {
-      debugPrint('Replay error: $e');
+      debugPrint('Replay error: $e - fallback to TTS');
+      final fullText = widget.dialogue.lines.map((l) => l.text).join(' ');
+      TtsService().speak(fullText);
     }
   }
 
@@ -383,25 +388,51 @@ class _DialogueScreenState extends State<DialogueScreen> {
             ),
           ),
           const SizedBox(height: 4),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
-            decoration: BoxDecoration(
-              color: bubbleColor,
-              border: Border.all(color: borderColor),
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(isLeft ? 4 : 18),
                 topRight: Radius.circular(isLeft ? 18 : 4),
                 bottomLeft: const Radius.circular(18),
                 bottomRight: const Radius.circular(18),
               ),
-            ),
-            child: Text(
-              line.text,
-              style: TextStyle(
-                fontSize: 16.5,
-                height: 1.4,
-                fontWeight: FontWeight.w600,
-                color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A),
+              onTap: () => TtsService().speak(line.text),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
+                decoration: BoxDecoration(
+                  color: bubbleColor,
+                  border: Border.all(color: borderColor),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(isLeft ? 4 : 18),
+                    topRight: Radius.circular(isLeft ? 18 : 4),
+                    bottomLeft: const Radius.circular(18),
+                    bottomRight: const Radius.circular(18),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        line.text,
+                        style: TextStyle(
+                          fontSize: 16.5,
+                          height: 1.4,
+                          fontWeight: FontWeight.w600,
+                          color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Icon(
+                      Icons.volume_up_rounded,
+                      size: 15,
+                      color: accent.withValues(alpha: isDark ? 0.75 : 0.55),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

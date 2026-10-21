@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data/app_localization.dart';
 import '../data/dialogue_data.dart';
 import '../data/quiz_data.dart';
+import '../data/survival_phrases_data.dart';
 import '../services/ad_service.dart';
 import '../services/progress_service.dart';
 import '../services/quiz_repository.dart';
@@ -11,6 +12,26 @@ import 'quiz_screen.dart';
 
 /// Emoji icon per quiz category (0-byte vector icons)
 const Map<String, String> _categoryEmoji = {
+  // Word track (기초단어)
+  '음식·음료': '🍎',
+  '신체·건강': '🩺',
+  '자연·날씨': '🌿',
+  '생활·사물': '🏠',
+  '패션·의류': '👕',
+  '교통·이동': '🚌',
+
+  // Sentence track (문장연습)
+  '자기소개·직업': '👤',
+  '일상생활·장소': '🏙️',
+  '식당·외식·이동': '🍽️',
+  '핵심표현·의사소통': '💡',
+
+  // Survival track (서바이벌 K-Life)
+  '식음료·편의점': '☕',
+  '쇼핑·교통·외출': '🛍️',
+  'K-컬처·소통': '✨',
+
+  // Legacy fallback compatibility
   '생활·대화': '🗣️',
   '능력·가능': '💪',
   '목적·이동': '🚶',
@@ -19,11 +40,7 @@ const Map<String, String> _categoryEmoji = {
   '직업·소개': '💼',
   '장소·생활': '🏙️',
   '의류·잡화': '👕',
-  '생활·사물': '🏠',
-  '음식·음료': '🍎',
   '자연': '🌿',
-  '신체·건강': '🩺',
-  '교통·이동': '🚌',
   '식당·주문': '🍽️',
   '희망·의도': '✨',
   '요청·예절': '🙏',
@@ -407,6 +424,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     // 7. Word & Nuance of the Day
                     _buildWordOfTheDayCard(context, isDark),
+                    const SizedBox(height: 24),
                   ],
                 ),
               ),
@@ -1528,84 +1546,78 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: isWordTrack
                       ? [
                           _buildPillTag(
-                            icon: Icons.checkroom_rounded,
-                            label: AppStrings.category('의류·잡화', _selectedLangCode),
-                            bgColor: Colors.white.withValues(alpha: 0.15),
-                            onTap: () => _onCategoryCardTap(context, '의류·잡화', _categoryEmoji['의류·잡화'] ?? '👕', isDark),
-                          ),
-                          _buildPillTag(
-                            icon: Icons.home_rounded,
-                            label: AppStrings.category('생활·사물', _selectedLangCode),
-                            bgColor: Colors.white.withValues(alpha: 0.15),
-                            onTap: () => _onCategoryCardTap(context, '생활·사물', _categoryEmoji['생활·사물'] ?? '🏠', isDark),
-                          ),
-                          _buildPillTag(
                             icon: Icons.restaurant_rounded,
                             label: AppStrings.category('음식·음료', _selectedLangCode),
                             bgColor: Colors.white.withValues(alpha: 0.15),
                             onTap: () => _onCategoryCardTap(context, '음식·음료', _categoryEmoji['음식·음료'] ?? '🍎', isDark),
                           ),
                           _buildPillTag(
+                            icon: Icons.favorite_rounded,
+                            label: AppStrings.category('신체·건강', _selectedLangCode),
+                            bgColor: Colors.white.withValues(alpha: 0.15),
+                            onTap: () => _onCategoryCardTap(context, '신체·건강', _categoryEmoji['신체·건강'] ?? '🩺', isDark),
+                          ),
+                          _buildPillTag(
+                            icon: Icons.checkroom_rounded,
+                            label: AppStrings.category('패션·의류', _selectedLangCode),
+                            bgColor: Colors.white.withValues(alpha: 0.15),
+                            onTap: () => _onCategoryCardTap(context, '패션·의류', _categoryEmoji['패션·의류'] ?? '👕', isDark),
+                          ),
+                          _buildPillTag(
                             icon: Icons.park_rounded,
-                            label: AppStrings.category('자연', _selectedLangCode),
+                            label: AppStrings.category('자연·날씨', _selectedLangCode),
                             bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
                             iconColor: const Color(0xFFFDE047),
-                            onTap: () => _onCategoryCardTap(context, '자연', _categoryEmoji['자연'] ?? '🌿', isDark),
+                            onTap: () => _onCategoryCardTap(context, '자연·날씨', _categoryEmoji['자연·날씨'] ?? '🌿', isDark),
                           ),
                         ]
                       : (isSurvivalTrack
                           ? [
                               _buildPillTag(
-                                icon: Icons.coffee_rounded,
-                                label: AppStrings.category('카페·테이크아웃', _selectedLangCode),
+                                icon: Icons.local_cafe_rounded,
+                                label: AppStrings.category('식음료·편의점', _selectedLangCode),
                                 bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '카페·테이크아웃', _categoryEmoji['카페·테이크아웃'] ?? '☕', isDark),
+                                onTap: () => _onCategoryCardTap(context, '식음료·편의점', _categoryEmoji['식음료·편의점'] ?? '☕', isDark),
                               ),
                               _buildPillTag(
                                 icon: Icons.shopping_bag_rounded,
-                                label: AppStrings.category('쇼핑·결제', _selectedLangCode),
+                                label: AppStrings.category('쇼핑·교통·외출', _selectedLangCode),
                                 bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '쇼핑·결제', _categoryEmoji['쇼핑·결제'] ?? '🛍️', isDark),
+                                onTap: () => _onCategoryCardTap(context, '쇼핑·교통·외출', _categoryEmoji['쇼핑·교통·외출'] ?? '🛍️', isDark),
                               ),
                               _buildPillTag(
                                 icon: Icons.auto_awesome_rounded,
-                                label: AppStrings.category('K-리액션·감탄사', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, 'K-리액션·감탄사', _categoryEmoji['K-리액션·감탄사'] ?? '✨', isDark),
-                              ),
-                              _buildPillTag(
-                                icon: Icons.subway_rounded,
-                                label: AppStrings.category('길찾기·교통', _selectedLangCode),
+                                label: AppStrings.category('K-컬처·소통', _selectedLangCode),
                                 bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
                                 iconColor: const Color(0xFFFDE047),
-                                onTap: () => _onCategoryCardTap(context, '길찾기·교통', _categoryEmoji['길찾기·교통'] ?? '🚇', isDark),
+                                onTap: () => _onCategoryCardTap(context, 'K-컬처·소통', _categoryEmoji['K-컬처·소통'] ?? '✨', isDark),
                               ),
                             ]
                           : [
                               _buildPillTag(
-                                icon: Icons.public_rounded,
-                                label: AppStrings.category('국적·소개', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '국적·소개', _categoryEmoji['국적·소개'] ?? '🌏', isDark),
-                              ),
-                              _buildPillTag(
                                 icon: Icons.badge_rounded,
-                                label: AppStrings.category('직업·소개', _selectedLangCode),
+                                label: AppStrings.category('자기소개·직업', _selectedLangCode),
                                 bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '직업·소개', _categoryEmoji['직업·소개'] ?? '💼', isDark),
+                                onTap: () => _onCategoryCardTap(context, '자기소개·직업', _categoryEmoji['자기소개·직업'] ?? '👤', isDark),
                               ),
                               _buildPillTag(
-                                icon: Icons.place_rounded,
-                                label: AppStrings.category('장소·생활', _selectedLangCode),
+                                icon: Icons.apartment_rounded,
+                                label: AppStrings.category('일상생활·장소', _selectedLangCode),
                                 bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '장소·생활', _categoryEmoji['장소·생활'] ?? '🏙️', isDark),
+                                onTap: () => _onCategoryCardTap(context, '일상생활·장소', _categoryEmoji['일상생활·장소'] ?? '🏙️', isDark),
                               ),
                               _buildPillTag(
-                                icon: Icons.flash_on_rounded,
-                                label: AppStrings.category('능력·가능', _selectedLangCode),
+                                icon: Icons.restaurant_rounded,
+                                label: AppStrings.category('식당·외식·이동', _selectedLangCode),
+                                bgColor: Colors.white.withValues(alpha: 0.15),
+                                onTap: () => _onCategoryCardTap(context, '식당·외식·이동', _categoryEmoji['식당·외식·이동'] ?? '🍽️', isDark),
+                              ),
+                              _buildPillTag(
+                                icon: Icons.lightbulb_rounded,
+                                label: AppStrings.category('핵심표현·의사소통', _selectedLangCode),
                                 bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
                                 iconColor: const Color(0xFFFDE047),
-                                onTap: () => _onCategoryCardTap(context, '능력·가능', _categoryEmoji['능력·가능'] ?? '💪', isDark),
+                                onTap: () => _onCategoryCardTap(context, '핵심표현·의사소통', _categoryEmoji['핵심표현·의사소통'] ?? '💡', isDark),
                               ),
                             ]),
                 ),
@@ -1803,6 +1815,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
   Widget _buildWordOfTheDayCard(BuildContext context, bool isDark) {
+    final phrase = SurvivalPhraseRepository.getTodayPhrase();
+
     return Container(
       decoration: BoxDecoration(
         color: isDark ? const Color(0xFF1E293B) : Colors.white,
@@ -1891,39 +1905,26 @@ class _HomeScreenState extends State<HomeScreen> {
             spacing: 10,
             children: [
               Text(
-                '괜찮습니다',
+                phrase.korean,
                 style: TextStyle(
                   fontSize: 27,
                   fontWeight: FontWeight.w900,
                   color: isDark ? Colors.white : const Color(0xFF0F172A),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFEF3C7),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: const Text(
-                  '[gwaen-chan-seum-ni-da]',
-                  style: TextStyle(
-                    fontSize: 12.5,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF92400E),
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ),
               Material(
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    TtsService().speak('괜찮습니다');
+                    TtsService().speak(phrase.korean);
+                    final toastTemplate = AppStrings.tr('wotd_listen_toast', _selectedLangCode);
+                    final toastMsg = toastTemplate.contains('[')
+                        ? toastTemplate.replaceAll(RegExp(r'\[.*?\]'), '[${phrase.korean}]')
+                        : '$toastTemplate: [${phrase.korean}]';
+
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text(
-                          AppStrings.tr('wotd_listen_toast', _selectedLangCode),
-                        ),
+                        content: Text(toastMsg),
                         duration: const Duration(milliseconds: 900),
                         behavior: SnackBarBehavior.floating,
                       ),
@@ -1966,7 +1967,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 6),
 
           Text(
-            AppStrings.tr('wotd_meaning', _selectedLangCode),
+            phrase.getMeaning(_selectedLangCode),
             style: const TextStyle(
               fontSize: 15.5,
               fontWeight: FontWeight.w700,
@@ -1990,7 +1991,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const Text('💡 ', style: TextStyle(fontSize: 14)),
                 Expanded(
                   child: Text(
-                    AppStrings.tr('wotd_tip', _selectedLangCode),
+                    phrase.getTip(_selectedLangCode),
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,

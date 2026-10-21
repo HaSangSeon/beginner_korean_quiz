@@ -24,7 +24,7 @@ const List<LanguageOption> supportedLanguages = [
 final List<QuizQuestion> sampleQuizQuestions = [
   QuizQuestion(
     id: 1,
-    category: "능력·가능",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🗣️ 🇰🇷",
@@ -52,7 +52,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 2,
-    category: "능력·가능",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🚗 🔑",
@@ -80,7 +80,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 3,
-    category: "능력·가능",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🎂 🧑‍🍳",
@@ -108,7 +108,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 4,
-    category: "능력·가능",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🥬 🌶️ 🙅‍♀️",
@@ -136,7 +136,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 5,
-    category: "능력·가능",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "⛷️ ❄️ 🙅‍♂️",
@@ -164,7 +164,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 6,
-    category: "목적·이동",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "🌳 🚶‍♂️🚶‍♀️",
@@ -192,7 +192,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 7,
-    category: "목적·이동",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "📚 🏛️",
@@ -220,7 +220,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 8,
-    category: "목적·이동",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "🏪 🛍️",
@@ -248,7 +248,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 9,
-    category: "목적·이동",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "🚅 🌊 🤝",
@@ -276,7 +276,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 10,
-    category: "목적·이동",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "🇰🇷 📖 ✈️",
@@ -304,7 +304,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 11,
-    category: "식물·꽃",
+    category: "자연·날씨",
     type: "word",
     level: 1,
     visual: "🌹",
@@ -330,7 +330,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 12,
-    category: "의류·잡화",
+    category: "패션·의류",
     type: "word",
     level: 1,
     visual: "🧢",
@@ -356,7 +356,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 13,
-    category: "가구·인테리어",
+    category: "생활·사물",
     type: "word",
     level: 1,
     visual: "🚪",
@@ -382,7 +382,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 14,
-    category: "매체·독서",
+    category: "생활·사물",
     type: "word",
     level: 1,
     visual: "📰",
@@ -408,7 +408,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 15,
-    category: "패션·신발",
+    category: "패션·의류",
     type: "word",
     level: 1,
     visual: "👟",
@@ -434,7 +434,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 16,
-    category: "잡화·시력",
+    category: "패션·의류",
     type: "word",
     level: 1,
     visual: "👓",
@@ -460,7 +460,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 17,
-    category: "가전·생활",
+    category: "생활·사물",
     type: "word",
     level: 1,
     visual: "⏰",
@@ -486,7 +486,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 18,
-    category: "의류·패션",
+    category: "패션·의류",
     type: "word",
     level: 1,
     visual: "👕",
@@ -512,7 +512,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 19,
-    category: "의류·잡화",
+    category: "패션·의류",
     type: "word",
     level: 1,
     visual: "🧦",
@@ -538,7 +538,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 20,
-    category: "학용품·문구",
+    category: "생활·사물",
     type: "word",
     level: 1,
     visual: "✏️",
@@ -564,7 +564,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 21,
-    category: "자연·지리",
+    category: "자연·날씨",
     type: "word",
     level: 1,
     visual: "⛰️",
@@ -590,7 +590,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 22,
-    category: "음식·식품",
+    category: "음식·음료",
     type: "word",
     level: 2,
     visual: "🍞",
@@ -616,7 +616,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 23,
-    category: "과일·식품",
+    category: "음식·음료",
     type: "word",
     level: 1,
     visual: "🍎",
@@ -642,7 +642,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 24,
-    category: "사진·예술",
+    category: "생활·사물",
     type: "word",
     level: 2,
     visual: "🖼️",
@@ -668,7 +668,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 25,
-    category: "음료·식품",
+    category: "음식·음료",
     type: "word",
     level: 1,
     visual: "🥛",
@@ -694,7 +694,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 26,
-    category: "가구·생활",
+    category: "생활·사물",
     type: "word",
     level: 2,
     visual: "🪑",
@@ -720,7 +720,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 27,
-    category: "잡화·생활",
+    category: "생활·사물",
     type: "word",
     level: 1,
     visual: "☂️",
@@ -746,7 +746,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 28,
-    category: "잡화·패션",
+    category: "패션·의류",
     type: "word",
     level: 2,
     visual: "👛",
@@ -772,7 +772,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 29,
-    category: "국적·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 1,
     visual: "🇯🇵 🗻",
@@ -800,7 +800,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 30,
-    category: "국적·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 2,
     visual: "🇩🇪 🍺",
@@ -828,7 +828,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 31,
-    category: "국적·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 1,
     visual: "🇨🇳 🏮",
@@ -856,7 +856,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 32,
-    category: "출신·인사",
+    category: "자기소개·직업",
     type: "sentence",
     level: 2,
     visual: "🇦🇺 🦘",
@@ -884,7 +884,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 33,
-    category: "출신·인사",
+    category: "자기소개·직업",
     type: "sentence",
     level: 1,
     visual: "🇫🇷 🗼",
@@ -912,7 +912,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 34,
-    category: "직업·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 2,
     visual: "👩‍🏫 📚",
@@ -940,7 +940,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 35,
-    category: "직업·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 1,
     visual: "👨‍💼 💻",
@@ -968,7 +968,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 36,
-    category: "직업·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 2,
     visual: "👨‍⚕️ 🩺",
@@ -996,7 +996,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 37,
-    category: "국적·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 1,
     visual: "🇻🇳 🌾",
@@ -1024,7 +1024,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 38,
-    category: "국적·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 2,
     visual: "🇰🇷 🏛️",
@@ -1052,7 +1052,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 39,
-    category: "출신·인사",
+    category: "자기소개·직업",
     type: "sentence",
     level: 1,
     visual: "🇺🇸 🗽",
@@ -1080,7 +1080,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 40,
-    category: "직업·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 2,
     visual: "🧑‍🎓 🎒",
@@ -1108,7 +1108,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 41,
-    category: "직업·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 1,
     visual: "👩‍⚕️ 🏥",
@@ -1136,7 +1136,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 42,
-    category: "직업·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 2,
     visual: "👨‍🍳 🍳",
@@ -1164,7 +1164,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 43,
-    category: "직업·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 1,
     visual: "👮 🚓",
@@ -1192,7 +1192,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 44,
-    category: "직업·소개",
+    category: "자기소개·직업",
     type: "sentence",
     level: 2,
     visual: "🧑‍🎤 🎤",
@@ -1220,7 +1220,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 45,
-    category: "사물·지칭",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🛂 📕",
@@ -1248,7 +1248,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 46,
-    category: "장소·생활",
+    category: "일상생활·장소",
     type: "sentence",
     level: 2,
     visual: "🏥 🚑",
@@ -1276,7 +1276,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 47,
-    category: "장소·생활",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "📚 🏛️",
@@ -1304,7 +1304,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 48,
-    category: "장소·생활",
+    category: "일상생활·장소",
     type: "sentence",
     level: 2,
     visual: "🍽️ 🥘",
@@ -1926,7 +1926,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 71,
-    category: "자연",
+    category: "자연·날씨",
     type: "word",
     level: 1,
     visual: "🌧️ ☔",
@@ -1953,7 +1953,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 72,
-    category: "자연",
+    category: "자연·날씨",
     type: "word",
     level: 1,
     visual: "❄️ ☃️",
@@ -1980,7 +1980,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 73,
-    category: "자연",
+    category: "자연·날씨",
     type: "word",
     level: 1,
     visual: "💨 🍃",
@@ -2007,7 +2007,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 74,
-    category: "자연",
+    category: "자연·날씨",
     type: "word",
     level: 1,
     visual: "☁️",
@@ -2034,7 +2034,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 75,
-    category: "자연",
+    category: "자연·날씨",
     type: "word",
     level: 2,
     visual: "🌸 🌿",
@@ -2061,7 +2061,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 76,
-    category: "자연",
+    category: "자연·날씨",
     type: "word",
     level: 2,
     visual: "🍁 🍂",
@@ -2088,7 +2088,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 77,
-    category: "식당·주문",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "🍲 🙋‍♂️",
@@ -2116,7 +2116,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 78,
-    category: "식당·주문",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "🏷️ 💵",
@@ -2144,7 +2144,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 79,
-    category: "식당·주문",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "🌶️ 🥘",
@@ -2172,7 +2172,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 80,
-    category: "식당·주문",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 1,
     visual: "💧 🥛",
@@ -2200,7 +2200,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 81,
-    category: "식당·주문",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 2,
     visual: "🥡 🛍️",
@@ -2228,7 +2228,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 82,
-    category: "식당·주문",
+    category: "식당·외식·이동",
     type: "sentence",
     level: 2,
     visual: "😋 👍",
@@ -2256,7 +2256,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 83,
-    category: "희망·의도",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🎬 🍿",
@@ -2284,7 +2284,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 84,
-    category: "희망·의도",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🌴 ✈️ 🌊",
@@ -2312,7 +2312,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 85,
-    category: "희망·의도",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🥩 🥢",
@@ -2340,7 +2340,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 86,
-    category: "희망·의도",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 2,
     visual: "🥋 🥋",
@@ -2368,7 +2368,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 87,
-    category: "요청·예절",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🪑 🙇‍♂️",
@@ -2396,7 +2396,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 88,
-    category: "요청·예절",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🍵 🤲",
@@ -2424,7 +2424,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 89,
-    category: "요청·예절",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 2,
     visual: "👉 🚪",
@@ -2452,7 +2452,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 90,
-    category: "요청·예절",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 2,
     visual: "📖 👩‍🏫",
@@ -2480,7 +2480,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 91,
-    category: "이유·원인",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 2,
     visual: "🚗 🚙 🚦",
@@ -2508,7 +2508,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 92,
-    category: "이유·원인",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🥶 🧥 ❄️",
@@ -2536,7 +2536,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 93,
-    category: "이유·원인",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🤢 🏥",
@@ -2564,7 +2564,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 94,
-    category: "이유·원인",
+    category: "핵심표현·의사소통",
     type: "sentence",
     level: 2,
     visual: "🎉 🥳 💯",
@@ -2592,7 +2592,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 95,
-    category: "시간·일과",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "⏰ 🌅",
@@ -2620,7 +2620,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 96,
-    category: "시간·일과",
+    category: "일상생활·장소",
     type: "sentence",
     level: 2,
     visual: "🏢 🕕 💼",
@@ -2648,7 +2648,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 97,
-    category: "카페·테이크아웃",
+    category: "식음료·편의점",
     type: "survival",
     level: 1,
     visual: "☕ 🥡",
@@ -2676,7 +2676,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 98,
-    category: "카페·테이크아웃",
+    category: "식음료·편의점",
     type: "survival",
     level: 1,
     visual: "🧊 🥤",
@@ -2704,7 +2704,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 99,
-    category: "카페·테이크아웃",
+    category: "식음료·편의점",
     type: "survival",
     level: 2,
     visual: "📶 📱",
@@ -2732,7 +2732,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 100,
-    category: "카페·테이크아웃",
+    category: "식음료·편의점",
     type: "survival",
     level: 2,
     visual: "🔔 ☕",
@@ -2760,7 +2760,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 101,
-    category: "쇼핑·결제",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 1,
     visual: "🧾 🗑️",
@@ -2788,7 +2788,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 102,
-    category: "쇼핑·결제",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 1,
     visual: "👗 🪞",
@@ -2816,7 +2816,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 103,
-    category: "쇼핑·결제",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 2,
     visual: "🛍️ 🏪",
@@ -2844,7 +2844,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 104,
-    category: "쇼핑·결제",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 2,
     visual: "💳 📱",
@@ -2872,7 +2872,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 105,
-    category: "K-리액션·감탄사",
+    category: "K-컬처·소통",
     type: "survival",
     level: 1,
     visual: "🎉 😲",
@@ -2900,7 +2900,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 106,
-    category: "K-리액션·감탄사",
+    category: "K-컬처·소통",
     type: "survival",
     level: 1,
     visual: "👀 😯",
@@ -2928,7 +2928,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 107,
-    category: "K-리액션·감탄사",
+    category: "K-컬처·소통",
     type: "survival",
     level: 2,
     visual: "😱 🤦",
@@ -2956,7 +2956,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 108,
-    category: "K-리액션·감탄사",
+    category: "K-컬처·소통",
     type: "survival",
     level: 2,
     visual: "✊ 🔥",
@@ -2984,7 +2984,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 109,
-    category: "길찾기·교통",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 1,
     visual: "🚌 💳",
@@ -3012,7 +3012,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 110,
-    category: "길찾기·교통",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 1,
     visual: "🚪 🚇",
@@ -3040,7 +3040,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 111,
-    category: "길찾기·교통",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 2,
     visual: "🔄 🚇",
@@ -3068,7 +3068,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 112,
-    category: "길찾기·교통",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 2,
     visual: "⏱️ 🚶",
@@ -3096,7 +3096,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 113,
-    category: "K-컬처·팬문화",
+    category: "K-컬처·소통",
     type: "survival",
     level: 1,
     visual: "🎟️ 🖥️",
@@ -3124,7 +3124,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 114,
-    category: "K-컬처·팬문화",
+    category: "K-컬처·소통",
     type: "survival",
     level: 1,
     visual: "🪄 🔋",
@@ -3152,7 +3152,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 115,
-    category: "K-컬처·팬문화",
+    category: "K-컬처·소통",
     type: "survival",
     level: 2,
     visual: "💿 🎵",
@@ -3180,7 +3180,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 116,
-    category: "K-컬처·팬문화",
+    category: "K-컬처·소통",
     type: "survival",
     level: 2,
     visual: "👥 🏟️",
@@ -3208,7 +3208,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 117,
-    category: "편의점·서바이벌",
+    category: "식음료·편의점",
     type: "survival",
     level: 1,
     visual: "🏪 🛍️",
@@ -3236,7 +3236,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 118,
-    category: "편의점·서바이벌",
+    category: "식음료·편의점",
     type: "survival",
     level: 1,
     visual: "🏷️ 🎁",
@@ -3264,7 +3264,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 119,
-    category: "편의점·서바이벌",
+    category: "식음료·편의점",
     type: "survival",
     level: 2,
     visual: "🧾 🗑️",
@@ -3292,7 +3292,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 120,
-    category: "편의점·서바이벌",
+    category: "식음료·편의점",
     type: "survival",
     level: 2,
     visual: "🍱 ♨️",
@@ -3320,7 +3320,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 121,
-    category: "카톡·SNS 뉘앙스",
+    category: "K-컬처·소통",
     type: "survival",
     level: 1,
     visual: "💬 📱 😅",
@@ -3348,7 +3348,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 122,
-    category: "카톡·SNS 뉘앙스",
+    category: "K-컬처·소통",
     type: "survival",
     level: 1,
     visual: "🍚 👋 🤝",
@@ -3376,7 +3376,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 123,
-    category: "카톡·SNS 뉘앙스",
+    category: "K-컬처·소통",
     type: "survival",
     level: 2,
     visual: "🤝 ⏰ 🗓️",
@@ -3404,7 +3404,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 124,
-    category: "카톡·SNS 뉘앙스",
+    category: "K-컬처·소통",
     type: "survival",
     level: 2,
     visual: "👀 ❌ 📵",
@@ -3432,7 +3432,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 125,
-    category: "배달·택시 실전",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 1,
     visual: "🚖 🛑 🚦",
@@ -3460,7 +3460,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 126,
-    category: "배달·택시 실전",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 1,
     visual: "💳 🚕 📳",
@@ -3488,7 +3488,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 127,
-    category: "배달·택시 실전",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 2,
     visual: "🛵 🚪 🔔",
@@ -3516,7 +3516,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 128,
-    category: "배달·택시 실전",
+    category: "쇼핑·교통·외출",
     type: "survival",
     level: 2,
     visual: "⏱️ 🛣️ 💨",
@@ -3544,7 +3544,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 129,
-    category: "실전 에티켓·문화",
+    category: "식음료·편의점",
     type: "survival",
     level: 1,
     visual: "🥓 🥬 🧄",
@@ -3572,7 +3572,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 130,
-    category: "실전 에티켓·문화",
+    category: "식음료·편의점",
     type: "survival",
     level: 1,
     visual: "🥣 🍲 🥄",
@@ -3600,7 +3600,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 131,
-    category: "실전 에티켓·문화",
+    category: "식음료·편의점",
     type: "survival",
     level: 2,
     visual: "🍻 🥂 🙇",
@@ -3628,7 +3628,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 132,
-    category: "실전 에티켓·문화",
+    category: "식음료·편의점",
     type: "survival",
     level: 2,
     visual: "🍺 🍗 🌙",
@@ -3656,7 +3656,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 133,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🏫 🪑",
@@ -3684,7 +3684,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 134,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🧢 ❌",
@@ -3712,7 +3712,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 135,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🖥️ ❓",
@@ -3740,7 +3740,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 136,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "📖 👉",
@@ -3768,7 +3768,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 137,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🏫 👀",
@@ -3796,7 +3796,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 138,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "📚 🔍",
@@ -3824,7 +3824,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 139,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🧢 ✨",
@@ -3852,7 +3852,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 140,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "☕ 💳",
@@ -3880,7 +3880,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 141,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "👠 🛍️",
@@ -3908,7 +3908,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 142,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "📓 📖",
@@ -3936,7 +3936,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 143,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "👖 👕",
@@ -3964,7 +3964,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 144,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🗼 ⛰️",
@@ -3992,7 +3992,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 145,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🎒 👓",
@@ -4020,7 +4020,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 146,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🏣 🏦",
@@ -4048,7 +4048,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 147,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "💇 🏥",
@@ -4076,7 +4076,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 148,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "💊 🏥",
@@ -4104,7 +4104,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 149,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🏬 🚶",
@@ -4132,7 +4132,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 150,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "👜 🛍️",
@@ -4160,7 +4160,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 151,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "📚 👧",
@@ -4188,7 +4188,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
   ),
   QuizQuestion(
     id: 152,
-    category: "생활·대화",
+    category: "일상생활·장소",
     type: "sentence",
     level: 1,
     visual: "🎬 🍿",
