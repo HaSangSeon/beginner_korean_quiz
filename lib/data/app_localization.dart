@@ -4,6 +4,7 @@ class AppStrings {
   static const Map<String, Map<String, String>> _localizedValues = {
     // 1. Vietnamese (Tiếng Việt) - Primary Target
     'VI': {
+      'cat_daily_conv': 'Hội thoại đời sống',
       'cat_nationality': 'Quốc tịch',
       'cat_origin': 'Quê quán',
       'cat_jobs': 'Nghề nghiệp',
@@ -110,6 +111,14 @@ class AppStrings {
       'stage_completed': 'Hoàn thành',
       'stage_in_progress': 'Đang học',
       'track_tab_survival': 'K-Life',
+      'track_tab_dialogue': 'Hội thoại mẫu',
+      'dialogue_header': 'Học thuộc hội thoại theo tình huống',
+      'dialogue_sub': 'Hãy đọc to và học thuộc đoạn hội thoại giữa Cheolsu và Younghee.',
+      'dialogue_lines': '{n} câu',
+      'audio_play_all': 'Nghe toàn bộ hội thoại',
+      'audio_pause': 'Tạm dừng',
+      'audio_resume': 'Tiếp tục',
+      'audio_replay': 'Nghe lại từ đầu',
       'track_label_survival': 'K-Life Thực Tế',
       'hero_survival_badge': '🔥 Tiếng Hàn Đời Sống & K-Culture',
       'hero_survival_title': 'Thực Chiến K-Life:\nTiếng Hàn Sinh Tồn',
@@ -138,6 +147,7 @@ class AppStrings {
 
     // 2. Chinese (中文) - Primary Target
     'ZH': {
+      'cat_daily_conv': '日常生活会话',
       'cat_nationality': '国籍介绍',
       'cat_origin': '来自哪里',
       'cat_jobs': '职业介绍',
@@ -244,6 +254,14 @@ class AppStrings {
       'stage_completed': '已掌握',
       'stage_in_progress': '学习中',
       'track_tab_survival': '实战K-Life',
+      'track_tab_dialogue': '情景对话',
+      'dialogue_header': '背诵情景对话',
+      'dialogue_sub': '请大声朗读并背诵哲洙和英熙的对话。',
+      'dialogue_lines': '{n}句',
+      'audio_play_all': '收听完整对话',
+      'audio_pause': '暂停',
+      'audio_resume': '继续播放',
+      'audio_replay': '重头收听',
       'track_label_survival': '实战K-Life',
       'hero_survival_badge': '🔥 韩国生活必备生存口语',
       'hero_survival_title': '实战K-Life：\n生存韩语测验',
@@ -272,6 +290,7 @@ class AppStrings {
 
     // 3. English
     'EN': {
+      'cat_daily_conv': 'Daily Conversation',
       'cat_nationality': 'Nationality',
       'cat_origin': 'Where from',
       'cat_jobs': 'Occupations',
@@ -381,6 +400,14 @@ class AppStrings {
       'stage_completed': 'Completed',
       'stage_in_progress': 'In Progress',
       'track_tab_survival': 'K-Life',
+      'track_tab_dialogue': 'Dialogues',
+      'dialogue_header': 'Memorize Situational Dialogues',
+      'dialogue_sub': 'Read Cheolsu and Younghee\'s dialogue aloud and memorize it.',
+      'dialogue_lines': '{n} lines',
+      'audio_play_all': 'Listen to Full Dialogue',
+      'audio_pause': 'Pause',
+      'audio_resume': 'Resume',
+      'audio_replay': 'Replay',
       'track_label_survival': 'Real K-Life',
       'hero_survival_badge': '🔥 Essential K-Life & Survival Phrases',
       'hero_survival_title': 'Real K-Life:\nSurvival Korean Quiz',
@@ -409,6 +436,7 @@ class AppStrings {
 
     // 4. Japanese (日本語)
     'JA': {
+      'cat_daily_conv': '日常会話',
       'cat_nationality': '国籍・紹介',
       'cat_origin': '出身・挨拶',
       'cat_jobs': '職業・紹介',
@@ -515,6 +543,14 @@ class AppStrings {
       'stage_completed': '習得完了',
       'stage_in_progress': '学習中',
       'track_tab_survival': 'K-ライフ',
+      'track_tab_dialogue': '会話文',
+      'dialogue_header': '場面別会話文を覚えよう',
+      'dialogue_sub': 'チョルスとヨンヒの会話を声に出して読み、覚えましょう。',
+      'dialogue_lines': '{n}行',
+      'audio_play_all': '会話全体を聴く',
+      'audio_pause': '一時停止',
+      'audio_resume': '再開',
+      'audio_replay': '最初から再生',
       'track_label_survival': '実戦K-ライフ',
       'hero_survival_badge': '🔥 韓国生活・リアル生存フレーズ',
       'hero_survival_title': '実戦K-ライフ：\nリアル韓国語クイズ',
@@ -543,6 +579,7 @@ class AppStrings {
 
     // 5. Korean
     'KO': {
+      'cat_daily_conv': '생활·대화',
       'cat_nationality': '국적·소개',
       'cat_origin': '출신·인사',
       'cat_jobs': '직업·소개',
@@ -649,6 +686,14 @@ class AppStrings {
       'stage_completed': '완료',
       'stage_in_progress': '학습 중',
       'track_tab_survival': 'K-라이프',
+      'track_tab_dialogue': '대화문',
+      'dialogue_header': '상황별 대화문 외우기',
+      'dialogue_sub': '철수와 영희의 대화를 소리 내어 읽고 외워 보세요.',
+      'dialogue_lines': '{n}줄',
+      'audio_play_all': '전체 대화 듣기',
+      'audio_pause': '일시 정지',
+      'audio_resume': '이어 듣기',
+      'audio_replay': '처음부터 다시 듣기',
       'track_label_survival': '실전 K-라이프',
       'hero_survival_badge': '🔥 필수 K-라이프 생존 한국어',
       'hero_survival_title': '실전 K-라이프:\n생존 한국어 퀴즈',
@@ -677,6 +722,7 @@ class AppStrings {
 
     // 6. Spanish (Español)
     'ES': {
+      'cat_daily_conv': 'Conversación Diaria',
       'cat_nationality': 'Nacionalidad',
       'cat_origin': 'Origen',
       'cat_jobs': 'Profesiones',
@@ -786,6 +832,14 @@ class AppStrings {
       'stage_completed': 'Completado',
       'stage_in_progress': 'En progreso',
       'track_tab_survival': 'K-Life',
+      'track_tab_dialogue': 'Diálogos',
+      'dialogue_header': 'Memoriza diálogos por situación',
+      'dialogue_sub': 'Lee en voz alta el diálogo de Cheolsu y Younghee y memorízalo.',
+      'dialogue_lines': '{n} líneas',
+      'audio_play_all': 'Escuchar diálogo completo',
+      'audio_pause': 'Pausa',
+      'audio_resume': 'Reanudar',
+      'audio_replay': 'Repetir',
       'track_label_survival': 'K-Life Real',
       'hero_survival_badge': '🔥 Coreano Real de Supervivencia',
       'hero_survival_title': 'K-Life Real:\nQuiz de Supervivencia',
@@ -814,6 +868,7 @@ class AppStrings {
 
     // 7. Portuguese (Português)
     'PT': {
+      'cat_daily_conv': 'Conversação Diária',
       'cat_nationality': 'Nacionalidade',
       'cat_origin': 'Origem',
       'cat_jobs': 'Profissões',
@@ -923,6 +978,14 @@ class AppStrings {
       'stage_completed': 'Concluído',
       'stage_in_progress': 'Em progresso',
       'track_tab_survival': 'K-Life',
+      'track_tab_dialogue': 'Diálogos',
+      'dialogue_header': 'Memorize diálogos por situação',
+      'dialogue_sub': 'Leia em voz alta o diálogo de Cheolsu e Younghee e memorize-o.',
+      'dialogue_lines': '{n} falas',
+      'audio_play_all': 'Ouvir diálogo completo',
+      'audio_pause': 'Pausar',
+      'audio_resume': 'Continuar',
+      'audio_replay': 'Repetir',
       'track_label_survival': 'K-Life Real',
       'hero_survival_badge': '🔥 Coreano Real de Sobrevivência',
       'hero_survival_title': 'K-Life Real:\nQuiz de Sobrevivência',
@@ -973,6 +1036,9 @@ class AppStrings {
   static String category(String categoryKey, String langCode) {
     switch (categoryKey) {
       case 'Nationality':
+      case '생활·대화':
+      case '생활대화':
+        return tr('cat_daily_conv', langCode);
       case '국적·소개':
         return tr('cat_nationality', langCode);
       case 'Origin':

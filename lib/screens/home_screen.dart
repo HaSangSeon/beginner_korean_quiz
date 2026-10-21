@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import '../data/app_localization.dart';
+import '../data/dialogue_data.dart';
 import '../data/quiz_data.dart';
 import '../services/ad_service.dart';
 import '../services/progress_service.dart';
 import '../services/quiz_repository.dart';
 import '../services/tts_service.dart';
+import 'dialogue_screen.dart';
 import 'quiz_screen.dart';
 
 /// Emoji icon per quiz category (0-byte vector icons)
 const Map<String, String> _categoryEmoji = {
+  '생활·대화': '🗣️',
   '능력·가능': '💪',
   '목적·이동': '🚶',
   '국적·소개': '🌏',
@@ -382,6 +385,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     _buildTrackSwitcherSection(context, isDark),
                     const SizedBox(height: 18),
 
+                    // 3~6. Dialogue track replaces quiz sections
+                    if (_selectedTrack == 'dialogue') ...[
+                      _buildDialogueSection(context, isDark),
+                    ] else ...[
                     // 3. Main Hero Card (Adapts to _selectedTrack)
                     _buildHeroQuizCard(context, isDark),
                     const SizedBox(height: 18),
@@ -395,6 +402,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     // 6. Topic list with per-topic progress
                     _buildCategorySection(context, isDark),
+                    ],
                     const SizedBox(height: 22),
 
                     // 7. Word & Nuance of the Day
@@ -1100,8 +1108,133 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
+          const SizedBox(width: 5),
+          // Track 4: 대화문 암기 (Situational Dialogues)
+          Expanded(
+            child: _buildTrackTabButton(
+              isDark: isDark,
+              isSelected: _selectedTrack == 'dialogue',
+              emoji: '📖',
+              label: AppStrings.tr('track_tab_dialogue', _selectedLangCode),
+              badge: '${dialogues.length}',
+              activeColor: const Color(0xFFDB2777), // Pink 600
+              onTap: () {
+                if (_selectedTrack != 'dialogue') {
+                  setState(() => _selectedTrack = 'dialogue');
+                }
+              },
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  Widget _buildDialogueSection(BuildContext context, bool isDark) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          children: [
+            const Icon(Icons.forum_rounded, size: 18, color: Color(0xFFDB2777)),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                AppStrings.tr('dialogue_header', _selectedLangCode),
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w800,
+                  color: isDark ? Colors.white : const Color(0xFF0F172A),
+                  letterSpacing: -0.3,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        ...dialogues.map((d) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Material(
+              color: isDark ? const Color(0xFF1E293B) : Colors.white,
+              borderRadius: BorderRadius.circular(18),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(18),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => DialogueScreen(dialogue: d, langCode: _selectedLangCode),
+                  ),
+                ),
+                child: Container(
+                  padding: const EdgeInsets.all(14),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(
+                      color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 44,
+                        height: 44,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFDB2777).withValues(alpha: isDark ? 0.22 : 0.1),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Text(d.emoji, style: const TextStyle(fontSize: 22)),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              d.title(_selectedLangCode),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w800,
+                                color: isDark ? Colors.white : const Color(0xFF0F172A),
+                              ),
+                            ),
+                            const SizedBox(height: 3),
+                            Text(
+                              d.lines.first.text,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 12.5,
+                                color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        AppStrings.tr('dialogue_lines', _selectedLangCode, {'n': '${d.lines.length}'}),
+                        style: TextStyle(
+                          fontSize: 11.5,
+                          fontWeight: FontWeight.w700,
+                          color: isDark ? const Color(0xFFF9A8D4) : const Color(0xFFDB2777),
+                        ),
+                      ),
+                      Icon(
+                        Icons.chevron_right_rounded,
+                        color: isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        }),
+      ],
     );
   }
 

@@ -4290,5 +4290,665 @@
       "ZH": "韩国聚餐文化通常会换地方继续下一轮：'1차'（一轮正餐）-> '2차'（二轮酒馆）-> '3차'（三轮练歌房等）。",
       "JA": "韓国の飲み会文化では場所を変えて飲み直す習慣があり、1軒目を「1차」、2軒目（2次会）を「2차」と呼びます。"
     }
+  },
+  {
+    "id": 133,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🏫 🪑",
+    "keyword": "교실",
+    "speechBubble": "교실에 무엇이 있어요?",
+    "situations": {
+      "KO": "교실 그림을 보고 대화를 완성하세요.",
+      "EN": "Look at the classroom picture and complete the dialogue.",
+      "VI": "Nhìn tranh lớp học và hoàn thành đoạn hội thoại.",
+      "ZH": "看教室图片并完成对话。",
+      "JA": "教室の絵を見て会話を完成させてください。"
+    },
+    "questions": {
+      "KO": "가: 교실에 책상이 있어요?\n나: 네, 책상이 (   )."
+    },
+    "options": [
+      "있어요",
+      "없어요",
+      "가요",
+      "사요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "사물이 존재함을 긍정할 때는 '있어요'를 씁니다. '책상'은 받침이 있으므로 주격 조사 '이'와 함께 '책상이 있어요'라고 말합니다.",
+      "EN": "To affirm the existence of an object, use '있어요' (there is/are). '책상이 있어요' means 'Yes, there is a desk.'",
+      "VI": "Khi khẳng định sự tồn tại của đồ vật, dùng '있어요' (có). '책상이 있어요' nghĩa là 'Vâng, có bàn học ạ'.",
+      "ZH": "肯定某物存在时使用'있어요'（有）。'책상이 있어요'表示'是的，有课桌'。",
+      "JA": "物があることを肯定するときは「있어요（あります）」を使います。「책상이 있어요」で「はい、机があります」となります。"
+    }
+  },
+  {
+    "id": 134,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🧢 ❌",
+    "keyword": "모자",
+    "speechBubble": "모자를 찾고 있어요!",
+    "situations": {
+      "KO": "물건이 있는지 묻는 질문에 알맞게 답하세요.",
+      "EN": "Answer the question asking if the item is there.",
+      "VI": "Trả lời câu hỏi xem có món đồ đó hay không.",
+      "ZH": "回答询问是否有该物品的问题。",
+      "JA": "物があるかを尋ねる質問に正しく答えてください。"
+    },
+    "questions": {
+      "KO": "가: 지금 모자가 있어요?\n나: 아니요, 모자가 (   )."
+    },
+    "options": [
+      "없어요",
+      "있어요",
+      "예요",
+      "봐요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "사물이 없음을 나타낼 때는 부정어 '아니요'와 함께 '없어요'를 씁니다. '모자'는 받침이 없으므로 주격 조사 '가'가 붙어 '모자가 없어요'가 됩니다.",
+      "EN": "To state that an object is not present, respond with '아니요' (no) and '없어요' (there is none). '모자가 없어요' means 'No, I don't have a hat.'",
+      "VI": "Để diễn đạt không có đồ vật, dùng '아니요' (không) đi cùng '없어요' (không có). '모자가 없어요' nghĩa là 'Không, không có mũ'.",
+      "ZH": "表示物品不存在时，配合否定词'아니요'使用'없어요'（没有）。'모자가 없어요'意为'不，没有帽子'。",
+      "JA": "物がないことを表すときは、否定の「아니요（いいえ）」とともに「없어요（ありません）」を使います。「모자가 없어요」で「いいえ、帽子はありません」となります。"
+    }
+  },
+  {
+    "id": 135,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🖥️ ❓",
+    "keyword": "컴퓨터",
+    "speechBubble": "교실에 컴퓨터가 있나요?",
+    "situations": {
+      "KO": "교실에 컴퓨터가 없는 상황입니다. 알맞은 대답을 고르세요.",
+      "EN": "There is no computer in the classroom. Choose the correct answer.",
+      "VI": "Trong lớp học không có máy vi tính. Hãy chọn câu trả lời đúng.",
+      "ZH": "教室里没有电脑。请选择正确的回答。",
+      "JA": "教室にパソコンがない状況です。適切な答えを選んでください。"
+    },
+    "questions": {
+      "KO": "가: 교실에 컴퓨터가 있어요?\n나: 아니요, (   )."
+    },
+    "options": [
+      "컴퓨터가 없어요",
+      "컴퓨터가 있어요",
+      "컴퓨터예요",
+      "컴퓨터에 가요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "교실에 컴퓨터가 없으므로 '아니요, 컴퓨터가 없어요'라고 대답하는 것이 알맞습니다.",
+      "EN": "Since there is no computer, the appropriate answer is '아니요, 컴퓨터가 없어요' (No, there is no computer).",
+      "VI": "Vì trong lớp không có máy tính nên câu trả lời đúng là '아니요, 컴퓨터가 없어요' (Không, không có máy tính).",
+      "ZH": "因为教室里没有电脑，所以应回答'아니요, 컴퓨터가 없어요'（不，没有电脑）。",
+      "JA": "教室にパソコンがないので、「아니요, 컴퓨터가 없어요（いいえ、パソコンはありません）」と答えるのが適切です。"
+    }
+  },
+  {
+    "id": 136,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "📖 👉",
+    "keyword": "지칭",
+    "speechBubble": "네 손에 있는 건 뭐야?",
+    "situations": {
+      "KO": "상대방(듣는 사람)이 들고 있는 물건을 가리키며 묻는 대화입니다.",
+      "EN": "Asking about an object held by the listener.",
+      "VI": "Chỉ vào món đồ người nghe đang cầm và hỏi.",
+      "ZH": "指着听者手里的物品询问时的对话。",
+      "JA": "聞き手が持っている物を指して尋ねる会話です。"
+    },
+    "questions": {
+      "KO": "민수: 유진 씨, 손에 있는 (   ) 뭐예요?\n유진: 이거는 한국어 사전이에요."
+    },
+    "options": [
+      "그거는",
+      "이거는",
+      "저거는",
+      "어디는"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "듣는 사람(상대방) 가까이에 있는 물건을 가리킬 때는 '그거(그거는)'를 사용합니다. 나에게 가까우면 '이거', 둘 다 멀리 있으면 '저거'입니다.",
+      "EN": "Use '그거(그거는)' to refer to something near the listener. ('이거' is near the speaker, '저거' is far from both).",
+      "VI": "Dùng '그거(그거는)' khi chỉ đồ vật ở gần người nghe. (Gần người nói là '이거', xa cả hai là '저거').",
+      "ZH": "指代靠近听者（对方）的物品时使用'그거(그거는)'（那个）。离自己近用'이거'，离双方都远用'저거'。",
+      "JA": "聞き手（相手）の近くにある物を指すときは「그거（それ）」を使います。（自分の近くは「이거」、両方から遠い時は「저거」）。"
+    }
+  },
+  {
+    "id": 137,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🏫 👀",
+    "keyword": "학교",
+    "speechBubble": "저기 멀리 보이는 건물!",
+    "situations": {
+      "KO": "두 사람 모두에게서 멀리 떨어져 있는 건물을 보며 묻습니다.",
+      "EN": "Asking about a building that is far away from both speakers.",
+      "VI": "Hỏi về tòa nhà ở xa cả hai người nói.",
+      "ZH": "看着离两人都很远的建筑物询问。",
+      "JA": "話し手と聞き手の両方から遠く離れた建物を見て尋ねます。"
+    },
+    "questions": {
+      "KO": "민수: 저기 멀리 보이는 (   ) 뭐예요?\n유진: 저거는 우리 대학교 도서관이에요."
+    },
+    "options": [
+      "저거는",
+      "이거는",
+      "그거는",
+      "여기는"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "말하는 사람과 듣는 사람 모두에게서 멀리 떨어진 대상을 가리킬 때는 지시대명사 '저거(저거는)'를 사용합니다.",
+      "EN": "Use '저거(저거는)' (that over there) for things that are far from both the speaker and the listener.",
+      "VI": "Dùng '저거(저거는)' (cái kia/đằng kia) khi chỉ sự vật ở xa cả người nói lẫn người nghe.",
+      "ZH": "指代离说话人和听话人都较远的事物时，使用指示代词'저거(저거는)'（那个/远处的那个）。",
+      "JA": "話し手からも聞き手からも離れた遠くの物を指すときは、指示代名詞「저거（あれ）」を使います。"
+    }
+  },
+  {
+    "id": 138,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "📚 🔍",
+    "keyword": "사전",
+    "speechBubble": "단어를 찾는 책이에요.",
+    "situations": {
+      "KO": "사물을 소개하는 올바른 서술격 조사 형태를 고르세요.",
+      "EN": "Choose the correct predicate ending for identifying an object.",
+      "VI": "Chọn đuôi từ vị ngữ đúng để giới thiệu đồ vật.",
+      "ZH": "选择介绍物品时正确的述语助词形式。",
+      "JA": "物を紹介する正しい指定詞（〜です）を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 이거는 뭐예요?\n나: 이거는 한국어 (   )."
+    },
+    "options": [
+      "사전이에요",
+      "사전예요",
+      "사전이 없어요",
+      "사전을 사요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "명사의 마지막 글자에 받침이 있으면 '-이에요', 받침이 없으면 '-예요'를 씁니다. '사전'은 '전'에 받침(ㄴ)이 있으므로 '사전이에요'가 올바릅니다.",
+      "EN": "When a noun ends in a final consonant (받침), use '-이에요'. When it ends in a vowel, use '-예요'. '사전' ends in 'ㄴ', so '사전이에요' is correct.",
+      "VI": "Nếu danh từ có phụ âm cuối (patchim), dùng '-이에요'; không có phụ âm cuối dùng '-예요'. '사전' có phụ âm cuối ㄴ nên đi với '사전이에요'.",
+      "ZH": "名词末字有收音时用'-이에요'，无收音时用'-예요'。'사전'有收音ㄴ，因此'사전이에요'正确。",
+      "JA": "名詞の最後の文字にパッチムがある場合は「-이에요」、ない場合は「-예요」を使います。「사전」にはパッチム（ㄴ）があるので「사전이에요」が正解です。"
+    }
+  },
+  {
+    "id": 139,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🧢 ✨",
+    "keyword": "모자",
+    "speechBubble": "생일 선물로 받았어요.",
+    "situations": {
+      "KO": "물건이 무엇인지 묻는 질문에 알맞게 답하세요.",
+      "EN": "Answer the question asking what the object is.",
+      "VI": "Trả lời câu hỏi xem đây là món đồ gì.",
+      "ZH": "回答询问这是什么物品的问题。",
+      "JA": "これが何であるかを尋ねる質問に正しく答えてください。"
+    },
+    "questions": {
+      "KO": "가: 이거는 뭐예요?\n나: 제 동생 (   )."
+    },
+    "options": [
+      "모자예요",
+      "모자이에요",
+      "모자가 없어요",
+      "모자로 가요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'모자'처럼 마지막 글자에 받침이 없는 명사는 '-예요'와 결합하여 '모자예요'라고 합니다.",
+      "EN": "For nouns without a final consonant like '모자', attach '-예요' to make '모자예요' (It's a hat).",
+      "VI": "Với danh từ không có phụ âm cuối như '모자', kết hợp với '-예요' tạo thành '모자예요' (Là mũ ạ).",
+      "ZH": "像'모자'这样末字无收音的名词，与'-예요'结合，说成'모자예요'（是帽子）。",
+      "JA": "「모자」のように最後の文字にパッチムがない名詞は「-예요」と結びついて「모자예요（帽子です）」となります。"
+    }
+  },
+  {
+    "id": 140,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "☕ 💳",
+    "keyword": "카페",
+    "speechBubble": "시원한 커피 한 잔!",
+    "situations": {
+      "KO": "카페에서 커피를 주문할 때 쓰는 가장 자연스러운 표현을 고르세요.",
+      "EN": "Choose the most natural expression when ordering coffee at a cafe.",
+      "VI": "Chọn cách diễn đạt tự nhiên nhất khi gọi cà phê tại quán.",
+      "ZH": "选择在咖啡馆点咖啡时最自然的表达。",
+      "JA": "カフェでコーヒーを注文する時の最も自然な表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 아이스 아메리카노 한 잔 (   ).\n직원: 네, 결제 도와드리겠습니다."
+    },
+    "options": [
+      "주세요",
+      "없어요",
+      "사요",
+      "마셔요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "가게나 식당에서 물건이나 음식을 주문할 때는 명사 뒤에 '주세요'를 붙여 '커피 주세요', '한 잔 주세요'라고 정중하게 요청합니다.",
+      "EN": "When ordering goods or drinks, say '주세요' (please give me) after the noun: '아이스 아메리카노 한 잔 주세요'.",
+      "VI": "Khi gọi đồ uống hay mua sắm, dùng '주세요' (cho tôi xin/làm ơn cho) sau danh từ: '아이스 아메리카노 한 잔 주세요'.",
+      "ZH": "在商店或餐厅点餐购物时，在名词后加上'주세요'（请给我）：'아이스 아메리카노 한 잔 주세요'。",
+      "JA": "お店や飲食店で注文する時は、名詞の後に「주세요（ください）」をつけて「아이스 아메리카노 한 잔 주세요（アイスアメリカーノを1杯ください）」と注文します。"
+    }
+  },
+  {
+    "id": 141,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "👠 🛍️",
+    "keyword": "구두",
+    "speechBubble": "이 구두가 마음에 들어요.",
+    "situations": {
+      "KO": "신발 매장에서 마음에 드는 구두를 사려고 합니다.",
+      "EN": "Buying a pair of shoes you like at a shoe store.",
+      "VI": "Mua đôi giày cao gót ưng ý tại cửa hàng giày dép.",
+      "ZH": "在鞋店打算购买看中的皮鞋。",
+      "JA": "靴売り場で気に入った靴を買おうとしています。"
+    },
+    "questions": {
+      "KO": "손님: 직원분, (   ) 구두 주세요.\n직원: 네, 사이즈가 240이신가요?"
+    },
+    "options": [
+      "이",
+      "무엇",
+      "어디",
+      "언제"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "자신이 보고 있는 특정 물건을 가리키며 살 때는 관형사 '이(이 구두, 이 옷, 이 책)'를 사용하여 '이 구두 주세요'라고 말합니다.",
+      "EN": "Use '이' (this) to point out a specific item right before you: '이 구두 주세요' (Please give me these shoes).",
+      "VI": "Dùng '이' (này) để chỉ món đồ cụ thể trước mắt: '이 구두 주세요' (Cho tôi đôi giày này ạ).",
+      "ZH": "指着眼前具体的物品购买时，使用冠词'이'（这个）：'이 구두 주세요'（请给我这双皮鞋）。",
+      "JA": "目の前にある特定の物を指して買う時は、連体詞「이（この）」を使って「이 구두 주세요（この靴をください）」と言います。"
+    }
+  },
+  {
+    "id": 142,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "📓 📖",
+    "keyword": "서점",
+    "speechBubble": "공부할 책들을 골랐어요.",
+    "situations": {
+      "KO": "두 명사를 나열하여 문장을 완성하세요.",
+      "EN": "Connect two nouns to complete the sentence.",
+      "VI": "Nối hai danh từ để hoàn thành câu.",
+      "ZH": "连接两个名词完成句子。",
+      "JA": "2つの名詞を並べて文章を完成させてください。"
+    },
+    "questions": {
+      "KO": "민수: 오늘 서점에서 무엇을 샀어요?\n유진: 사전(   ) 잡지를 샀어요."
+    },
+    "options": [
+      "과",
+      "와",
+      "을",
+      "에"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'사전'은 마지막 글자에 받침(ㄴ)이 있으므로 접속 조사 '과'와 결합하여 '사전과 잡지'라고 나열합니다.",
+      "EN": "When the preceding noun has a final consonant (받침), use '과' to mean 'and': '사전과 잡지' (a dictionary and a magazine).",
+      "VI": "Khi danh từ đứng trước có phụ âm cuối (patchim), dùng '과' để nối: '사전과 잡지' (từ điển và tạp chí).",
+      "ZH": "面前的名词有收音时，使用连接助词'과'（和）：'사전과 잡지'（词典和杂志）。",
+      "JA": "前の名詞にパッチムがある場合は、接続助詞「과（〜と）」を使って「사전과 잡지（辞書と雑誌）」と繋ぎます。"
+    }
+  },
+  {
+    "id": 143,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "👖 👕",
+    "keyword": "옷가게",
+    "speechBubble": "새 옷을 사러 왔어요.",
+    "situations": {
+      "KO": "쇼핑한 물건 두 가지를 바르게 연결한 표현을 고르세요.",
+      "EN": "Choose the correct phrase connecting two shopped items.",
+      "VI": "Chọn cụm từ liên kết đúng hai món đồ vừa mua sắm.",
+      "ZH": "选择正确连接所购两样物品的表达。",
+      "JA": "買い物した2つのアイテムを正しく繋いだ表現を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 백화점에서 무엇을 사요?\n나: (   )를 사요."
+    },
+    "options": [
+      "바지와 티셔츠",
+      "바지과 티셔츠",
+      "바지에 티셔츠",
+      "바지로 티셔츠"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'바지'는 받침이 없으므로 접속 조사 '와'와 결합하여 '바지와 티셔츠'라고 합니다. 구어에서는 '바지하고 티셔츠'도 많이 씁니다.",
+      "EN": "Since '바지' ends in a vowel, it takes '와': '바지와 티셔츠' (pants and T-shirt). In conversation, '하고' is also commonly used.",
+      "VI": "Vì '바지' không có phụ âm cuối nên kết hợp với '와': '바지와 티셔츠' (quần và áo phông). Trong văn nói cũng thường dùng '하고'.",
+      "ZH": "'바지'没有收音，因此与'와'结合为'바지와 티셔츠'（裤子和T恤）。口语中也常说'바지하고 티셔츠'。",
+      "JA": "「바지」にはパッチムがないので、接続助詞「와」と結びついて「바지와 티셔츠（ズボンとTシャツ）」となります。口語では「하고」もよく使われます。"
+    }
+  },
+  {
+    "id": 144,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🗼 ⛰️",
+    "keyword": "남산",
+    "speechBubble": "서울의 랜드마크는 어디?",
+    "situations": {
+      "KO": "서울의 명소 위치를 묻고 답하는 대화입니다.",
+      "EN": "Asking and answering about the location of a Seoul landmark.",
+      "VI": "Hội thoại hỏi và trả lời về vị trí danh lam thắng cảnh ở Seoul.",
+      "ZH": "问答首尔名胜景点的对话。",
+      "JA": "ソウルの名所の位置を尋ねて答える会話です。"
+    },
+    "questions": {
+      "KO": "스티븐: N서울타워가 어디에 있어요?\n지수: (   )에 있어요."
+    },
+    "options": [
+      "남산",
+      "비행기",
+      "우체통",
+      "지갑"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "N서울타워는 서울의 명산인 '남산'에 위치해 있습니다. 장소 명사 뒤에 위치 조사 '-에'를 붙여 '남산에 있어요'라고 말합니다.",
+      "EN": "N Seoul Tower is located on '남산' (Namsan Mountain). Use the location particle '-에': '남산에 있어요'.",
+      "VI": "Tháp N Seoul nằm trên núi Namsan. Gắn trợ từ vị trí '-에' sau danh từ địa điểm: '남산에 있어요' (Ở núi Namsan).",
+      "ZH": "N首尔塔位于首尔名胜'남산'（南山）。在地点后加上位置助词'-에'：'남산에 있어요'（在南山）。",
+      "JA": "Nソウルタワーはソウルの名山である「남산（南山）」にあります。場所の後に位置の助詞「-에」をつけて「남산에 있어요」と言います。"
+    }
+  },
+  {
+    "id": 145,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🎒 👓",
+    "keyword": "가방",
+    "speechBubble": "안경이 어디에 있더라?",
+    "situations": {
+      "KO": "물건이 어디에 있는지 묻고 답하는 상황입니다.",
+      "EN": "Asking and answering where an item is.",
+      "VI": "Hỏi và trả lời xem đồ đạc đang ở đâu.",
+      "ZH": "询问并回答物品在哪里的情境。",
+      "JA": "物がどこにあるかを尋ねて答える状況です。"
+    },
+    "questions": {
+      "KO": "가: 안경과 지갑이 어디에 있어요?\n나: (   )에 있어요."
+    },
+    "options": [
+      "가방",
+      "모자",
+      "시계",
+      "신발"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "안경, 지갑, 책 등은 보통 '가방'에 넣어서 보관하고 다닙니다. 따라서 '가방에 있어요'가 가장 자연스럽습니다.",
+      "EN": "Items like glasses and wallets are usually carried inside a bag ('가방'): '가방에 있어요' (They are in the bag).",
+      "VI": "Kính và ví thường được đựng trong túi xách ('가방'): '가방에 있어요' (Ở trong túi xách).",
+      "ZH": "眼镜和钱包通常放在包（'가방'）里：'가방에 있어요'（在包里）。",
+      "JA": "メガネや財布などは普段カバン（'가방'）に入れて持ち歩きます。「가방에 있어요（カバンの中にあります）」が最も自然です。"
+    }
+  },
+  {
+    "id": 146,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🏣 🏦",
+    "keyword": "우체국",
+    "speechBubble": "우체국 바로 뒤에 은행이 있어요.",
+    "situations": {
+      "KO": "우체국이 은행 앞에 있습니다. 은행의 위치를 바르게 설명한 것은?",
+      "EN": "The post office is in front of the bank. Where is the bank?",
+      "VI": "Bưu điện ở phía trước ngân hàng. Vậy ngân hàng ở đâu?",
+      "ZH": "邮局在银行前面。银行的位置应该怎么描述？",
+      "JA": "郵便局が銀行の前にあります。銀行の位置を正しく説明したものは？"
+    },
+    "questions": {
+      "KO": "가: 은행이 어디에 있어요?\n나: 은행은 우체국 (   )에 있어요."
+    },
+    "options": [
+      "뒤",
+      "앞",
+      "위",
+      "안"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "우체국이 은행 앞에 있으므로, 은행은 우체국의 반대쪽인 '뒤(뒤에)'에 있습니다.",
+      "EN": "Since the post office is in front of the bank, the bank is behind ('뒤') the post office: '우체국 뒤에 있어요'.",
+      "VI": "Vì bưu điện ở phía trước ngân hàng, nên ngân hàng ở phía sau ('뒤') bưu điện: '우체국 뒤에 있어요'.",
+      "ZH": "因为邮局在银行前面，所以银行在邮局的后面（'뒤'）：'우체국 뒤에 있어요'。",
+      "JA": "郵便局が銀行の前にあるので、銀行は郵便局の後ろ（「뒤」）にあります。「우체국 뒤에 있어요」となります。"
+    }
+  },
+  {
+    "id": 147,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "💇 🏥",
+    "keyword": "미용실",
+    "speechBubble": "병원 바로 오른쪽에 있어요!",
+    "situations": {
+      "KO": "두 건물이 나란히 붙어 있을 때 위치를 설명하는 대화입니다.",
+      "EN": "Describing the location of two buildings side by side.",
+      "VI": "Mô tả vị trí của hai tòa nhà nằm cạnh nhau.",
+      "ZH": "描述两个相邻建筑物位置的对话。",
+      "JA": "2つの建物が隣同士に並んでいる時の位置を説明する会話です。"
+    },
+    "questions": {
+      "KO": "가: 미용실이 어디에 있어요?\n나: 저기 하나병원 (   )에 있어요."
+    },
+    "options": [
+      "옆",
+      "위",
+      "밑",
+      "속"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "어떤 건물이나 사물의 좌우 측면에 나란히 있을 때는 위치 명사 '옆'을 써서 '병원 옆에 있어요'라고 안내합니다.",
+      "EN": "When two places are side by side, use '옆' (next to/beside): '병원 옆에 있어요' (It's next to the hospital).",
+      "VI": "Khi hai địa điểm nằm cạnh nhau, dùng danh từ vị trí '옆' (bên cạnh): '병원 옆에 있어요' (Ở cạnh bệnh viện).",
+      "ZH": "当两个建筑物并排挨着时，使用位置名词'옆'（旁边）：'병원 옆에 있어요'（在医院旁边）。",
+      "JA": "建物や物が左右に並んでいる時は、位置を表す名詞「옆（隣・横）」を使って「병원 옆에 있어요（病院の隣にあります）」と案内します。"
+    }
+  },
+  {
+    "id": 148,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "💊 🏥",
+    "keyword": "약국",
+    "speechBubble": "1층은 병원, 2층은 약국!",
+    "situations": {
+      "KO": "1층에 병원이 있고, 2층에 약국이 있습니다. 약국의 위치는?",
+      "EN": "Hospital is on the 1st floor and pharmacy on the 2nd floor. Where is the pharmacy?",
+      "VI": "Tầng 1 là bệnh viện, tầng 2 là hiệu thuốc. Hiệu thuốc ở đâu?",
+      "ZH": "一楼是医院，二楼是药店。药店的位置在哪里？",
+      "JA": "1階に病院があり、2階に薬局があります。薬局の位置は？"
+    },
+    "questions": {
+      "KO": "가: 약국이 어디에 있어요?\n나: 병원 (   ) 2층에 있어요."
+    },
+    "options": [
+      "위",
+      "아래",
+      "뒤",
+      "밖"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "1층 병원의 위층(2층)에 약국이 위치하므로 기준점 위쪽을 나타내는 '위(위에)'를 씁니다.",
+      "EN": "Since the pharmacy is on the 2nd floor above the hospital, use '위' (above/on top of): '병원 위 2층에 있어요'.",
+      "VI": "Vì hiệu thuốc ở tầng 2 phía trên bệnh viện, dùng từ '위' (trên): '병원 위 2층에 있어요' (Ở tầng 2 phía trên bệnh viện).",
+      "ZH": "因为药店在医院的上层（2楼），所以使用表示上方的'위'（上面）：'병원 위 2층에 있어요'。",
+      "JA": "1階の病院の上（2階）に薬局があるので、基準の上を表す「위（上）」を使います。「병원 위 2층에 있어요」となります。"
+    }
+  },
+  {
+    "id": 149,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🏬 🚶",
+    "keyword": "백화점",
+    "speechBubble": "쇼핑하러 백화점으로 가요.",
+    "situations": {
+      "KO": "이동하는 목적지를 묻고 답할 때 쓰는 조사를 고르세요.",
+      "EN": "Choose the correct particle for the destination of movement.",
+      "VI": "Chọn trợ từ chỉ điểm đến khi di chuyển.",
+      "ZH": "选择表示移动目的地的助词。",
+      "JA": "移動の目的地を尋ねて答える時に使う助詞を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 지수 씨, 지금 어디(   ) 가요?\n나: 백화점에 가요."
+    },
+    "options": [
+      "에",
+      "에서",
+      "를",
+      "으로"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'가다', '오다'처럼 방향이나 목적지로 이동하는 동사 앞에는 장소의 도착점을 나타내는 조사 '-에'를 씁니다. ('어디에 가요?')",
+      "EN": "Use the destination particle '-에' with motion verbs like '가다' (to go) and '오다' (to come): '어디에 가요?' (Where are you going?).",
+      "VI": "Dùng trợ từ điểm đến '-에' đi cùng với động từ chuyển động như '가다', '오다': '어디에 가요?' (Bạn đang đi đâu thế?).",
+      "ZH": "与'가다'（去）、'오다'（来）等移动动词连用表示目的地时，使用助词'-에'：'어디에 가요?'（去哪里？）。",
+      "JA": "「가다（行く）」「오다（来る）」などの移動動詞の前には、目的地の到着点を表す助詞「-에」を使います。「어디에 가요?（どこに行きますか？）」となります。"
+    }
+  },
+  {
+    "id": 150,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "👜 🛍️",
+    "keyword": "쇼핑",
+    "speechBubble": "백화점에서 무엇을 해요?",
+    "situations": {
+      "KO": "구체적인 행동이 일어나는 장소를 나타내는 조사를 고르세요.",
+      "EN": "Choose the particle that indicates the location where an action takes place.",
+      "VI": "Chọn trợ từ chỉ nơi chốn diễn ra hành động cụ thể.",
+      "ZH": "选择表示具体行动发生地点的助词。",
+      "JA": "具体的な動作・行動が行われる場所を表す助詞を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 백화점(   ) 무엇을 해요?\n나: 가방을 사요."
+    },
+    "options": [
+      "에서",
+      "에",
+      "로",
+      "을"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'사다', '먹다', '일하다'처럼 특정 행동이나 동작이 일어나는 장소 뒤에는 조사 '-에서'를 씁니다. 단순 위치나 도착점은 '-에', 동작 장소는 '-에서'입니다.",
+      "EN": "Use '-에서' to mark the location where an dynamic action (like buying, eating, studying) occurs: '백화점에서 무엇을 해요?'.",
+      "VI": "Dùng '-에서' để chỉ địa điểm diễn ra hành động (như mua, ăn, học): '백화점에서 무엇을 해요?' (Bạn làm gì ở trung tâm thương mại?).",
+      "ZH": "在进行买、吃、工作等具体动态行为的地点后使用助词'-에서'：'백화점에서 무엇을 해요?'（在百货商店做什么？）。",
+      "JA": "「買う」「食べる」「働く」などの動作が行われる場所の後には助詞「-에서（〜で）」を使います。「백화점에서 무엇을 해요?（デパートで何をしますか？）」となります。"
+    }
+  },
+  {
+    "id": 151,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "📚 👧",
+    "keyword": "도서관",
+    "speechBubble": "도서관에서 무엇을 해요?",
+    "situations": {
+      "KO": "장소에 어울리는 올바른 일상 행동을 고르세요.",
+      "EN": "Choose the appropriate action that matches the place.",
+      "VI": "Chọn hành động phù hợp với địa điểm.",
+      "ZH": "选择与场所相符的日常活动。",
+      "JA": "場所にふさわしい日常の行動を選んでください。"
+    },
+    "questions": {
+      "KO": "가: 소연 씨는 도서관에서 무엇을 해요?\n나: 도서관에서 (   )."
+    },
+    "options": [
+      "책을 읽어요",
+      "수영을 해요",
+      "요리를 해요",
+      "잠을 자요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'도서관'은 책을 읽거나 공부를 하는 조용한 장소이므로 '책을 읽어요' 또는 '공부해요'가 가장 적절합니다.",
+      "EN": "'도서관' (library) is a place for reading or studying, so '책을 읽어요' (I read books) is the most suitable response.",
+      "VI": "'도서관' (thư viện) là nơi đọc sách hoặc học tập, nên câu trả lời phù hợp nhất là '책을 읽어요' (Tôi đọc sách).",
+      "ZH": "'도서관'（图书馆）是读书或学习的地方，因此'책을 읽어요'（看书）是最恰当的回答。",
+      "JA": "「도서관（図書館）」は本を読んだり勉強したりする場所なので、「책을 읽어요（本を読みます）」が最も適しています。"
+    }
+  },
+  {
+    "id": 152,
+    "category": "생활·대화",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🎬 🍿",
+    "keyword": "극장",
+    "speechBubble": "극장에서 무엇을 해요?",
+    "situations": {
+      "KO": "장소에서 하는 활동을 묻는 질문에 알맞게 답하세요.",
+      "EN": "Answer what activity you do at this venue.",
+      "VI": "Trả lời hoạt động bạn làm tại địa điểm này.",
+      "ZH": "回答在该场所进行的活动。",
+      "JA": "その場所で行う活動を尋ねる質問に正しく答えてください。"
+    },
+    "questions": {
+      "KO": "가: 지수 씨는 극장에서 무엇을 해요?\n나: 극장에서 (   )."
+    },
+    "options": [
+      "영화를 봐요",
+      "운동을 해요",
+      "옷을 사요",
+      "머리를 잘라요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'극장(영화관)'은 스크린으로 상영되는 영화를 관람하는 문화 공간이므로 '영화를 봐요'가 알맞습니다.",
+      "EN": "'극장' (theater/cinema) is where you watch movies, so '영화를 봐요' (I watch a movie) is the correct answer.",
+      "VI": "'극장' (rạp chiếu phim) là nơi xem phim, vì vậy '영화를 봐요' (Tôi xem phim) là đáp án đúng.",
+      "ZH": "'극장'（剧场/电影院）是看电影的地方，因此'영화를 봐요'（看电影）是正确答案。",
+      "JA": "「극장（劇場/映画館）」は映画を鑑賞する場所なので、「영화를 봐요（映画を見ます）」が正解です。"
+    }
   }
 ]
