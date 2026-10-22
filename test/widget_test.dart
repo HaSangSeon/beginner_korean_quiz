@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:beginner_korean_quiz/main.dart';
+import 'package:beginner_korean_quiz/screens/quiz_screen.dart';
 import 'package:beginner_korean_quiz/services/quiz_repository.dart';
 
 void main() {
@@ -236,7 +237,6 @@ void main() {
     // 2. Question 1 should display picture illustration card (🌹) and dynamic AppBar title
     expect(find.text('기초 단어 퀴즈'), findsOneWidget);
     expect(find.text('기초 단어'), findsOneWidget);
-    expect(find.text('※ 그림을 보고 알맞은 것을 고르십시오.'), findsOneWidget);
     expect(find.text('🌹'), findsOneWidget);
     expect(find.text('철수'), findsOneWidget);
     expect(find.text('이것이 무엇입니까?'), findsOneWidget);
@@ -250,4 +250,49 @@ void main() {
     expect(find.text('단어 해설 & 팁'), findsOneWidget);
     expect(find.text('다음 문제'), findsOneWidget);
   });
+
+  testWidgets('Word assembly unscramble subjective quiz flow test', (WidgetTester tester) async {
+    QuizRepository.enableShuffle = false;
+    tester.platformDispatcher.localeTestValue = const Locale('ko');
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.75;
+    addTearDown(() {
+      QuizRepository.enableShuffle = true;
+      tester.platformDispatcher.clearLocaleTestValue();
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(const MaterialApp(
+      home: QuizScreen(
+        initialLangCode: 'KO',
+        category: '시간·일정·문장완성',
+        level: 1,
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    // Verify Word Assembly UI components
+    expect(find.text('문장 완성 주관식'), findsOneWidget);
+    expect(find.text('단어 조각을 터치하여 문장을 완성하세요'), findsOneWidget);
+    expect(find.text('정답 확인'), findsOneWidget);
+
+    // Tap word chips in correct order: "11월 30일에", "친구를", "만나요."
+    await tester.tap(find.text('11월 30일에'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('친구를'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('만나요.'));
+    await tester.pumpAndSettle();
+
+    // Scroll to and submit answer
+    await tester.ensureVisible(find.text('정답 확인'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('정답 확인'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('정답입니다! 🎉'), findsOneWidget);
+    expect(find.text('다음 문제'), findsOneWidget);
+  });
 }
+

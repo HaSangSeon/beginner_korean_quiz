@@ -11,6 +11,7 @@ class QuizQuestion {
   final List<String> options;
   final int answerIndex;
   final Map<String, String> explanations;
+  final List<String>? chips; // Word assembly chips for subjective unscramble questions
 
   const QuizQuestion({
     required this.id,
@@ -25,6 +26,7 @@ class QuizQuestion {
     required this.options,
     required this.answerIndex,
     required this.explanations,
+    this.chips,
   });
 
   factory QuizQuestion.fromJson(Map<String, dynamic> json) {
@@ -41,6 +43,7 @@ class QuizQuestion {
       options: List<String>.from(json['options'] as List),
       answerIndex: json['answerIndex'] as int,
       explanations: Map<String, String>.from(json['explanations'] as Map),
+      chips: (json['chips'] as List?)?.map((e) => e.toString()).toList(),
     );
   }
 
@@ -58,6 +61,7 @@ class QuizQuestion {
       'options': options,
       'answerIndex': answerIndex,
       'explanations': explanations,
+      if (chips != null) 'chips': chips,
     };
   }
 

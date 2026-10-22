@@ -3105,7 +3105,7 @@
   },
   {
     "id": 97,
-    "category": "식음료·편의점",
+    "category": "카페·식당·외식문화",
     "type": "survival",
     "level": 1,
     "visual": "☕ 🥡",
@@ -3138,7 +3138,7 @@
   },
   {
     "id": 98,
-    "category": "식음료·편의점",
+    "category": "카페·식당·외식문화",
     "type": "survival",
     "level": 1,
     "visual": "🧊 🥤",
@@ -3171,9 +3171,9 @@
   },
   {
     "id": 99,
-    "category": "식음료·편의점",
+    "category": "카페·식당·외식문화",
     "type": "survival",
-    "level": 2,
+    "level": 1,
     "visual": "📶 📱",
     "keyword": "와이파이",
     "speechBubble": "와이파이 이용 가능합니다.",
@@ -3204,9 +3204,9 @@
   },
   {
     "id": 100,
-    "category": "식음료·편의점",
+    "category": "카페·식당·외식문화",
     "type": "survival",
-    "level": 2,
+    "level": 1,
     "visual": "🔔 ☕",
     "keyword": "진동벨",
     "speechBubble": "벨이 울리면 픽업대로 오세요.",
@@ -3237,7 +3237,7 @@
   },
   {
     "id": 101,
-    "category": "쇼핑·교통·외출",
+    "category": "편의점·마트·쇼핑",
     "type": "survival",
     "level": 1,
     "visual": "🧾 🗑️",
@@ -3270,7 +3270,7 @@
   },
   {
     "id": 102,
-    "category": "쇼핑·교통·외출",
+    "category": "편의점·마트·쇼핑",
     "type": "survival",
     "level": 1,
     "visual": "👗 🪞",
@@ -3303,9 +3303,9 @@
   },
   {
     "id": 103,
-    "category": "쇼핑·교통·외출",
+    "category": "편의점·마트·쇼핑",
     "type": "survival",
-    "level": 2,
+    "level": 1,
     "visual": "🛍️ 🏪",
     "keyword": "봉투",
     "speechBubble": "봉투 필요하세요?",
@@ -3321,9 +3321,9 @@
     },
     "options": [
       "필요하세요",
-      "출발하세요",
-      "청소하세요",
-      "요리하세요"
+      "확인하세요",
+      "준비하세요",
+      "선택하세요"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -3336,9 +3336,9 @@
   },
   {
     "id": 104,
-    "category": "쇼핑·교통·외출",
+    "category": "편의점·마트·쇼핑",
     "type": "survival",
-    "level": 2,
+    "level": 1,
     "visual": "💳 📱",
     "keyword": "카드결제",
     "speechBubble": "결제 도와드리겠습니다.",
@@ -3354,9 +3354,9 @@
     },
     "options": [
       "결제할게요",
-      "출발할게요",
-      "청소할게요",
-      "요리할게요"
+      "충전할게요",
+      "환불할게요",
+      "주문할게요"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -3369,7 +3369,7 @@
   },
   {
     "id": 105,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
     "level": 1,
     "visual": "🎉 😲",
@@ -3402,7 +3402,7 @@
   },
   {
     "id": 106,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
     "level": 1,
     "visual": "👀 😯",
@@ -3435,9 +3435,9 @@
   },
   {
     "id": 107,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
-    "level": 2,
+    "level": 1,
     "visual": "😱 🤦",
     "keyword": "헐",
     "speechBubble": "헐... 어떡해...",
@@ -3468,9 +3468,9 @@
   },
   {
     "id": 108,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
-    "level": 2,
+    "level": 1,
     "visual": "✊ 🔥",
     "keyword": "화이팅",
     "speechBubble": "오늘도 힘내자! 화이팅!",
@@ -3501,7 +3501,7 @@
   },
   {
     "id": 109,
-    "category": "쇼핑·교통·외출",
+    "category": "교통·길찾기·택시",
     "type": "survival",
     "level": 1,
     "visual": "🚌 💳",
@@ -3519,9 +3519,9 @@
     },
     "options": [
       "충전해 주세요",
-      "요리해 주세요",
-      "청소해 주세요",
-      "출발해 주세요"
+      "결제해 주세요",
+      "환불해 주세요",
+      "발급해 주세요"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -3534,7 +3534,7 @@
   },
   {
     "id": 110,
-    "category": "쇼핑·교통·외출",
+    "category": "교통·길찾기·택시",
     "type": "survival",
     "level": 1,
     "visual": "🚪 🚇",
@@ -3567,9 +3567,9 @@
   },
   {
     "id": 111,
-    "category": "쇼핑·교통·외출",
+    "category": "교통·길찾기·택시",
     "type": "survival",
-    "level": 2,
+    "level": 1,
     "visual": "🔄 🚇",
     "keyword": "환승",
     "speechBubble": "2호선으로 갈아타세요.",
@@ -3600,7 +3600,7 @@
   },
   {
     "id": 112,
-    "category": "쇼핑·교통·외출",
+    "category": "교통·길찾기·택시",
     "type": "survival",
     "level": 2,
     "visual": "⏱️ 🚶",
@@ -3633,7 +3633,7 @@
   },
   {
     "id": 113,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
     "level": 1,
     "visual": "🎟️ 🖥️",
@@ -3666,7 +3666,7 @@
   },
   {
     "id": 114,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
     "level": 1,
     "visual": "🪄 🔋",
@@ -3699,7 +3699,7 @@
   },
   {
     "id": 115,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
     "level": 2,
     "visual": "💿 🎵",
@@ -3732,7 +3732,7 @@
   },
   {
     "id": 116,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
     "level": 2,
     "visual": "👥 🏟️",
@@ -3765,9 +3765,9 @@
   },
   {
     "id": 117,
-    "category": "식음료·편의점",
+    "category": "편의점·마트·쇼핑",
     "type": "survival",
-    "level": 1,
+    "level": 2,
     "visual": "🏪 🛍️",
     "speechBubble": "봉투 담아드릴까요?",
     "keyword": "종량제 봉투",
@@ -3798,9 +3798,9 @@
   },
   {
     "id": 118,
-    "category": "식음료·편의점",
+    "category": "편의점·마트·쇼핑",
     "type": "survival",
-    "level": 1,
+    "level": 2,
     "visual": "🏷️ 🎁",
     "speechBubble": "1+1 행사 중이에요!",
     "keyword": "원 플러스 원",
@@ -3831,7 +3831,7 @@
   },
   {
     "id": 119,
-    "category": "식음료·편의점",
+    "category": "편의점·마트·쇼핑",
     "type": "survival",
     "level": 2,
     "visual": "🧾 🗑️",
@@ -3864,7 +3864,7 @@
   },
   {
     "id": 120,
-    "category": "식음료·편의점",
+    "category": "편의점·마트·쇼핑",
     "type": "survival",
     "level": 2,
     "visual": "🍱 ♨️",
@@ -3897,9 +3897,9 @@
   },
   {
     "id": 121,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
-    "level": 1,
+    "level": 2,
     "visual": "💬 📱 😅",
     "speechBubble": "ㅋ 하나는 무서워요!",
     "keyword": "카톡 ㅋ",
@@ -3930,9 +3930,9 @@
   },
   {
     "id": 122,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
-    "level": 1,
+    "level": 2,
     "visual": "🍚 👋 🤝",
     "speechBubble": "식사하셨어요?",
     "keyword": "밥 먹었어",
@@ -3963,7 +3963,7 @@
   },
   {
     "id": 123,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
     "level": 2,
     "visual": "🤝 ⏰ 🗓️",
@@ -3996,7 +3996,7 @@
   },
   {
     "id": 124,
-    "category": "K-컬처·소통",
+    "category": "K-컬처·소통·신조어",
     "type": "survival",
     "level": 2,
     "visual": "👀 ❌ 📵",
@@ -4029,9 +4029,9 @@
   },
   {
     "id": 125,
-    "category": "쇼핑·교통·외출",
+    "category": "교통·길찾기·택시",
     "type": "survival",
-    "level": 1,
+    "level": 2,
     "visual": "🚖 🛑 🚦",
     "speechBubble": "여기서 세워주세요!",
     "keyword": "내려주세요",
@@ -4062,9 +4062,9 @@
   },
   {
     "id": 126,
-    "category": "쇼핑·교통·외출",
+    "category": "교통·길찾기·택시",
     "type": "survival",
-    "level": 1,
+    "level": 2,
     "visual": "💳 🚕 📳",
     "speechBubble": "카드로 결제할게요!",
     "keyword": "결제해도",
@@ -4095,9 +4095,9 @@
   },
   {
     "id": 127,
-    "category": "쇼핑·교통·외출",
+    "category": "배달·생활편의",
     "type": "survival",
-    "level": 2,
+    "level": 1,
     "visual": "🛵 🚪 🔔",
     "speechBubble": "문 앞에 두고 가세요!",
     "keyword": "벨",
@@ -4128,7 +4128,7 @@
   },
   {
     "id": 128,
-    "category": "쇼핑·교통·외출",
+    "category": "교통·길찾기·택시",
     "type": "survival",
     "level": 2,
     "visual": "⏱️ 🛣️ 💨",
@@ -4161,9 +4161,9 @@
   },
   {
     "id": 129,
-    "category": "식음료·편의점",
+    "category": "카페·식당·외식문화",
     "type": "survival",
-    "level": 1,
+    "level": 2,
     "visual": "🥓 🥬 🧄",
     "speechBubble": "상추에 싸서 드세요!",
     "keyword": "쌈",
@@ -4194,9 +4194,9 @@
   },
   {
     "id": 130,
-    "category": "식음료·편의점",
+    "category": "카페·식당·외식문화",
     "type": "survival",
-    "level": 1,
+    "level": 2,
     "visual": "🥣 🍲 🥄",
     "speechBubble": "앞접시 드릴게요!",
     "keyword": "앞접시",
@@ -4227,7 +4227,7 @@
   },
   {
     "id": 131,
-    "category": "식음료·편의점",
+    "category": "카페·식당·외식문화",
     "type": "survival",
     "level": 2,
     "visual": "🍻 🥂 🙇",
@@ -4260,7 +4260,7 @@
   },
   {
     "id": 132,
-    "category": "식음료·편의점",
+    "category": "카페·식당·외식문화",
     "type": "survival",
     "level": 2,
     "visual": "🍺 🍗 🌙",
@@ -4674,9 +4674,9 @@
     },
     "options": [
       "남산",
-      "비행기",
-      "우체통",
-      "지갑"
+      "한강",
+      "제주도",
+      "인천공항"
     ],
     "answerIndex": 0,
     "explanations": {
@@ -4950,5 +4950,1171 @@
       "ZH": "'극장'（剧场/电影院）是看电影的地方，因此'영화를 봐요'（看电影）是正确答案。",
       "JA": "「극장（劇場/映画館）」は映画を鑑賞する場所なので、「영화를 봐요（映画を見ます）」が正解です。"
     }
+  },
+  {
+    "id": 153,
+    "category": "교통·길찾기·택시",
+    "type": "survival",
+    "level": 1,
+    "visual": "🚌 🔔",
+    "keyword": "하차 벨",
+    "speechBubble": "이번 정류장은 홍대입구입니다.",
+    "situations": {
+      "KO": "버스에서 다음 정류장에 내리기 위해 미리 누르는 버튼을 고르세요.",
+      "EN": "Choose what to press before getting off at the next bus stop.",
+      "VI": "Chọn nút cần bấm trước khi xuống ở trạm xe buýt tiếp theo.",
+      "ZH": "选择在公交车到达下下一站前需要按下的按钮。",
+      "JA": "バスで次の停留所で降りるために押すボタンを選んでください。"
+    },
+    "questions": {
+      "KO": "승객: 다음 정류장에서 내릴 거니까 하차 (   )을 미리 눌러야겠어."
+    },
+    "options": [
+      "벨",
+      "카드",
+      "문",
+      "손"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국 시내버스에서 내릴 때는 다음 정류장 안내 방송을 듣고 벽이나 기둥에 있는 '하차 벨(Bell)'을 눌러야 문이 열립니다.",
+      "EN": "In Korean city buses, you must press the '하차 벨' (stop bell) on the wall or pole before arriving at your stop.",
+      "VI": "Khi đi xe buýt tại Hàn Quốc, bạn cần bấm '하차 벨' (chuông xuống xe) trước khi xe đến trạm để tài xế mở cửa.",
+      "ZH": "在韩国乘坐公交车下车前，需要先按下车铃（하차 벨），司机才会靠站开门。",
+      "JA": "韓国の市内バスでは、降りる前にブザー・降車ボタン「하차 벨」を押して運転手に知らせます。"
+    }
+  },
+  {
+    "id": 154,
+    "category": "배달·생활편의",
+    "type": "survival",
+    "level": 1,
+    "visual": "🥢 🥄",
+    "keyword": "일회용 수저",
+    "speechBubble": "환경 보호에 동참해 주세요.",
+    "situations": {
+      "KO": "배달 주문할 때 일회용 숟가락과 젓가락을 받지 않겠다고 요청하는 말을 고르세요.",
+      "EN": "Choose how to request not to receive disposable spoons and chopsticks when ordering delivery.",
+      "VI": "Chọn cách nói yêu cầu không nhận muỗng đũa dùng một lần khi đặt đồ ăn giao tận nơi.",
+      "ZH": "选择点外卖时勾选不需要一次性餐具的表达。",
+      "JA": "出前を注文する際、使い捨てのスプーンと箸を断る表現を選んでください。"
+    },
+    "questions": {
+      "KO": "배달 앱 요청사항: 일회용 (   )은 안 주셔도 돼요."
+    },
+    "options": [
+      "수저",
+      "반찬",
+      "음식",
+      "영수증"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'수저'는 숟가락과 젓가락을 아울러 이르는 말입니다. 배달 앱에서는 환경 보호를 위해 '일회용 수저 안 주셔도 돼요' 옵션을 자주 선택합니다.",
+      "EN": "'수저' refers to both spoons and chopsticks. You can check '일회용 수저 안 주셔도 돼요' to decline disposable cutlery for the environment.",
+      "VI": "'수저' là từ gọi chung cả thìa (muỗng) và đũa. Bạn có thể chọn không lấy để bảo vệ môi trường.",
+      "ZH": "'수저'指勺子和筷子。韩国外卖APP中常有'일회용 수저 안 주셔도 돼요'（不需要一次性餐具）的选项。",
+      "JA": "「수저」はスプーンと箸を合わせた言葉です。環境のため「使い捨てのカトラリーは不要です」と指定する時によく使われます。"
+    }
+  },
+  {
+    "id": 155,
+    "category": "배달·생활편의",
+    "type": "survival",
+    "level": 1,
+    "visual": "🖥️ 👆",
+    "keyword": "키오스크",
+    "speechBubble": "무인 주문기로 주문해 주세요.",
+    "situations": {
+      "KO": "식당이나 패스트푸드점에서 터치 화면으로 직접 주문하는 무인 기기를 고르세요.",
+      "EN": "Choose the self-service touch screen machine used for ordering at restaurants.",
+      "VI": "Chọn máy bán hàng tự động cảm ứng dùng để gọi món tại quán ăn.",
+      "ZH": "选择在餐厅通过触屏自主点餐的无服务员机器。",
+      "JA": "ファストフード店や食堂でタッチパネルを使って注文する無人端末を選んでください。"
+    },
+    "questions": {
+      "KO": "직원: 주문은 입구 쪽에 있는 (   )에서 직접 해주세요."
+    },
+    "options": [
+      "키오스크",
+      "계산기",
+      "테이블",
+      "냉장고"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "화면을 터치하여 메뉴 선택과 결제를 스스로 진행하는 무인 주문 단말기를 '키오스크(Kiosk)'라고 부릅니다.",
+      "EN": "The self-ordering touch screen device used to place orders and pay in Korea is called a '키오스크' (kiosk).",
+      "VI": "Máy tự chọn món và thanh toán qua màn hình cảm ứng tại quán ăn được gọi là '키오스크' (Kiosk).",
+      "ZH": "通过触摸屏自助点餐付款的无服务员设备称为'키오스크'（自助点餐机）。",
+      "JA": "画面をタッチして注文と決済を自分で行うセルフ注文機を「키오스크（キオスク）」と呼びます。"
+    }
+  },
+  {
+    "id": 156,
+    "category": "배달·생활편의",
+    "type": "survival",
+    "level": 1,
+    "visual": "🥡 🛍️",
+    "keyword": "포장",
+    "speechBubble": "매장에서 드시나요, 포장하시나요?",
+    "situations": {
+      "KO": "음식을 매장에서 먹지 않고 집이나 밖으로 가지고 가겠다고 선택하는 말을 고르세요.",
+      "EN": "Choose the word for takeout/to-go instead of dining inside the restaurant.",
+      "VI": "Chọn từ dùng để mang thức ăn về nhà thay vì ăn tại quán.",
+      "ZH": "选择不把餐点留在店内吃，而是打包带走时的表达。",
+      "JA": "店内飲食ではなく、持ち帰り（テイクアウト）にする時の言葉を選んでください。"
+    },
+    "questions": {
+      "KO": "화면 선택: 매장에서 식사하시겠습니까? 아니면 (   )해 가시겠습니까?"
+    },
+    "options": [
+      "포장",
+      "요리",
+      "배달",
+      "예약"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "음식을 싸서 가지고 나가는 행위를 '포장(Takeout)'이라고 합니다. 키오스크 주문 시 '매장'과 '포장' 중 하나를 선택합니다.",
+      "EN": "'포장' means takeout/to-go packaging. When ordering, you will be asked to choose between '매장' (dine-in) or '포장' (takeout).",
+      "VI": "'포장' nghĩa là đóng gói mang về (takeout). Khi gọi món, bạn sẽ chọn giữa ăn tại chỗ (매장) hoặc mang về (포장).",
+      "ZH": "'포장'意为打包（外带）。在点餐时通常需要在'매장'（堂食）和'포장'（打包）之间选择。",
+      "JA": "持ち帰りのことは「포장（包装/テイクアウト）」と言います。キオスク等で「매장（店内）」か「포장（持ち帰り）」を選択します。"
+    }
+  },
+  {
+    "id": 157,
+    "category": "배달·생활편의",
+    "type": "survival",
+    "level": 2,
+    "visual": "📦 🔐",
+    "keyword": "무인 택배함",
+    "speechBubble": "택배를 보관함에 넣어두었습니다.",
+    "situations": {
+      "KO": "집을 비웠을 때 택배 기사님께 물품을 맡겨달라고 요청하는 전자 보관함을 고르세요.",
+      "EN": "Choose the electronic parcel locker where couriers can leave your packages safely.",
+      "VI": "Chọn tủ khóa điện tử nhận bưu phẩm khi bạn vắng nhà.",
+      "ZH": "选择不在家时让快递员存放包裹的智能快件箱。",
+      "JA": "不在時に宅配便を預けてもらう電子式の宅配ボックスを選んでください。"
+    },
+    "questions": {
+      "KO": "고객: 지금 집에 없으니 아파트 1층 무인 택배(   )에 넣어주세요."
+    },
+    "options": [
+      "보관함",
+      "우체통",
+      "쓰레기통",
+      "냉장고"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "부재 시 안전하게 택배를 보관하고 비밀번호로 찾는 전자 사물함을 '무인 택배 보관함'이라고 부릅니다.",
+      "EN": "An automated locker where delivery items can be stored and retrieved with a password is a '무인 택배 보관함' (unmanned parcel locker).",
+      "VI": "'무인 택배 보관함' là tủ đựng bưu phẩm tự động, nhận hàng qua mật khẩu khi người nhận vắng nhà.",
+      "ZH": "不在家时代收快递并凭密码领取的智能储物柜称为'무인 택배 보관함'（智能快递柜）。",
+      "JA": "不在時に荷物を預かりパスワードで解錠するロッカーを「무인 택배 보관함（無人宅配ボックス）」と言います。"
+    }
+  },
+  {
+    "id": 158,
+    "category": "배달·생활편의",
+    "type": "survival",
+    "level": 2,
+    "visual": "🏪 📦",
+    "keyword": "편의점 택배",
+    "speechBubble": "편의점 택배 접수 기계는 저쪽에 있습니다.",
+    "situations": {
+      "KO": "우체국에 가지 않고 가까운 편의점에서 24시간 물건을 부치는 서비스를 고르세요.",
+      "EN": "Choose the convenient service used to send parcels at 24-hour convenience stores.",
+      "VI": "Chọn dịch vụ gửi bưu phẩm tại cửa hàng tiện lợi 24 giờ thay vì đến bưu điện.",
+      "ZH": "选择无需去邮局，在24小时便利店即可邮寄包裹的服务。",
+      "JA": "郵便局に行かず、24時間近くのコンビニから荷物を送るサービスを選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 여기서 편의점 (   ) 보낼 수 있나요? 알바생: 네, 저쪽 기계에서 접수하시면 돼요."
+    },
+    "options": [
+      "택배",
+      "편지",
+      "선물",
+      "현금"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국의 편의점(CU, GS25 등)에서는 무인 단말기를 통해 저렴하고 편리하게 '택배(Parcel delivery)'를 발송할 수 있습니다.",
+      "EN": "In Korean convenience stores (CU, GS25, etc.), you can easily send '택배' (parcels) using self-service kiosks at any time.",
+      "VI": "Tại các cửa hàng tiện lợi ở Hàn Quốc, bạn có thể tự gửi bưu phẩm '택배' dễ dàng qua máy tự động.",
+      "ZH": "在韩国便利店可以通过自助终端机非常方便地寄送'택배'（快递包裹）。",
+      "JA": "韓国のコンビニでは専用端末を使って24時間いつでも手軽に「택배（宅配便）」を発送できます。"
+    }
+  },
+  {
+    "id": 159,
+    "category": "배달·생활편의",
+    "type": "survival",
+    "level": 2,
+    "visual": "🎒 ❓",
+    "keyword": "유실물 센터",
+    "speechBubble": "잃어버린 물건을 찾아드립니다.",
+    "situations": {
+      "KO": "지하철이나 버스에 물건을 두고 내렸을 때 분실물을 찾기 위해 문의하는 곳을 고르세요.",
+      "EN": "Choose where to contact or visit to find lost belongings left on subways or buses.",
+      "VI": "Chọn nơi liên hệ để tìm lại đồ đạc bỏ quên trên tàu điện ngầm hoặc xe buýt.",
+      "ZH": "选择在地铁或公交上遗失物品后前往寻找的失物招领处。",
+      "JA": "地下鉄やバスに忘れ物をした際、問い合わせる場所を選んでください。"
+    },
+    "questions": {
+      "KO": "승객: 열차에 지갑을 두고 내렸어요. (   ) 센터가 어디에 있나요?"
+    },
+    "options": [
+      "유실물",
+      "안내소",
+      "매표소",
+      "출입구"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "공공장소나 대중교통에서 잃어버린 물건을 보관하고 찾아주는 곳을 '유실물 센터(Lost & Found Center)' 또는 '분실물 센터'라고 부릅니다.",
+      "EN": "The department that keeps and manages items left behind on public transit is called the '유실물 센터' (Lost and Found Center).",
+      "VI": "Nơi tiếp nhận và hoàn trả đồ thất lạc trên phương tiện công cộng là '유실물 센터' (Trung tâm xử lý đồ thất lạc).",
+      "ZH": "公共交通或公共场所保存和寻找失物的部门称为'유실물 센터'（失物招领中心）。",
+      "JA": "公共交通機関などで忘れ物を保管し、持ち主に返す場所を「유실물 센터（遺失物センター）」と呼びます。"
+    }
+  },
+  {
+    "id": 160,
+    "category": "배달·생활편의",
+    "type": "survival",
+    "level": 2,
+    "visual": "📶 📷",
+    "keyword": "QR코드 와이파이",
+    "speechBubble": "카메라로 QR코드를 스캔해 보세요.",
+    "situations": {
+      "KO": "식당이나 카페 벽의 QR코드를 카메라로 스캔하여 무선 인터넷에 접속하는 방법을 고르세요.",
+      "EN": "Choose the method to quickly connect to wireless internet by scanning a QR code with your camera.",
+      "VI": "Chọn cách kết nối internet không dây nhanh chóng bằng cách quét mã QR bằng camera.",
+      "ZH": "选择用手机相机扫描墙上的二维码连接无线网络的便捷方式。",
+      "JA": "壁のQRコードをカメラで読み取ってWi-Fiに接続する表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 벽에 붙은 QR코드를 카메라로 찍으면 (   )가 바로 연결돼요."
+    },
+    "options": [
+      "와이파이",
+      "전화",
+      "블루투스",
+      "결제"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "요즘 한국의 많은 식당과 카페에서는 비밀번호를 일일이 입력하지 않고 벽에 부착된 QR코드를 찍으면 즉시 '와이파이(Wi-Fi)'가 연결됩니다.",
+      "EN": "Many Korean cafes and restaurants now allow you to connect to '와이파이' (Wi-Fi) instantly by simply scanning a QR code on the wall.",
+      "VI": "Nhiều quán cà phê ở Hàn Quốc hỗ trợ quét mã QR để kết nối '와이파이' (Wi-Fi) ngay lập tức mà không cần nhập mật khẩu.",
+      "ZH": "现在韩国很多咖啡厅都支持用手机扫描墙上的二维码，直接连接'와이파이'（Wi-Fi），无需输入密码。",
+      "JA": "韓国のカフェや飲食店では、壁のQRコードをスマホカメラで読み取るだけでパスワードなしに「와이파이（Wi-Fi）」に接続できます。"
+    }
+  },
+  {
+    "id": 161,
+    "category": "병원·약국·응급",
+    "type": "survival",
+    "level": 1,
+    "visual": "🤕 💊",
+    "keyword": "두통약",
+    "speechBubble": "머리가 어떻게 아프신가요?",
+    "situations": {
+      "KO": "약국에서 머리가 아프고 열이 날 때 먹는 진통제를 요청하는 표현을 고르세요.",
+      "EN": "Choose how to ask for headache medicine at a pharmacy when your head hurts.",
+      "VI": "Chọn cách hỏi mua thuốc đau đầu tại hiệu thuốc khi bị đau đầu sốt.",
+      "ZH": "选择头痛发热时在药店购买止痛药的表达。",
+      "JA": "薬局で頭が痛くて熱がある時に飲む頭痛薬を頼む表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 머리가 지끈지끈 아프고 열이 나요. (   ) 하나 주세요. 약사: 네, 식후에 드세요."
+    },
+    "options": [
+      "두통약",
+      "소화제",
+      "비타민",
+      "수면제"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "머리가 아플 때 먹는 약을 '두통약(Headache medicine)'이라고 합니다. 편의점 안전상비의약품 코너에서도 타이레놀 등을 구입할 수 있습니다.",
+      "EN": "Medicine for headaches is '두통약' (headache medicine). Basic painkillers like Tylenol are also sold 24/7 at Korean convenience stores.",
+      "VI": "'두통약' là thuốc giảm đau đầu. Bạn cũng có thể mua các loại thuốc cơ bản này tại cửa hàng tiện lợi 24/7.",
+      "ZH": "治疗头痛的药物叫'두통약'（头痛药）。在韩国便利店也能买到泰诺等常用应急镇痛药。",
+      "JA": "頭痛の時に飲む薬は「두통약（頭痛薬）」です。韓国ではコンビニの救急医薬品コーナーでもタイレノール等が購入できます。"
+    }
+  },
+  {
+    "id": 162,
+    "category": "병원·약국·응급",
+    "type": "survival",
+    "level": 1,
+    "visual": "🤢 🥛",
+    "keyword": "소화제",
+    "speechBubble": "속이 답답하고 소화가 안 되세요?",
+    "situations": {
+      "KO": "밥을 먹고 체했거나 속이 답답할 때 약국에서 소화제를 달라고 요청하는 말을 고르세요.",
+      "EN": "Choose what medicine to ask for when suffering from indigestion after eating.",
+      "VI": "Chọn loại thuốc cần mua khi bị đầy bụng khó tiêu sau bữa ăn.",
+      "ZH": "选择因吃得过急胃部积食、消化不良时需要的药品。",
+      "JA": "食事をして胃もたれや消化不良を起こした時に頼む薬を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 밥을 급하게 먹어서 체한 것 같아요. (   ) 좀 주세요."
+    },
+    "options": [
+      "소화제",
+      "안약",
+      "파스",
+      "연고"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "음식이 잘 소화되지 않고 얹혔을 때 먹는 약은 '소화제(Digestive medicine)'입니다. 한국에서는 마시는 드링크형 소화제(까스활명수 등)도 매우 대중적입니다.",
+      "EN": "Medicine for indigestion is '소화제'. Liquid digestive drinks (like 까스활명수) are also very popular in Korea.",
+      "VI": "'소화제' là thuốc hỗ trợ tiêu hóa khi đầy bụng, khó tiêu. Thuốc dạng nước uống tại Hàn Quốc cũng rất phổ biến.",
+      "ZH": "积食消化不良时服用的药物是'소화제'（助消化药）。在韩国，瓶装易饮的消化药水也非常流行。",
+      "JA": "消化不良の時に飲む薬は「소화제（消化剤・胃腸薬）」です。韓国ではドリンクタイプの消化薬（ガス活命水など）も大人気です。"
+    }
+  },
+  {
+    "id": 163,
+    "category": "병원·약국·응급",
+    "type": "survival",
+    "level": 1,
+    "visual": "⏰ 🍚",
+    "keyword": "식후 30분",
+    "speechBubble": "하루 세 번, 밥 드시고 드세요.",
+    "situations": {
+      "KO": "약사가 밥을 다 먹고 나서 30분 뒤에 약을 복용하라고 안내하는 말을 고르세요.",
+      "EN": "Choose the word used to indicate taking medication 30 minutes AFTER meals.",
+      "VI": "Chọn từ chỉ thời điểm uống thuốc 30 phút SAU khi ăn.",
+      "ZH": "选择药剂师嘱咐在用餐完毕30分钟后服药时的表达。",
+      "JA": "薬剤師が食事が終わってから30分後に薬を飲むように説明する表現を選んでください。"
+    },
+    "questions": {
+      "KO": "약사: 이 약은 하루 세 번, 밥을 먹은 (   ) 30분에 물과 함께 드세요."
+    },
+    "options": [
+      "후",
+      "전",
+      "중",
+      "때"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국에서 약 복용 지도를 할 때 가장 흔히 쓰는 말은 '식후 30분'입니다. '식사(밥)를 한 뒤(후)'를 의미합니다.",
+      "EN": "The most common instruction for medicine in Korea is '식후 30분' (30 minutes after meals). '식후' means after eating.",
+      "VI": "Chỉ dẫn uống thuốc phổ biến nhất ở Hàn là '식후 30분' (30 phút sau khi ăn). '식후' nghĩa là sau bữa ăn.",
+      "ZH": "韩国药店最常见的服药指导是'식후 30분'（饭后30分钟）。'식후'即'食后（饭后）'的意思。",
+      "JA": "韓国で最も一般的な服薬指導は「식후 30분（食後30分）」です。「식후」は食事の後を意味します。"
+    }
+  },
+  {
+    "id": 164,
+    "category": "병원·약국·응급",
+    "type": "survival",
+    "level": 1,
+    "visual": "🩹 🩸",
+    "keyword": "연고와 밴드",
+    "speechBubble": "상처 소독하고 발라 드릴게요.",
+    "situations": {
+      "KO": "넘어져서 무릎이 까졌을 때 상처에 바르는 약과 반창고를 요청하는 말을 고르세요.",
+      "EN": "Choose the ointment to apply on wounds when you scrape your knee.",
+      "VI": "Chọn thuốc mỡ bôi lên vết thương khi bị trầy xước té ngã.",
+      "ZH": "选择跌倒擦伤膝盖时涂抹在伤口上的药膏和创可贴。",
+      "JA": "転んで擦り傷ができた時に、傷口に塗る塗り薬を頼む表現を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 무릎이 까졌어요. 상처에 바를 (   )랑 밴드 주세요."
+    },
+    "options": [
+      "연고",
+      "붕대",
+      "주사",
+      "링거"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "상처 부위에 펴 바르는 기름진 약을 '연고(Ointment)'라고 합니다. 마데카솔이나 후시딘 같은 상처 치료 연고가 대표적입니다.",
+      "EN": "'연고' means ointment for cuts and scrapes. Famous Korean wound ointments include Fucidin and Madecassol.",
+      "VI": "'연고' là thuốc mỡ bôi da vết thương. Các loại quen thuộc ở Hàn gồm có Fucidin hay Madecassol.",
+      "ZH": "'연고'是涂抹在伤口上的药膏（软膏）。在韩国，Fucidin和Madecassol是非常普及的家用常备外用药。",
+      "JA": "皮膚の傷口に塗る軟膏は「연고（軟膏）」と言います。韓国ではフシディンやマデカソルが代表的です。"
+    }
+  },
+  {
+    "id": 165,
+    "category": "병원·약국·응급",
+    "type": "survival",
+    "level": 2,
+    "visual": "🩹 ⚡",
+    "keyword": "파스",
+    "speechBubble": "시원한 쿨파스로 드릴까요?",
+    "situations": {
+      "KO": "허리나 관절이 결리고 삐었을 때 아픈 부위에 붙이는 소염진통 외용제를 고르세요.",
+      "EN": "Choose the pain-relief patch/plaster to stick onto aching muscles or joints.",
+      "VI": "Chọn miếng dán giảm đau nhức cơ xương khớp khi bị trật lưng hay mỏi vai.",
+      "ZH": "选择因腰痛扭伤时贴在酸痛部位的消炎镇痛膏药。",
+      "JA": "腰を痛めたり筋肉痛になった時に、患部に貼る湿布を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 무거운 짐을 들다가 허리를 삐끗했어요. 붙이는 (   ) 있나요?"
+    },
+    "options": [
+      "파스",
+      "밴드",
+      "안약",
+      "거즈"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "근육통이나 관절통에 피부에 붙이는 진통제를 '파스(Pain relief patch)'라고 합니다. 시원한 느낌의 쿨파스와 따뜻한 핫파스가 있습니다.",
+      "EN": "A pain-relieving patch applied to sore muscles or joints is called '파스'. You can choose between cool patches or warm patches.",
+      "VI": "Miếng dán giảm đau cơ khớp được gọi là '파스'. Có hai loại là loại mát (쿨파스) và loại nóng (핫파스).",
+      "ZH": "贴在酸痛肌肉或关节上的膏药在韩国称为'파스'。分为凉爽感的冷膏药（쿨파스）和温热感的温膏药（핫파스）。",
+      "JA": "筋肉痛や関節痛の時に肌に貼る湿布は「파스（パス）」と言います。冷感のクールパスと温感のホットパスがあります。"
+    }
+  },
+  {
+    "id": 166,
+    "category": "병원·약국·응급",
+    "type": "survival",
+    "level": 2,
+    "visual": "📋 💊",
+    "keyword": "처방전",
+    "speechBubble": "처방전 접수해 드립니다.",
+    "situations": {
+      "KO": "병원 진료 후 의사가 작성해 준 약 조제 서류를 약국에 제출하는 상황을 고르세요.",
+      "EN": "Choose the medical paper given by a doctor to get medication prepared at the pharmacy.",
+      "VI": "Chọn đơn thuốc do bác sĩ kê để nộp cho hiệu thuốc bốc thuốc.",
+      "ZH": "选择看病后医生开具给药房配药的处方单据。",
+      "JA": "病院で診察を受けた後、薬局で薬を調剤してもらうために提出する書類を選んでください。"
+    },
+    "questions": {
+      "KO": "손님: 병원에서 진료받고 왔어요. 여기 (   ) 드릴게요. 약사: 네, 약 조제해 드릴게요."
+    },
+    "options": [
+      "처방전",
+      "진단서",
+      "영수증",
+      "신분증"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "의사가 환자에게 약을 지어주도록 약사에게 보내는 문서를 '처방전(Prescription)'이라고 합니다. 한국에서는 의약분업으로 병원에서 처방전을 받아 약국에 제출합니다.",
+      "EN": "A doctor's medical order for medication is a '처방전' (prescription). In Korea, you receive this at the clinic and hand it to the pharmacy nearby.",
+      "VI": "'처방전' là đơn thuốc do bác sĩ kê. Sau khi khám tại bệnh viện hoặc phòng khám, bạn mang đơn này đến hiệu thuốc gần đó để lấy thuốc.",
+      "ZH": "医生开给药剂师调配药品的单据叫做'처방전'（处方单）。在韩国看完门诊后需凭处方单去药房抓药。",
+      "JA": "医師が薬を処方するために発行する書類は「처방전（処方箋）」です。病院の後に近くの薬局に提出して薬を受け取ります。"
+    }
+  },
+  {
+    "id": 167,
+    "category": "병원·약국·응급",
+    "type": "survival",
+    "level": 2,
+    "visual": "⚠️ 🤧",
+    "keyword": "알레르기",
+    "speechBubble": "특정 성분에 과민 반응이 있으세요?",
+    "situations": {
+      "KO": "의사가 환자에게 특정 약물이나 음식에 과민 반응(알레르기)이 있는지 묻는 상황을 고르세요.",
+      "EN": "Choose the word used when a doctor asks if you have allergic reactions to certain drugs or food.",
+      "VI": "Chọn từ chỉ phản ứng dị ứng thuốc hoặc thức ăn khi bác sĩ thăm hỏi.",
+      "ZH": "选择医生询问患者是否对特定药物或食物有过敏反应时的表达。",
+      "JA": "医師が特定の薬や食べ物に過敏なアレルギー反応があるか確認する表現を選んでください。"
+    },
+    "questions": {
+      "KO": "의사: 혹시 특정 약이나 음식에 (   )가 있으신가요? 환자: 페니실린 약에 알레르기가 있어요."
+    },
+    "options": [
+      "알레르기",
+      "관심",
+      "습관",
+      "두통"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "특정 성분에 몸이 과민하게 반응하는 증상을 '알레르기(Allergy)'라고 합니다. 진료를 받거나 음식을 주문할 때 미리 말해두는 것이 안전합니다.",
+      "EN": "An abnormal hypersensitivity reaction of the body is called '알레르기' (allergy). Always inform doctors or restaurants about any allergies.",
+      "VI": "'알레르기' nghĩa là dị ứng. Khi đi khám bệnh hoặc ăn uống, bạn nên chủ động nói trước nếu có dị ứng với chất nào đó.",
+      "ZH": "机体对特定物质产生的过敏反应称为'알레르기'（过敏）。就医或点餐时务必提前告知医护人员或店员。",
+      "JA": "特定の物質に体が過剰に反応することを「알레르기（アレルギー）」と言います。診察時や注文時に事前に伝えると安心です。"
+    }
+  },
+  {
+    "id": 168,
+    "category": "병원·약국·응급",
+    "type": "survival",
+    "level": 2,
+    "visual": "🚨 🚑",
+    "keyword": "119 응급전화",
+    "speechBubble": "응급 환자가 발생했습니다!",
+    "situations": {
+      "KO": "주변 사람이 쓰러져 구급차나 소방관의 긴급 출동이 필요할 때 누르는 긴급 번호를 고르세요.",
+      "EN": "Choose the emergency phone number to call for an ambulance and firefighters in Korea.",
+      "VI": "Chọn số điện thoại khẩn cấp gọi xe cứu thương và cứu hỏa tại Hàn Quốc.",
+      "ZH": "选择在韩国遇到人员昏倒等紧急情况呼叫救护车和消防车的报警电话号码。",
+      "JA": "倒れている人を発見し、救急車や消防車を呼ぶための韓国の緊急通報番号を選んでください。"
+    },
+    "questions": {
+      "KO": "행인: 저기 사람이 갑자기 쓰러졌어요! 빨리 (   )에 신고해 주세요!"
+    },
+    "options": [
+      "119",
+      "114",
+      "112",
+      "110"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "한국에서 구급차(응급환자) 및 소방서 긴급 출동 전화번호는 '119'입니다. (범죄 신고는 112, 정부안내는 110)",
+      "EN": "In South Korea, '119' is the emergency hotline for ambulances and the fire department (crime is 112).",
+      "VI": "Tại Hàn Quốc, '119' là số khẩn cấp để gọi cấp cứu và cứu hỏa (báo án tội phạm gọi 112).",
+      "ZH": "在韩国，呼叫救护车和消防员的紧急电话是'119'（报警报案则为112）。",
+      "JA": "韓国で救急車や消防車を呼ぶ緊急通報番号は「119」です。（犯罪・警察は112）"
+    }
+  },
+  {
+    "id": 169,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🗓️ 👥",
+    "keyword": "날짜 조사 -에",
+    "speechBubble": "11월 30일에 친구를 만나요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 11월 30일 / 친구 / 만나다 → (   )"
+    },
+    "options": [
+      "11월 30일에 친구를 만나요.",
+      "11월 30일에 친구가 만나요.",
+      "11월 30일을 친구를 만나요.",
+      "11월 30일에 친구를 만나해요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "날짜 뒤에는 시간 조사 '-에'가 붙고, 만나는 대상인 목적어 뒤에는 '-를'이 결합합니다. '만나다'의 어간 '만나-'에 '-아요'가 결합하여 '만나요'가 됩니다.",
+      "EN": "The time particle '-에' attaches to dates, '-를' attaches to the object '친구' (friend), and '만나다' conjugates to '만나요'.",
+      "VI": "Trợ từ thời gian '-에' gắn sau ngày tháng, trợ từ tân ngữ '-를' gắn sau '친구', và động từ '만나다' chia thành '만나요'.",
+      "ZH": "在日期后加时间助词'-에'，宾语'친구'（朋友）后加'-를'，动词'만나다'变形为'만나요'。",
+      "JA": "日時の後には時間助詞「-에」がつき、目的語「친구」の後には「-를」がつき、「만나다」は「만나요」に活用します。"
+    },
+    "chips": [
+      "11월 30일에",
+      "친구를",
+      "만나요.",
+      "친구이",
+      "11월 30일을"
+    ]
+  },
+  {
+    "id": 170,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🎓 💐",
+    "keyword": "졸업하다",
+    "speechBubble": "2월 21일에 졸업해요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 2월 21일 / 졸업하다 → (   )"
+    },
+    "options": [
+      "2월 21일에 졸업해요.",
+      "2월 21일을 졸업해요.",
+      "2월 21일에 졸업하다요.",
+      "2월 21일이 졸업해요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "날짜 명사 '2월 21일' 뒤에는 시간 조사 '-에'가 붙고, '하다' 동사는 '-해요'로 바뀝니다. 따라서 '2월 21일에 졸업해요'가 맞습니다.",
+      "EN": "The time particle '-에' attaches to the date '2월 21일', and '하다' verbs conjugate to '-해요', making '2월 21일에 졸업해요'.",
+      "VI": "Trợ từ '-에' gắn sau ngày tháng '2월 21일', và động từ đuôi '하다' chia thành '-해요', tạo thành '2월 21일에 졸업해요'.",
+      "ZH": "日期'2월 21일'后接时间助词'-에'，以'하다'结尾的动词变形为'-해요'，组合成'2월 21일에 졸업해요'。",
+      "JA": "日付「2월 21일」の後には時間助詞「-에」がつき、「하다」動詞は「-해요」になるため「2월 21일에 졸업해요」が正解です。"
+    },
+    "chips": [
+      "2월 21일에",
+      "졸업해요.",
+      "2월 21일을",
+      "졸업하다요."
+    ]
+  },
+  {
+    "id": 171,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🏖️ ☀️",
+    "keyword": "방학하다",
+    "speechBubble": "7월에 방학해요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 7월 / 방학하다 → (   )"
+    },
+    "options": [
+      "7월에 방학해요.",
+      "7월을 방학해요.",
+      "7월에 방학해져요.",
+      "7월 방학을 해요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "특정 월(Month)을 나타내는 시간 명사 뒤에는 시간 조사 '-에'가 붙습니다. '방학하다'는 '방학해요'로 결합합니다.",
+      "EN": "The time particle '-에' attaches to months, and '방학하다' (to start vacation) conjugates to '방학해요'.",
+      "VI": "Trợ từ thời gian '-에' gắn sau tháng '7월', và '방학하다' (nghỉ hè) chia thành '방학해요'.",
+      "ZH": "表示月份的名词后加时间助词'-에'，'방학하다'（放假）变形为'방학해요'。",
+      "JA": "月を表す名詞の後には時間助詞「-에」がつき、「방학하다（休みに入る）」は「방학해요」になります。"
+    },
+    "chips": [
+      "7월에",
+      "방학해요.",
+      "7월을",
+      "방학해져요."
+    ]
+  },
+  {
+    "id": 172,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🍿 🎬",
+    "keyword": "영화를 보다",
+    "speechBubble": "토요일에 영화를 봐요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 토요일 / 영화 / 보다 → (   )"
+    },
+    "options": [
+      "토요일에 영화를 봐요.",
+      "토요일을 영화에 봐요.",
+      "토요일에 영화가 보아요.",
+      "토요일 영화를 보해요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "요일 뒤에는 시간 조사 '-에'가 오고, 보는 대상인 '영화' 뒤에는 목적격 조사 '-를'이 옵니다. 동사 '보다'는 '보+아요'가 축약되어 '봐요'가 됩니다.",
+      "EN": "Days of the week take the time particle '-에', the object '영화' (movie) takes '-를', and '보다' contracts into '봐요'.",
+      "VI": "Thứ trong tuần đi với trợ từ thời gian '-에', tân ngữ '영화' (phim) đi với '-를', và động từ '보다' rút gọn thành '봐요'.",
+      "ZH": "星期后加时间助词'-에'，宾语'영화'（电影）后加'-를'，动词'보다'（看）缩合为'봐요'。",
+      "JA": "曜日の後には時間助詞「-에」、目的語「영화（映画）」の後には「-를」がつき、動詞「보다」は縮約されて「봐요」になります。"
+    },
+    "chips": [
+      "토요일에",
+      "영화를",
+      "봐요.",
+      "토요일을",
+      "영화가"
+    ]
+  },
+  {
+    "id": 173,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🛍️ 🏬",
+    "keyword": "쇼핑하다",
+    "speechBubble": "주말에 쇼핑해요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 주말 / 쇼핑하다 → (   )"
+    },
+    "options": [
+      "주말에 쇼핑해요.",
+      "주말을 쇼핑해요.",
+      "주말이 쇼핑해요.",
+      "주말에 쇼핑하어요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'주말(Weekend)'은 시간을 나타내는 명사이므로 조사 '-에'가 붙습니다. '쇼핑하다'는 '쇼핑해요'로 활용합니다.",
+      "EN": "'주말' (weekend) is a time noun that takes '-에', and '쇼핑하다' (to shop) conjugates to '쇼핑해요'.",
+      "VI": "'주말' (cuối tuần) là danh từ chỉ thời gian nên đi với '-에', và '쇼핑하다' chia thành '쇼핑해요'.",
+      "ZH": "'주말'（周末）是时间名词，接助词'-에'，'쇼핑하다'（购物）变形为'쇼핑해요'。",
+      "JA": "「주말（週末）」は時間を表す名詞なので「-에」がつき、「쇼핑하다（買い物する）」は「쇼핑해요」になります。"
+    },
+    "chips": [
+      "주말에",
+      "쇼핑해요.",
+      "주말을",
+      "쇼핑하어요."
+    ]
+  },
+  {
+    "id": 174,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🎂 🎉",
+    "keyword": "케이크를 사다",
+    "speechBubble": "생일에 케이크를 사요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 생일 / 케이크 / 사다 → (   )"
+    },
+    "options": [
+      "생일에 케이크를 사요.",
+      "생일을 케이크에 사요.",
+      "생일에 케이크가 사해요.",
+      "생일이 케이크를 사요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "특별한 날인 '생일' 뒤에 때를 나타내는 조사 '-에'가 붙고, 사는 물건인 '케이크' 뒤에 목적격 조사 '-를'이 옵니다. '사다'는 '사요'로 활용합니다.",
+      "EN": "The special day '생일' takes the time particle '-에', the item '케이크' takes the object particle '-를', and '사다' conjugates to '사요'.",
+      "VI": "Ngày đặc biệt '생일' (sinh nhật) đi với trợ từ '-에', '케이크' (bánh kem) đi với trợ từ tân ngữ '-를', và '사다' chia thành '사요'.",
+      "ZH": "在特别的日子'생일'（生日）后加'-에'，购买的物品'케이크'（蛋糕）后加'-를'，'사다'（买）变形为'사요'。",
+      "JA": "特別な日「생일（誕生日）」の後には「-에」、買う物「케이크（ケーキ）」の後には「-를」がつき、「사다」は「사요」になります。"
+    },
+    "chips": [
+      "오후에",
+      "운동해요.",
+      "오후을",
+      "운동하어요."
+    ]
+  },
+  {
+    "id": 175,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 2,
+    "visual": "📚 🇰🇷",
+    "keyword": "오늘 공부하다",
+    "speechBubble": "오늘 한국어를 공부해요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 오늘 / 한국어 / 공부하다 → (   )"
+    },
+    "options": [
+      "오늘 한국어를 공부해요.",
+      "오늘에 한국어를 공부해요.",
+      "오늘은 한국어에 공부해요.",
+      "오늘이 한국어를 공부하어요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "[핵심 문법] '오늘', '어제', '내일', '지금'과 같은 시간 부사 뒤에는 시간 조사 '-에'를 붙이지 않습니다! (오늘에 X → 오늘 O)",
+      "EN": "[Key Grammar] Time words like '오늘' (today), '어제' (yesterday), '내일' (tomorrow), and '지금' (now) DO NOT take the time particle '-에'!",
+      "VI": "[Ngữ pháp cốt lõi] Các từ chỉ thời gian như '오늘' (hôm nay), '어제' (hôm qua), '내일' (ngày mai), '지금' (bây giờ) KHÔNG gắn trợ từ '-에'!",
+      "ZH": "【核心语法】'오늘'（今天）、'어제'（昨天）、'내일'（明天）、'지금'（现在）等时间副词后面绝不能加助词'-에'！",
+      "JA": "【重要文法】「오늘（今日）」「어제（昨日）」「내일（明日）」「지금（今）」などの時間副詞の後には助詞「-에」をつけません！（오늘에 ✕ → 오늘 ◯）"
+    },
+    "chips": [
+      "아침 8시에",
+      "일어나요.",
+      "아침 8시를",
+      "일어나해요."
+    ]
+  },
+  {
+    "id": 176,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 2,
+    "visual": "💼 🏢",
+    "keyword": "내일 일하다",
+    "speechBubble": "내일 일해요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 내일 / 일하다 → (   )"
+    },
+    "options": [
+      "내일 일해요.",
+      "내일에 일해요.",
+      "내일을 일해요.",
+      "내일이 일하다요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'내일' 뒤에는 시간 조사 '-에'를 붙이지 않고 단독으로 사용합니다. '일하다'는 '일해요'로 바뀝니다. (내일에 X → 내일 O)",
+      "EN": "'내일' (tomorrow) does not take '-에'. '일하다' (to work) conjugates to '일해요'. ('내일에' is incorrect!)",
+      "VI": "'내일' (ngày mai) không đi với trợ từ '-에'. '일하다' (làm việc) chia thành '일해요'.",
+      "ZH": "'내일'（明天）后面不加助词'-에'。'일하다'（工作）变形为'일해요'。",
+      "JA": "「내일（明日）」の後には助詞「-에」をつけずに使います。「일하다（働く）」は「일해요」になります。"
+    },
+    "chips": [
+      "저녁에",
+      "한국어를",
+      "공부해요.",
+      "저녁을",
+      "한국어가"
+    ]
+  },
+  {
+    "id": 177,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 2,
+    "visual": "☕ 👥",
+    "keyword": "어제 만났어요",
+    "speechBubble": "어제 친구를 만났어요.",
+    "situations": {
+      "KO": "<보기>와 같이 과거에 일어난 일을 나타내는 문장을 고르세요.",
+      "EN": "Choose the correct past-tense sentence formed from the given words.",
+      "VI": "Chọn câu thì quá khứ được kết hợp đúng từ các từ cho sẵn.",
+      "ZH": "选出由所给词语组成的正确过去时态句子。",
+      "JA": "与えられた単語から過去の出来事を表す正しい文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 지난주 / 영화를 보다 → 지난주에 영화를 봤어요.\n\n[문제] 어제 / 친구 / 만나다 → (   )"
+    },
+    "options": [
+      "어제 친구를 만났어요.",
+      "어제에 친구를 만났어요.",
+      "어제를 친구에게 만났어요.",
+      "어제 친구가 만나았어요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'어제'에는 '-에'를 붙이지 않으며, 과거 시제 어미 '-았어요'가 '만나다'와 결합하여 '만났어요'가 됩니다.",
+      "EN": "'어제' (yesterday) does not take '-에', and past tense '-았어요' combines with '만나다' to form '만났어요'.",
+      "VI": "'어제' không gắn '-에', và đuôi quá khứ '-았어요' kết hợp với '만나다' thành '만났어요'.",
+      "ZH": "'어제'（昨天）后不加'-에'，过去时词尾'-았어요'与'만나다'结合变为'만났어요'。",
+      "JA": "「어제（昨日）」に「-에」はつかず、過去形語尾「-았어요」が結合して「만났어요」になります。"
+    },
+    "chips": [
+      "오늘",
+      "커피를",
+      "마셔요.",
+      "오늘에",
+      "커피가"
+    ]
+  },
+  {
+    "id": 178,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🎧 🎶",
+    "keyword": "음악을 들어요",
+    "speechBubble": "지금 음악을 들어요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 주말 / 책 / 읽다 → 주말에 책을 읽어요.\n\n[문제] 지금 / 음악 / 듣다 → (   )"
+    },
+    "options": [
+      "지금 음악을 들어요.",
+      "지금에 음악을 들어요.",
+      "지금 음악을 듣어요.",
+      "지금이 음악에 들어요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'지금' 뒤에는 '-에'를 쓰지 않으며, 동사 '듣다'는 모음 어미 앞에서 받침 'ㄷ'이 'ㄹ'로 바뀌는 ㄷ 불규칙 동사입니다. (듣어요 X → 들어요 O)",
+      "EN": "'지금' (now) does not take '-에'. '듣다' (to listen) is an irregular verb where 'ㄷ' changes to 'ㄹ' before vowels: '들어요'.",
+      "VI": "'지금' không gắn '-에'. Động từ '듣다' là bất quy tắc 'ㄷ', biến đổi thành 'ㄹ' trước nguyên âm: '들어요'.",
+      "ZH": "'지금'（现在）后不加'-에'。'듣다'（听）是不规则动词，韵尾'ㄷ'遇到元音变为'ㄹ'，写作'들어요'。",
+      "JA": "「지금（今）」に「-에」はつきません。動詞「듣다（聞く）」はパッチム「ㄷ」が「ㄹ」に変わる不規則動詞で、「들어요」になります。"
+    },
+    "chips": [
+      "내일",
+      "회사에",
+      "가요.",
+      "내일에",
+      "회사를"
+    ]
+  },
+  {
+    "id": 179,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🌳 🚶",
+    "keyword": "공원에 가요",
+    "speechBubble": "일요일에 공원에 가요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 토요일 / 도서관 / 가다 → 토요일에 도서관에 가요.\n\n[문제] 일요일 / 공원 / 가다 → (   )"
+    },
+    "options": [
+      "일요일에 공원에 가요.",
+      "일요일을 공원을 가요.",
+      "일요일에 공원에서 가요.",
+      "일요일이 공원에 가하다."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "시간 요일 '일요일' 뒤에도 '-에'가 붙고, 이동 목적지 장소인 '공원' 뒤에도 도착 지점을 나타내는 조사 '-에'가 붙습니다.",
+      "EN": "The time particle '-에' attaches to '일요일' (Sunday), and the destination particle '-에' attaches to '공원' (park).",
+      "VI": "Trợ từ thời gian '-에' gắn sau '일요일' (chủ nhật), và trợ từ chỉ điểm đến '-에' cũng gắn sau '공원' (công viên).",
+      "ZH": "时间'일요일'（星期日）后加'-에'，目的地'공원'（公园）后也加方向助词'-에'，构成'일요일에 공원에 가요'。",
+      "JA": "曜日「일요일（日曜日）」の後に「-에」がつき、目的地の「공원（公園）」の後にも場所助詞「-에」がつきます。"
+    },
+    "chips": [
+      "어제",
+      "도서관에서",
+      "책을",
+      "읽었어요.",
+      "어제에",
+      "도서관에"
+    ]
+  },
+  {
+    "id": 180,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🍞 ☕",
+    "keyword": "아침에 먹어요",
+    "speechBubble": "아침에 빵을 먹어요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 밤 / 라면 / 먹다 → 밤에 라면을 먹어요.\n\n[문제] 아침 / 빵 / 먹다 → (   )"
+    },
+    "options": [
+      "아침에 빵을 먹어요.",
+      "아침을 빵에 먹어요.",
+      "아침에 빵이 먹어요.",
+      "아침이 빵을 먹하다."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "하루 중 시간대인 '아침' 뒤에 조사 '-에'가 오고, 먹는 음식 '빵' 뒤에 목적격 조사 '-을'이 오며, '먹다'는 '먹어요'가 됩니다.",
+      "EN": "'아침' (morning) takes the time particle '-에', '빵' (bread) takes '-을', and '먹다' conjugates to '먹어요'.",
+      "VI": "Buổi trong ngày '아침' (buổi sáng) đi với '-에', món ăn '빵' đi với '-을', và '먹다' chia thành '먹어요'.",
+      "ZH": "时间段'아침'（早晨）后接助词'-에'，食物'빵'（面包）后接宾格助词'-을'，'먹다'变形为'먹어요'。",
+      "JA": "時間帯「아침（朝）」の後に「-에」、食べ物「빵（パン）」の後に「-을」がつき、「먹다」は「먹어요」になります。"
+    },
+    "chips": [
+      "지금",
+      "음악을",
+      "들어요.",
+      "지금에",
+      "듣어요."
+    ]
+  },
+  {
+    "id": 181,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🏃 🌙",
+    "keyword": "저녁에 운동해요",
+    "speechBubble": "저녁에 운동해요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 오후 / 산책하다 → 오후에 산책해요.\n\n[문제] 저녁 / 운동하다 → (   )"
+    },
+    "options": [
+      "저녁에 운동해요.",
+      "저녁을 운동해요.",
+      "저녁이 운동해요.",
+      "저녁에 운동하다요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "시간대 명사 '저녁' 뒤에 '-에'가 붙고, '운동하다'는 '-해요'로 결합하여 '저녁에 운동해요'가 됩니다.",
+      "EN": "'저녁' (evening) takes the time particle '-에', and '운동하다' (to exercise) conjugates to '운동해요'.",
+      "VI": "'저녁' (buổi tối) đi với '-에', và '운동하다' (tập thể dục) chia thành '운동해요'.",
+      "ZH": "时间段'저녁'（晚上）后加'-에'，'운동하다'（运动）变形为'운동해요'。",
+      "JA": "時間帯「저녁（夕方・夜）」の後に「-에」がつき、「운동하다（運動する）」は「운동해요」になります。"
+    },
+    "chips": [
+      "일요일에",
+      "공원에",
+      "가요.",
+      "일요일을",
+      "가어요."
+    ]
+  },
+  {
+    "id": 182,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 2,
+    "visual": "☕ 🕑",
+    "keyword": "커피를 마셔요",
+    "speechBubble": "오후 2시에 커피를 마셔요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 오전 10시 / 회의하다 → 오전 10시에 회의해요.\n\n[문제] 오후 2시 / 커피 / 마시다 → (   )"
+    },
+    "options": [
+      "오후 2시에 커피를 마셔요.",
+      "오후 2시를 커피에 마셔요.",
+      "오후 2시에 커피가 마시어요.",
+      "오후 2시 커피를 마시해요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "시각인 '오후 2시' 뒤에 '-에'가 붙고, 음료인 '커피' 뒤에 '-를'이 오며, '마시다'는 '마시+어요'가 축약되어 '마셔요'가 됩니다.",
+      "EN": "Specific time '오후 2시' takes '-에', '커피' takes '-를', and '마시다' contracts to '마셔요'.",
+      "VI": "Giờ giấc '오후 2시' đi với '-에', thức uống '커피' đi với '-를', và '마시다' rút gọn thành '마셔요'.",
+      "ZH": "具体钟点'오후 2시'（下午2点）后加'-에'，饮料'커피'（咖啡）后加'-를'，'마시다'（喝）缩合为'마셔요'。",
+      "JA": "時刻「오후 2시（午後2時）」の後に「-에」、飲み物「커피（コーヒー）」の後に「-를」がつき、「마시다」は縮約されて「마셔요」になります。"
+    },
+    "chips": [
+      "오후 2시에",
+      "카페에서",
+      "커피를",
+      "마셔요.",
+      "오후 2시를",
+      "카페에"
+    ]
+  },
+  {
+    "id": 183,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🗣️ 📖",
+    "keyword": "매일 연습해요",
+    "speechBubble": "매일 한국어를 연습해요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 자주 / 친구를 만나다 → 자주 친구를 만나요.\n\n[문제] 매일 / 한국어 / 연습하다 → (   )"
+    },
+    "options": [
+      "매일 한국어를 연습해요.",
+      "매일에 한국어를 연습해요.",
+      "매일을 한국어에 연습해요.",
+      "매일이 한국어를 연습하어요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "[문법 규칙] '매일', '자주', '항상'과 같은 빈도 부사 뒤에는 조사 '-에'를 붙이지 않습니다! (매일에 X → 매일 O)",
+      "EN": "[Grammar Rule] Frequency adverbs like '매일' (every day), '자주' (often), and '항상' (always) DO NOT take the particle '-에'!",
+      "VI": "[Quy tắc ngữ pháp] Các phó từ chỉ tần suất như '매일' (mỗi ngày), '자주' (thường xuyên), '항상' (luôn luôn) KHÔNG gắn trợ từ '-에'!",
+      "ZH": "【语法规则】'매일'（每天）、'자주'（经常）、'항상'（总是）等频度副词后面不能加助词'-에'！",
+      "JA": "【文法規則】「매일（毎日）」「자주（よく・頻繁に）」「항상（いつも）」などの頻度副詞の後には助詞「-에」をつけません！"
+    },
+    "chips": [
+      "매일",
+      "아침에",
+      "사과를",
+      "먹어요.",
+      "매일에",
+      "사과가"
+    ]
+  },
+  {
+    "id": 184,
+    "category": "시간·일정·문장완성",
+    "type": "sentence",
+    "level": 2,
+    "visual": "✈️ 🌴",
+    "keyword": "제주도를 여행해요",
+    "speechBubble": "다음 주에 제주도를 여행해요.",
+    "situations": {
+      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
+      "EN": "Choose the correct sentence formed from the given words like the example.",
+      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
+      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
+      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+    },
+    "questions": {
+      "KO": "<보기> 내년 / 대학교 / 입학하다 → 내년에 대학교에 입학해요.\n\n[문제] 다음 주 / 제주도 / 여행하다 → (   )"
+    },
+    "options": [
+      "다음 주에 제주도를 여행해요.",
+      "다음 주를 제주도에 여행해요.",
+      "다음 주에 제주도가 여행해요.",
+      "다음 주이 제주도를 여행하어요."
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'다음 주(Next week)'는 명사이므로 시간 조사 '-에'가 결합하며, 여행할 장소인 '제주도' 뒤에는 목적격 조사 '-를'이 붙습니다.",
+      "EN": "'다음 주' (next week) takes the time particle '-에', and the travel destination '제주도' takes the object particle '-를'.",
+      "VI": "'다음 주' (tuần sau) đi với trợ từ thời gian '-에', và địa điểm du lịch '제주도' đi với trợ từ '-를'.",
+      "ZH": "'다음 주'（下周）后加时间助词'-에'，旅游目的地'제주도'（济州岛）后加宾格助词'-를'。",
+      "JA": "「다음 주（来週）」の後には時間助詞「-에」がつき、旅行する場所「제주도（済州島）」の後には「-를」がつきます。"
+    },
+    "chips": [
+      "다음 주에",
+      "제주도를",
+      "여행해요.",
+      "다음 주를",
+      "제주도에"
+    ]
   }
 ]

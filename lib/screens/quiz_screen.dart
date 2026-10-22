@@ -40,6 +40,77 @@ class _QuizScreenState extends State<QuizScreen> {
   int? _selectedOptionIndex;
   bool _isAnswered = false;
 
+  // Word assembly state for subjective unscramble questions
+  List<String> _assembledChips = [];
+  List<String> _bankChips = [];
+  final Set<int> _usedBankChipIndices = {};
+
+  void _initChipsForCurrentQuestion() {
+    _assembledChips = [];
+    _usedBankChipIndices.clear();
+    if (_questions.isNotEmpty && _currentIndex < _questions.length) {
+      final q = _questions[_currentIndex];
+      if (q.chips != null && q.chips!.isNotEmpty) {
+        _bankChips = List<String>.from(q.chips!)..shuffle();
+      } else {
+        _bankChips = [];
+      }
+    } else {
+      _bankChips = [];
+    }
+  }
+
+  void _submitAssembledAnswer() {
+    if (_isAnswered || _assembledChips.isEmpty) return;
+
+    final currentQuestion = _questions[_currentIndex];
+    final correctAnswer = currentQuestion.options[currentQuestion.answerIndex];
+
+    final userText = _assembledChips.join(' ').replaceAll(' ', '').trim();
+    final targetText = correctAnswer.replaceAll(' ', '').trim();
+
+    final isCorrect = userText == targetText;
+
+    if (isCorrect) {
+      _onOptionSelected(currentQuestion.answerIndex);
+    } else {
+      _onOptionSelected(-1);
+    }
+  }
+
+  void _onChipTapped(int bankIndex) {
+    if (_isAnswered) return;
+    if (_usedBankChipIndices.contains(bankIndex)) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _usedBankChipIndices.add(bankIndex);
+      _assembledChips.add(_bankChips[bankIndex]);
+    });
+  }
+
+  void _onAssembledChipRemoved(int slotIndex) {
+    if (_isAnswered) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      final chipText = _assembledChips.removeAt(slotIndex);
+      for (final idx in _usedBankChipIndices.toList()) {
+        if (_bankChips[idx] == chipText) {
+          _usedBankChipIndices.remove(idx);
+          break;
+        }
+      }
+    });
+  }
+
+  void _resetAssembledChips() {
+    if (_isAnswered) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _assembledChips.clear();
+      _usedBankChipIndices.clear();
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -53,6 +124,7 @@ class _QuizScreenState extends State<QuizScreen> {
       limit: QuizRepository.sessionSize,
     );
     _sessionSize = _questions.length;
+    _initChipsForCurrentQuestion();
   }
 
   @override
@@ -79,6 +151,7 @@ class _QuizScreenState extends State<QuizScreen> {
       options: options,
       answerIndex: options.indexOf(correct),
       explanations: q.explanations,
+      chips: q.chips != null ? List<String>.from(q.chips!) : null,
     );
   }
 
@@ -135,6 +208,7 @@ class _QuizScreenState extends State<QuizScreen> {
         _currentIndex++;
         _selectedOptionIndex = null;
         _isAnswered = false;
+        _initChipsForCurrentQuestion();
       });
     } else {
       await ProgressService().completeSession();
@@ -1322,19 +1396,23 @@ class _QuizScreenState extends State<QuizScreen> {
                     ],
                     const SizedBox(height: 16),
 
-                    // 3. 4 Multiple Choice Options (Clean Korean Text)
-                    ...List.generate(currentQuestion.options.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 11.0),
-                        child: _buildOptionButton(
-                          context: context,
-                          index: index,
-                          optionText: currentQuestion.options[index],
-                          correctIndex: currentQuestion.answerIndex,
-                          isDark: isDark,
-                        ),
-                      );
-                    }),
+                    // 3. Choice Options (Assembly or Multiple Choice)
+                    if (currentQuestion.chips != null && currentQuestion.chips!.isNotEmpty) ...[
+                      _buildWordAssemblySection(context, currentQuestion, isDark),
+                    ] else ...[
+                      ...List.generate(currentQuestion.options.length, (index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 11.0),
+                          child: _buildOptionButton(
+                            context: context,
+                            index: index,
+                            optionText: currentQuestion.options[index],
+                            correctIndex: currentQuestion.answerIndex,
+                            isDark: isDark,
+                          ),
+                        );
+                      }),
+                    ],
                     const SizedBox(height: 12),
                   ],
                 ),
@@ -1438,34 +1516,39 @@ class _QuizScreenState extends State<QuizScreen> {
                 ),
               ),
               // Clean Category / Context hint pill
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3.5),
-                decoration: BoxDecoration(
-                  color: isDark ? const Color(0xFF0F172A).withValues(alpha: 0.6) : const Color(0xFFF8FAFC),
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                    width: 1,
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.headphones_rounded,
-                      size: 12,
-                      color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+              Flexible(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3.5),
+                  decoration: BoxDecoration(
+                    color: isDark ? const Color(0xFF0F172A).withValues(alpha: 0.6) : const Color(0xFFF8FAFC),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                      width: 1,
                     ),
-                    const SizedBox(width: 4),
-                    Text(
-                      AppStrings.tr('quiz_listen_pronunciation', _currentLangCode),
-                      style: TextStyle(
-                        fontSize: 10.5,
-                        fontWeight: FontWeight.w700,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.headphones_rounded,
+                        size: 12,
                         color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: 4),
+                      Flexible(
+                        child: Text(
+                          AppStrings.tr('quiz_listen_pronunciation', _currentLangCode),
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 10.5,
+                            fontWeight: FontWeight.w700,
+                            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -1815,23 +1898,27 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
           ],
         ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (answeredCorrectly) ...[
-              const Icon(Icons.check_rounded, size: 14, color: Color(0xFF16A34A)),
-              const SizedBox(width: 3),
-            ],
-            Text(
-              correctAnswer,
-              style: TextStyle(
-                fontSize: 14.5,
-                fontWeight: FontWeight.w900,
-                color: answerTextColor,
-                letterSpacing: -0.2,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (answeredCorrectly) ...[
+                const Icon(Icons.check_rounded, size: 14, color: Color(0xFF16A34A)),
+                const SizedBox(width: 3),
+              ],
+              Text(
+                correctAnswer,
+                softWrap: false,
+                style: TextStyle(
+                  fontSize: 13.5,
+                  fontWeight: FontWeight.w900,
+                  color: answerTextColor,
+                  letterSpacing: -0.2,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     } else {
@@ -2193,6 +2280,329 @@ class _QuizScreenState extends State<QuizScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildWordAssemblySection(
+    BuildContext context,
+    QuizQuestion currentQuestion,
+    bool isDark,
+  ) {
+    final isCorrect = _isAnswered && _selectedOptionIndex == currentQuestion.answerIndex;
+    final isWrong = _isAnswered && _selectedOptionIndex != currentQuestion.answerIndex;
+
+    Color assemblyBorderColor;
+    Color assemblyBgColor;
+    if (isCorrect) {
+      assemblyBorderColor = const Color(0xFF22C55E);
+      assemblyBgColor = isDark ? const Color(0xFF14532D).withValues(alpha: 0.3) : const Color(0xFFF0FDF4);
+    } else if (isWrong) {
+      assemblyBorderColor = const Color(0xFFEF4444);
+      assemblyBgColor = isDark ? const Color(0xFF7F1D1D).withValues(alpha: 0.3) : const Color(0xFFFEF2F2);
+    } else if (_assembledChips.isNotEmpty) {
+      assemblyBorderColor = const Color(0xFF3B82F6);
+      assemblyBgColor = isDark ? const Color(0xFF1E293B) : Colors.white;
+    } else {
+      assemblyBorderColor = isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1);
+      assemblyBgColor = isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC);
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // Mode badge indicator
+        Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                color: const Color(0xFF6366F1).withValues(alpha: isDark ? 0.25 : 0.12),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: const Color(0xFF6366F1).withValues(alpha: 0.35),
+                  width: 1,
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.extension_rounded,
+                    size: 14,
+                    color: Color(0xFF6366F1),
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    AppStrings.tr('quiz_assembly_tag', _currentLangCode),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w800,
+                      color: Color(0xFF6366F1),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Spacer(),
+            if (_assembledChips.isNotEmpty && !_isAnswered)
+              GestureDetector(
+                onTap: _resetAssembledChips,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.restart_alt_rounded,
+                      size: 16,
+                      color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      AppStrings.tr('quiz_reset_chips', _currentLangCode),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+        const SizedBox(height: 10),
+
+        // 1. Assembled Sentence Slot
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          constraints: const BoxConstraints(minHeight: 88),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          decoration: BoxDecoration(
+            color: assemblyBgColor,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: assemblyBorderColor, width: 1.8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.04),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: _assembledChips.isEmpty
+              ? Center(
+                  child: Text(
+                    AppStrings.tr('quiz_assembly_hint', _currentLangCode),
+                    style: TextStyle(
+                      fontSize: 13.5,
+                      fontWeight: FontWeight.w600,
+                      color: isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
+                    ),
+                  ),
+                )
+              : Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: List.generate(_assembledChips.length, (slotIdx) {
+                    final chip = _assembledChips[slotIdx];
+                    return Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(12),
+                        onTap: _isAnswered ? null : () => _onAssembledChipRemoved(slotIdx),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+                          decoration: BoxDecoration(
+                            color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: isDark ? const Color(0xFF3B82F6) : const Color(0xFF60A5FA),
+                              width: 1.5,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(0xFF2563EB).withValues(alpha: 0.15),
+                                offset: const Offset(0, 2),
+                                blurRadius: 4,
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                chip,
+                                style: TextStyle(
+                                  fontSize: 15.5,
+                                  fontWeight: FontWeight.w800,
+                                  color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                                ),
+                              ),
+                              if (!_isAnswered) ...[
+                                const SizedBox(width: 5),
+                                Icon(
+                                  Icons.close_rounded,
+                                  size: 15,
+                                  color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                                ),
+                              ],
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+        ),
+        const SizedBox(height: 18),
+
+        // 2. Word Bank (Chip Pool)
+        Center(
+          child: Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            alignment: WrapAlignment.center,
+            children: List.generate(_bankChips.length, (bankIdx) {
+              final chip = _bankChips[bankIdx];
+              final isUsed = _usedBankChipIndices.contains(bankIdx);
+
+              if (isUsed) {
+                // Ghost placeholder holding physical layout position
+                return Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: isDark
+                        ? const Color(0xFF1E293B).withValues(alpha: 0.25)
+                        : const Color(0xFFF1F5F9),
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(
+                      color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                      style: BorderStyle.solid,
+                      width: 1.2,
+                    ),
+                  ),
+                  child: Text(
+                    chip,
+                    style: TextStyle(
+                      fontSize: 15.5,
+                      fontWeight: FontWeight.w700,
+                      color: isDark
+                          ? const Color(0xFF475569).withValues(alpha: 0.5)
+                          : const Color(0xFFCBD5E1),
+                    ),
+                  ),
+                );
+              }
+
+              // Active Word Chip
+              return Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(14),
+                  onTap: _isAnswered ? null : () => _onChipTapped(bankIdx),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
+                        width: 1.2,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: isDark
+                              ? const Color(0xFF0F172A).withValues(alpha: 0.6)
+                              : const Color(0xFF94A3B8).withValues(alpha: 0.35),
+                          offset: const Offset(0, 2.8),
+                          blurRadius: 0,
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      chip,
+                      style: TextStyle(
+                        fontSize: 15.5,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: -0.2,
+                        color: isDark ? const Color(0xFFF8FAFC) : const Color(0xFF0F172A),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ),
+        ),
+        const SizedBox(height: 22),
+
+        // 3. Tactile [Check Answer] CTA Button
+        if (!_isAnswered)
+          Container(
+            height: 52,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              gradient: _assembledChips.isNotEmpty
+                  ? const LinearGradient(
+                      colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    )
+                  : null,
+              color: _assembledChips.isEmpty
+                  ? (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0))
+                  : null,
+              boxShadow: _assembledChips.isNotEmpty
+                  ? [
+                      const BoxShadow(
+                        color: Color(0xFF1E40AF),
+                        offset: Offset(0, 3.2),
+                        blurRadius: 0,
+                      ),
+                      BoxShadow(
+                        color: const Color(0xFF2563EB)
+                            .withValues(alpha: isDark ? 0.4 : 0.25),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ]
+                  : null,
+            ),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16),
+                onTap: _assembledChips.isNotEmpty ? _submitAssembledAnswer : null,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.check_circle_rounded,
+                        color: _assembledChips.isNotEmpty
+                            ? Colors.white
+                            : (isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8)),
+                        size: 20,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        AppStrings.tr('quiz_check_answer', _currentLangCode),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: -0.2,
+                          color: _assembledChips.isNotEmpty
+                              ? Colors.white
+                              : (isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+      ],
     );
   }
 

@@ -82,6 +82,10 @@ class AppStrings {
       'quiz_instructor_header': 'Đáp án & Giải thích chi tiết',
       'quiz_next_question': 'Câu tiếp theo',
       'quiz_see_results': 'Xem kết quả',
+      'quiz_assembly_hint': 'Chạm vào các mảnh từ để hoàn thành câu',
+      'quiz_check_answer': 'Kiểm tra đáp án',
+      'quiz_reset_chips': 'Ghép lại',
+      'quiz_assembly_tag': 'Tự ghép câu',
       'result_title': 'Đánh Giá Kết Quả',
       'result_finished': 'Hoàn Thành! 🎉',
       'result_your_score': 'Điểm của bạn',
@@ -142,6 +146,13 @@ class AppStrings {
       'cat_survival_food_store': 'Ăn uống & Cửa hàng',
       'cat_survival_shopping_transit': 'Mua sắm & Đi lại',
       'cat_survival_culture_chat': 'K-Culture & Trò chuyện',
+      'cat_survival_dining': 'Cà phê & Ẩm thực',
+      'cat_survival_mart': 'Tiện lợi & Mua sắm',
+      'cat_survival_transit': 'Giao thông & Taxi',
+      'cat_survival_medical': 'Bệnh viện & Nhà thuốc',
+      'cat_survival_delivery': 'Giao hàng & Đời sống',
+      'cat_survival_culture': 'K-Culture & Tiếng lóng',
+      'cat_time_sentence_building': 'Luyện câu & Lịch trình',
       'streak_days': '{n} ngày liên tiếp',
       'daily_goal_title': 'Mục tiêu hôm nay',
       'daily_goal_done': 'Hoàn thành mục tiêu! 🎉',
@@ -234,6 +245,10 @@ class AppStrings {
       'quiz_instructor_header': '答案与详细解析',
       'quiz_next_question': '下一题',
       'quiz_see_results': '查看结果',
+      'quiz_assembly_hint': '点击词块组成完整的句子',
+      'quiz_check_answer': '核对答案',
+      'quiz_reset_chips': '重新组合',
+      'quiz_assembly_tag': '主观填空组句',
       'result_title': '测验结果评估',
       'result_finished': '测验完成！ 🎉',
       'result_your_score': '我的得分',
@@ -294,6 +309,13 @@ class AppStrings {
       'cat_survival_food_store': '餐饮·便利店·礼仪',
       'cat_survival_shopping_transit': '购物·交通·出行',
       'cat_survival_culture_chat': 'K-Culture·影视与聊天',
+      'cat_survival_dining': '咖啡·餐饮·外食文化',
+      'cat_survival_mart': '便利店·超市·购物',
+      'cat_survival_transit': '交通·问路·出租车',
+      'cat_survival_medical': '医院·药店·急救',
+      'cat_survival_delivery': '外卖配送·生活便利',
+      'cat_survival_culture': 'K-Culture·流行语·交流',
+      'cat_time_sentence_building': '造句练习·时间与日程',
       'streak_days': '连续{n}天',
       'daily_goal_title': '今日目标',
       'daily_goal_done': '今日目标已完成！🎉',
@@ -389,6 +411,10 @@ class AppStrings {
       'quiz_instructor_header': 'Answer & Detailed Explanation',
       'quiz_next_question': 'Next Question',
       'quiz_see_results': 'See Results',
+      'quiz_assembly_hint': 'Tap word blocks in order to build the sentence',
+      'quiz_check_answer': 'Check Answer',
+      'quiz_reset_chips': 'Reset',
+      'quiz_assembly_tag': 'Sentence Building',
       'result_title': 'Quiz Assessment',
       'result_finished': 'Assessment Finished! 🎉',
       'result_your_score': 'Your Score',
@@ -449,6 +475,13 @@ class AppStrings {
       'cat_survival_food_store': 'Food, Store & Manners',
       'cat_survival_shopping_transit': 'Shopping, Transit & Taxi',
       'cat_survival_culture_chat': 'K-Culture & Chat',
+      'cat_survival_dining': 'Café, Dining & Etiquette',
+      'cat_survival_mart': 'Convenience & Shopping',
+      'cat_survival_transit': 'Transit, Directions & Taxi',
+      'cat_survival_medical': 'Hospital, Pharmacy & Emergency',
+      'cat_survival_delivery': 'Delivery & Living Convenience',
+      'cat_survival_culture': 'K-Culture, Slang & Chat',
+      'cat_time_sentence_building': 'Sentence Building & Schedule',
       'streak_days': '{n}-day streak',
       'daily_goal_title': 'Daily goal',
       'daily_goal_done': 'Goal complete! 🎉',
@@ -541,6 +574,10 @@ class AppStrings {
       'quiz_instructor_header': '正解と詳しい解説',
       'quiz_next_question': '次の問題',
       'quiz_see_results': '結果を見る',
+      'quiz_assembly_hint': '単語ブロックをタップして文を完成させてください',
+      'quiz_check_answer': '答え合わせ',
+      'quiz_reset_chips': 'やり直す',
+      'quiz_assembly_tag': '文章組み立て',
       'result_title': '結果レポート',
       'result_finished': 'クイズ完了！ 🎉',
       'result_your_score': 'あなたのスコア',
@@ -601,6 +638,13 @@ class AppStrings {
       'cat_survival_food_store': '飲食・コンビニ・マナー',
       'cat_survival_shopping_transit': '買い物・交通・おでかけ',
       'cat_survival_culture_chat': 'K-Culture・チャット表現',
+      'cat_survival_dining': 'カフェ・外食・マナー',
+      'cat_survival_mart': 'コンビニ・マート・買い物',
+      'cat_survival_transit': '交通・道案内・タクシー',
+      'cat_survival_medical': '病院・薬局・救急',
+      'cat_survival_delivery': 'デリバリー・生活便利',
+      'cat_survival_culture': 'K-Culture・スラング・SNS',
+      'cat_time_sentence_building': '文作り・時間とスケジュール',
       'streak_days': '{n}日連続',
       'daily_goal_title': '今日の目標',
       'daily_goal_done': '目標達成！🎉',
@@ -693,6 +737,10 @@ class AppStrings {
       'quiz_instructor_header': '정답 및 상세 해설',
       'quiz_next_question': '다음 문제',
       'quiz_see_results': '결과 확인하기',
+      'quiz_assembly_hint': '단어 조각을 터치하여 문장을 완성하세요',
+      'quiz_check_answer': '정답 확인',
+      'quiz_reset_chips': '다시 조합',
+      'quiz_assembly_tag': '문장 완성 주관식',
       'result_title': '퀴즈 결과 평가',
       'result_finished': '퀴즈 완료! 🎉',
       'result_your_score': '나의 점수',
@@ -753,6 +801,13 @@ class AppStrings {
       'cat_survival_food_store': '식음료·편의점',
       'cat_survival_shopping_transit': '쇼핑·교통·외출',
       'cat_survival_culture_chat': 'K-컬처·소통',
+      'cat_survival_dining': '카페·식당·외식문화',
+      'cat_survival_mart': '편의점·마트·쇼핑',
+      'cat_survival_transit': '교통·길찾기·택시',
+      'cat_survival_medical': '병원·약국·응급',
+      'cat_survival_delivery': '배달·생활편의',
+      'cat_survival_culture': 'K-컬처·소통·신조어',
+      'cat_time_sentence_building': '시간·일정·문장완성',
       'streak_days': '{n}일 연속',
       'daily_goal_title': '오늘의 목표',
       'daily_goal_done': '오늘 목표 달성! 🎉',
@@ -848,6 +903,10 @@ class AppStrings {
       'quiz_instructor_header': 'Explicación del Profesor',
       'quiz_next_question': 'Siguiente Pregunta',
       'quiz_see_results': 'Ver Resultados',
+      'quiz_assembly_hint': 'Toca los bloques de palabras para formar la frase',
+      'quiz_check_answer': 'Comprobar',
+      'quiz_reset_chips': 'Reiniciar',
+      'quiz_assembly_tag': 'Construcción de oraciones',
       'result_title': 'Evaluación del Quiz',
       'result_finished': '¡Quiz Completado! 🎉',
       'result_your_score': 'Tu Puntuación',
@@ -908,6 +967,13 @@ class AppStrings {
       'cat_survival_food_store': 'Comida, tiendas y modales',
       'cat_survival_shopping_transit': 'Compras, transporte y taxi',
       'cat_survival_culture_chat': 'K-Culture, dramas y chat',
+      'cat_survival_dining': 'Café, Comida y Modales',
+      'cat_survival_mart': 'Tiendas y Compras',
+      'cat_survival_transit': 'Transporte, Rutas y Taxi',
+      'cat_survival_medical': 'Hospital, Farmacia y Urgencias',
+      'cat_survival_delivery': 'Envíos y Vida Práctica',
+      'cat_survival_culture': 'K-Culture, Jergas y Chat',
+      'cat_time_sentence_building': 'Creación de Frases y Horarios',
       'streak_days': 'Racha de {n} días',
       'daily_goal_title': 'Meta diaria',
       'daily_goal_done': '¡Meta cumplida! 🎉',
@@ -1003,6 +1069,10 @@ class AppStrings {
       'quiz_instructor_header': 'Explicação do Professor',
       'quiz_next_question': 'Próxima Pergunta',
       'quiz_see_results': 'Ver Resultados',
+      'quiz_assembly_hint': 'Toque nos blocos de palavras para formar a frase',
+      'quiz_check_answer': 'Verificar',
+      'quiz_reset_chips': 'Recomeçar',
+      'quiz_assembly_tag': 'Montagem de frases',
       'result_title': 'Avaliação do Quiz',
       'result_finished': 'Quiz Concluído! 🎉',
       'result_your_score': 'Sua Pontuação',
@@ -1063,6 +1133,13 @@ class AppStrings {
       'cat_survival_food_store': 'Comida, lojas e etiquetas',
       'cat_survival_shopping_transit': 'Compras, transporte e táxi',
       'cat_survival_culture_chat': 'K-Culture, doramas e chat',
+      'cat_survival_dining': 'Café, Restaurantes e Modos',
+      'cat_survival_mart': 'Conveniência e Compras',
+      'cat_survival_transit': 'Transporte, Rotas e Táxi',
+      'cat_survival_medical': 'Hospital, Farmácia e Emergência',
+      'cat_survival_delivery': 'Entregas e Praticidade',
+      'cat_survival_culture': 'K-Culture, Gírias e Chat',
+      'cat_time_sentence_building': 'Construção de Frases e Horários',
       'streak_days': 'Sequência de {n} dias',
       'daily_goal_title': 'Meta diária',
       'daily_goal_done': 'Meta concluída! 🎉',
@@ -1097,6 +1174,9 @@ class AppStrings {
 
   /// Localize category name
   static String category(String categoryKey, String langCode) {
+    if (langCode.toUpperCase() == 'KO') {
+      return categoryKey;
+    }
     switch (categoryKey) {
       // Word Categories
       case '음식·음료':
@@ -1125,14 +1205,29 @@ class AppStrings {
         return tr('cat_dining_moving', langCode);
       case '핵심표현·의사소통':
         return tr('cat_core_expressions', langCode);
+      case '시간·일정·문장완성':
+        return tr('cat_time_sentence_building', langCode);
 
-      // Survival Categories
+      // Survival Categories (6 distinct situations)
+      case '카페·식당·외식문화':
       case '식음료·편의점':
-        return tr('cat_survival_food_store', langCode);
+        return tr('cat_survival_dining', langCode);
+      case '편의점·마트·쇼핑':
+      case '쇼핑·결제':
+        return tr('cat_survival_mart', langCode);
+      case '교통·길찾기·택시':
       case '쇼핑·교통·외출':
-        return tr('cat_survival_shopping_transit', langCode);
+      case '길찾기·교통':
+        return tr('cat_survival_transit', langCode);
+      case '병원·약국·응급':
+        return tr('cat_survival_medical', langCode);
+      case '배달·생활편의':
+      case '배달·택시 실전':
+        return tr('cat_survival_delivery', langCode);
+      case 'K-컬처·소통·신조어':
       case 'K-컬처·소통':
-        return tr('cat_survival_culture_chat', langCode);
+      case 'K-컬처·팬문화':
+        return tr('cat_survival_culture', langCode);
 
       case 'Nationality':
       case '생활·대화':
@@ -1167,20 +1262,12 @@ class AppStrings {
         return tr('cat_routine', langCode);
       case '카페·테이크아웃':
         return tr('cat_cafe', langCode);
-      case '쇼핑·결제':
-        return tr('cat_shopping', langCode);
       case 'K-리액션·감탄사':
         return tr('cat_reaction', langCode);
-      case '길찾기·교통':
-        return tr('cat_wayfinding', langCode);
-      case 'K-컬처·팬문화':
-        return tr('cat_kculture', langCode);
       case '편의점·서바이벌':
         return tr('cat_convenience', langCode);
       case '카톡·SNS 뉘앙스':
         return tr('cat_chat_nuance', langCode);
-      case '배달·택시 실전':
-        return tr('cat_taxi_delivery', langCode);
       case '실전 에티켓·문화':
         return tr('cat_etiquette', langCode);
       case 'Honorifics':

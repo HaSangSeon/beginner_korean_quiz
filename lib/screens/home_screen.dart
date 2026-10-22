@@ -25,8 +25,15 @@ const Map<String, String> _categoryEmoji = {
   '일상생활·장소': '🏙️',
   '식당·외식·이동': '🍽️',
   '핵심표현·의사소통': '💡',
+  '시간·일정·문장완성': '🗓️',
 
-  // Survival track (서바이벌 K-Life)
+  // Survival track (서바이벌 K-Life - 6대 실전 상황)
+  '카페·식당·외식문화': '☕',
+  '편의점·마트·쇼핑': '🏪',
+  '교통·길찾기·택시': '🚇',
+  '병원·약국·응급': '💊',
+  '배달·생활편의': '🛵',
+  'K-컬처·소통·신조어': '✨',
   '식음료·편의점': '☕',
   '쇼핑·교통·외출': '🛍️',
   'K-컬처·소통': '✨',
@@ -1575,22 +1582,28 @@ class _HomeScreenState extends State<HomeScreen> {
                           ? [
                               _buildPillTag(
                                 icon: Icons.local_cafe_rounded,
-                                label: AppStrings.category('식음료·편의점', _selectedLangCode),
+                                label: AppStrings.category('카페·식당·외식문화', _selectedLangCode),
                                 bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '식음료·편의점', _categoryEmoji['식음료·편의점'] ?? '☕', isDark),
+                                onTap: () => _onCategoryCardTap(context, '카페·식당·외식문화', _categoryEmoji['카페·식당·외식문화'] ?? '☕', isDark),
                               ),
                               _buildPillTag(
-                                icon: Icons.shopping_bag_rounded,
-                                label: AppStrings.category('쇼핑·교통·외출', _selectedLangCode),
+                                icon: Icons.storefront_rounded,
+                                label: AppStrings.category('편의점·마트·쇼핑', _selectedLangCode),
                                 bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '쇼핑·교통·외출', _categoryEmoji['쇼핑·교통·외출'] ?? '🛍️', isDark),
+                                onTap: () => _onCategoryCardTap(context, '편의점·마트·쇼핑', _categoryEmoji['편의점·마트·쇼핑'] ?? '🏪', isDark),
                               ),
                               _buildPillTag(
-                                icon: Icons.auto_awesome_rounded,
-                                label: AppStrings.category('K-컬처·소통', _selectedLangCode),
-                                bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
-                                iconColor: const Color(0xFFFDE047),
-                                onTap: () => _onCategoryCardTap(context, 'K-컬처·소통', _categoryEmoji['K-컬처·소통'] ?? '✨', isDark),
+                                icon: Icons.subway_rounded,
+                                label: AppStrings.category('교통·길찾기·택시', _selectedLangCode),
+                                bgColor: Colors.white.withValues(alpha: 0.15),
+                                onTap: () => _onCategoryCardTap(context, '교통·길찾기·택시', _categoryEmoji['교통·길찾기·택시'] ?? '🚇', isDark),
+                              ),
+                              _buildPillTag(
+                                icon: Icons.local_hospital_rounded,
+                                label: AppStrings.category('병원·약국·응급', _selectedLangCode),
+                                bgColor: const Color(0xFFEF4444).withValues(alpha: 0.25),
+                                iconColor: const Color(0xFFFCA5A5),
+                                onTap: () => _onCategoryCardTap(context, '병원·약국·응급', _categoryEmoji['병원·약국·응급'] ?? '💊', isDark),
                               ),
                             ]
                           : [
@@ -1615,9 +1628,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               _buildPillTag(
                                 icon: Icons.lightbulb_rounded,
                                 label: AppStrings.category('핵심표현·의사소통', _selectedLangCode),
+                                bgColor: Colors.white.withValues(alpha: 0.15),
+                                onTap: () => _onCategoryCardTap(context, '핵심표현·의사소통', _categoryEmoji['핵심표현·의사소통'] ?? '💡', isDark),
+                              ),
+                              _buildPillTag(
+                                icon: Icons.calendar_month_rounded,
+                                label: AppStrings.category('시간·일정·문장완성', _selectedLangCode),
                                 bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
                                 iconColor: const Color(0xFFFDE047),
-                                onTap: () => _onCategoryCardTap(context, '핵심표현·의사소통', _categoryEmoji['핵심표현·의사소통'] ?? '💡', isDark),
+                                onTap: () => _onCategoryCardTap(context, '시간·일정·문장완성', _categoryEmoji['시간·일정·문장완성'] ?? '🗓️', isDark),
                               ),
                             ]),
                 ),
