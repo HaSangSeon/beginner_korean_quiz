@@ -361,7 +361,7 @@ class _ResultScreenState extends State<ResultScreen> {
           ),
         ),
       ),
-      const BottomBannerAdWidget(),
+      const BottomBannerAdWidget(fillSafeAreaWhenEmpty: true),
     ],
   ),
 );

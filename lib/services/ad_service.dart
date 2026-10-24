@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -38,7 +39,14 @@ class AdService {
 
 /// A clean, self-contained bottom banner ad widget with 100% full width and 0 margins
 class BottomBannerAdWidget extends StatefulWidget {
-  const BottomBannerAdWidget({super.key});
+  final void Function(bool isLoaded)? onLoadedChanged;
+  final bool fillSafeAreaWhenEmpty;
+
+  const BottomBannerAdWidget({
+    super.key,
+    this.onLoadedChanged,
+    this.fillSafeAreaWhenEmpty = false,
+  });
 
   @override
   State<BottomBannerAdWidget> createState() => _BottomBannerAdWidgetState();
@@ -54,6 +62,14 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
     super.didChangeDependencies();
     if (!_isAdLoading && _bannerAd == null) {
       _loadBannerAd();
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant BottomBannerAdWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.onLoadedChanged != widget.onLoadedChanged) {
+      widget.onLoadedChanged?.call(_isLoaded && _bannerAd != null);
     }
   }
 
@@ -75,6 +91,7 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
             setState(() {
               _isLoaded = true;
             });
+            widget.onLoadedChanged?.call(true);
           }
         },
         onAdFailedToLoad: (ad, error) {
@@ -85,6 +102,7 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
               _bannerAd = null;
               _isLoaded = false;
             });
+            widget.onLoadedChanged?.call(false);
           }
         },
       ),
@@ -99,14 +117,21 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
 
   @override
   Widget build(BuildContext context) {
+    // 3버튼 내비게이션 바(홈/뒤로가기/최근앱) 및 제스처 바 인셋 정밀 감지 (삼성 갤럭시 포함 모든 안드로이드 기기 완벽 대응)
+    final bottomInset = math.max(
+      MediaQuery.paddingOf(context).bottom,
+      MediaQuery.viewPaddingOf(context).bottom,
+    );
+
     if (!_isLoaded || _bannerAd == null) {
+      if (widget.fillSafeAreaWhenEmpty && bottomInset > 0) {
+        return SizedBox(height: bottomInset);
+      }
       return const SizedBox.shrink();
     }
 
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final adHeight = _bannerAd!.size.height.toDouble();
-    // 3버튼 내비게이션 바(홈/뒤로가기) 및 제스처 바 인셋 자동 감지
-    final bottomInset = MediaQuery.paddingOf(context).bottom;
 
     return Container(
       width: double.infinity, // 가로 100% 꽉 채우기

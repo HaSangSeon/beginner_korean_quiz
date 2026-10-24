@@ -74,6 +74,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('정답입니다! 🎉'), findsOneWidget);
+    await tester.tap(find.text('해설 보기 💡'));
+    await tester.pumpAndSettle();
     expect(find.text('문장 해설 & 팁'), findsOneWidget);
     expect(
       find.textContaining('-(으)ㄹ 수 있어요'),
@@ -247,6 +249,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('정답입니다! 🎉'), findsOneWidget);
+    await tester.tap(find.text('해설 보기 💡'));
+    await tester.pumpAndSettle();
     expect(find.text('단어 해설 & 팁'), findsOneWidget);
     expect(find.text('다음 문제'), findsOneWidget);
   });

@@ -436,7 +436,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            const BottomBannerAdWidget(),
+            const BottomBannerAdWidget(fillSafeAreaWhenEmpty: true),
           ],
         ),
       ),
