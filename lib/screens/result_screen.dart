@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data/app_localization.dart';
 import '../data/quiz_data.dart';
 import '../services/ad_service.dart';
+import '../services/progress_service.dart';
 import 'quiz_screen.dart';
 
 class ResultScreen extends StatefulWidget {
@@ -11,6 +12,9 @@ class ResultScreen extends StatefulWidget {
   final String? quizType;
   final String? category;
   final int? level;
+  final bool isReviewMode;
+  final List<int>? reviewIds;
+  final List<int>? sessionWrongIds;
 
   const ResultScreen({
     super.key,
@@ -20,6 +24,9 @@ class ResultScreen extends StatefulWidget {
     this.quizType,
     this.category,
     this.level,
+    this.isReviewMode = false,
+    this.reviewIds,
+    this.sessionWrongIds,
   });
 
   @override
@@ -27,11 +34,9 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
-
   @override
   void initState() {
     super.initState();
-    // TODO: Interstitial Ad (Screen Load)
   }
 
   String _getLocalizedEncouragement(double percentage) {
@@ -40,7 +45,9 @@ class _ResultScreenState extends State<ResultScreen> {
     if (percentage == 1.0) {
       switch (lang) {
         case 'KO':
-          return '원어민 수준의 자연스러운 뉘앙스 감각! 교과서에서는 배울 수 없는 진짜 한국어 감각을 완벽히 마스터하셨습니다.';
+          return widget.isReviewMode
+              ? '완벽합니다! 틀렸던 문제들을 완벽하게 이해하고 마스터하셨습니다.'
+              : '원어민 수준의 자연스러운 뉘앙스 감각! 교과서에서는 배울 수 없는 진짜 한국어 감각을 완벽히 마스터하셨습니다.';
         case 'ES':
           return '¡Intuición de nivel nativo! Comprendes los matices reales del coreano que los libros no enseñan.';
         case 'ZH':
@@ -141,10 +148,34 @@ class _ResultScreenState extends State<ResultScreen> {
       orElse: () => supportedLanguages.first,
     );
 
+    final IconData headerIcon;
+    final Color headerColor;
+    if (widget.isReviewMode) {
+      final allMastered = percentInt == 100;
+      headerIcon = allMastered ? Icons.verified_rounded : Icons.replay_rounded;
+      headerColor = allMastered ? const Color(0xFF16A34A) : const Color(0xFFF59E0B);
+    } else {
+      headerIcon = _getResultIcon(percentage);
+      headerColor = _getResultColor(context, percentage);
+    }
+
+    final String titleText;
+    if (widget.isReviewMode) {
+      titleText = percentInt == 100
+          ? AppStrings.tr('review_all_mastered', widget.langCode)
+          : AppStrings.tr('review_completed_title', widget.langCode);
+    } else {
+      titleText = AppStrings.tr('result_finished', widget.langCode);
+    }
+
     return Scaffold(
       backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
       appBar: AppBar(
-        title: Text(AppStrings.tr('result_title', widget.langCode)),
+        title: Text(
+          widget.isReviewMode
+              ? AppStrings.tr('review_completed_title', widget.langCode)
+              : AppStrings.tr('result_title', widget.langCode),
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -159,211 +190,356 @@ class _ResultScreenState extends State<ResultScreen> {
                   const SizedBox(height: 8),
 
                   // Trophy / Result Icon Badge
-              Center(
-                child: Container(
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: _getResultColor(context, percentage).withValues(alpha: 0.15),
-                    shape: BoxShape.circle,
+                  Center(
+                    child: Container(
+                      width: 80,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        color: headerColor.withValues(alpha: 0.15),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        headerIcon,
+                        size: 46,
+                        color: headerColor,
+                      ),
+                    ),
                   ),
-                  child: Icon(
-                    _getResultIcon(percentage),
-                    size: 46,
-                    color: _getResultColor(context, percentage),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
-              // Title
-              Text(
-                AppStrings.tr('result_finished', widget.langCode),
-                style: theme.textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: isDark ? Colors.white : const Color(0xFF0F172A),
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 14),
-
-              // Score Card
-              Card(
-                elevation: 0,
-                color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  side: BorderSide(
-                    color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                    width: 1.2,
+                  // Title
+                  Text(
+                    titleText,
+                    style: theme.textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: isDark ? Colors.white : const Color(0xFF0F172A),
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                  const SizedBox(height: 14),
+
+                  // Score Card
+                  Card(
+                    elevation: 0,
+                    color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      side: BorderSide(
+                        color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                        width: 1.2,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
                         children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                AppStrings.tr('result_your_score', widget.langCode),
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 2,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: isDark ? const Color(0xFF0F172A) : const Color(0xFFEFF6FF),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(langOption.flag, style: const TextStyle(fontSize: 12)),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      langOption.code,
+                                      style: const TextStyle(
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFF2563EB),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
                           Text(
-                            AppStrings.tr('result_your_score', widget.langCode),
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                              fontWeight: FontWeight.w600,
+                            AppStrings.tr(
+                              'result_score_fraction',
+                              widget.langCode,
+                              {
+                                'score': '${widget.score}',
+                                'total': '${widget.totalQuestions}',
+                              },
+                            ),
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w900,
+                              color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF1E3A8A),
                             ),
                           ),
-                          const SizedBox(width: 8),
+                          const SizedBox(height: 4),
                           Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 2,
-                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(
                               color: isDark ? const Color(0xFF0F172A) : const Color(0xFFEFF6FF),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(langOption.flag, style: const TextStyle(fontSize: 12)),
-                                const SizedBox(width: 4),
-                                Text(
-                                  langOption.code,
-                                  style: const TextStyle(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFF2563EB),
-                                  ),
-                                ),
-                              ],
+                            child: Text(
+                              AppStrings.tr(
+                                'result_accuracy',
+                                widget.langCode,
+                                {'pct': '$percentInt'},
+                              ),
+                              style: const TextStyle(
+                                color: Color(0xFF2563EB),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12.5,
+                              ),
                             ),
+                          ),
+                          Divider(height: 28, color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
+                          Text(
+                            _getLocalizedEncouragement(percentage),
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF334155),
+                              height: 1.45,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        AppStrings.tr(
-                          'result_score_fraction',
-                          widget.langCode,
-                          {
-                            'score': '${widget.score}',
-                            'total': '${widget.totalQuestions}',
-                          },
-                        ),
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w900,
-                          color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF1E3A8A),
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: isDark ? const Color(0xFF0F172A) : const Color(0xFFEFF6FF),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Text(
-                          AppStrings.tr(
-                            'result_accuracy',
-                            widget.langCode,
-                            {'pct': '$percentInt'},
+                    ),
+                  ),
+
+                  const SizedBox(height: 22),
+
+                  // Action Buttons Section
+                  if (widget.isReviewMode) ...[
+                    // Review Mode Flow
+                    Builder(builder: (context) {
+                      final remainingWrong = ProgressService().wrongIds;
+                      if (remainingWrong.isNotEmpty) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            FilledButton.icon(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => QuizScreen(
+                                      initialLangCode: widget.langCode,
+                                      quizType: widget.quizType,
+                                      category: widget.category,
+                                      level: widget.level,
+                                      reviewIds: remainingWrong,
+                                    ),
+                                  ),
+                                );
+                              },
+                              icon: const Icon(Icons.replay_rounded),
+                              label: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  AppStrings.tr(
+                                    'review_retry_remaining',
+                                    widget.langCode,
+                                    {'count': '${remainingWrong.length}'},
+                                  ),
+                                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              style: FilledButton.styleFrom(
+                                backgroundColor: const Color(0xFFEF4444),
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(vertical: 15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            OutlinedButton.icon(
+                              onPressed: () => Navigator.popUntil(context, (route) => route.isFirst),
+                              icon: const Icon(Icons.home_rounded),
+                              label: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  AppStrings.tr('result_home', widget.langCode),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E3A8B),
+                                  ),
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(vertical: 15),
+                                side: BorderSide(
+                                  color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
+                                  width: 1.2,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      } else {
+                        return FilledButton.icon(
+                          onPressed: () => Navigator.popUntil(context, (route) => route.isFirst),
+                          icon: const Icon(Icons.home_rounded),
+                          label: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              AppStrings.tr('result_home', widget.langCode),
+                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
                           ),
-                          style: const TextStyle(
-                            color: Color(0xFF2563EB),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12.5,
+                          style: FilledButton.styleFrom(
+                            backgroundColor: const Color(0xFF16A34A),
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                          ),
+                        );
+                      }
+                    }),
+                  ] else ...[
+                    // Normal Quiz Flow
+                    // 1. If user missed questions in this session, show a prominent "Review Missed Questions Now" CTA!
+                    if (widget.sessionWrongIds != null && widget.sessionWrongIds!.isNotEmpty) ...[
+                      FilledButton.icon(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuizScreen(
+                                initialLangCode: widget.langCode,
+                                quizType: widget.quizType,
+                                category: widget.category,
+                                level: widget.level,
+                                reviewIds: widget.sessionWrongIds,
+                              ),
+                            ),
+                          );
+                        },
+                        icon: const Icon(Icons.local_fire_department_rounded),
+                        label: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            AppStrings.tr(
+                              'review_now_button',
+                              widget.langCode,
+                              {'count': '${widget.sessionWrongIds!.length}'},
+                            ),
+                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
-                      ),
-                      Divider(height: 28, color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
-                      Text(
-                        _getLocalizedEncouragement(percentage),
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF334155),
-                          height: 1.45,
-                          fontWeight: FontWeight.w500,
+                        style: FilledButton.styleFrom(
+                          backgroundColor: const Color(0xFFDC2626),
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          elevation: 2,
                         ),
-                        textAlign: TextAlign.center,
                       ),
+                      const SizedBox(height: 10),
                     ],
-                  ),
-                ),
-              ),
 
-              const SizedBox(height: 22),
-
-              // Action Buttons
-              FilledButton.icon(
-                onPressed: () {
-                  // TODO: Interstitial Ad (Before Try Again)
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => QuizScreen(
-                        initialLangCode: widget.langCode,
-                        quizType: widget.quizType,
-                        category: widget.category,
-                        level: widget.level,
+                    // 2. Play this category again
+                    FilledButton.icon(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QuizScreen(
+                              initialLangCode: widget.langCode,
+                              quizType: widget.quizType,
+                              category: widget.category,
+                              level: widget.level,
+                            ),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.replay_rounded),
+                      label: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          AppStrings.tr('result_retry', widget.langCode),
+                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      style: FilledButton.styleFrom(
+                        backgroundColor: (widget.sessionWrongIds != null && widget.sessionWrongIds!.isNotEmpty)
+                            ? (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0))
+                            : const Color(0xFF2563EB),
+                        foregroundColor: (widget.sessionWrongIds != null && widget.sessionWrongIds!.isNotEmpty)
+                            ? (isDark ? Colors.white : const Color(0xFF0F172A))
+                            : Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
                       ),
                     ),
-                  );
-                },
-                icon: const Icon(Icons.replay_rounded),
-                label: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    AppStrings.tr('result_retry', widget.langCode),
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                style: FilledButton.styleFrom(
-                  backgroundColor: const Color(0xFF2563EB),
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
-              OutlinedButton.icon(
-                onPressed: () {
-                  // TODO: Interstitial Ad (Before Returning Home)
-                  Navigator.popUntil(context, (route) => route.isFirst);
-                },
-                icon: const Icon(Icons.home_rounded),
-                label: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    AppStrings.tr('result_home', widget.langCode),
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E3A8B),
+                    // 3. Return Home
+                    OutlinedButton.icon(
+                      onPressed: () {
+                        Navigator.popUntil(context, (route) => route.isFirst);
+                      },
+                      icon: const Icon(Icons.home_rounded),
+                      label: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          AppStrings.tr('result_home', widget.langCode),
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E3A8B),
+                          ),
+                        ),
+                      ),
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        side: BorderSide(
+                          color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
+                          width: 1.2,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  side: BorderSide(
-                    color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
-                    width: 1.2,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
+                  ],
+                  const SizedBox(height: 12),
+                ],
               ),
-              const SizedBox(height: 12),
-            ],
+            ),
           ),
-        ),
+          const BottomBannerAdWidget(fillSafeAreaWhenEmpty: true),
+        ],
       ),
-      const BottomBannerAdWidget(fillSafeAreaWhenEmpty: true),
-    ],
-  ),
-);
+    );
   }
 }

@@ -8,12 +8,20 @@ class TtsService {
 
   FlutterTts? _flutterTts;
   bool _isInitialized = false;
+  bool _isInitializing = false;
   String? _currentlyPlayingText;
 
   String? get currentlyPlayingText => _currentlyPlayingText;
 
   Future<void> _initTts() async {
     if (_isInitialized) return;
+    if (_isInitializing) {
+      while (_isInitializing) {
+        await Future.delayed(const Duration(milliseconds: 50));
+      }
+      return;
+    }
+    _isInitializing = true;
     try {
       _flutterTts = FlutterTts();
 
@@ -66,6 +74,8 @@ class TtsService {
       _isInitialized = true;
     } catch (e) {
       debugPrint('TtsService init error: $e');
+    } finally {
+      _isInitializing = false;
     }
   }
 

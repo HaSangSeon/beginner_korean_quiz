@@ -358,7 +358,8 @@
       "ZH": "图片是'꽃'（花）。注意区分 나무（树）、풀（草）、잎（叶）。",
       "JA": "絵は「꽃（花）」です。「나무（木）」「풀（草）」「잎（葉）」と区別しましょう。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "꽃"
   },
   {
     "id": 12,
@@ -389,7 +390,8 @@
       "ZH": "戴在头上的物品是'모자'（帽子）。常与动词'쓰다'搭配。",
       "JA": "頭にかぶる物は「모자（帽子）」です。「쓰다」と一緒に使います。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "모자"
   },
   {
     "id": 13,
@@ -420,7 +422,8 @@
       "ZH": "进入房间的入口是'문'（门）。与창문（窗户）区分。",
       "JA": "部屋に入る出入り口は「문（ドア・扉）」です。「창문（窓）」と区別しましょう。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "문"
   },
   {
     "id": 14,
@@ -451,7 +454,8 @@
       "ZH": "每天刊登新闻的纸质印刷品是'신문'（报纸）。",
       "JA": "毎日のニュースを伝える印刷物は「신문（新聞）」です。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "신문"
   },
   {
     "id": 15,
@@ -482,7 +486,8 @@
       "ZH": "穿在脚上的物品是'신발'（鞋子）。常与动词'신다'搭配。",
       "JA": "足に履く物は「신발（靴・履物）」です。「신다」と一緒に使います。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "신발"
   },
   {
     "id": 16,
@@ -513,7 +518,8 @@
       "ZH": "用于看清东西的物品是'안경'（眼镜）。常与'쓰다'搭配。",
       "JA": "目をよく見えるようにかける物は「안경（眼鏡）」です。「쓰다」を使います。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "안경"
   },
   {
     "id": 17,
@@ -544,7 +550,8 @@
       "ZH": "指示时间的工具是'시계'（表/钟）。",
       "JA": "時間を知らせる道具は「시계（時計）」です。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "시계"
   },
   {
     "id": 18,
@@ -575,7 +582,8 @@
       "ZH": "穿在身上的物品是'옷'（衣服）。常与动词'입다'搭配。",
       "JA": "体に着るものは「옷（服・衣服）」です。「입다」と一緒に使います。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "옷"
   },
   {
     "id": 19,
@@ -606,7 +614,8 @@
       "ZH": "穿在鞋子里面保护双脚的是'양말'（袜子）。",
       "JA": "靴の中に履く物は「양말（靴下）」です。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "양말"
   },
   {
     "id": 20,
@@ -637,7 +646,8 @@
       "ZH": "用来书写或绘画的文具是'연필'（铅笔）。",
       "JA": "文字や絵を書く筆記用具は「연필（鉛筆）」です。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "연필"
   },
   {
     "id": 21,
@@ -668,7 +678,8 @@
       "ZH": "高高耸立的自然地形是'산'（山）。",
       "JA": "高くそびえ立つ自然の地形は「산（山）」です。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "산"
   },
   {
     "id": 22,
@@ -699,7 +710,8 @@
       "ZH": "用面粉烘焙而成的食品是'빵'（面包）。",
       "JA": "小麦粉をこねて焼いた食べ物は「빵（パン）」です。"
     },
-    "level": 2
+    "level": 2,
+    "keyword": "빵"
   },
   {
     "id": 23,
@@ -730,7 +742,8 @@
       "ZH": "又红又圆的代表性水果是'사과'（苹果）。",
       "JA": "赤くて丸い代表的な果物は「사과（りんご）」です。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "사과"
   },
   {
     "id": 24,
@@ -761,7 +774,8 @@
       "ZH": "用相机拍摄出的影像是'사진'（照片）。常与'사진을 찍다'搭配。",
       "JA": "カメラで撮影したものは「사진（写真）」です。「사진을 찍다」と使います。"
     },
-    "level": 2
+    "level": 2,
+    "keyword": "사진"
   },
   {
     "id": 25,
@@ -792,7 +806,8 @@
       "ZH": "奶牛产出的白色饮品是'우유'（牛奶）。",
       "JA": "牛から取れる白い飲み物は「우유（牛乳・ミルク）」です。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "우유"
   },
   {
     "id": 26,
@@ -823,7 +838,8 @@
       "ZH": "供人坐的家具是'의자'（椅子）。与책상（书桌）区分。",
       "JA": "人が座るための家具は「의자（椅子）」です。「책상（机）」と区別しましょう。"
     },
-    "level": 2
+    "level": 2,
+    "keyword": "의자"
   },
   {
     "id": 27,
@@ -854,7 +870,8 @@
       "ZH": "下雨时用来遮雨的物品是'우산'（雨伞）。常与'우산을 쓰다'搭配。",
       "JA": "雨が降る時に雨を防ぐ物は「우산（傘）」です。「우산을 쓰다」と言います。"
     },
-    "level": 1
+    "level": 1,
+    "keyword": "우산"
   },
   {
     "id": 28,
@@ -885,7 +902,8 @@
       "ZH": "用来装钱和卡片随身携带的是'지갑'（钱包）。",
       "JA": "お金やカードを入れて持ち歩くものは「지갑（財布）」です。"
     },
-    "level": 2
+    "level": 2,
+    "keyword": "지갑"
   },
   {
     "id": 29,
@@ -3119,7 +3137,7 @@
       "JA": "カフェでコーヒーをテイクアウトする時の表現を選んでください。"
     },
     "questions": {
-      "KO": "손님: 따뜻한 아메리카노 한 잔 (        ).\n직원: 네, 잠시만 기다려 주세요."
+      "KO": "손님: 따뜻한 아메리카노 한 잔 (   ).\n직원: 네, 잠시만 기다려 주세요."
     },
     "options": [
       "포장해 주세요",
@@ -3218,7 +3236,7 @@
       "JA": "呼び出しベルが鳴ったら受け取りに来てくださいという店員の表現を選んでください。"
     },
     "questions": {
-      "KO": "직원: 진동벨이 울리면 음료 (        ) 오세요.\n손님: 네, 감사합니다."
+      "KO": "직원: 진동벨이 울리면 음료 (   ) 오세요.\n손님: 네, 감사합니다."
     },
     "options": [
       "받으러",
@@ -3251,7 +3269,7 @@
       "JA": "お会計後にレシートが不要な場合の丁寧な表現を選んでください。"
     },
     "questions": {
-      "KO": "직원: 영수증 드릴까요?\n손님: 아니요, 영수증은 (        )."
+      "KO": "직원: 영수증 드릴까요?\n손님: 아니요, 영수증은 (   )."
     },
     "options": [
       "버려 주세요",
@@ -3284,7 +3302,7 @@
       "JA": "洋服屋さんで試着したい時に尋ねる表現を選んでください。"
     },
     "questions": {
-      "KO": "손님: 저기요, 이 옷 한번 (        )?\n직원: 네, 피팅룸은 안쪽에 있어요."
+      "KO": "손님: 저기요, 이 옷 한번 (   )?\n직원: 네, 피팅룸은 안쪽에 있어요."
     },
     "options": [
       "입어 봐도 돼요",
@@ -3317,7 +3335,7 @@
       "JA": "コンビニやマートでレジ袋が必要か尋ねる表現を選んでください。"
     },
     "questions": {
-      "KO": "직원: 담아갈 봉투 (        )?\n손님: 네, 종량제 봉투 한 장 주세요."
+      "KO": "직원: 담아갈 봉투 (   )?\n손님: 네, 종량제 봉투 한 장 주세요."
     },
     "options": [
       "필요하세요",
@@ -3350,7 +3368,7 @@
       "JA": "レジでカード決済することを伝える表現を選んでください。"
     },
     "questions": {
-      "KO": "직원: 계산 도와드릴게요.\n손님: 네, 카드로 (        )."
+      "KO": "직원: 계산 도와드릴게요.\n손님: 네, 카드로 (   )."
     },
     "options": [
       "결제할게요",
@@ -3515,7 +3533,7 @@
       "JA": "コンビニで交通カードにお金をチャージしてほしい時の表現を選んでください。"
     },
     "questions": {
-      "KO": "손님: 교통카드 10,000원만 (        ).\n직원: 네, 카드 올려주세요."
+      "KO": "손님: 교통카드 10,000원만 (   ).\n직원: 네, 카드 올려주세요."
     },
     "options": [
       "충전해 주세요",
@@ -3581,7 +3599,7 @@
       "JA": "地下鉄やバスを別の路線に乗り換える行為を表す単語を選んでください。"
     },
     "questions": {
-      "KO": "승객: 홍대입구역에 가려면 어디서 (        )?\n안내원: 이번 역에서 2호선으로 갈아타세요."
+      "KO": "승객: 홍대입구역에 가려면 어디서 (   )?\n안내원: 이번 역에서 2호선으로 갈아타세요."
     },
     "options": [
       "환승해야 해요",
@@ -5000,7 +5018,7 @@
       "JA": "出前を注文する際、使い捨てのスプーンと箸を断る表現を選んでください。"
     },
     "questions": {
-      "KO": "배달 앱 요청사항: 일회용 (   )은 안 주셔도 돼요."
+      "KO": "배달 앱 요청사항: 일회용 (   )는 안 주셔도 돼요."
     },
     "options": [
       "수저",
@@ -6116,5 +6134,269 @@
       "다음 주를",
       "제주도에"
     ]
+  },
+  {
+    "id": 185,
+    "category": "핵심표현·의사소통",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🪟 🥵",
+    "keyword": "열다",
+    "speechBubble": "창문 좀 열어 주세요.",
+    "situations": {
+      "KO": "방 안이 더워서 상대방에게 창문을 열어 달라고 정중하게 부탁하는 상황입니다.",
+      "EN": "A situation where you politely ask someone to open the window because the room is hot.",
+      "VI": "Tình huống nhờ đối phương mở cửa sổ một cách lịch sự vì trong phòng nóng.",
+      "ZH": "房间里很热，礼貌地拜托对方打开窗户的情况。",
+      "JA": "部屋の中が暑くて、相手に窓を開けてほしいと丁寧にお願いする場面です。"
+    },
+    "questions": {
+      "KO": "가: 더워요? 창문을 열어 줄까요?\n나: 네, 창문 좀 (   )."
+    },
+    "options": [
+      "열어 주세요",
+      "열어 가세요",
+      "열고 있어요",
+      "열지 마세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "동사 뒤에 '-아/어 주세요'를 붙여 상대방에게 어떤 행동을 해 달라고 정중하게 요청할 수 있습니다. '열다'의 어간 모음이 'ㅕ'이므로 '열어 주세요'가 됩니다.",
+      "EN": "Attach '-아/어 주세요' after a verb to politely request someone to do an action. Since the vowel of the stem '열-' is 'ㅕ', it becomes '열어 주세요'.",
+      "VI": "Gắn '-아/어 주세요' sau động từ để yêu cầu ai đó làm việc gì một cách lịch sự. Vì nguyên âm gốc của '열다' là 'ㅕ' nên chia thành '열어 주세요'.",
+      "ZH": "在动词后加上'-아/어 주세요'，表示礼貌地请求对方做某事。因为'열다'词干的元音是'ㅕ'，所以变成'열어 주세요'。",
+      "JA": "動詞の後に「-아/어 주세요」をつけて、相手に何かをしてほしいと丁寧にお願いすることができます。「열다」の語幹の母音が「ㅕ」なので「열어 주세요」になります。"
+    }
+  },
+  {
+    "id": 186,
+    "category": "핵심표현·의사소통",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🎂 🛍️",
+    "keyword": "사다",
+    "speechBubble": "딸기 케이크를 사 주세요.",
+    "situations": {
+      "KO": "무엇을 사 줄지 묻는 상대방에게 딸기 케이크를 사 달라고 요청하는 상황입니다.",
+      "EN": "A situation where someone asks what to buy for you, and you ask them to buy a strawberry cake.",
+      "VI": "Tình huống đối phương hỏi mua gì cho bạn và bạn nhờ họ mua bánh kem dâu tây.",
+      "ZH": "对方问要给你买什么，你请求对方买草莓蛋糕的情况。",
+      "JA": "何を買ってあげようかと聞く相手に、イチゴのケーキを買ってほしいとお願いする場面です。"
+    },
+    "questions": {
+      "KO": "가: 뭘 사 줄까요?\n나: 딸기 케이크를 (   )."
+    },
+    "options": [
+      "사 주세요",
+      "사 볼게요",
+      "사 드세요",
+      "사 오세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "상대방이 '뭘 사 줄까요?'라고 도움을 제안했을 때, '사다'에 요청 표현 '-아/어 주세요'를 결합해 '사 주세요'라고 답합니다.",
+      "EN": "When someone offers help by asking '뭘 사 줄까요?' (What shall I buy for you?), combine '사다' (to buy) with '-아/어 주세요' to form '사 주세요'.",
+      "VI": "Khi đối phương đề nghị giúp đỡ bằng câu '뭘 사 줄까요?', hãy kết hợp '사다' với '-아/어 주세요' để trả lời là '사 주세요'.",
+      "ZH": "当对方问'뭘 사 줄까요?'（要我给你买什么吗？）时，将'사다'与请求表达'-아/어 주세요'结合，回答'사 주세요'。",
+      "JA": "相手が「뭘 사 줄까요?（何を買ってあげましょうか？）」と申し出た時、「사다（買う）」に依頼表現の「-아/어 주세요」を組み合わせて「사 주세요」と答えます。"
+    }
+  },
+  {
+    "id": 187,
+    "category": "핵심표현·의사소통",
+    "type": "sentence",
+    "level": 2,
+    "visual": "📷 🤝",
+    "keyword": "돕다",
+    "speechBubble": "무엇을 도와줄까요?",
+    "situations": {
+      "KO": "상대방에게 어떤 도움을 줄지 물어보고 사진을 찍어 달라고 부탁받는 상황입니다.",
+      "EN": "A situation where you ask how you can help someone, and they ask you to take a photo.",
+      "VI": "Tình huống bạn hỏi có thể giúp gì cho đối phương và được nhờ chụp ảnh giúp.",
+      "ZH": "询问对方需要什么帮助，对方拜托拍照的情况。",
+      "JA": "相手に何を手伝おうかと尋ね、写真を撮ってほしいと頼まれる場面です。"
+    },
+    "questions": {
+      "KO": "가: 무엇을 (   )?\n나: 사진을 찍어 주세요."
+    },
+    "options": [
+      "도와줄까요",
+      "도와주세요",
+      "돕어 줄까요",
+      "도와 드세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'돕다'는 'ㅂ' 불규칙 동사로, 모음 어미 '-아/어' 앞에서 'ㅂ'이 '오'로 바뀌어 '도와'가 됩니다. 상대방에게 도움을 제안할 때는 '도와줄까요?'라고 표현합니다.",
+      "EN": "'돕다' (to help) is a 'ㅂ' irregular verb. Before a vowel ending like '-아/어', 'ㅂ' changes to '오', becoming '도와'. To offer help, say '도와줄까요?'.",
+      "VI": "'돕다' là động từ bất quy tắc 'ㅂ'. Trước đuôi từ bắt đầu bằng nguyên âm '-아/어', 'ㅂ' chuyển thành '오' tạo thành '도와'. Khi đề nghị giúp đỡ, dùng '도와줄까요?'.",
+      "ZH": "'돕다'（帮助）是'ㅂ'不规则动词，在元音词尾'-아/어'前，'ㅂ'变成'오'，成为'도와'。主动提出帮助时使用'도와줄까요?'。",
+      "JA": "「돕다（手伝う）」は「ㅂ」不規則動詞で、母音語尾「-아/어」の前で「ㅂ」が「오」に変わり「도와」になります。手助けを申し出る時は「도와줄까요?」と表現します。"
+    }
+  },
+  {
+    "id": 188,
+    "category": "핵심표현·의사소통",
+    "type": "sentence",
+    "level": 2,
+    "visual": "🎧 🗣️",
+    "keyword": "듣다",
+    "speechBubble": "잘 들어 주세요.",
+    "situations": {
+      "KO": "발표나 설명을 하면서 상대방에게 이야기를 잘 들어 달라고 요청하는 상황입니다.",
+      "EN": "A situation where you ask someone to listen carefully during a presentation or explanation.",
+      "VI": "Tình huống yêu cầu đối phương lắng nghe kỹ khi đang thuyết trình hoặc giải thích.",
+      "ZH": "在发表或说明时，请对方仔细倾听的情况。",
+      "JA": "発表や説明をしながら、相手に話をよく聞いてほしいとお願いする場面です。"
+    },
+    "questions": {
+      "KO": "가: 지금부터 안내 말씀을 드리겠습니다. 잘 (   ).\n나: 네, 알겠습니다."
+    },
+    "options": [
+      "들어 주세요",
+      "듣어 주세요",
+      "들아 주세요",
+      "듣고 주세요"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "'듣다'는 'ㄷ' 불규칙 동사입니다. 어간 뒤에 모음으로 시작하는 '-어 주세요'가 오면 받침 'ㄷ'이 'ㄹ'로 바뀌어 '들어 주세요'가 됩니다.",
+      "EN": "'듣다' (to listen) is a 'ㄷ' irregular verb. When followed by a vowel ending like '-어 주세요', the final consonant 'ㄷ' changes to 'ㄹ', becoming '들어 주세요'.",
+      "VI": "'듣다' (nghe) là động từ bất quy tắc 'ㄷ'. Khi theo sau là đuôi từ bắt đầu bằng nguyên âm như '-어 주세요', phụ âm cuối 'ㄷ' chuyển thành 'ㄹ', thành '들어 주세요'.",
+      "ZH": "'듣다'（听）是'ㄷ'不规则动词。当词干后接以元音开头的'-어 주세요'时，收音'ㄷ'变成'ㄹ'，成为'들어 주세요'。",
+      "JA": "「듣다（聞く）」は「ㄷ」不規則動詞です。語幹の後に母音で始まる「-어 주세요」が来ると、パッチム「ㄷ」が「ㄹ」に変わり「들어 주세요」になります。"
+    }
+  },
+  {
+    "id": 189,
+    "category": "식당·외식·이동",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🏠 🚶",
+    "keyword": "집",
+    "speechBubble": "집으로 가요.",
+    "situations": {
+      "KO": "어디로 이동하는지 방향이나 목적지를 묻고 답하는 상황입니다.",
+      "EN": "A situation of asking and answering about the direction or destination you are heading to.",
+      "VI": "Tình huống hỏi và trả lời về phương hướng hoặc điểm đến đang di chuyển.",
+      "ZH": "询问并回答移动方向或目的地的情况。",
+      "JA": "どこへ移動するのか、方向や目的地を尋ねて答える場面です。"
+    },
+    "questions": {
+      "KO": "가: 지금 어디로 가요?\n나: (   ) 가요."
+    },
+    "options": [
+      "집으로",
+      "집로",
+      "집에서",
+      "집을"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "이동의 방향이나 목적지를 나타낼 때는 장소 명사 뒤에 조사 '-(으)로'를 씁니다. '집'은 받침이 있으므로 '집으로'가 맞습니다.",
+      "EN": "Use the particle '-(으)로' after a place noun to indicate the direction or destination of movement. Since '집' ends in a consonant, '집으로' is correct.",
+      "VI": "Dùng tiểu từ '-(으)로' sau danh từ chỉ địa điểm để biểu thị phương hướng hoặc điểm đến. Vì '집' có phụ âm cuối nên dùng '집으로'.",
+      "ZH": "表示移动的方向或目的地时，在场所名词后使用助词'-(으)로'。因为'집'有收音，所以用'집으로'。",
+      "JA": "移動の方向や目的地を表す時は、場所の名詞の後に助詞「-(으)로」を使います。「집」はパッチムがあるため「집으로」が正しいです。"
+    }
+  },
+  {
+    "id": 190,
+    "category": "식당·외식·이동",
+    "type": "sentence",
+    "level": 1,
+    "visual": "✈️ 🌴",
+    "keyword": "제주도",
+    "speechBubble": "제주도로 여행 가요.",
+    "situations": {
+      "KO": "어디로 여행을 가는지 목적지를 묻고 답하는 상황입니다.",
+      "EN": "A situation where two people ask and answer about their travel destination.",
+      "VI": "Tình huống hỏi và trả lời về địa điểm sẽ đi du lịch.",
+      "ZH": "询问并回答去哪里旅行的情况。",
+      "JA": "どこへ旅行に行くのか目的地を尋ねて答える場面です。"
+    },
+    "questions": {
+      "KO": "가: 이번 휴가에 어디로 여행 가요?\n나: (   ) 여행 가요."
+    },
+    "options": [
+      "제주도로",
+      "제주도으로",
+      "제주도를",
+      "제주도에서"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "방향이나 목적지를 나타내는 조사 '-(으)로'는 받침이 없는 명사나 'ㄹ' 받침 명사 뒤에서 '로'로 결합합니다. '제주도'는 받침이 없으므로 '제주도로'가 됩니다.",
+      "EN": "The direction particle '-(으)로' attaches as '로' after nouns ending in a vowel or the consonant 'ㄹ'. Since '제주도' has no final consonant, it becomes '제주도로'.",
+      "VI": "Tiểu từ chỉ phương hướng '-(으)로' kết hợp thành '로' sau danh từ không có 받침 hoặc có 받침 'ㄹ'. Vì '제주도' không có phụ âm cuối nên thành '제주도로'.",
+      "ZH": "表示方向或目的地的助词'-(으)로'在没有收音或收音为'ㄹ'的名词后写作'로'。因为'제주도'没有收音，所以是'제주도로'。",
+      "JA": "方向や目的地を表す助詞「-(으)로」は、パッチムがない名詞や「ㄹ」パッチムの名詞の後に「로」がつきます。「제주도」はパッチムがないので「제주도로」になります。"
+    }
+  },
+  {
+    "id": 191,
+    "category": "일상생활·장소",
+    "type": "sentence",
+    "level": 1,
+    "visual": "🎒 🙋",
+    "keyword": "가방",
+    "speechBubble": "줄리앙의 가방입니다.",
+    "situations": {
+      "KO": "가방의 주인이 누구인지 물어보고 대답하는 상황입니다.",
+      "EN": "A situation where you ask and answer who owns a bag.",
+      "VI": "Tình huống hỏi và trả lời xem chủ nhân của chiếc cặp là ai.",
+      "ZH": "询问并回答包的主人是谁的情况。",
+      "JA": "かばんの持ち主が誰なのかを尋ねて答える場面です。"
+    },
+    "questions": {
+      "KO": "가: 이거는 누구의 가방입니까?\n나: (   ) 가방입니다."
+    },
+    "options": [
+      "줄리앙의",
+      "줄리앙을",
+      "줄리앙에",
+      "줄리앙으로"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "명사와 명사 사이에서 소유 관계를 나타낼 때는 조사 '의'를 사용합니다. 줄리앙이 소유한 가방이므로 '줄리앙의 가방'이라고 표현합니다.",
+      "EN": "Use the particle '의' between two nouns to express possession. Since the bag belongs to Julian, say '줄리앙의 가방' (Julian's bag).",
+      "VI": "Khi biểu thị quan hệ sở hữu giữa danh từ và danh từ, ta dùng tiểu từ '의'. Vì là chiếc cặp của Julian nên nói là '줄리앙의 가방'.",
+      "ZH": "在名词和名词之间表示所属关系时使用助词'의'。因为是朱利安的包，所以表达为'줄리앙의 가방'。",
+      "JA": "名詞と名詞の間で所有関係を表す時は助詞「의（〜の）」を使います。ジュリアンの所有するかばんなので「줄리앙의 가방」と表現します。"
+    }
+  },
+  {
+    "id": 192,
+    "category": "핵심표현·의사소통",
+    "type": "sentence",
+    "level": 1,
+    "visual": "⌚ 🙋‍♂️",
+    "keyword": "시계",
+    "speechBubble": "네, 제 시계예요.",
+    "situations": {
+      "KO": "상대방이 내 물건이 맞는지 물어봤을 때 내 것이 맞다고 대답하는 상황입니다.",
+      "EN": "A situation where someone asks if an item is yours, and you confirm that it is yours.",
+      "VI": "Tình huống đối phương hỏi món đồ có phải của bạn không và bạn xác nhận đó là đồ của mình.",
+      "ZH": "对方询问物品是不是你的，你回答确实是自己的东西的情况。",
+      "JA": "相手が自分の持ち物かどうかを尋ねた時、自分のものだと答える場面です。"
+    },
+    "questions": {
+      "KO": "가: 스티븐 씨, 이거 스티븐 씨 시계예요?\n스티븐: 네, (   ) 시계예요."
+    },
+    "options": [
+      "제",
+      "저를",
+      "제가",
+      "저에"
+    ],
+    "answerIndex": 0,
+    "explanations": {
+      "KO": "격식 있거나 정중한 자리에서 '나의'를 낮추어 말할 때는 '저의'의 줄임말인 '제'를 명사 앞에 붙여 '제 시계'라고 말합니다.",
+      "EN": "In polite conversation, to humble '나의' (my), place '제' (contraction of '저의') before the noun, as in '제 시계' (my watch).",
+      "VI": "Trong giao tiếp lịch sự, để khiêm nhường hóa từ '나의' (của tôi), hãy dùng '제' (dạng rút gọn của '저의') trước danh từ như '제 시계'.",
+      "ZH": "在礼貌场合将'나의'（我的）谦称时，在名词前加上'저의'的缩略形'제'，说成'제 시계'（我的手表）。",
+      "JA": "丁寧な場面で「나의（私の）」をへりくだって言う時は、「저의」の縮約形である「제」を名詞の前につけて「제 시계（私の時計）」と言います。"
+    }
   }
 ]

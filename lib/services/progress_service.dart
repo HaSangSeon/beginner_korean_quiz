@@ -101,11 +101,21 @@ class ProgressService extends ChangeNotifier {
   List<int> get wrongIds => List.unmodifiable(_wrong);
   bool isLearned(int id) => _learned.contains(id);
 
-  /// Record a single answer (called on the first attempt and on review retries).
-  void recordAnswer(int questionId, bool isCorrect) {
+  /// Record a single answer.
+  /// If [isRetry] is true (re-queued question within normal quiz session),
+  /// answering correctly does not prematurely remove the question from the persistent mistake notebook,
+  /// unless [isReview] is explicitly true (Review Mode).
+  void recordAnswer(
+    int questionId,
+    bool isCorrect, {
+    bool isRetry = false,
+    bool isReview = false,
+  }) {
     if (isCorrect) {
       _learned.add(questionId);
-      _wrong.remove(questionId);
+      if (!isRetry || isReview) {
+        _wrong.remove(questionId);
+      }
       if (_xpDate != _today) {
         _xpDate = _today;
         _xpToday = 0;

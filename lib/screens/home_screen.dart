@@ -128,260 +128,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onCategoryCardTap(BuildContext context, String cat, String emoji, bool isDark) {
-    final levels = QuizRepository.getLevelsByCategory(cat);
-    if (levels.length <= 1) {
-      _navigateToQuiz(
-        context,
-        category: cat,
-        quizType: _selectedTrack,
-        level: levels.firstOrNull ?? 1,
-      );
-      return;
-    }
-    _showLevelSelectionSheet(context, cat, emoji, isDark, levels);
-  }
-
-  void _showLevelSelectionSheet(
-    BuildContext context,
-    String category,
-    String emoji,
-    bool isDark,
-    List<int> levels,
-  ) {
-    final progress = ProgressService();
-    final localizedCat = AppStrings.category(category, _selectedLangCode);
-
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (bottomSheetContext) {
-        return Container(
-          constraints: BoxConstraints(
-            maxHeight: MediaQuery.sizeOf(context).height * 0.85,
-          ),
-          decoration: BoxDecoration(
-            color: isDark ? const Color(0xFF1E293B) : Colors.white,
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: isDark ? 0.4 : 0.15),
-                blurRadius: 20,
-                offset: const Offset(0, -4),
-              ),
-            ],
-          ),
-          padding: const EdgeInsets.fromLTRB(20, 12, 20, 28),
-          child: SafeArea(
-            top: false,
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    margin: const EdgeInsets.only(bottom: 16),
-                    decoration: BoxDecoration(
-                      color: isDark ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                ),
-                Row(
-                  children: [
-                    Container(
-                      width: 48,
-                      height: 48,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: (isDark ? const Color(0xFF2563EB) : const Color(0xFF3B82F6))
-                            .withValues(alpha: 0.15),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Text(emoji, style: const TextStyle(fontSize: 24)),
-                    ),
-                    const SizedBox(width: 14),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            localizedCat,
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w900,
-                              color: isDark ? Colors.white : const Color(0xFF0F172A),
-                            ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            AppStrings.tr('stage_modal_sub', _selectedLangCode),
-                            style: TextStyle(
-                              fontSize: 12.5,
-                              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.close_rounded,
-                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                      ),
-                      onPressed: () => Navigator.pop(bottomSheetContext),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                ...levels.map((lvl) {
-                  final ids = QuizRepository.getIdsByCategoryAndLevel(category, lvl);
-                  final total = ids.length;
-                  final learned = ids.where((id) => progress.isLearned(id)).length;
-                  final isDone = total > 0 && learned == total;
-                  final ratio = total > 0 ? (learned / total) : 0.0;
-                  final stageTitle = lvl == 1
-                      ? AppStrings.tr('stage_level_1', _selectedLangCode)
-                      : AppStrings.tr('stage_level_2', _selectedLangCode);
-
-                  return Container(
-                    margin: const EdgeInsets.only(bottom: 12),
-                    decoration: BoxDecoration(
-                      color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: isDone
-                            ? const Color(0xFF22C55E).withValues(alpha: 0.7)
-                            : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
-                        width: isDone ? 1.5 : 1.0,
-                      ),
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(bottomSheetContext);
-                        _navigateToQuiz(
-                          context,
-                          category: category,
-                          quizType: _selectedTrack,
-                          level: lvl,
-                        );
-                      },
-                      borderRadius: BorderRadius.circular(20),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
-                                  decoration: BoxDecoration(
-                                    color: (isDone
-                                            ? const Color(0xFF22C55E)
-                                            : (lvl == 1
-                                                ? const Color(0xFF2563EB)
-                                                : const Color(0xFFF97316)))
-                                        .withValues(alpha: 0.15),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  child: Text(
-                                    'STEP $lvl',
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w900,
-                                      color: isDone
-                                          ? const Color(0xFF22C55E)
-                                          : (lvl == 1
-                                              ? const Color(0xFF2563EB)
-                                              : const Color(0xFFF97316)),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Text(
-                                    stageTitle,
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w800,
-                                      color: isDark ? Colors.white : const Color(0xFF0F172A),
-                                    ),
-                                  ),
-                                ),
-                                if (isDone)
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFF22C55E).withValues(alpha: 0.15),
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const Icon(Icons.check_circle_rounded,
-                                            size: 14, color: Color(0xFF22C55E)),
-                                        const SizedBox(width: 4),
-                                        Text(
-                                          AppStrings.tr('stage_completed', _selectedLangCode),
-                                          style: const TextStyle(
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.w800,
-                                            color: Color(0xFF22C55E),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                else
-                                  Text(
-                                    '$learned / $total',
-                                    style: TextStyle(
-                                      fontSize: 12.5,
-                                      fontWeight: FontWeight.w700,
-                                      color: isDark
-                                          ? const Color(0xFF94A3B8)
-                                          : const Color(0xFF64748B),
-                                    ),
-                                  ),
-                              ],
-                            ),
-                            const SizedBox(height: 12),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(4),
-                              child: LinearProgressIndicator(
-                                value: ratio,
-                                minHeight: 6,
-                                backgroundColor: isDark
-                                    ? const Color(0xFF1E293B)
-                                    : const Color(0xFFE2E8F0),
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  isDone
-                                      ? const Color(0xFF22C55E)
-                                      : (lvl == 1
-                                          ? const Color(0xFF2563EB)
-                                          : const Color(0xFFF97316)),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-              ],
-            ),
-          ),
-        ),
-      );
-      },
+    _navigateToQuiz(
+      context,
+      category: cat,
+      quizType: _selectedTrack,
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -409,23 +162,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     _buildTrackSwitcherSection(context, isDark),
                     const SizedBox(height: 18),
 
-                    // 3~6. Dialogue track replaces quiz sections
+                    // 3. Main Hero Card (Adapts to all 4 tracks: K-Life, Daily Sentences, Basic Words, Dialogues)
+                    _buildHeroQuizCard(context, isDark),
+                    const SizedBox(height: 16),
+
+                    // 4. Prominent [Start] CTA Button (Adapts to all 4 tracks)
+                    _buildMainStartButton(context, isDark),
+                    const SizedBox(height: 24),
+
+                    // 5. Track specific content
                     if (_selectedTrack == 'dialogue') ...[
                       _buildDialogueSection(context, isDark),
                     ] else ...[
-                    // 3. Main Hero Card (Adapts to _selectedTrack)
-                    _buildHeroQuizCard(context, isDark),
-                    const SizedBox(height: 18),
+                      // Mistake Review (only when there are mistakes in this track)
+                      _buildReviewCard(context, isDark),
 
-                    // 4. Prominent [Start Quiz] CTA Button (Adapts to _selectedTrack)
-                    _buildMainStartButton(context, isDark),
-                    const SizedBox(height: 14),
-
-                    // 5. Mistake Review (only when there are mistakes in this track)
-                    _buildReviewCard(context, isDark),
-
-                    // 6. Topic list with per-topic progress
-                    _buildCategorySection(context, isDark),
+                      // Topic list with per-topic progress
+                      _buildCategorySection(context, isDark),
                     ],
                     const SizedBox(height: 22),
 
@@ -922,11 +675,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+        const SizedBox(height: 14),
         Builder(
           builder: (context) {
             final screenWidth = MediaQuery.sizeOf(context).width;
             final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
-            final double dynamicAspectRatio = (screenWidth < 360 || textScale > 1.1) ? 1.24 : 1.35;
+            final double dynamicAspectRatio = (screenWidth < 360 || textScale > 1.1) ? 0.98 : 1.05;
 
             return GridView.builder(
               shrinkWrap: true,
@@ -946,19 +700,17 @@ class _HomeScreenState extends State<HomeScreen> {
             final ratio = total > 0 ? (learned / total) : 0.0;
             final emoji = _categoryEmoji[cat] ?? '📌';
             final isComplete = learned == total && total > 0;
-            final levels = QuizRepository.getLevelsByCategory(cat);
-            final hasMultipleLevels = levels.length > 1;
 
             return Material(
               color: isDark ? const Color(0xFF1E293B) : Colors.white,
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(20),
               child: InkWell(
                 onTap: () => _onCategoryCardTap(context, cat, emoji, isDark),
-                borderRadius: BorderRadius.circular(18),
+                borderRadius: BorderRadius.circular(20),
                 child: Container(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.fromLTRB(14, 13, 14, 13),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
+                    borderRadius: BorderRadius.circular(20),
                     border: Border.all(
                       color: isComplete
                           ? const Color(0xFF22C55E).withValues(alpha: 0.6)
@@ -980,40 +732,58 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(emoji, style: const TextStyle(fontSize: 22)),
-                              if (hasMultipleLevels) ...[
-                                const SizedBox(width: 5),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
-                                  decoration: BoxDecoration(
-                                    color: (isDark ? const Color(0xFF2563EB) : const Color(0xFF3B82F6))
-                                        .withValues(alpha: 0.15),
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                  child: Text(
-                                    'Lv 1~${levels.last}',
-                                    style: TextStyle(
-                                      fontSize: 9.5,
-                                      fontWeight: FontWeight.w800,
-                                      color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ],
+                          Container(
+                            width: 38,
+                            height: 38,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: (isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9)),
+                              borderRadius: BorderRadius.circular(11),
+                              border: Border.all(
+                                color: (isDark ? const Color(0xFF475569) : const Color(0xFFE2E8F0)).withValues(alpha: 0.6),
+                                width: 0.8,
+                              ),
+                            ),
+                            child: Text(emoji, style: const TextStyle(fontSize: 20)),
                           ),
                           if (isComplete)
-                            const Icon(Icons.check_circle_rounded, size: 18, color: Color(0xFF22C55E))
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 7.5, vertical: 3.5),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF22C55E).withValues(alpha: 0.15),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(Icons.check_circle_rounded, size: 12, color: Color(0xFF22C55E)),
+                                  SizedBox(width: 3),
+                                  Text(
+                                    'DONE',
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w900,
+                                      color: Color(0xFF22C55E),
+                                      letterSpacing: 0.2,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
                           else
-                            Text(
-                              '$learned/$total',
-                              style: TextStyle(
-                                fontSize: 11.5,
-                                fontWeight: FontWeight.w700,
-                                color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+                              decoration: BoxDecoration(
+                                color: (isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9)),
+                                borderRadius: BorderRadius.circular(7),
+                              ),
+                              child: Text(
+                                '$learned/$total',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w700,
+                                  color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                                ),
                               ),
                             ),
                         ],
@@ -1026,23 +796,25 @@ class _HomeScreenState extends State<HomeScreen> {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 13.5,
                               fontWeight: FontWeight.w800,
+                              letterSpacing: -0.2,
                               color: isDark ? Colors.white : const Color(0xFF0F172A),
                             ),
                           ),
-                          const SizedBox(height: 6),
+                          const SizedBox(height: 10),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(4),
+                            borderRadius: BorderRadius.circular(6),
                             child: LinearProgressIndicator(
                               value: ratio,
-                              minHeight: 4.5,
+                              minHeight: 5.0,
                               backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFE2E8F0),
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 isComplete ? const Color(0xFF22C55E) : const Color(0xFF2563EB),
                               ),
                             ),
                           ),
+                          const SizedBox(height: 2),
                         ],
                       ),
                     ],
@@ -1364,12 +1136,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildHeroQuizCard(BuildContext context, bool isDark) {
     final isWordTrack = _selectedTrack == 'word';
     final isSurvivalTrack = _selectedTrack == 'survival';
-    final currentLangLabel = supportedLanguages
-        .firstWhere(
-          (l) => l.code == _selectedLangCode,
-          orElse: () => supportedLanguages.first,
-        )
-        .label;
+    final isDialogueTrack = _selectedTrack == 'dialogue';
 
     final gradientColors = isWordTrack
         ? const [
@@ -1383,30 +1150,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 Color(0xFFC2410C), // Orange 700
                 Color(0xFF7E22CE), // Purple 700
               ]
-            : const [
-                Color(0xFF0F172A), // Slate 900
-                Color(0xFF1E3A8A), // Indigo 900
-                Color(0xFF1D4ED8), // Blue 700
-              ]);
+            : (isDialogueTrack
+                ? const [
+                    Color(0xFF500724), // Rose 950
+                    Color(0xFF9D174D), // Rose 700
+                    Color(0xFFDB2777), // Pink 600
+                  ]
+                : const [
+                    Color(0xFF0F172A), // Slate 900
+                    Color(0xFF1E3A8A), // Indigo 900
+                    Color(0xFF1D4ED8), // Blue 700
+                  ]));
 
     final watermarkText = isWordTrack
         ? '단어'
-        : (isSurvivalTrack ? 'K-생존' : '대화');
+        : (isSurvivalTrack ? 'K-생존' : (isDialogueTrack ? '회화' : '대화'));
     final heroBadgeText = isWordTrack
         ? AppStrings.tr('hero_vocab_badge', _selectedLangCode)
         : (isSurvivalTrack
             ? AppStrings.tr('hero_survival_badge', _selectedLangCode)
-            : AppStrings.tr('hero_badge', _selectedLangCode));
+            : (isDialogueTrack
+                ? AppStrings.tr('hero_dialogue_badge', _selectedLangCode)
+                : AppStrings.tr('hero_badge', _selectedLangCode)));
     final heroTitleText = isWordTrack
         ? AppStrings.tr('hero_vocab_title', _selectedLangCode)
         : (isSurvivalTrack
             ? AppStrings.tr('hero_survival_title', _selectedLangCode)
-            : AppStrings.tr('hero_title', _selectedLangCode));
+            : (isDialogueTrack
+                ? AppStrings.tr('hero_dialogue_title', _selectedLangCode)
+                : AppStrings.tr('hero_title', _selectedLangCode)));
     final heroDescText = isWordTrack
         ? AppStrings.tr('hero_vocab_desc', _selectedLangCode)
         : (isSurvivalTrack
             ? AppStrings.tr('hero_survival_desc', _selectedLangCode)
-            : AppStrings.tr('hero_desc', _selectedLangCode));
+            : (isDialogueTrack
+                ? AppStrings.tr('hero_dialogue_desc', _selectedLangCode)
+                : AppStrings.tr('hero_desc', _selectedLangCode)));
 
     return Container(
       decoration: BoxDecoration(
@@ -1418,7 +1197,9 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(26),
         boxShadow: [
           BoxShadow(
-            color: (isWordTrack ? const Color(0xFF0F766E) : const Color(0xFF1E3A8A))
+            color: (isWordTrack
+                    ? const Color(0xFF0F766E)
+                    : (isDialogueTrack ? const Color(0xFF9D174D) : const Color(0xFF1E3A8A)))
                 .withValues(alpha: 0.35),
             blurRadius: 20,
             offset: const Offset(0, 10),
@@ -1448,68 +1229,6 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.18),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.3),
-                            width: 1,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(
-                              Icons.translate_rounded,
-                              size: 14,
-                              color: Color(0xFFFDE047),
-                            ),
-                            const SizedBox(width: 6),
-                            Flexible(
-                              child: Text(
-                                'ACTIVE: $currentLangLabel',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 0.6,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withValues(alpha: 0.25),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        isWordTrack
-                            ? AppStrings.tr('track_label_word', _selectedLangCode)
-                            : AppStrings.tr('track_label_sentence', _selectedLangCode),
-                        style: const TextStyle(
-                          color: Color(0xFF93C5FD),
-                          fontSize: 11,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-
                 // Hero Badge
                 Text(
                   heroBadgeText,
@@ -1606,39 +1325,53 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onTap: () => _onCategoryCardTap(context, '병원·약국·응급', _categoryEmoji['병원·약국·응급'] ?? '💊', isDark),
                               ),
                             ]
-                          : [
-                              _buildPillTag(
-                                icon: Icons.badge_rounded,
-                                label: AppStrings.category('자기소개·직업', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '자기소개·직업', _categoryEmoji['자기소개·직업'] ?? '👤', isDark),
-                              ),
-                              _buildPillTag(
-                                icon: Icons.apartment_rounded,
-                                label: AppStrings.category('일상생활·장소', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '일상생활·장소', _categoryEmoji['일상생활·장소'] ?? '🏙️', isDark),
-                              ),
-                              _buildPillTag(
-                                icon: Icons.restaurant_rounded,
-                                label: AppStrings.category('식당·외식·이동', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '식당·외식·이동', _categoryEmoji['식당·외식·이동'] ?? '🍽️', isDark),
-                              ),
-                              _buildPillTag(
-                                icon: Icons.lightbulb_rounded,
-                                label: AppStrings.category('핵심표현·의사소통', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '핵심표현·의사소통', _categoryEmoji['핵심표현·의사소통'] ?? '💡', isDark),
-                              ),
-                              _buildPillTag(
-                                icon: Icons.calendar_month_rounded,
-                                label: AppStrings.category('시간·일정·문장완성', _selectedLangCode),
-                                bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
-                                iconColor: const Color(0xFFFDE047),
-                                onTap: () => _onCategoryCardTap(context, '시간·일정·문장완성', _categoryEmoji['시간·일정·문장완성'] ?? '🗓️', isDark),
-                              ),
-                            ]),
+                          : (isDialogueTrack
+                              ? dialogues.take(4).map((d) {
+                                  return _buildPillTag(
+                                    icon: Icons.chat_bubble_outline_rounded,
+                                    label: d.title(_selectedLangCode),
+                                    bgColor: Colors.white.withValues(alpha: 0.16),
+                                    onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => DialogueScreen(dialogue: d, langCode: _selectedLangCode),
+                                      ),
+                                    ),
+                                  );
+                                }).toList()
+                              : [
+                                  _buildPillTag(
+                                    icon: Icons.badge_rounded,
+                                    label: AppStrings.category('자기소개·직업', _selectedLangCode),
+                                    bgColor: Colors.white.withValues(alpha: 0.15),
+                                    onTap: () => _onCategoryCardTap(context, '자기소개·직업', _categoryEmoji['자기소개·직업'] ?? '👤', isDark),
+                                  ),
+                                  _buildPillTag(
+                                    icon: Icons.apartment_rounded,
+                                    label: AppStrings.category('일상생활·장소', _selectedLangCode),
+                                    bgColor: Colors.white.withValues(alpha: 0.15),
+                                    onTap: () => _onCategoryCardTap(context, '일상생활·장소', _categoryEmoji['일상생활·장소'] ?? '🏙️', isDark),
+                                  ),
+                                  _buildPillTag(
+                                    icon: Icons.restaurant_rounded,
+                                    label: AppStrings.category('식당·외식·이동', _selectedLangCode),
+                                    bgColor: Colors.white.withValues(alpha: 0.15),
+                                    onTap: () => _onCategoryCardTap(context, '식당·외식·이동', _categoryEmoji['식당·외식·이동'] ?? '🍽️', isDark),
+                                  ),
+                                  _buildPillTag(
+                                    icon: Icons.lightbulb_rounded,
+                                    label: AppStrings.category('핵심표현·의사소통', _selectedLangCode),
+                                    bgColor: Colors.white.withValues(alpha: 0.15),
+                                    onTap: () => _onCategoryCardTap(context, '핵심표현·의사소통', _categoryEmoji['핵심표현·의사소통'] ?? '💡', isDark),
+                                  ),
+                                  _buildPillTag(
+                                    icon: Icons.calendar_month_rounded,
+                                    label: AppStrings.category('시간·일정·문장완성', _selectedLangCode),
+                                    bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
+                                    iconColor: const Color(0xFFFDE047),
+                                    onTap: () => _onCategoryCardTap(context, '시간·일정·문장완성', _categoryEmoji['시간·일정·문장완성'] ?? '🗓️', isDark),
+                                  ),
+                                ])),
                 ),
               ],
             ),
@@ -1698,6 +1431,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildMainStartButton(BuildContext context, bool isDark) {
     final isWordTrack = _selectedTrack == 'word';
     final isSurvivalTrack = _selectedTrack == 'survival';
+    final isDialogueTrack = _selectedTrack == 'dialogue';
+
     final buttonGradient = isWordTrack
         ? const LinearGradient(
             colors: [
@@ -1716,31 +1451,54 @@ class _HomeScreenState extends State<HomeScreen> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               )
-            : const LinearGradient(
-                colors: [
-                  Color(0xFF2563EB), // Blue 600
-                  Color(0xFF1D4ED8), // Blue 700
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ));
+            : (isDialogueTrack
+                ? const LinearGradient(
+                    colors: [
+                      Color(0xFFDB2777), // Pink 600
+                      Color(0xFFBE185D), // Pink 700
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  )
+                : const LinearGradient(
+                    colors: [
+                      Color(0xFF2563EB), // Blue 600
+                      Color(0xFF1D4ED8), // Blue 700
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  )));
 
     final trackCount = QuizRepository.getCountByType(_selectedTrack);
+    final buttonTitle = isDialogueTrack
+        ? AppStrings.tr('btn_start_dialogue', _selectedLangCode)
+        : AppStrings.tr('start_quiz_btn', _selectedLangCode);
     final buttonSub = isWordTrack
         ? AppStrings.tr('btn_sub_vocab', _selectedLangCode, {'count': '$trackCount'})
         : (isSurvivalTrack
             ? AppStrings.tr('btn_sub_survival', _selectedLangCode, {'count': '$trackCount'})
-            : AppStrings.tr('btn_sub_sentence', _selectedLangCode, {'count': '$trackCount'}));
+            : (isDialogueTrack
+                ? AppStrings.tr('btn_sub_dialogue', _selectedLangCode)
+                : AppStrings.tr('btn_sub_sentence', _selectedLangCode, {'count': '$trackCount'})));
+
+    final shadowColor = isWordTrack
+        ? const Color(0xFF0D9488)
+        : (isSurvivalTrack
+            ? const Color(0xFFEA580C)
+            : (isDialogueTrack ? const Color(0xFFDB2777) : const Color(0xFF2563EB)));
+
+    final playIconColor = isWordTrack
+        ? const Color(0xFF0F766E)
+        : (isSurvivalTrack
+            ? const Color(0xFFC2410C)
+            : (isDialogueTrack ? const Color(0xFFBE185D) : const Color(0xFF1D4ED8)));
 
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(22),
         boxShadow: [
           BoxShadow(
-            color: (isWordTrack
-                    ? const Color(0xFF0D9488)
-                    : (isSurvivalTrack ? const Color(0xFFEA580C) : const Color(0xFF2563EB)))
-                .withValues(alpha: 0.35),
+            color: shadowColor.withValues(alpha: 0.35),
             blurRadius: 18,
             offset: const Offset(0, 8),
           ),
@@ -1758,7 +1516,20 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           child: InkWell(
-            onTap: () => _navigateToQuiz(context, quizType: _selectedTrack),
+            onTap: () {
+              if (isDialogueTrack) {
+                if (dialogues.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => DialogueScreen(dialogue: dialogues.first, langCode: _selectedLangCode),
+                    ),
+                  );
+                }
+              } else {
+                _navigateToQuiz(context, quizType: _selectedTrack);
+              }
+            },
             borderRadius: BorderRadius.circular(22),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
@@ -1774,9 +1545,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: Icon(
                       Icons.play_arrow_rounded,
-                      color: isWordTrack
-                          ? const Color(0xFF0F766E)
-                          : (isSurvivalTrack ? const Color(0xFFC2410C) : const Color(0xFF1D4ED8)),
+                      color: playIconColor,
                       size: 26,
                     ),
                   ),
@@ -1786,7 +1555,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          AppStrings.tr('start_quiz_btn', _selectedLangCode),
+                          buttonTitle,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(

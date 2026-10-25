@@ -35,6 +35,7 @@ class _QuizScreenState extends State<QuizScreen> {
   late String _currentLangCode;
   late int _sessionSize; // unique questions (excluding re-queued retries)
   final Set<int> _retryIndexes = {}; // indexes of re-queued (retry) questions
+  final List<int> _sessionWrongIds = []; // question IDs answered incorrectly in this session
   int _currentIndex = 0;
   int _score = 0;
   int _combo = 0;
@@ -137,6 +138,7 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   bool get _isRetryQuestion => _retryIndexes.contains(_currentIndex);
+  bool get _isReviewMode => widget.reviewIds != null && widget.reviewIds!.isNotEmpty;
 
   /// Copy a question with freshly shuffled options (used when re-queuing a mistake)
   QuizQuestion _reshuffled(QuizQuestion q) {
@@ -185,7 +187,18 @@ class _QuizScreenState extends State<QuizScreen> {
       HapticFeedback.heavyImpact();
     }
 
-    ProgressService().recordAnswer(currentQuestion.id, isCorrect);
+    if (!_isRetryQuestion && !isCorrect) {
+      if (!_sessionWrongIds.contains(currentQuestion.id)) {
+        _sessionWrongIds.add(currentQuestion.id);
+      }
+    }
+
+    ProgressService().recordAnswer(
+      currentQuestion.id,
+      isCorrect,
+      isRetry: _isRetryQuestion,
+      isReview: _isReviewMode,
+    );
 
     setState(() {
       _selectedOptionIndex = index;
@@ -228,6 +241,9 @@ class _QuizScreenState extends State<QuizScreen> {
             quizType: widget.quizType,
             category: widget.category,
             level: widget.level,
+            isReviewMode: _isReviewMode,
+            reviewIds: widget.reviewIds,
+            sessionWrongIds: _sessionWrongIds,
           ),
         ),
       );
@@ -235,6 +251,10 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   String _getQuizTitle() {
+    if (_isReviewMode) {
+      return AppStrings.tr('review_title', _currentLangCode);
+    }
+
     final currentType = (_questions.isNotEmpty && _currentIndex < _questions.length)
         ? _questions[_currentIndex].type
         : (widget.quizType ?? 'word');
@@ -1574,17 +1594,28 @@ class _QuizScreenState extends State<QuizScreen> {
           const SizedBox(height: 10),
 
           // 2. Central Picture Illustration / Situation Scene
-          // In dialogue quizzes: compact & elegant scene pill to maximize vertical space for dialogue & options
+          // In dialogue quizzes: elegant, prominent scene pill with clear context clues for learners
           if (turns.length > 1) ...[
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               decoration: BoxDecoration(
-                color: isDark ? const Color(0xFF0F172A).withValues(alpha: 0.45) : const Color(0xFFF8FAFC),
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(
-                  color: isDark ? const Color(0xFF334155).withValues(alpha: 0.6) : const Color(0xFFE2E8F0),
-                  width: 1.0,
+                gradient: LinearGradient(
+                  colors: isDark
+                      ? [const Color(0xFF0F172A), const Color(0xFF1E293B)]
+                      : [const Color(0xFFF1F5F9), const Color(0xFFE2E8F0).withValues(alpha: 0.5)],
                 ),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
+                  width: 1.2,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: isDark ? 0.25 : 0.04),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -1592,27 +1623,44 @@ class _QuizScreenState extends State<QuizScreen> {
                 children: [
                   Text(
                     visual,
-                    style: const TextStyle(fontSize: 22, letterSpacing: 1),
+                    style: const TextStyle(fontSize: 30, letterSpacing: 2),
                   ),
                   if (showKeyword) ...[
-                    const SizedBox(width: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2.5),
-                      decoration: BoxDecoration(
-                        color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                        borderRadius: BorderRadius.circular(6),
-                        border: Border.all(
-                          color: isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
-                          width: 1,
+                    const SizedBox(width: 10),
+                    InkWell(
+                      onTap: _isAnswered ? () => TtsService().speak(currentQuestion.keyword!) : null,
+                      borderRadius: BorderRadius.circular(8),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.5) : const Color(0xFF93C5FD),
+                            width: 1.1,
+                          ),
                         ),
-                      ),
-                      child: Text(
-                        currentQuestion.keyword!,
-                        style: TextStyle(
-                          fontSize: 11.5,
-                          fontWeight: FontWeight.w800,
-                          color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B),
-                          letterSpacing: 0.2,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              currentQuestion.keyword!,
+                              style: TextStyle(
+                                fontSize: 12.5,
+                                fontWeight: FontWeight.w800,
+                                color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                                letterSpacing: 0.2,
+                              ),
+                            ),
+                            if (_isAnswered) ...[
+                              const SizedBox(width: 4),
+                              Icon(
+                                Icons.volume_up_rounded,
+                                size: 14,
+                                color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                              ),
+                            ],
+                          ],
                         ),
                       ),
                     ),
@@ -1621,76 +1669,130 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
             ),
           ] else ...[
-            // In Word or Single Sentence quizzes: prominent, vivid picture showcase
+            // In Word or Single Sentence quizzes: prominent, vivid picture showcase with squircle aura frame
             Container(
               width: double.infinity,
               padding: EdgeInsets.symmetric(
-                vertical: isWordQuiz ? 16 : 10,
-                horizontal: 14,
+                vertical: isWordQuiz ? 20 : 12,
+                horizontal: 16,
               ),
               decoration: BoxDecoration(
-                color: isDark
-                    ? const Color(0xFF0F172A).withValues(alpha: 0.6)
-                    : const Color(0xFFF8FAFC),
-                borderRadius: BorderRadius.circular(18),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: isDark
+                      ? [const Color(0xFF0F172A).withValues(alpha: 0.8), const Color(0xFF1E293B).withValues(alpha: 0.6)]
+                      : [const Color(0xFFF8FAFC), const Color(0xFFEFF6FF).withValues(alpha: 0.6)],
+                ),
+                borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                   color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                  width: 1.0,
+                  width: 1.2,
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.03),
+                    blurRadius: 10,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Builder(
-                    builder: (context) {
-                      final isImagePath = visual.startsWith('assets/') ||
-                          visual.endsWith('.webp') ||
-                          visual.endsWith('.png') ||
-                          visual.endsWith('.jpg');
-                      final imgSize = isWordQuiz ? 104.0 : 48.0;
-                      if (isImagePath) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.asset(
-                            visual,
-                            width: imgSize,
-                            height: imgSize,
-                            fit: BoxFit.contain,
-                            errorBuilder: (context, error, stackTrace) => Text(
-                              '🖼️',
-                              style: TextStyle(fontSize: isWordQuiz ? 56 : 28),
+                  // Squircle Aura Frame for the Emoji / Illustration
+                  Container(
+                    padding: EdgeInsets.all(isWordQuiz ? 16 : 8),
+                    decoration: BoxDecoration(
+                      color: isDark
+                          ? const Color(0xFF1E293B).withValues(alpha: 0.7)
+                          : Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                        width: 1.0,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: (isDark ? Colors.black : const Color(0xFF64748B)).withValues(alpha: isDark ? 0.3 : 0.08),
+                          blurRadius: 12,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Builder(
+                      builder: (context) {
+                        final isImagePath = visual.startsWith('assets/') ||
+                            visual.endsWith('.webp') ||
+                            visual.endsWith('.png') ||
+                            visual.endsWith('.jpg');
+                        final imgSize = isWordQuiz ? 110.0 : 54.0;
+                        if (isImagePath) {
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(14),
+                            child: Image.asset(
+                              visual,
+                              width: imgSize,
+                              height: imgSize,
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) => Text(
+                                '🖼️',
+                                style: TextStyle(fontSize: isWordQuiz ? 68 : 34),
+                              ),
                             ),
+                          );
+                        }
+                        return Text(
+                          visual,
+                          style: TextStyle(
+                            fontSize: isWordQuiz ? 68 : 34,
+                            letterSpacing: 2,
                           ),
                         );
-                      }
-                      return Text(
-                        visual,
-                        style: TextStyle(
-                          fontSize: isWordQuiz ? 56 : 30,
-                          letterSpacing: 2,
-                        ),
-                      );
-                    },
+                      },
+                    ),
                   ),
                   if (showKeyword) ...[
-                    const SizedBox(height: 6),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
-                          width: 1,
+                    const SizedBox(height: 10),
+                    InkWell(
+                      onTap: () => TtsService().speak(currentQuestion.keyword!),
+                      borderRadius: BorderRadius.circular(12),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.6) : const Color(0xFF93C5FD),
+                            width: 1.2,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFF3B82F6).withValues(alpha: isDark ? 0.2 : 0.08),
+                              blurRadius: 6,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
                         ),
-                      ),
-                      child: Text(
-                        currentQuestion.keyword!,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w800,
-                          color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B),
-                          letterSpacing: 0.3,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              currentQuestion.keyword!,
+                              style: TextStyle(
+                                fontSize: 13.5,
+                                fontWeight: FontWeight.w800,
+                                color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                                letterSpacing: 0.3,
+                              ),
+                            ),
+                            const SizedBox(width: 6),
+                            Icon(
+                              Icons.volume_up_rounded,
+                              size: 15,
+                              color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -1706,23 +1808,33 @@ class _QuizScreenState extends State<QuizScreen> {
             final turn = turns[turnIndex];
             final isFirst = turn.isFirst;
             final isTargetRow = turn.isBlankTarget;
+            final isExample = turn.isExample;
 
-            // Background & Border styling tuned for context vs active interactive row
-            final rowBg = isTargetRow
-                ? (isDark
-                    ? const Color(0xFF1E1B4B).withValues(alpha: 0.6)
-                    : const Color(0xFFF5F3FF))
-                : (isDark
-                    ? const Color(0xFF0F172A).withValues(alpha: 0.75)
-                    : const Color(0xFFF8FAFC));
-
-            final rowBorder = isTargetRow
-                ? (isDark
-                    ? const Color(0xFF6366F1).withValues(alpha: 0.6)
-                    : const Color(0xFF818CF8))
-                : (isDark
-                    ? const Color(0xFF334155)
-                    : const Color(0xFFE2E8F0));
+            // Background & Border styling tuned for context vs example vs active interactive row
+            final Color rowBg;
+            final Color rowBorder;
+            if (isExample) {
+              rowBg = isDark
+                  ? const Color(0xFF2E2415).withValues(alpha: 0.5)
+                  : const Color(0xFFFFFBEB);
+              rowBorder = isDark
+                  ? const Color(0xFFD97706).withValues(alpha: 0.5)
+                  : const Color(0xFFFDE68A);
+            } else if (isTargetRow) {
+              rowBg = isDark
+                  ? const Color(0xFF1E1B4B).withValues(alpha: 0.6)
+                  : const Color(0xFFF5F3FF);
+              rowBorder = isDark
+                  ? const Color(0xFF6366F1).withValues(alpha: 0.6)
+                  : const Color(0xFF818CF8);
+            } else {
+              rowBg = isDark
+                  ? const Color(0xFF0F172A).withValues(alpha: 0.75)
+                  : const Color(0xFFF8FAFC);
+              rowBorder = isDark
+                  ? const Color(0xFF334155)
+                  : const Color(0xFFE2E8F0);
+            }
 
             return Padding(
               padding: EdgeInsets.only(top: turnIndex > 0 ? 8.0 : 0.0),
@@ -1734,7 +1846,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
                     color: rowBorder,
-                    width: isTargetRow ? 1.5 : 1.0,
+                    width: (isTargetRow || isExample) ? 1.5 : 1.0,
                   ),
                   boxShadow: [
                     if (isTargetRow)
@@ -1742,6 +1854,13 @@ class _QuizScreenState extends State<QuizScreen> {
                         color: (isDark ? const Color(0xFF6366F1) : const Color(0xFF818CF8))
                             .withValues(alpha: isDark ? 0.22 : 0.08),
                         blurRadius: 8,
+                        offset: const Offset(0, 2),
+                      )
+                    else if (isExample)
+                      BoxShadow(
+                        color: (isDark ? const Color(0xFFD97706) : const Color(0xFFF59E0B))
+                            .withValues(alpha: isDark ? 0.18 : 0.06),
+                        blurRadius: 6,
                         offset: const Offset(0, 2),
                       ),
                   ],
@@ -1754,68 +1873,79 @@ class _QuizScreenState extends State<QuizScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // Speaker Pill or Question Tag
+                        // Speaker Pill or Question/Example Tag
                         if (turn.hasExplicitSpeaker || turns.length > 1)
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3.5),
-                                decoration: BoxDecoration(
-                                  color: isFirst
+                              Builder(builder: (context) {
+                                final Color pillBg;
+                                final Color pillBorder;
+                                final Color pillText;
+                                final String pillLabel;
+
+                                if (isExample) {
+                                  pillBg = isDark
+                                      ? const Color(0xFF78350F).withValues(alpha: 0.45)
+                                      : const Color(0xFFFEF3C7);
+                                  pillBorder = isDark
+                                      ? const Color(0xFFF59E0B).withValues(alpha: 0.4)
+                                      : const Color(0xFFFCD34D);
+                                  pillText = isDark
+                                      ? const Color(0xFFFCD34D)
+                                      : const Color(0xFFB45309);
+                                  pillLabel = '보기 (예문)';
+                                } else if (turn.speakerName == '문제') {
+                                  pillBg = isDark
+                                      ? const Color(0xFF312E81).withValues(alpha: 0.45)
+                                      : const Color(0xFFEEF2FF);
+                                  pillBorder = isDark
+                                      ? const Color(0xFF6366F1).withValues(alpha: 0.4)
+                                      : const Color(0xFFC7D2FE);
+                                  pillText = isDark
+                                      ? const Color(0xFFA5B4FC)
+                                      : const Color(0xFF4F46E5);
+                                  pillLabel = '문제 (빈칸 완성)';
+                                } else {
+                                  pillBg = isFirst
                                       ? (isDark ? const Color(0xFF1E3A8A).withValues(alpha: 0.35) : const Color(0xFFEFF6FF))
-                                      : (isDark ? const Color(0xFF312E81).withValues(alpha: 0.35) : const Color(0xFFFAF5FF)),
-                                  borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(
-                                    color: isFirst
-                                        ? (isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.4) : const Color(0xFFBFDBFE))
-                                        : (isDark ? const Color(0xFF818CF8).withValues(alpha: 0.4) : const Color(0xFFE9D5FF)),
-                                    width: 1,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      turn.emoji,
-                                      style: const TextStyle(fontSize: 12.5),
-                                    ),
-                                    const SizedBox(width: 4.5),
-                                    Text(
-                                      turn.speakerName,
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w800,
-                                        color: isFirst
-                                            ? (isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8))
-                                            : (isDark ? const Color(0xFFC7D2FE) : const Color(0xFF6B21A8)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              if (isTargetRow) ...[
-                                const SizedBox(width: 6),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                      : (isDark ? const Color(0xFF312E81).withValues(alpha: 0.35) : const Color(0xFFFAF5FF));
+                                  pillBorder = isFirst
+                                      ? (isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.4) : const Color(0xFFBFDBFE))
+                                      : (isDark ? const Color(0xFF818CF8).withValues(alpha: 0.4) : const Color(0xFFE9D5FF));
+                                  pillText = isFirst
+                                      ? (isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8))
+                                      : (isDark ? const Color(0xFFC7D2FE) : const Color(0xFF6B21A8));
+                                  pillLabel = turn.speakerName;
+                                }
+
+                                return Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3.5),
                                   decoration: BoxDecoration(
-                                    color: isDark ? const Color(0xFF312E81).withValues(alpha: 0.4) : const Color(0xFFEEF2FF),
-                                    borderRadius: BorderRadius.circular(4),
-                                    border: Border.all(
-                                      color: isDark ? const Color(0xFF6366F1).withValues(alpha: 0.4) : const Color(0xFFC7D2FE),
-                                      width: 0.8,
-                                    ),
+                                    color: pillBg,
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(color: pillBorder, width: 1),
                                   ),
-                                  child: Text(
-                                    '정답 선택',
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w700,
-                                      color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF4F46E5),
-                                    ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        turn.emoji,
+                                        style: const TextStyle(fontSize: 12.5),
+                                      ),
+                                      const SizedBox(width: 4.5),
+                                      Text(
+                                        pillLabel,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w800,
+                                          color: pillText,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
+                                );
+                              }),
                             ],
                           )
                         else
@@ -1839,46 +1969,47 @@ class _QuizScreenState extends State<QuizScreen> {
                             ],
                           ),
 
-                        // Trailing Action: Interactive Korean TTS button
-                        Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(18),
-                            onTap: () {
-                              final textToSpeak = turn.isBlankTarget
-                                  ? (_isAnswered ? _fillBlank(turn.content, correctAnswer) : turn.content.replaceAll(_blankPattern, ''))
-                                  : turn.content;
-                              if (textToSpeak.trim().isNotEmpty) {
-                                TtsService().speak(textToSpeak);
-                              }
-                            },
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                                  width: 1,
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.04),
-                                    blurRadius: 3,
-                                    offset: const Offset(0, 1),
+                        // Trailing Action: Interactive Korean TTS button (shown for blank target only after answered)
+                        if (!turn.isBlankTarget || _isAnswered)
+                          Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(18),
+                              onTap: () {
+                                final textToSpeak = turn.isBlankTarget
+                                    ? _fillBlank(turn.content, correctAnswer)
+                                    : turn.content;
+                                if (textToSpeak.trim().isNotEmpty) {
+                                  TtsService().speak(textToSpeak);
+                                }
+                              },
+                              child: Container(
+                                width: 30,
+                                height: 30,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                                    width: 1,
                                   ),
-                                ],
-                              ),
-                              child: Icon(
-                                Icons.volume_up_rounded,
-                                size: 15.5,
-                                color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.04),
+                                      blurRadius: 3,
+                                      offset: const Offset(0, 1),
+                                    ),
+                                  ],
+                                ),
+                                child: Icon(
+                                  Icons.volume_up_rounded,
+                                  size: 15.5,
+                                  color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
+                                ),
                               ),
                             ),
                           ),
-                        ),
                       ],
                     ),
                     const SizedBox(height: 8),
@@ -2067,6 +2198,8 @@ class _QuizScreenState extends State<QuizScreen> {
 
   static String _getSpeakerEmoji(String speaker, bool isFirst) {
     final s = speaker.toLowerCase().trim();
+    if (s.contains('보기') || s.contains('예문') || s.contains('예시')) return '💡';
+    if (s.contains('문제') || s.contains('연습') || s.contains('실전')) return '✍️';
     if (s.contains('선생님') || s.contains('교사') || s.contains('교수')) return '👩‍🏫';
     if (s.contains('학생')) return '🧑‍🎓';
     if (s.contains('의사')) return '👨‍⚕️';
@@ -2123,12 +2256,29 @@ class _QuizScreenState extends State<QuizScreen> {
 
       String speakerName = (i == 0) ? '가' : '나';
       String content = line;
+      bool hasExplicit = false;
+      bool isExample = false;
 
-      final prefixMatch = RegExp(r'^([^:\n\r]{1,10})\s*:\s*(.*)$').firstMatch(line);
-      final hasExplicit = prefixMatch != null;
-      if (hasExplicit) {
-        speakerName = prefixMatch.group(1)!.trim();
-        content = prefixMatch.group(2)!.trim();
+      // Detect <보기> or [보기] grammar example row
+      final exampleMatch = RegExp(r'^(?:<보기>|\[보기\])\s*(.*)$').firstMatch(line);
+      final questionMatch = RegExp(r'^(?:<문제>|\[문제\])\s*(.*)$').firstMatch(line);
+
+      if (exampleMatch != null) {
+        speakerName = '보기';
+        content = exampleMatch.group(1)!.trim();
+        hasExplicit = true;
+        isExample = true;
+      } else if (questionMatch != null) {
+        speakerName = '문제';
+        content = questionMatch.group(1)!.trim();
+        hasExplicit = true;
+      } else {
+        final prefixMatch = RegExp(r'^([^:\n\r]{1,10})\s*:\s*(.*)$').firstMatch(line);
+        hasExplicit = prefixMatch != null;
+        if (hasExplicit) {
+          speakerName = prefixMatch.group(1)!.trim();
+          content = prefixMatch.group(2)!.trim();
+        }
       }
 
       // Compact any remaining multi-spaces inside parentheses
@@ -2143,6 +2293,7 @@ class _QuizScreenState extends State<QuizScreen> {
         isBlankTarget: _blankPattern.hasMatch(content),
         isFirst: (i == 0),
         hasExplicitSpeaker: hasExplicit,
+        isExample: isExample,
       ));
     }
 
@@ -2155,6 +2306,7 @@ class _QuizScreenState extends State<QuizScreen> {
         isBlankTarget: _blankPattern.hasMatch(rawQuestion),
         isFirst: true,
         hasExplicitSpeaker: false,
+        isExample: false,
       ));
     }
 
@@ -2324,11 +2476,12 @@ class _QuizScreenState extends State<QuizScreen> {
                     softWrap: true,
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.start,
                     style: TextStyle(
                       fontSize: 16.5,
                       fontWeight: isCorrect || isSelectedWrong ? FontWeight.w800 : FontWeight.w700,
                       color: textColor,
-                      height: 1.3,
+                      height: 1.35,
                       letterSpacing: -0.3,
                     ),
                   ),
@@ -2652,13 +2805,6 @@ class _QuizScreenState extends State<QuizScreen> {
                       const BoxShadow(
                         color: Color(0xFF1E40AF),
                         offset: Offset(0, 3.2),
-                        blurRadius: 0,
-                      ),
-                      BoxShadow(
-                        color: const Color(0xFF2563EB)
-                            .withValues(alpha: isDark ? 0.4 : 0.25),
-                        blurRadius: 10,
-                        offset: const Offset(0, 4),
                       ),
                     ]
                   : null,
@@ -2667,13 +2813,15 @@ class _QuizScreenState extends State<QuizScreen> {
               color: Colors.transparent,
               child: InkWell(
                 borderRadius: BorderRadius.circular(16),
-                onTap: _assembledChips.isNotEmpty ? _submitAssembledAnswer : null,
+                onTap: _assembledChips.isNotEmpty && !_isAnswered
+                    ? _submitAssembledAnswer
+                    : null,
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.check_circle_rounded,
+                        Icons.check_rounded,
                         color: _assembledChips.isNotEmpty
                             ? Colors.white
                             : (isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8)),
@@ -2704,31 +2852,50 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget _buildFeedbackBottomBar(BuildContext context, bool isLastQuestion, bool isDark) {
     final currentQuestion = _questions[_currentIndex];
     final isCorrect = _selectedOptionIndex == currentQuestion.answerIndex;
-    final currentLang = _getCurrentLanguageOption();
-    // 3버튼 내비게이션 바(홈/뒤로가기/최근앱) 및 제스처 바 인셋 정밀 감지 (삼성 갤럭시 포함 모든 안드로이드 기기 완벽 대응)
+
+    // 기기 고유 소프트키(3버튼 내비게이션 바 / 제스처 홈 인디케이터 등) 인셋 정밀 감지
     final bottomInset = math.max(
       MediaQuery.paddingOf(context).bottom,
       MediaQuery.viewPaddingOf(context).bottom,
     );
-    final effectiveBottomPadding = _isBannerAdLoaded ? 16.0 : (16.0 + bottomInset);
+    // 광고가 없을 때는 소프트키 영역(삼성 갤럭시 등 48dp)을 100% 온전히 보장하고 추가 여백(14dp) 부여
+    // 광고가 로드되었을 때는 광고 위젯 자체가 bottomInset을 처리하므로 14dp 패딩 확보
+    final effectiveBottomPadding = _isBannerAdLoaded
+        ? 14.0
+        : (bottomInset > 0 ? (bottomInset + 14.0) : 22.0);
+
+    final statusBgColor = isCorrect
+        ? (isDark ? const Color(0xFF064E3B).withValues(alpha: 0.35) : const Color(0xFFECFDF5))
+        : (isDark ? const Color(0xFF450A0A).withValues(alpha: 0.35) : const Color(0xFFFFF1F2));
+    final statusBorderColor = isCorrect
+        ? (isDark ? const Color(0xFF059669).withValues(alpha: 0.45) : const Color(0xFFA7F3D0))
+        : (isDark ? const Color(0xFFE11D48).withValues(alpha: 0.45) : const Color(0xFFFECDD3));
+    final statusIcon = isCorrect ? Icons.check_circle_rounded : Icons.cancel_rounded;
+    final statusIconColor = isCorrect
+        ? (isDark ? const Color(0xFF34D399) : const Color(0xFF059669))
+        : (isDark ? const Color(0xFFFB7185) : const Color(0xFFE11D48));
+    final statusTextColor = isCorrect
+        ? (isDark ? const Color(0xFF6EE7B7) : const Color(0xFF065F46))
+        : (isDark ? const Color(0xFFFDA4AF) : const Color(0xFF9F1239));
 
     return Container(
       width: double.infinity,
       constraints: BoxConstraints(
-        maxHeight: MediaQuery.sizeOf(context).height * 0.65,
+        maxHeight: MediaQuery.sizeOf(context).height * 0.70,
       ),
       decoration: BoxDecoration(
         color: isDark ? const Color(0xFF1E293B) : Colors.white,
-        border: isDark
-            ? const Border(
-                top: BorderSide(color: Color(0xFF334155), width: 1.2),
-              )
-            : null,
+        border: Border(
+          top: BorderSide(
+            color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+            width: 1.2,
+          ),
+        ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF0F172A).withValues(alpha: isDark ? 0.45 : 0.12),
-            blurRadius: 16,
-            offset: const Offset(0, -5),
+            color: const Color(0xFF0F172A).withValues(alpha: isDark ? 0.5 : 0.14),
+            blurRadius: 20,
+            offset: const Offset(0, -6),
           ),
         ],
         borderRadius: const BorderRadius.only(
@@ -2741,20 +2908,20 @@ class _QuizScreenState extends State<QuizScreen> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Subtle top indicator pill
+          // 1. Subtle top drag indicator pill
           Center(
             child: Container(
-              width: 36,
-              height: 4,
-              margin: const EdgeInsets.only(bottom: 8),
+              width: 40,
+              height: 4.5,
+              margin: const EdgeInsets.only(bottom: 12),
               decoration: BoxDecoration(
-                color: isCorrect
-                    ? const Color(0xFF22C55E).withValues(alpha: 0.6)
-                    : const Color(0xFFEF4444).withValues(alpha: 0.6),
-                borderRadius: BorderRadius.circular(2),
+                color: isDark ? Colors.white24 : Colors.black12,
+                borderRadius: BorderRadius.circular(3),
               ),
             ),
           ),
+
+          // 2. Scrollable feedback & explanation area
           Flexible(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
@@ -2762,117 +2929,123 @@ class _QuizScreenState extends State<QuizScreen> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Row(
-                    children: [
-                      Icon(
-                        isCorrect ? Icons.check_circle_rounded : Icons.info_rounded,
-                        color: isCorrect
-                            ? (isDark ? const Color(0xFF4ADE80) : const Color(0xFF16A34A))
-                            : (isDark ? const Color(0xFFF87171) : const Color(0xFFDC2626)),
-                        size: 26,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          isCorrect
-                              ? AppStrings.tr('quiz_correct_feedback', _currentLangCode)
-                              : AppStrings.tr('quiz_incorrect_feedback', _currentLangCode),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w800,
-                            color: isCorrect
-                                ? (isDark ? const Color(0xFF4ADE80) : const Color(0xFF15803D))
-                                : (isDark ? const Color(0xFFF87171) : const Color(0xFFB91C1C)),
-                          ),
-                        ),
-                      ),
-                      if (isCorrect) ...[
-                        const SizedBox(width: 8),
-                        TweenAnimationBuilder<double>(
-                          key: ValueKey('combo_$_currentIndex'),
-                          tween: Tween(begin: 0.6, end: 1.0),
-                          duration: const Duration(milliseconds: 380),
-                          curve: Curves.elasticOut,
-                          builder: (context, scale, child) => Transform.scale(scale: scale, child: child),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4.5),
-                            decoration: BoxDecoration(
-                              color: isDark
-                                  ? const Color(0xFF78350F).withValues(alpha: 0.45)
-                                  : const Color(0xFFFEF3C7),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: isDark ? const Color(0xFFF59E0B) : const Color(0xFFFCD34D),
-                              ),
-                            ),
-                            child: Text(
-                              _combo >= 2
-                                  ? '🔥 ${AppStrings.tr('quiz_combo', _currentLangCode, {'n': '$_combo'})}'
-                                  : '+${ProgressService.xpPerCorrect} XP',
-                              style: TextStyle(
-                                fontSize: 11.5,
-                                fontWeight: FontWeight.w800,
-                                color: isDark ? const Color(0xFFFCD34D) : const Color(0xFFB45309),
-                              ),
+                  // A. Status Banner Card
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                    decoration: BoxDecoration(
+                      color: statusBgColor,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: statusBorderColor, width: 1.0),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(statusIcon, color: statusIconColor, size: 28),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            isCorrect
+                                ? AppStrings.tr('quiz_correct_feedback', _currentLangCode)
+                                : AppStrings.tr('quiz_incorrect_feedback', _currentLangCode),
+                            style: TextStyle(
+                              fontSize: 17.5,
+                              fontWeight: FontWeight.w900,
+                              color: statusTextColor,
+                              letterSpacing: -0.3,
                             ),
                           ),
                         ),
-                      ],
-                    ],
-                  ),
-                  if (isCorrect) ...[
-                    const SizedBox(height: 8),
-                    // Duolingo-style 'View Explanation' toggle pill
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            _showDetailedExplanation = !_showDetailedExplanation;
-                          });
-                        },
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: isDark
-                                ? const Color(0xFF334155).withValues(alpha: 0.7)
-                                : const Color(0xFFEFF6FF),
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: isDark ? const Color(0xFF475569) : const Color(0xFFBFDBFE),
-                              width: 1,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                _showDetailedExplanation
-                                    ? Icons.keyboard_arrow_up_rounded
-                                    : Icons.lightbulb_outline_rounded,
-                                size: 14,
-                                color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF2563EB),
-                              ),
-                              const SizedBox(width: 4),
-                              Text(
-                                _showDetailedExplanation
-                                    ? AppStrings.tr('quiz_hide_explanation', _currentLangCode)
-                                    : AppStrings.tr('quiz_view_explanation', _currentLangCode),
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700,
-                                  color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF2563EB),
+                        if (isCorrect) ...[
+                          const SizedBox(width: 8),
+                          TweenAnimationBuilder<double>(
+                            key: ValueKey('combo_$_currentIndex'),
+                            tween: Tween(begin: 0.6, end: 1.0),
+                            duration: const Duration(milliseconds: 380),
+                            curve: Curves.elasticOut,
+                            builder: (context, scale, child) => Transform.scale(scale: scale, child: child),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                              decoration: BoxDecoration(
+                                color: isDark
+                                    ? const Color(0xFF78350F).withValues(alpha: 0.5)
+                                    : const Color(0xFFFEF3C7),
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(
+                                  color: isDark ? const Color(0xFFF59E0B) : const Color(0xFFFCD34D),
                                 ),
                               ),
-                            ],
+                              child: Text(
+                                _combo >= 2
+                                    ? '🔥 ${AppStrings.tr('quiz_combo', _currentLangCode, {'n': '$_combo'})}'
+                                    : '+${ProgressService.xpPerCorrect} XP',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w800,
+                                  color: isDark ? const Color(0xFFFCD34D) : const Color(0xFFB45309),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+
+                  // B. For correct answer: Duolingo-style 'View Explanation' toggle
+                  if (isCorrect) ...[
+                    const SizedBox(height: 10),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              _showDetailedExplanation = !_showDetailedExplanation;
+                            });
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: isDark
+                                  ? const Color(0xFF334155).withValues(alpha: 0.7)
+                                  : const Color(0xFFEFF6FF),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: isDark ? const Color(0xFF475569) : const Color(0xFFBFDBFE),
+                                width: 1,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  _showDetailedExplanation
+                                      ? Icons.keyboard_arrow_up_rounded
+                                      : Icons.lightbulb_outline_rounded,
+                                  size: 15,
+                                  color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF2563EB),
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  _showDetailedExplanation
+                                      ? AppStrings.tr('quiz_hide_explanation', _currentLangCode)
+                                      : AppStrings.tr('quiz_view_explanation', _currentLangCode),
+                                  style: TextStyle(
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF2563EB),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ],
+
+                  // C. Detailed Explanation & Correct Answer display
                   AnimatedSize(
                     duration: const Duration(milliseconds: 250),
                     curve: Curves.easeInOutCubic,
@@ -2881,52 +3054,75 @@ class _QuizScreenState extends State<QuizScreen> {
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
+                              // If incorrect: display clear correct answer card with TTS speaker
                               if (!isCorrect) ...[
-                                const SizedBox(height: 8),
+                                const SizedBox(height: 10),
                                 Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
                                   decoration: BoxDecoration(
                                     color: isDark
-                                        ? const Color(0xFF064E3B).withValues(alpha: 0.3)
+                                        ? const Color(0xFF064E3B).withValues(alpha: 0.25)
                                         : const Color(0xFFF0FDF4),
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(14),
                                     border: Border.all(
-                                      color: const Color(0xFF16A34A).withValues(alpha: 0.5),
+                                      color: const Color(0xFF16A34A).withValues(alpha: 0.45),
+                                      width: 1.0,
                                     ),
                                   ),
                                   child: Row(
                                     children: [
-                                      Text(
-                                        '${AppStrings.tr('quiz_correct_answer_label', _currentLangCode)} ',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w700,
-                                          color: isDark ? const Color(0xFF86EFAC) : const Color(0xFF16A34A),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFF16A34A),
+                                          borderRadius: BorderRadius.circular(6),
+                                        ),
+                                        child: Text(
+                                          AppStrings.tr('quiz_correct_answer_label', _currentLangCode),
+                                          style: const TextStyle(
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.w800,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
+                                      const SizedBox(width: 10),
                                       Expanded(
                                         child: Text(
                                           currentQuestion.options[currentQuestion.answerIndex],
                                           style: TextStyle(
-                                            fontSize: 15.5,
-                                            fontWeight: FontWeight.w700,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w800,
                                             color: isDark ? Colors.white : const Color(0xFF0F172A),
                                           ),
                                         ),
                                       ),
-                                      IconButton(
-                                        icon: Icon(
-                                          Icons.volume_up_rounded,
-                                          size: 20,
-                                          color: isDark ? const Color(0xFF86EFAC) : const Color(0xFF16A34A),
+                                      Material(
+                                        color: Colors.transparent,
+                                        child: InkWell(
+                                          onTap: () {
+                                            TtsService().speak(_completedAnswerLine(currentQuestion));
+                                          },
+                                          borderRadius: BorderRadius.circular(18),
+                                          child: Container(
+                                            width: 34,
+                                            height: 34,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                              color: (isDark ? const Color(0xFF059669) : const Color(0xFF16A34A)).withValues(alpha: 0.15),
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color: (isDark ? const Color(0xFF34D399) : const Color(0xFF16A34A)).withValues(alpha: 0.3),
+                                                width: 0.8,
+                                              ),
+                                            ),
+                                            child: Icon(
+                                              Icons.volume_up_rounded,
+                                              size: 18,
+                                              color: isDark ? const Color(0xFF86EFAC) : const Color(0xFF16A34A),
+                                            ),
+                                          ),
                                         ),
-                                        padding: EdgeInsets.zero,
-                                        constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-                                        splashRadius: 16,
-                                        tooltip: '정답 발음 듣기',
-                                        onPressed: () {
-                                          TtsService().speak(_completedAnswerLine(currentQuestion));
-                                        },
                                       ),
                                     ],
                                   ),
@@ -2934,12 +3130,12 @@ class _QuizScreenState extends State<QuizScreen> {
                               ],
                               const SizedBox(height: 10),
 
-                              // Certified Instructor Nuance Explanation in Selected Language
+                              // Nuance & Context Explanation Card
                               Container(
-                                padding: const EdgeInsets.all(13),
+                                padding: const EdgeInsets.all(14),
                                 decoration: BoxDecoration(
                                   color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
-                                  borderRadius: BorderRadius.circular(14),
+                                  borderRadius: BorderRadius.circular(16),
                                   border: Border.all(
                                     color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
                                   ),
@@ -2947,50 +3143,45 @@ class _QuizScreenState extends State<QuizScreen> {
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Icon(
-                                      Icons.psychology_alt_rounded,
-                                      size: 20,
-                                      color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
+                                    Container(
+                                      width: 32,
+                                      height: 32,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: (isDark ? const Color(0xFF2563EB) : const Color(0xFF3B82F6)).withValues(alpha: 0.15),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Icon(
+                                        Icons.auto_awesome_rounded,
+                                        size: 17,
+                                        color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
+                                      ),
                                     ),
-                                    const SizedBox(width: 10),
+                                    const SizedBox(width: 11),
                                     Expanded(
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                          Row(
-                                            children: [
-                                              Flexible(
-                                                child: Text(
-                                                  _getExplanationHeader(currentQuestion.type),
-                                                  maxLines: 1,
-                                                  overflow: TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontSize: 11,
-                                                    fontWeight: FontWeight.w800,
-                                                    color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
-                                                    letterSpacing: 0.5,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(width: 6),
-                                              Text(
-                                                '(${currentLang.code})',
-                                                style: TextStyle(
-                                                  fontSize: 10.5,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
-                                                ),
-                                              ),
-                                            ],
+                                          Text(
+                                            _getExplanationHeader(currentQuestion.type),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w800,
+                                              color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
+                                              letterSpacing: 0.3,
+                                            ),
                                           ),
-                                          const SizedBox(height: 4),
+                                          const SizedBox(height: 6),
                                           Text(
                                             currentQuestion.getExplanation(_currentLangCode),
                                             style: TextStyle(
-                                              fontSize: 13,
-                                              color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E293B),
-                                              height: 1.4,
+                                              fontSize: 13.5,
+                                              color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF334155),
+                                              height: 1.5,
                                               fontWeight: FontWeight.w500,
+                                              letterSpacing: -0.1,
                                             ),
                                           ),
                                         ],
@@ -3007,30 +3198,58 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 14),
 
-          // Next Question Button
-          FilledButton.icon(
-            onPressed: _nextQuestion,
-            icon: Icon(
-              isLastQuestion ? Icons.emoji_events_rounded : Icons.arrow_forward_rounded,
-            ),
-            label: Text(
-              isLastQuestion
-                  ? AppStrings.tr('quiz_see_results', _currentLangCode)
-                  : AppStrings.tr('quiz_next_question', _currentLangCode),
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+          // 3. Luxurious Next Question CTA Button
+          Container(
+            height: 54,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: isCorrect
+                    ? const [Color(0xFF059669), Color(0xFF10B981)]
+                    : const [Color(0xFF2563EB), Color(0xFF3B82F6)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: (isCorrect ? const Color(0xFF10B981) : const Color(0xFF2563EB))
+                      .withValues(alpha: 0.35),
+                  blurRadius: 14,
+                  offset: const Offset(0, 5),
+                ),
+              ],
             ),
-            style: FilledButton.styleFrom(
-              backgroundColor: isCorrect ? const Color(0xFF16A34A) : const Color(0xFF2563EB),
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 14),
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(14),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: _nextQuestion,
+                borderRadius: BorderRadius.circular(16),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        isLastQuestion
+                            ? AppStrings.tr('quiz_see_results', _currentLangCode)
+                            : AppStrings.tr('quiz_next_question', _currentLangCode),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.5,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 0.2,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Icon(
+                        isLastQuestion ? Icons.emoji_events_rounded : Icons.arrow_forward_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
@@ -3047,6 +3266,7 @@ class _DialogueTurn {
   final bool isBlankTarget;
   final bool isFirst;
   final bool hasExplicitSpeaker;
+  final bool isExample;
 
   const _DialogueTurn({
     required this.speakerName,
@@ -3055,5 +3275,7 @@ class _DialogueTurn {
     required this.isBlankTarget,
     required this.isFirst,
     this.hasExplicitSpeaker = true,
+    this.isExample = false,
   });
 }
+
