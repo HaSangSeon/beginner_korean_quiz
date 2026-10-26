@@ -159,4 +159,13 @@ class QuizRepository {
         .map((q) => q.id)
         .toList();
   }
+
+  /// Get a single question by its unique ID
+  static QuizQuestion? getById(int id) {
+    try {
+      return questions.firstWhere((q) => q.id == id);
+    } catch (_) {
+      return null;
+    }
+  }
 }

@@ -8,6 +8,7 @@ import '../services/progress_service.dart';
 import '../services/quiz_repository.dart';
 import '../services/tts_service.dart';
 import 'dialogue_screen.dart';
+import 'favorites_screen.dart';
 import 'quiz_screen.dart';
 
 /// Emoji icon per quiz category (0-byte vector icons)
@@ -63,6 +64,69 @@ const Map<String, String> _categoryEmoji = {
   '길찾기·교통': '🚇',
   'K-컬처·팬문화': '🎤',
 };
+
+Color _getCategoryAccentColor(String cat) {
+  switch (cat) {
+    case '카페·식당·외식문화':
+    case '식음료·편의점':
+    case '음식·음료':
+    case '카페·테이크아웃':
+    case '식당·주문':
+      return const Color(0xFFF59E0B); // Warm Amber
+    case '편의점·마트·쇼핑':
+    case '편의점·서바이벌':
+    case '쇼핑·교통·외출':
+    case '쇼핑·결제':
+      return const Color(0xFF10B981); // Emerald
+    case '교통·길찾기·택시':
+    case '교통·이동':
+    case '길찾기·교통':
+    case '배달·택시 실전':
+      return const Color(0xFF3B82F6); // Cobalt Blue
+    case '병원·약국·응급':
+    case '신체·건강':
+      return const Color(0xFFF43F5E); // Rose
+    case '배달·생활편의':
+    case '생활·사물':
+    case '생활·대화':
+    case '생활대화':
+      return const Color(0xFF8B5CF6); // Purple
+    case 'K-컬처·소통·신조어':
+    case 'K-컬처·소통':
+    case 'K-컬처·팬문화':
+    case '카톡·SNS 뉘앙스':
+    case 'K-리액션·감탄사':
+      return const Color(0xFFEC4899); // Pink
+    case '자연·날씨':
+    case '자연':
+      return const Color(0xFF14B8A6); // Teal
+    case '패션·의류':
+    case '의류·잡화':
+    case '의류·패션':
+    case '패션·신발':
+      return const Color(0xFF6366F1); // Indigo
+    case '자기소개·직업':
+    case '직업·소개':
+    case '국적·소개':
+    case '출신·인사':
+      return const Color(0xFF0EA5E9); // Sky
+    case '일상생활·장소':
+    case '장소·생활':
+      return const Color(0xFF64748B); // Slate
+    case '식당·외식·이동':
+      return const Color(0xFFEA580C); // Orange
+    case '핵심표현·의사소통':
+    case '희망·의도':
+    case '요청·예절':
+    case '이유·원인':
+      return const Color(0xFFEAB308); // Gold
+    case '시간·일정·문장완성':
+    case '시간·일과':
+      return const Color(0xFF0284C7); // Ocean Blue
+    default:
+      return const Color(0xFF2563EB); // Modern Primary Blue
+  }
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -140,34 +204,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     // 1. Greeting + Daily Goal / Streak / Learned stats
                     _buildDailyGoalCard(context, isDark),
+                    const SizedBox(height: 16),
+
+                    // 2. Word & Expression of the Day (오늘의 생존 한국어)
+                    _buildWordOfTheDayCard(context, isDark),
                     const SizedBox(height: 18),
 
-                    // 2. Track Switcher Segmented Control (📚 기초 어휘 vs 💬 실전 문장·뉘앙스)
+                    // 3. Track Switcher Segmented Control (📚 기초 어휘 vs 💬 실전 문장·뉘앙스)
                     _buildTrackSwitcherSection(context, isDark),
                     const SizedBox(height: 18),
 
-                    // 3. Main Hero Card (Adapts to all 4 tracks: K-Life, Daily Sentences, Basic Words, Dialogues)
+                    // 4. Main Hero Card (Adapts to all 4 tracks: K-Life, Daily Sentences, Basic Words, Dialogues)
                     _buildHeroQuizCard(context, isDark),
                     const SizedBox(height: 16),
 
-                    // 4. Prominent [Start] CTA Button (Adapts to all 4 tracks)
+                    // 5. Prominent [Start] CTA Button (Adapts to all 4 tracks)
                     _buildMainStartButton(context, isDark),
                     const SizedBox(height: 24),
 
-                    // 5. Track specific content
+                    // 6. Track specific content
                     if (_selectedTrack == 'dialogue') ...[
                       _buildDialogueSection(context, isDark),
                     ] else ...[
                       // Mistake Review (only when there are mistakes in this track)
                       _buildReviewCard(context, isDark),
 
+                      // User Bookmarked Favorites Card (prominent when expressions are saved)
+                      _buildFavoritesCard(context, isDark),
+
                       // Topic list with per-topic progress
                       _buildCategorySection(context, isDark),
                     ],
-                    const SizedBox(height: 22),
-
-                    // 7. Word & Nuance of the Day
-                    _buildWordOfTheDayCard(context, isDark),
                     const SizedBox(height: 24),
                   ],
                 ),
@@ -219,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       actions: [
-        _buildStreakChip(isDark),
+        _buildFavoritesButton(context, isDark),
         const SizedBox(width: 8),
         _buildThemeToggle(context, isDark),
         const SizedBox(width: 8),
@@ -229,17 +296,76 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _buildFavoritesButton(BuildContext context, bool isDark) {
+    final progress = ProgressService();
+    final favCount = progress.favoriteIds.length;
+    final hasFav = favCount > 0;
+
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(19),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const FavoritesScreen()),
+          );
+        },
+        child: Container(
+          height: 38,
+          alignment: Alignment.center,
+          padding: EdgeInsets.symmetric(horizontal: hasFav ? 10 : 9),
+          decoration: BoxDecoration(
+            color: isDark ? const Color(0xFF1E293B) : Colors.white,
+            borderRadius: BorderRadius.circular(19),
+            border: Border.all(
+              color: hasFav
+                  ? const Color(0xFFF59E0B)
+                  : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
+              width: 1.2,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: (hasFav ? const Color(0xFFF59E0B) : (isDark ? Colors.black : const Color(0xFF64748B)))
+                    .withValues(alpha: hasFav ? 0.28 : (isDark ? 0.3 : 0.05)),
+                blurRadius: 4,
+                offset: const Offset(0, 1.5),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('⭐', style: TextStyle(fontSize: 14)),
+              if (hasFav) ...[
+                const SizedBox(width: 4),
+                Text(
+                  '$favCount',
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.w800,
+                    color: isDark ? const Color(0xFFFCD34D) : const Color(0xFFB45309),
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildThemeToggle(BuildContext context, bool isDark) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(19),
         onTap: () {
           ProgressService().toggleTheme(context);
         },
         child: Container(
-          width: 36,
-          height: 36,
+          width: 38,
+          height: 38,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: isDark ? const Color(0xFF1E293B) : Colors.white,
@@ -253,56 +379,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: (isDark ? Colors.black : const Color(0xFF64748B))
                     .withValues(alpha: isDark ? 0.3 : 0.05),
                 blurRadius: 4,
-                offset: const Offset(0, 1),
+                offset: const Offset(0, 1.5),
               ),
             ],
           ),
           child: Icon(
             isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
-            size: 17,
+            size: 18,
             color: isDark ? const Color(0xFFFCD34D) : const Color(0xFF475569),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildStreakChip(bool isDark) {
-    final progress = ProgressService();
-    final active = progress.studiedToday;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: active
-            ? (isDark ? const Color(0xFF78350F).withValues(alpha: 0.45) : const Color(0xFFFFF7ED))
-            : (isDark ? const Color(0xFF1E293B) : Colors.white),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: active
-              ? const Color(0xFFF97316).withValues(alpha: 0.6)
-              : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
-          width: 1.2,
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Opacity(
-            opacity: active ? 1.0 : 0.45,
-            child: const Text('🔥', style: TextStyle(fontSize: 14)),
-          ),
-          const SizedBox(width: 4),
-          Text(
-            '${progress.streak}',
-            style: TextStyle(
-              fontSize: 13.5,
-              fontWeight: FontWeight.w900,
-              color: active
-                  ? const Color(0xFFF97316)
-                  : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -353,28 +439,40 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       }).toList(),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        height: 38,
+        padding: const EdgeInsets.symmetric(horizontal: 11),
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1E293B) : Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(19),
           border: Border.all(
             color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
             width: 1.2,
           ),
+          boxShadow: [
+            BoxShadow(
+              color: (isDark ? Colors.black : const Color(0xFF64748B))
+                  .withValues(alpha: isDark ? 0.3 : 0.05),
+              blurRadius: 4,
+              offset: const Offset(0, 1.5),
+            ),
+          ],
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(currentLang.flag, style: const TextStyle(fontSize: 15)),
-            const SizedBox(width: 4),
+            Text(currentLang.flag, style: const TextStyle(fontSize: 14)),
+            const SizedBox(width: 5),
             Text(
               currentLang.code,
               style: TextStyle(
                 fontSize: 12.5,
                 fontWeight: FontWeight.w800,
                 color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                letterSpacing: 0.2,
               ),
             ),
+            const SizedBox(width: 3),
             Icon(
               Icons.keyboard_arrow_down_rounded,
               size: 16,
@@ -506,16 +604,28 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: _buildMiniStat(
                   isDark: isDark,
-                  emoji: '🔥',
-                  value: AppStrings.tr('streak_days', _selectedLangCode, {'n': '${progress.streak}'}),
+                  emoji: '✅',
+                  value: '${AppStrings.tr('stat_progress', _selectedLangCode)} $learned/$total',
                 ),
               ),
               const SizedBox(width: 10),
               Expanded(
-                child: _buildMiniStat(
-                  isDark: isDark,
-                  emoji: '✅',
-                  value: '${AppStrings.tr('stat_learned', _selectedLangCode)} $learned/$total',
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const FavoritesScreen()),
+                      );
+                    },
+                    child: _buildMiniStat(
+                      isDark: isDark,
+                      emoji: '⭐',
+                      value: '${AppStrings.tr('favorites_title', _selectedLangCode)} ${progress.favoriteIds.length}',
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -640,6 +750,90 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _buildFavoritesCard(BuildContext context, bool isDark) {
+    final progress = ProgressService();
+    final favoriteIds = progress.favoriteIds.toList();
+
+    if (favoriteIds.isEmpty) return const SizedBox.shrink();
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 18),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: isDark ? const Color(0xFF1E293B) : Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: isDark ? const Color(0xFFF59E0B).withValues(alpha: 0.5) : const Color(0xFFFCD34D),
+          width: 1.5,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFFF59E0B).withValues(alpha: isDark ? 0.2 : 0.08),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: isDark
+                  ? const Color(0xFF78350F).withValues(alpha: 0.5)
+                  : const Color(0xFFFEF3C7),
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: const Text('⭐', style: TextStyle(fontSize: 22)),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppStrings.tr('favorites_title', _selectedLangCode),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                    color: isDark ? const Color(0xFFFDE68A) : const Color(0xFFB45309),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  AppStrings.tr('favorites_desc', _selectedLangCode, {'count': '${favoriteIds.length}'}),
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.w600,
+                    color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FilledButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const FavoritesScreen()),
+              );
+            },
+            style: FilledButton.styleFrom(
+              backgroundColor: const Color(0xFFF59E0B),
+              foregroundColor: const Color(0xFF78350F),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            ),
+            child: Text(
+              AppStrings.tr('favorites_open', _selectedLangCode),
+              style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildCategorySection(BuildContext context, bool isDark) {
     final categories = QuizRepository.getCategoriesByType(_selectedTrack);
     final progress = ProgressService();
@@ -667,7 +861,7 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context) {
             final screenWidth = MediaQuery.sizeOf(context).width;
             final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
-            final double dynamicAspectRatio = (screenWidth < 360 || textScale > 1.1) ? 0.98 : 1.05;
+            final double dynamicAspectRatio = (screenWidth < 360 || textScale > 1.1) ? 1.08 : 1.18;
 
             return GridView.builder(
               shrinkWrap: true,
@@ -687,6 +881,7 @@ class _HomeScreenState extends State<HomeScreen> {
             final ratio = total > 0 ? (learned / total) : 0.0;
             final emoji = _categoryEmoji[cat] ?? '📌';
             final isComplete = learned == total && total > 0;
+            final accentColor = _getCategoryAccentColor(cat);
 
             return Material(
               color: isDark ? const Color(0xFF1E293B) : Colors.white,
@@ -695,9 +890,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () => _onCategoryCardTap(context, cat, emoji, isDark),
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(14, 13, 14, 13),
+                  padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        isDark ? const Color(0xFF1E293B) : Colors.white,
+                        accentColor.withValues(alpha: isDark ? 0.08 : 0.035),
+                      ],
+                    ),
                     border: Border.all(
                       color: isComplete
                           ? const Color(0xFF22C55E).withValues(alpha: 0.6)
@@ -716,6 +919,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      // 1. Top row: Theme Accent Emoji Badge + Status Pill
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -724,11 +928,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 38,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              color: (isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9)),
+                              color: accentColor.withValues(alpha: isDark ? 0.20 : 0.12),
                               borderRadius: BorderRadius.circular(11),
                               border: Border.all(
-                                color: (isDark ? const Color(0xFF475569) : const Color(0xFFE2E8F0)).withValues(alpha: 0.6),
-                                width: 0.8,
+                                color: accentColor.withValues(alpha: isDark ? 0.35 : 0.22),
+                                width: 0.9,
                               ),
                             ),
                             child: Text(emoji, style: const TextStyle(fontSize: 20)),
@@ -737,17 +941,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 7.5, vertical: 3.5),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF22C55E).withValues(alpha: 0.15),
+                                color: const Color(0xFF22C55E).withValues(alpha: isDark ? 0.2 : 0.12),
                                 borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                  color: const Color(0xFF22C55E).withValues(alpha: 0.35),
+                                  width: 0.8,
+                                ),
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.check_circle_rounded, size: 12, color: Color(0xFF22C55E)),
-                                  SizedBox(width: 3),
+                                  const Icon(Icons.check_circle_rounded, size: 11, color: Color(0xFF22C55E)),
+                                  const SizedBox(width: 3),
                                   Text(
-                                    'DONE',
-                                    style: TextStyle(
+                                    AppStrings.tr('stage_completed', _selectedLangCode),
+                                    style: const TextStyle(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w900,
                                       color: Color(0xFF22C55E),
@@ -757,17 +965,37 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                             )
+                          else if (learned > 0)
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 7.5, vertical: 3.5),
+                              decoration: BoxDecoration(
+                                color: accentColor.withValues(alpha: isDark ? 0.20 : 0.10),
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                  color: accentColor.withValues(alpha: isDark ? 0.35 : 0.20),
+                                  width: 0.8,
+                                ),
+                              ),
+                              child: Text(
+                                '${(ratio * 100).toInt()}%',
+                                style: TextStyle(
+                                  fontSize: 10.5,
+                                  fontWeight: FontWeight.w800,
+                                  color: accentColor,
+                                ),
+                              ),
+                            )
                           else
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
                               decoration: BoxDecoration(
-                                color: (isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9)),
+                                color: isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9),
                                 borderRadius: BorderRadius.circular(7),
                               ),
                               child: Text(
                                 '$learned/$total',
                                 style: TextStyle(
-                                  fontSize: 11,
+                                  fontSize: 10.5,
                                   fontWeight: FontWeight.w700,
                                   color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                                 ),
@@ -775,34 +1003,62 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                         ],
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            AppStrings.category(cat, _selectedLangCode),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 13.5,
-                              fontWeight: FontWeight.w800,
-                              letterSpacing: -0.2,
-                              color: isDark ? Colors.white : const Color(0xFF0F172A),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(6),
-                            child: LinearProgressIndicator(
-                              value: ratio,
-                              minHeight: 5.0,
-                              backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFE2E8F0),
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                isComplete ? const Color(0xFF22C55E) : const Color(0xFF2563EB),
+
+                      // 2. Center: Topic Title & Subtitle Info (eliminating awkward emptiness)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 2.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              AppStrings.category(cat, _selectedLangCode),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 13.5,
+                                fontWeight: FontWeight.w800,
+                                height: 1.25,
+                                letterSpacing: -0.2,
+                                color: isDark ? Colors.white : const Color(0xFF0F172A),
                               ),
                             ),
+                            const SizedBox(height: 4),
+                            Text(
+                              isComplete
+                                  ? AppStrings.tr('category_progress', _selectedLangCode)
+                                      .replaceAll('{done}', learned.toString())
+                                      .replaceAll('{total}', total.toString())
+                                  : (learned > 0
+                                      ? AppStrings.tr('category_progress', _selectedLangCode)
+                                          .replaceAll('{done}', learned.toString())
+                                          .replaceAll('{total}', total.toString())
+                                      : AppStrings.tr('cat_count_badge', _selectedLangCode)
+                                          .replaceAll('{count}', total.toString())),
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w600,
+                                color: isComplete
+                                    ? const Color(0xFF22C55E)
+                                    : (learned > 0
+                                        ? (isDark ? const Color(0xFFCBD5E1) : const Color(0xFF475569))
+                                        : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B))),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // 3. Bottom: Sleek Rounded Progress Bar
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: LinearProgressIndicator(
+                          value: ratio,
+                          minHeight: 5.0,
+                          backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFE2E8F0),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            isComplete ? const Color(0xFF22C55E) : accentColor,
                           ),
-                          const SizedBox(height: 2),
-                        ],
+                        ),
                       ),
                     ],
                   ),

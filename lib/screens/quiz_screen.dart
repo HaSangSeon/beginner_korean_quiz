@@ -997,8 +997,13 @@ class _QuizScreenState extends State<QuizScreen> {
       return Scaffold(
         backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
         appBar: AppBar(
-          title: Text(_getQuizTitle()),
-          centerTitle: true,
+          title: Text(
+            _getQuizTitle(),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          centerTitle: false,
+          titleSpacing: 0,
         ),
         body: Center(
           child: Padding(
@@ -1047,11 +1052,12 @@ class _QuizScreenState extends State<QuizScreen> {
         elevation: 0,
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
-        centerTitle: true,
+        centerTitle: false,
+        titleSpacing: 0,
         toolbarHeight: 60,
-        leadingWidth: 64,
+        leadingWidth: 58,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 16.0),
+          padding: const EdgeInsets.only(left: 14.0),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -1072,8 +1078,8 @@ class _QuizScreenState extends State<QuizScreen> {
                       BoxShadow(
                         color: (isDark ? Colors.black : const Color(0xFF64748B))
                             .withValues(alpha: isDark ? 0.3 : 0.05),
-                        blurRadius: 6,
-                        offset: const Offset(0, 2),
+                        blurRadius: 4,
+                        offset: const Offset(0, 1.5),
                       ),
                     ],
                   ),
@@ -1099,7 +1105,69 @@ class _QuizScreenState extends State<QuizScreen> {
           overflow: TextOverflow.ellipsis,
         ),
         actions: [
-          // Dynamic Language Switcher Popup (Refined Pill)
+          // Bookmark / Favorite Star Button
+          Builder(builder: (context) {
+            final progress = ProgressService();
+            final isFav = progress.isFavorite(currentQuestion.id);
+            return Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(19),
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                    final added = progress.toggleFavorite(currentQuestion.id);
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          added
+                              ? AppStrings.tr('favorites_added_toast', _currentLangCode)
+                              : AppStrings.tr('favorites_removed_toast', _currentLangCode),
+                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                        duration: const Duration(milliseconds: 1400),
+                        behavior: SnackBarBehavior.floating,
+                      ),
+                    );
+                    setState(() {});
+                  },
+                  child: Container(
+                    width: 38,
+                    height: 38,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: isFav
+                            ? const Color(0xFFF59E0B)
+                            : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
+                        width: 1.2,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: (isFav ? const Color(0xFFF59E0B) : (isDark ? Colors.black : const Color(0xFF64748B)))
+                              .withValues(alpha: isFav ? 0.28 : (isDark ? 0.3 : 0.05)),
+                          blurRadius: 4,
+                          offset: const Offset(0, 1.5),
+                        ),
+                      ],
+                    ),
+                    child: Icon(
+                      isFav ? Icons.star_rounded : Icons.star_border_rounded,
+                      size: 20,
+                      color: isFav
+                          ? const Color(0xFFF59E0B)
+                          : (isDark ? const Color(0xFFCBD5E1) : const Color(0xFF475569)),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }),
+          // Dynamic Language Switcher Popup (Standard 38dp Pill)
           PopupMenuButton<String>(
             tooltip: 'Switch Explanation Language',
             initialValue: _currentLangCode,
@@ -1152,11 +1220,13 @@ class _QuizScreenState extends State<QuizScreen> {
               }).toList();
             },
             child: Container(
+              height: 38,
               margin: const EdgeInsets.only(right: 16),
-              padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 7),
+              padding: const EdgeInsets.symmetric(horizontal: 11),
+              alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(19),
                 border: Border.all(
                   color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
                   width: 1.2,
@@ -1165,8 +1235,8 @@ class _QuizScreenState extends State<QuizScreen> {
                   BoxShadow(
                     color: (isDark ? Colors.black : const Color(0xFF64748B))
                         .withValues(alpha: isDark ? 0.3 : 0.05),
-                    blurRadius: 6,
-                    offset: const Offset(0, 2),
+                    blurRadius: 4,
+                    offset: const Offset(0, 1.5),
                   ),
                 ],
               ),
@@ -1179,7 +1249,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     currentLang.code,
                     style: TextStyle(
                       fontSize: 12.5,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w800,
                       color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
                       letterSpacing: 0.2,
                     ),
@@ -1668,51 +1738,102 @@ class _QuizScreenState extends State<QuizScreen> {
           const SizedBox(height: 10),
 
           // 2. Central Picture Illustration / Situation Scene
-          // In dialogue quizzes: elegant, prominent scene pill with clear context clues for learners
+          // In dialogue quizzes: elegant, prominent scene stage with clear visual context clues
           if (turns.length > 1) ...[
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                   colors: isDark
-                      ? [const Color(0xFF0F172A), const Color(0xFF1E293B)]
-                      : [const Color(0xFFF1F5F9), const Color(0xFFE2E8F0).withValues(alpha: 0.5)],
+                      ? [const Color(0xFF0F172A).withValues(alpha: 0.8), const Color(0xFF1E293B).withValues(alpha: 0.6)]
+                      : [const Color(0xFFF8FAFC), const Color(0xFFEFF6FF).withValues(alpha: 0.7)],
                 ),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(18),
                 border: Border.all(
-                  color: isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
+                  color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
                   width: 1.2,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: isDark ? 0.25 : 0.04),
+                    color: (isDark ? Colors.black : const Color(0xFF64748B))
+                        .withValues(alpha: isDark ? 0.25 : 0.04),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
                 ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    visual,
-                    style: const TextStyle(fontSize: 30, letterSpacing: 2),
+                  // Elevated Squircle Picture Stage
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                        width: 1.1,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: (isDark ? Colors.black : const Color(0xFF3B82F6))
+                              .withValues(alpha: isDark ? 0.35 : 0.06),
+                          blurRadius: 8,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: Builder(
+                      builder: (context) {
+                        final isImagePath = visual.startsWith('assets/') ||
+                            visual.endsWith('.webp') ||
+                            visual.endsWith('.png') ||
+                            visual.endsWith('.jpg');
+                        if (isImagePath) {
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              visual,
+                              width: 52,
+                              height: 52,
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const Text('🖼️', style: TextStyle(fontSize: 34)),
+                            ),
+                          );
+                        }
+                        return Text(
+                          visual,
+                          style: const TextStyle(fontSize: 40, letterSpacing: 3),
+                        );
+                      },
+                    ),
                   ),
                   if (showKeyword) ...[
-                    const SizedBox(width: 10),
+                    const SizedBox(height: 8),
                     InkWell(
                       onTap: _isAnswered ? () => TtsService().speak(currentQuestion.keyword!) : null,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                         decoration: BoxDecoration(
-                          color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                          borderRadius: BorderRadius.circular(8),
+                          color: isDark ? const Color(0xFF0F172A) : Colors.white,
+                          borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color: isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.5) : const Color(0xFF93C5FD),
                             width: 1.1,
                           ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFF3B82F6).withValues(alpha: isDark ? 0.2 : 0.06),
+                              blurRadius: 4,
+                              offset: const Offset(0, 1.5),
+                            ),
+                          ],
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -2406,18 +2527,20 @@ class _QuizScreenState extends State<QuizScreen> {
     Color badgeBg;
     Color badgeTextColor;
     Color badgeBorderColor;
+    Color badgeBevelColor;
     Widget? statusBadge;
 
     if (isCorrect) {
       cardBg = isDark
-          ? const Color(0xFF064E3B).withValues(alpha: 0.5)
-          : const Color(0xFFECFDF5);
+          ? const Color(0xFF064E3B).withValues(alpha: 0.55)
+          : const Color(0xFFF0FDF4);
       borderColor = const Color(0xFF16A34A);
       bottom3dBaseColor = const Color(0xFF15803D);
       textColor = isDark ? const Color(0xFF86EFAC) : const Color(0xFF14532D);
       badgeBg = const Color(0xFF16A34A);
       badgeTextColor = Colors.white;
       badgeBorderColor = const Color(0xFF15803D);
+      badgeBevelColor = const Color(0xFF166534);
       statusBadge = Container(
         padding: const EdgeInsets.all(5),
         decoration: const BoxDecoration(
@@ -2432,14 +2555,15 @@ class _QuizScreenState extends State<QuizScreen> {
       );
     } else if (isSelectedWrong) {
       cardBg = isDark
-          ? const Color(0xFF7F1D1D).withValues(alpha: 0.45)
+          ? const Color(0xFF7F1D1D).withValues(alpha: 0.5)
           : const Color(0xFFFEF2F2);
       borderColor = const Color(0xFFDC2626);
       bottom3dBaseColor = const Color(0xFF991B1B);
       textColor = isDark ? const Color(0xFFFCA5A5) : const Color(0xFF991B1B);
       badgeBg = const Color(0xFFDC2626);
       badgeTextColor = Colors.white;
-      badgeBorderColor = const Color(0xFF991B1B);
+      badgeBorderColor = const Color(0xFFB91C1C);
+      badgeBevelColor = const Color(0xFF7F1D1D);
       statusBadge = Container(
         padding: const EdgeInsets.all(5),
         decoration: const BoxDecoration(
@@ -2457,27 +2581,29 @@ class _QuizScreenState extends State<QuizScreen> {
           ? const Color(0xFF0F172A).withValues(alpha: 0.35)
           : const Color(0xFFF8FAFC);
       borderColor = isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0);
-      bottom3dBaseColor = isDark ? const Color(0xFF0F172A) : const Color(0xFFCBD5E1);
+      bottom3dBaseColor = isDark ? const Color(0xFF0F172A) : const Color(0xFFE2E8F0);
       textColor = isDark ? const Color(0xFF475569) : const Color(0xFF94A3B8);
       badgeBg = isDark ? const Color(0xFF1E293B) : const Color(0xFFF1F5F9);
       badgeTextColor = isDark ? const Color(0xFF334155) : const Color(0xFF94A3B8);
       badgeBorderColor = isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0);
+      badgeBevelColor = Colors.transparent;
     } else {
-      // Default interactive state: crisp, tactile, clean
+      // Default interactive state: crisp, tactile, clean with premium primary keycap
       cardBg = isDark ? const Color(0xFF1E293B) : Colors.white;
       borderColor = isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0);
       bottom3dBaseColor = isDark ? const Color(0xFF0F172A) : const Color(0xFFCBD5E1);
       textColor = isDark ? const Color(0xFFF8FAFC) : const Color(0xFF0F172A);
-      badgeBg = isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC);
-      badgeTextColor = isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569);
-      badgeBorderColor = isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0);
+      badgeBg = isDark ? const Color(0xFF0F172A) : const Color(0xFFEFF6FF);
+      badgeTextColor = isDark ? const Color(0xFF93C5FD) : const Color(0xFF2563EB);
+      badgeBorderColor = isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.4) : const Color(0xFFBFDBFE);
+      badgeBevelColor = isDark ? Colors.black.withValues(alpha: 0.4) : const Color(0xFF93C5FD);
     }
 
     return Container(
-      constraints: const BoxConstraints(minHeight: 60),
+      constraints: const BoxConstraints(minHeight: 64),
       decoration: BoxDecoration(
         color: cardBg,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: borderColor,
           width: isCorrect || isSelectedWrong ? 1.8 : 1.4,
@@ -2486,56 +2612,57 @@ class _QuizScreenState extends State<QuizScreen> {
           // 3D tactile hard base
           BoxShadow(
             color: bottom3dBaseColor,
-            offset: const Offset(0, 3.2),
+            offset: const Offset(0, 3.5),
             blurRadius: 0,
           ),
           if (!_isAnswered)
             BoxShadow(
               color: (isDark ? Colors.black : const Color(0xFF64748B))
-                  .withValues(alpha: isDark ? 0.35 : 0.07),
+                  .withValues(alpha: isDark ? 0.35 : 0.05),
               blurRadius: 8,
-              offset: const Offset(0, 4),
+              offset: const Offset(0, 3),
             ),
         ],
       ),
       child: Material(
         color: Colors.transparent,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(20),
         child: InkWell(
           onTap: _isAnswered ? null : () => _onOptionSelected(index),
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(20),
           splashColor: (isDark ? const Color(0xFF3B82F6) : const Color(0xFF60A5FA))
               .withValues(alpha: 0.15),
           highlightColor: Colors.transparent,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 13.0),
             child: Row(
               children: [
                 // 3D tactile squircle keycap index badge
                 Container(
-                  width: 35,
-                  height: 35,
+                  width: 38,
+                  height: 38,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: badgeBg,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: badgeBorderColor,
-                      width: 1.2,
+                      width: 1.3,
                     ),
                     boxShadow: [
-                      BoxShadow(
-                        color: isDark ? Colors.black.withValues(alpha: 0.3) : const Color(0xFFCBD5E1),
-                        offset: const Offset(0, 1.5),
-                        blurRadius: 0,
-                      ),
+                      if (badgeBevelColor != Colors.transparent)
+                        BoxShadow(
+                          color: badgeBevelColor,
+                          offset: const Offset(0, 2),
+                          blurRadius: 0,
+                        ),
                     ],
                   ),
                   child: Text(
                     '${index + 1}',
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
-                      fontSize: 14.5,
+                      fontSize: 15,
                       color: badgeTextColor,
                       letterSpacing: -0.2,
                     ),
@@ -2552,41 +2679,51 @@ class _QuizScreenState extends State<QuizScreen> {
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                      fontSize: 16.5,
-                      fontWeight: isCorrect || isSelectedWrong ? FontWeight.w800 : FontWeight.w700,
+                      fontSize: 17.5,
+                      fontWeight: isCorrect || isSelectedWrong ? FontWeight.w900 : FontWeight.w800,
                       color: textColor,
-                      height: 1.35,
+                      height: 1.32,
                       letterSpacing: -0.3,
                     ),
                   ),
                 ),
 
-                // Pronunciation TTS Button in rounded capsule
+                // Pronunciation TTS Button in vibrant capsule
                 Material(
                   color: Colors.transparent,
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () => TtsService().speak(optionText),
+                    onTap: () {
+                      HapticFeedback.selectionClick();
+                      TtsService().speak(optionText);
+                    },
                     child: Container(
-                      width: 34,
-                      height: 34,
+                      width: 38,
+                      height: 38,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: isDark
-                            ? const Color(0xFF0F172A).withValues(alpha: 0.6)
-                            : const Color(0xFFF1F5F9),
+                            ? const Color(0xFF0F172A).withValues(alpha: 0.7)
+                            : const Color(0xFFEFF6FF),
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: isDark
-                              ? const Color(0xFF334155).withValues(alpha: 0.6)
-                              : const Color(0xFFE2E8F0),
-                          width: 1,
+                              ? const Color(0xFF334155)
+                              : const Color(0xFFDBEAFE),
+                          width: 1.1,
                         ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF2563EB).withValues(alpha: isDark ? 0.15 : 0.06),
+                            blurRadius: 4,
+                            offset: const Offset(0, 1.5),
+                          ),
+                        ],
                       ),
                       child: Icon(
                         Icons.volume_up_rounded,
-                        size: 19,
-                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                        size: 18,
+                        color: isDark ? const Color(0xFF60A5FA) : const Color(0xFF2563EB),
                       ),
                     ),
                   ),
@@ -3060,6 +3197,53 @@ class _QuizScreenState extends State<QuizScreen> {
                             ),
                           ),
                         ],
+                        const SizedBox(width: 8),
+                        // Bookmark star button in feedback banner
+                        Builder(builder: (context) {
+                          final isFav = ProgressService().isFavorite(currentQuestion.id);
+                          return Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(16),
+                              onTap: () {
+                                HapticFeedback.lightImpact();
+                                final added = ProgressService().toggleFavorite(currentQuestion.id);
+                                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      added
+                                          ? AppStrings.tr('favorites_added_toast', _currentLangCode)
+                                          : AppStrings.tr('favorites_removed_toast', _currentLangCode),
+                                      style: const TextStyle(fontWeight: FontWeight.w600),
+                                    ),
+                                    duration: const Duration(milliseconds: 1400),
+                                    behavior: SnackBarBehavior.floating,
+                                  ),
+                                );
+                                setState(() {});
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(6),
+                                decoration: BoxDecoration(
+                                  color: isDark ? const Color(0xFF0F172A).withValues(alpha: 0.5) : Colors.white,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: isFav
+                                        ? const Color(0xFFF59E0B)
+                                        : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
+                                    width: 1.1,
+                                  ),
+                                ),
+                                child: Icon(
+                                  isFav ? Icons.star_rounded : Icons.star_border_rounded,
+                                  color: const Color(0xFFF59E0B),
+                                  size: 22,
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
                       ],
                     ),
                   ),

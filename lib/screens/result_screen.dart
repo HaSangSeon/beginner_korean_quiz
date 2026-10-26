@@ -173,13 +173,22 @@ class _ResultScreenState extends State<ResultScreen> {
     return Scaffold(
       backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: false,
+        titleSpacing: 24,
         title: Text(
           widget.isReviewMode
               ? AppStrings.tr('review_completed_title', _langCode)
               : AppStrings.tr('result_title', _langCode),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w800,
+            letterSpacing: -0.3,
+            color: isDark ? Colors.white : const Color(0xFF0F172A),
+          ),
         ),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         actions: [
           PopupMenuButton<String>(
             tooltip: AppStrings.tr('lang_selector_title', _langCode),
@@ -222,14 +231,25 @@ class _ResultScreenState extends State<ResultScreen> {
               );
             }).toList(),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              height: 38,
+              padding: const EdgeInsets.symmetric(horizontal: 11),
               margin: const EdgeInsets.only(right: 12),
+              alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: isDark ? const Color(0xFF1E293B) : Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(19),
                 border: Border.all(
                   color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                  width: 1.2,
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: (isDark ? Colors.black : const Color(0xFF64748B))
+                        .withValues(alpha: isDark ? 0.3 : 0.05),
+                    blurRadius: 4,
+                    offset: const Offset(0, 1.5),
+                  ),
+                ],
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,

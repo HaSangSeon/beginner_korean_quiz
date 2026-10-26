@@ -17,6 +17,9 @@ class AdService {
   /// Google Official Test Ad Unit ID (Prevents account suspension during testing)
   static const String testAndroidBannerAdUnitId = 'ca-app-pub-3940256099942544/6300978111';
 
+  /// 스토어 스크린샷 촬영용 임시 플래그 (true: 광고 배너 완전 숨김, false: 정상 표시)
+  static const bool hideBannerForScreenshot = false;
+
   /// Returns the appropriate ad unit ID (Test ID in debug, Real ID in release)
   static String get bannerAdUnitId {
     if (kReleaseMode) {
@@ -60,6 +63,7 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    if (AdService.hideBannerForScreenshot) return;
     if (!_isAdLoading && _bannerAd == null) {
       _loadBannerAd();
     }
@@ -68,12 +72,14 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
   @override
   void didUpdateWidget(covariant BottomBannerAdWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
+    if (AdService.hideBannerForScreenshot) return;
     if (oldWidget.onLoadedChanged != widget.onLoadedChanged) {
       widget.onLoadedChanged?.call(_isLoaded && _bannerAd != null);
     }
   }
 
   Future<void> _loadBannerAd() async {
+    if (AdService.hideBannerForScreenshot) return;
     _isAdLoading = true;
     final deviceWidth = MediaQuery.sizeOf(context).width.truncate();
 
@@ -117,6 +123,11 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
 
   @override
   Widget build(BuildContext context) {
+    // 스토어 스크린샷 촬영 모드: 배너 광고 완전 제거
+    if (AdService.hideBannerForScreenshot) {
+      return const SizedBox.shrink();
+    }
+
     // 3버튼 내비게이션 바(홈/뒤로가기/최근앱) 및 제스처 바 인셋 정밀 감지 (삼성 갤럭시 포함 모든 안드로이드 기기 완벽 대응)
     final bottomInset = math.max(
       MediaQuery.paddingOf(context).bottom,

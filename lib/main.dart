@@ -33,7 +33,7 @@ class BeginnerKoreanQuizApp extends StatelessWidget {
           ),
           scaffoldBackgroundColor: const Color(0xFFF8FAFC),
           appBarTheme: const AppBarTheme(
-            centerTitle: true,
+            centerTitle: false,
             elevation: 0,
             backgroundColor: Colors.transparent,
             surfaceTintColor: Colors.transparent,
@@ -51,7 +51,7 @@ class BeginnerKoreanQuizApp extends StatelessWidget {
           ),
           scaffoldBackgroundColor: const Color(0xFF0F172A),
           appBarTheme: const AppBarTheme(
-            centerTitle: true,
+            centerTitle: false,
             elevation: 0,
             backgroundColor: Colors.transparent,
             surfaceTintColor: Colors.transparent,

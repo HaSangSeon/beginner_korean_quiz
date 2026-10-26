@@ -17,6 +17,7 @@ class ProgressService extends ChangeNotifier {
   static const _kXpToday = 'progress_xp_today';
   static const _kLearned = 'progress_learned_ids';
   static const _kWrong = 'progress_wrong_ids';
+  static const _kFavorites = 'progress_favorite_ids';
   static const _kThemeMode = 'app_theme_mode';
   static const _kLanguage = 'app_language';
 
@@ -27,6 +28,7 @@ class ProgressService extends ChangeNotifier {
   int _xpToday = 0;
   Set<int> _learned = {};
   List<int> _wrong = [];
+  Set<int> _favorites = {};
   ThemeMode _themeMode = ThemeMode.system;
   String _language = detectDefaultLanguage();
 
@@ -45,6 +47,10 @@ class ProgressService extends ChangeNotifier {
           .map(int.tryParse)
           .whereType<int>()
           .toList();
+      _favorites = (_prefs!.getStringList(_kFavorites) ?? [])
+          .map(int.tryParse)
+          .whereType<int>()
+          .toSet();
 
       final savedLang = _prefs!.getString(_kLanguage);
       if (savedLang != null && savedLang.isNotEmpty) {
@@ -132,7 +138,26 @@ class ProgressService extends ChangeNotifier {
   bool get dailyGoalReached => xpToday >= dailyGoalXp;
   Set<int> get learnedIds => Set.unmodifiable(_learned);
   List<int> get wrongIds => List.unmodifiable(_wrong);
+  Set<int> get favoriteIds => Set.unmodifiable(_favorites);
   bool isLearned(int id) => _learned.contains(id);
+  bool isFavorite(int id) => _favorites.contains(id);
+
+  /// Toggle favorite status of a question. Returns true if added, false if removed.
+  bool toggleFavorite(int questionId) {
+    final bool willAdd = !_favorites.contains(questionId);
+    if (willAdd) {
+      _favorites.add(questionId);
+    } else {
+      _favorites.remove(questionId);
+    }
+    _persistFavorites();
+    notifyListeners();
+    return willAdd;
+  }
+
+  void _persistFavorites() {
+    _prefs?.setStringList(_kFavorites, _favorites.map((e) => '$e').toList());
+  }
 
   /// Record a single answer.
   /// If [isRetry] is true (re-queued question within normal quiz session),

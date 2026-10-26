@@ -2028,7 +2028,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     category: "자연·날씨",
     type: "word",
     level: 1,
-    visual: "☁️",
+    visual: "🌤️ ☁️",
     keyword: "구름",
     situations: {
       "KO": "그림을 보고 알맞은 자연 현상을 고르십시오.",
