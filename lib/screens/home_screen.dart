@@ -72,29 +72,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static String _detectDefaultLanguage() {
-    try {
-      final code = WidgetsBinding.instance.platformDispatcher.locale.languageCode.toLowerCase();
-      if (code.startsWith('vi')) return 'VI';
-      if (code.startsWith('zh')) return 'ZH';
-      if (code.startsWith('ja')) return 'JA';
-      if (code.startsWith('es')) return 'ES';
-      if (code.startsWith('pt')) return 'PT';
-      if (code.startsWith('ko')) return 'KO';
-      return 'EN'; // Default to English for other international users
-    } catch (_) {
-      return 'VI'; // Primary target fallback
-    }
-  }
-
-  late String _selectedLangCode;
+  String get _selectedLangCode => ProgressService().language;
   String _selectedTrack = 'survival'; // Default to 'survival' (K-라이프 실전) for high immersion
   bool _isWordBookmarked = false;
 
   @override
   void initState() {
     super.initState();
-    _selectedLangCode = _detectDefaultLanguage();
     QuizRepository.loadQuestions().then((_) {
       if (mounted) setState(() {});
     });
@@ -339,7 +323,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       color: isDark ? const Color(0xFF1E293B) : Colors.white,
-      onSelected: (code) => setState(() => _selectedLangCode = code),
+      onSelected: (code) {
+        ProgressService().setLanguage(code);
+        setState(() {});
+      },
       itemBuilder: (context) => supportedLanguages.map((lang) {
         final isSelected = lang.code == _selectedLangCode;
         return PopupMenuItem<String>(

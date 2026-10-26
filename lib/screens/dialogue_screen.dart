@@ -3,6 +3,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import '../data/app_localization.dart';
 import '../data/dialogue_data.dart';
+import '../data/quiz_data.dart';
+import '../services/progress_service.dart';
 import '../services/tts_service.dart';
 
 /// 상황별 대화문 보기 화면 + 실제 사람 같은 원어민 고음질 전체 오디오 플레이어
@@ -13,7 +15,7 @@ class DialogueScreen extends StatefulWidget {
   const DialogueScreen({
     super.key,
     required this.dialogue,
-    required this.langCode,
+    this.langCode = 'KO',
   });
 
   @override
@@ -21,6 +23,7 @@ class DialogueScreen extends StatefulWidget {
 }
 
 class _DialogueScreenState extends State<DialogueScreen> {
+  String get _langCode => ProgressService().language;
   late final AudioPlayer _player;
   PlayerState _playerState = PlayerState.stopped;
   Duration _duration = Duration.zero;
@@ -138,6 +141,86 @@ class _DialogueScreenState extends State<DialogueScreen> {
     return '$minutes:$seconds';
   }
 
+  Widget _buildLanguageMenu(bool isDark) {
+    final currentLang = supportedLanguages.firstWhere(
+      (l) => l.code == _langCode,
+      orElse: () => supportedLanguages.first,
+    );
+    return PopupMenuButton<String>(
+      tooltip: AppStrings.tr('lang_selector_title', _langCode),
+      initialValue: _langCode,
+      elevation: 8,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+        ),
+      ),
+      color: isDark ? const Color(0xFF1E293B) : Colors.white,
+      onSelected: (code) {
+        ProgressService().setLanguage(code);
+        setState(() {});
+      },
+      itemBuilder: (context) => supportedLanguages.map((lang) {
+        final isSelected = lang.code == _langCode;
+        return PopupMenuItem<String>(
+          value: lang.code,
+          child: Row(
+            children: [
+              Text(lang.flag, style: const TextStyle(fontSize: 18)),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  '${lang.code} • ${lang.label}',
+                  style: TextStyle(
+                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                    fontSize: 13.5,
+                    color: isSelected
+                        ? const Color(0xFF3B82F6)
+                        : (isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B)),
+                  ),
+                ),
+              ),
+              if (isSelected) const Icon(Icons.check_rounded, size: 18, color: Color(0xFF3B82F6)),
+            ],
+          ),
+        );
+      }).toList(),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        margin: const EdgeInsets.only(right: 12),
+        decoration: BoxDecoration(
+          color: isDark ? const Color(0xFF1E293B) : Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(currentLang.flag, style: const TextStyle(fontSize: 16)),
+            const SizedBox(width: 6),
+            Text(
+              currentLang.code,
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B),
+              ),
+            ),
+            const SizedBox(width: 2),
+            Icon(
+              Icons.arrow_drop_down_rounded,
+              size: 18,
+              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -150,13 +233,16 @@ class _DialogueScreenState extends State<DialogueScreen> {
         surfaceTintColor: Colors.transparent,
         iconTheme: IconThemeData(color: isDark ? Colors.white : const Color(0xFF0F172A)),
         title: Text(
-          '${widget.dialogue.emoji}  ${widget.dialogue.title(widget.langCode)}',
+          '${widget.dialogue.emoji}  ${widget.dialogue.title(_langCode)}',
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w800,
             color: isDark ? Colors.white : const Color(0xFF0F172A),
           ),
         ),
+        actions: [
+          _buildLanguageMenu(isDark),
+        ],
       ),
       body: SafeArea(
         child: ListView(
@@ -175,7 +261,7 @@ class _DialogueScreenState extends State<DialogueScreen> {
                 ),
               ),
               child: Text(
-                AppStrings.tr('dialogue_sub', widget.langCode),
+                AppStrings.tr('dialogue_sub', _langCode),
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
@@ -250,7 +336,7 @@ class _DialogueScreenState extends State<DialogueScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppStrings.tr('audio_play_all', widget.langCode),
+                      AppStrings.tr('audio_play_all', _langCode),
                       style: TextStyle(
                         fontSize: 14.5,
                         fontWeight: FontWeight.w800,
@@ -272,7 +358,7 @@ class _DialogueScreenState extends State<DialogueScreen> {
               if (_playerState != PlayerState.stopped) ...[
                 IconButton(
                   onPressed: _replay,
-                  tooltip: AppStrings.tr('audio_replay', widget.langCode),
+                  tooltip: AppStrings.tr('audio_replay', _langCode),
                   icon: Icon(
                     Icons.replay_rounded,
                     size: 22,

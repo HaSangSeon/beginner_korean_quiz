@@ -34,13 +34,15 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
+  String get _langCode => ProgressService().language;
+
   @override
   void initState() {
     super.initState();
   }
 
   String _getLocalizedEncouragement(double percentage) {
-    final lang = widget.langCode.toUpperCase();
+    final lang = _langCode.toUpperCase();
 
     if (percentage == 1.0) {
       switch (lang) {
@@ -144,7 +146,7 @@ class _ResultScreenState extends State<ResultScreen> {
         : 0.0;
     final percentInt = (percentage * 100).round();
     final langOption = supportedLanguages.firstWhere(
-      (l) => l.code == widget.langCode,
+      (l) => l.code == _langCode,
       orElse: () => supportedLanguages.first,
     );
 
@@ -162,10 +164,10 @@ class _ResultScreenState extends State<ResultScreen> {
     final String titleText;
     if (widget.isReviewMode) {
       titleText = percentInt == 100
-          ? AppStrings.tr('review_all_mastered', widget.langCode)
-          : AppStrings.tr('review_completed_title', widget.langCode);
+          ? AppStrings.tr('review_all_mastered', _langCode)
+          : AppStrings.tr('review_completed_title', _langCode);
     } else {
-      titleText = AppStrings.tr('result_finished', widget.langCode);
+      titleText = AppStrings.tr('result_finished', _langCode);
     }
 
     return Scaffold(
@@ -173,11 +175,86 @@ class _ResultScreenState extends State<ResultScreen> {
       appBar: AppBar(
         title: Text(
           widget.isReviewMode
-              ? AppStrings.tr('review_completed_title', widget.langCode)
-              : AppStrings.tr('result_title', widget.langCode),
+              ? AppStrings.tr('review_completed_title', _langCode)
+              : AppStrings.tr('result_title', _langCode),
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,
+        actions: [
+          PopupMenuButton<String>(
+            tooltip: AppStrings.tr('lang_selector_title', _langCode),
+            initialValue: _langCode,
+            elevation: 8,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+              side: BorderSide(
+                color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+              ),
+            ),
+            color: isDark ? const Color(0xFF1E293B) : Colors.white,
+            onSelected: (code) {
+              ProgressService().setLanguage(code);
+              setState(() {});
+            },
+            itemBuilder: (context) => supportedLanguages.map((lang) {
+              final isSelected = lang.code == _langCode;
+              return PopupMenuItem<String>(
+                value: lang.code,
+                child: Row(
+                  children: [
+                    Text(lang.flag, style: const TextStyle(fontSize: 18)),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        '${lang.code} • ${lang.label}',
+                        style: TextStyle(
+                          fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                          fontSize: 13.5,
+                          color: isSelected
+                              ? const Color(0xFF3B82F6)
+                              : (isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B)),
+                        ),
+                      ),
+                    ),
+                    if (isSelected) const Icon(Icons.check_rounded, size: 18, color: Color(0xFF3B82F6)),
+                  ],
+                ),
+              );
+            }).toList(),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              margin: const EdgeInsets.only(right: 12),
+              decoration: BoxDecoration(
+                color: isDark ? const Color(0xFF1E293B) : Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(langOption.flag, style: const TextStyle(fontSize: 16)),
+                  const SizedBox(width: 6),
+                  Text(
+                    langOption.code,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B),
+                    ),
+                  ),
+                  const SizedBox(width: 2),
+                  Icon(
+                    Icons.arrow_drop_down_rounded,
+                    size: 18,
+                    color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -238,7 +315,7 @@ class _ResultScreenState extends State<ResultScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                AppStrings.tr('result_your_score', widget.langCode),
+                                AppStrings.tr('result_your_score', _langCode),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                                   fontWeight: FontWeight.w600,
@@ -276,7 +353,7 @@ class _ResultScreenState extends State<ResultScreen> {
                           Text(
                             AppStrings.tr(
                               'result_score_fraction',
-                              widget.langCode,
+                              _langCode,
                               {
                                 'score': '${widget.score}',
                                 'total': '${widget.totalQuestions}',
@@ -298,7 +375,7 @@ class _ResultScreenState extends State<ResultScreen> {
                             child: Text(
                               AppStrings.tr(
                                 'result_accuracy',
-                                widget.langCode,
+                                _langCode,
                                 {'pct': '$percentInt'},
                               ),
                               style: const TextStyle(
@@ -341,7 +418,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => QuizScreen(
-                                      initialLangCode: widget.langCode,
+                                      initialLangCode: _langCode,
                                       quizType: widget.quizType,
                                       category: widget.category,
                                       level: widget.level,
@@ -356,7 +433,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                 child: Text(
                                   AppStrings.tr(
                                     'review_retry_remaining',
-                                    widget.langCode,
+                                    _langCode,
                                     {'count': '${remainingWrong.length}'},
                                   ),
                                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -378,7 +455,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               label: FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: Text(
-                                  AppStrings.tr('result_home', widget.langCode),
+                                  AppStrings.tr('result_home', _langCode),
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
@@ -406,7 +483,7 @@ class _ResultScreenState extends State<ResultScreen> {
                           label: FittedBox(
                             fit: BoxFit.scaleDown,
                             child: Text(
-                              AppStrings.tr('result_home', widget.langCode),
+                              AppStrings.tr('result_home', _langCode),
                               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -431,7 +508,7 @@ class _ResultScreenState extends State<ResultScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => QuizScreen(
-                                initialLangCode: widget.langCode,
+                                initialLangCode: _langCode,
                                 quizType: widget.quizType,
                                 category: widget.category,
                                 level: widget.level,
@@ -446,7 +523,7 @@ class _ResultScreenState extends State<ResultScreen> {
                           child: Text(
                             AppStrings.tr(
                               'review_now_button',
-                              widget.langCode,
+                              _langCode,
                               {'count': '${widget.sessionWrongIds!.length}'},
                             ),
                             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -472,7 +549,7 @@ class _ResultScreenState extends State<ResultScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => QuizScreen(
-                              initialLangCode: widget.langCode,
+                              initialLangCode: _langCode,
                               quizType: widget.quizType,
                               category: widget.category,
                               level: widget.level,
@@ -484,7 +561,7 @@ class _ResultScreenState extends State<ResultScreen> {
                       label: FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          AppStrings.tr('result_retry', widget.langCode),
+                          AppStrings.tr('result_retry', _langCode),
                           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -512,7 +589,7 @@ class _ResultScreenState extends State<ResultScreen> {
                       label: FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          AppStrings.tr('result_home', widget.langCode),
+                          AppStrings.tr('result_home', _langCode),
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,

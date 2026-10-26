@@ -18,6 +18,7 @@ class ProgressService extends ChangeNotifier {
   static const _kLearned = 'progress_learned_ids';
   static const _kWrong = 'progress_wrong_ids';
   static const _kThemeMode = 'app_theme_mode';
+  static const _kLanguage = 'app_language';
 
   SharedPreferences? _prefs;
   int _streak = 0;
@@ -27,6 +28,7 @@ class ProgressService extends ChangeNotifier {
   Set<int> _learned = {};
   List<int> _wrong = [];
   ThemeMode _themeMode = ThemeMode.system;
+  String _language = detectDefaultLanguage();
 
   Future<void> init() async {
     try {
@@ -44,6 +46,13 @@ class ProgressService extends ChangeNotifier {
           .whereType<int>()
           .toList();
 
+      final savedLang = _prefs!.getString(_kLanguage);
+      if (savedLang != null && savedLang.isNotEmpty) {
+        _language = savedLang;
+      } else {
+        _language = detectDefaultLanguage();
+      }
+
       final savedTheme = _prefs!.getString(_kThemeMode);
       if (savedTheme == 'light') {
         _themeMode = ThemeMode.light;
@@ -55,6 +64,30 @@ class ProgressService extends ChangeNotifier {
     } catch (e) {
       debugPrint('ProgressService init error: $e');
     }
+  }
+
+  static String detectDefaultLanguage() {
+    try {
+      final code = WidgetsBinding.instance.platformDispatcher.locale.languageCode.toLowerCase();
+      if (code.startsWith('vi')) return 'VI';
+      if (code.startsWith('zh')) return 'ZH';
+      if (code.startsWith('ja')) return 'JA';
+      if (code.startsWith('es')) return 'ES';
+      if (code.startsWith('pt')) return 'PT';
+      if (code.startsWith('ko')) return 'KO';
+      return 'EN';
+    } catch (_) {
+      return 'VI';
+    }
+  }
+
+  String get language => _language;
+
+  void setLanguage(String code) {
+    if (_language == code) return;
+    _language = code;
+    _prefs?.setString(_kLanguage, code);
+    notifyListeners();
   }
 
   ThemeMode get themeMode => _themeMode;
