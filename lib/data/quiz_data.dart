@@ -22,14 +22,15 @@ const List<LanguageOption> supportedLanguages = [
 
 /// Fallback in-memory quiz questions synchronized with assets/data/questions.json
 final List<QuizQuestion> sampleQuizQuestions = [
+
   QuizQuestion(
     id: 1,
     category: "핵심표현·의사소통",
     type: "sentence",
     level: 1,
     visual: "🗣️ 🇰🇷",
-    speechBubble: "저는 미국 사람이지만...",
     keyword: "한국어",
+    speechBubble: "저는 미국 사람이지만...",
     situations: {
       "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -56,8 +57,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🚗 🔑",
-    speechBubble: "차 열쇠가 있어요!",
     keyword: "운전",
+    speechBubble: "차 열쇠가 있어요!",
     situations: {
       "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -84,8 +85,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🎂 🧑‍🍳",
-    speechBubble: "달콤한 케이크!",
     keyword: "케이크",
+    speechBubble: "달콤한 케이크!",
     situations: {
       "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -112,8 +113,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🥬 🌶️ 🙅‍♀️",
-    speechBubble: "너무 매워요!",
     keyword: "김치",
+    speechBubble: "너무 매워요!",
     situations: {
       "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -140,8 +141,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "⛷️ ❄️ 🙅‍♂️",
-    speechBubble: "넘어졌어요!",
     keyword: "스키",
+    speechBubble: "넘어졌어요!",
     situations: {
       "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -168,8 +169,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🌳 🚶‍♂️🚶‍♀️",
-    speechBubble: "날씨가 좋아요!",
     keyword: "공원",
+    speechBubble: "날씨가 좋아요!",
     situations: {
       "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
       "EN": "Complete the dialogue based on the picture like the example.",
@@ -196,8 +197,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "📚 🏛️",
-    speechBubble: "책이 많아요!",
     keyword: "도서관",
+    speechBubble: "책이 많아요!",
     situations: {
       "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
       "EN": "Complete the dialogue based on the picture like the example.",
@@ -224,8 +225,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏪 🛍️",
-    speechBubble: "24 HOURS",
     keyword: "편의점",
+    speechBubble: "24 HOURS",
     situations: {
       "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
       "EN": "Complete the dialogue based on the picture like the example.",
@@ -252,8 +253,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🚅 🌊 🤝",
-    speechBubble: "친구야 반가워!",
     keyword: "부산",
+    speechBubble: "친구야 반가워!",
     situations: {
       "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
       "EN": "Complete the dialogue based on the picture like the example.",
@@ -280,8 +281,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🇰🇷 📖 ✈️",
-    speechBubble: "한국어 공부해요!",
     keyword: "한국",
+    speechBubble: "한국어 공부해요!",
     situations: {
       "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
       "EN": "Complete the dialogue based on the picture like the example.",
@@ -794,8 +795,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🇯🇵 🗻",
-    speechBubble: "후지산이 아름다워요!",
     keyword: "일본",
+    speechBubble: "후지산이 아름다워요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -822,8 +823,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🇩🇪 🍺",
-    speechBubble: "옥토버페스트 축제예요!",
     keyword: "독일",
+    speechBubble: "옥토버페스트 축제예요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -850,8 +851,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🇨🇳 🏮",
-    speechBubble: "만리장성이 있어요!",
     keyword: "중국",
+    speechBubble: "만리장성이 있어요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -878,8 +879,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🇦🇺 🦘",
-    speechBubble: "시드니 오페라하우스가 있어요!",
     keyword: "호주",
+    speechBubble: "시드니 오페라하우스가 있어요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -906,8 +907,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🇫🇷 🗼",
-    speechBubble: "파리 에펠탑이 유명해요!",
     keyword: "프랑스",
+    speechBubble: "파리 에펠탑이 유명해요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -934,8 +935,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "👩‍🏫 📚",
-    speechBubble: "교실에서 학생들을 가르쳐요!",
     keyword: "선생님",
+    speechBubble: "교실에서 학생들을 가르쳐요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -962,8 +963,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "👨‍💼 💻",
-    speechBubble: "사무실에서 컴퓨터로 일해요!",
     keyword: "회사원",
+    speechBubble: "사무실에서 컴퓨터로 일해요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -990,8 +991,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "👨‍⚕️ 🩺",
-    speechBubble: "병원에서 아픈 환자를 진료해요!",
     keyword: "의사",
+    speechBubble: "병원에서 아픈 환자를 진료해요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1018,8 +1019,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🇻🇳 🌾",
-    speechBubble: "하노이와 쌀국수가 유명해요!",
     keyword: "베트남",
+    speechBubble: "하노이와 쌀국수가 유명해요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1046,8 +1047,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🇰🇷 🏛️",
-    speechBubble: "서울에 살아요!",
     keyword: "한국",
+    speechBubble: "서울에 살아요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1074,8 +1075,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🇺🇸 🗽",
-    speechBubble: "자유의 여신상이 있어요!",
     keyword: "미국",
+    speechBubble: "자유의 여신상이 있어요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1102,8 +1103,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🧑‍🎓 🎒",
-    speechBubble: "대학교에서 한국어를 공부해요!",
     keyword: "학생",
+    speechBubble: "대학교에서 한국어를 공부해요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1130,8 +1131,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "👩‍⚕️ 🏥",
-    speechBubble: "병원에서 환자를 돌봐요!",
     keyword: "간호사",
+    speechBubble: "병원에서 환자를 돌봐요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1158,8 +1159,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "👨‍🍳 🍳",
-    speechBubble: "식당에서 맛있는 요리를 만들어요!",
     keyword: "요리사",
+    speechBubble: "식당에서 맛있는 요리를 만들어요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1186,8 +1187,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "👮 🚓",
-    speechBubble: "시민의 안전을 지켜요!",
     keyword: "경찰관",
+    speechBubble: "시민의 안전을 지켜요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1214,8 +1215,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🧑‍🎤 🎤",
-    speechBubble: "K-POP 노래를 불러요!",
     keyword: "가수",
+    speechBubble: "K-POP 노래를 불러요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1242,8 +1243,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🛂 📕",
-    speechBubble: "공항 출입국 때 보여줘요!",
     keyword: "여권",
+    speechBubble: "공항 출입국 때 보여줘요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1270,8 +1271,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🏥 🚑",
-    speechBubble: "의사 선생님과 구급차가 있어요!",
     keyword: "병원",
+    speechBubble: "의사 선생님과 구급차가 있어요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1298,8 +1299,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "📚 🏛️",
-    speechBubble: "조용히 책을 읽고 빌려요!",
     keyword: "도서관",
+    speechBubble: "조용히 책을 읽고 빌려요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -1326,8 +1327,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🍽️ 🥘",
-    speechBubble: "맛있는 밥을 먹어요!",
     keyword: "식당",
+    speechBubble: "맛있는 밥을 먹어요!",
     situations: {
       "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
       "EN": "Look at the picture and complete the dialogue.",
@@ -2028,7 +2029,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     category: "자연·날씨",
     type: "word",
     level: 1,
-    visual: "🌤️ ☁️",
+    visual: "☁️",
     keyword: "구름",
     situations: {
       "KO": "그림을 보고 알맞은 자연 현상을 고르십시오.",
@@ -2110,8 +2111,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🍲 🙋‍♂️",
-    speechBubble: "맛있겠다!",
     keyword: "주문",
+    speechBubble: "맛있겠다!",
     situations: {
       "KO": "식당에서 음식을 주문하는 자연스러운 표현을 고르세요.",
       "EN": "Choose the natural expression to order food at a restaurant.",
@@ -2138,8 +2139,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏷️ 💵",
-    speechBubble: "얼마일까?",
     keyword: "가격",
+    speechBubble: "얼마일까?",
     situations: {
       "KO": "물건의 가격을 묻고 답하는 알맞은 표현을 고르세요.",
       "EN": "Choose the correct expression for asking and answering prices.",
@@ -2166,8 +2167,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🌶️ 🥘",
-    speechBubble: "물이 필요해요!",
     keyword: "맛",
+    speechBubble: "물이 필요해요!",
     situations: {
       "KO": "음식의 맛을 표현하는 자연스러운 말을 고르세요.",
       "EN": "Choose the natural sentence describing taste.",
@@ -2194,8 +2195,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "💧 🥛",
-    speechBubble: "목이 말라요!",
     keyword: "요청",
+    speechBubble: "목이 말라요!",
     situations: {
       "KO": "식당에서 물을 정중하게 요청하는 표현을 고르세요.",
       "EN": "Choose the polite way to ask for water at a restaurant.",
@@ -2222,8 +2223,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🥡 🛍️",
-    speechBubble: "집에 가져갈래요!",
     keyword: "포장",
+    speechBubble: "집에 가져갈래요!",
     situations: {
       "KO": "남은 음식을 포장해 달라고 할 때의 알맞은 말을 고르세요.",
       "EN": "Choose the correct phrase to ask for food to-go / doggy bag.",
@@ -2250,8 +2251,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "😋 👍",
-    speechBubble: "배불러요!",
     keyword: "만족",
+    speechBubble: "배불러요!",
     situations: {
       "KO": "식사를 마친 후 감사의 소감을 말하는 표현을 고르세요.",
       "EN": "Choose the expression to compliment a meal after dining.",
@@ -2278,8 +2279,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🎬 🍿",
-    speechBubble: "주말 계획!",
     keyword: "영화",
+    speechBubble: "주말 계획!",
     situations: {
       "KO": "자신이 하고 싶은 일을 나타내는 대화를 완성하세요.",
       "EN": "Complete the dialogue expressing what you want to do.",
@@ -2306,8 +2307,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🌴 ✈️ 🌊",
-    speechBubble: "방학 때 여행!",
     keyword: "제주도",
+    speechBubble: "방학 때 여행!",
     situations: {
       "KO": "가고 싶은 여행지를 묻고 답하는 대화를 완성하세요.",
       "EN": "Complete the dialogue about travel destinations you want to visit.",
@@ -2334,8 +2335,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🥩 🥢",
-    speechBubble: "배고파요!",
     keyword: "불고기",
+    speechBubble: "배고파요!",
     situations: {
       "KO": "먹고 싶은 음식을 묻고 답하는 대화를 완성하세요.",
       "EN": "Complete the dialogue expressing what food you want to eat.",
@@ -2362,8 +2363,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🥋 🥋",
-    speechBubble: "멋진 운동!",
     keyword: "태권도",
+    speechBubble: "멋진 운동!",
     situations: {
       "KO": "배우고 싶은 취미를 나타내는 대화를 완성하세요.",
       "EN": "Complete the dialogue expressing what skill you want to learn.",
@@ -2390,8 +2391,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🪑 🙇‍♂️",
-    speechBubble: "어서 오세요!",
     keyword: "의자",
+    speechBubble: "어서 오세요!",
     situations: {
       "KO": "손님에게 정중하게 자리를 권하는 표현을 고르세요.",
       "EN": "Choose the polite phrase offering a seat to a guest.",
@@ -2418,8 +2419,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🍵 🤲",
-    speechBubble: "따뜻해요!",
     keyword: "대접",
+    speechBubble: "따뜻해요!",
     situations: {
       "KO": "음료를 권할 때 쓰는 정중한 존댓말 표현을 고르세요.",
       "EN": "Choose the honorific polite phrase offering a beverage.",
@@ -2446,8 +2447,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "👉 🚪",
-    speechBubble: "출구는 저쪽이에요!",
     keyword: "안내",
+    speechBubble: "출구는 저쪽이에요!",
     situations: {
       "KO": "길이나 방향을 친절하게 안내하는 말을 고르세요.",
       "EN": "Choose the expression kindly guiding someone towards a direction.",
@@ -2474,8 +2475,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "📖 👩‍🏫",
-    speechBubble: "수업 시작합니다!",
     keyword: "교실",
+    speechBubble: "수업 시작합니다!",
     situations: {
       "KO": "교실에서 선생님이 학생에게 책을 펴라고 하는 표현을 고르세요.",
       "EN": "Choose what the teacher politely instructs students in a classroom.",
@@ -2502,8 +2503,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🚗 🚙 🚦",
-    speechBubble: "차가 안 움직여요!",
     keyword: "교통 체증",
+    speechBubble: "차가 안 움직여요!",
     situations: {
       "KO": "약속에 늦은 이유를 설명하는 자연스러운 말을 고르세요.",
       "EN": "Choose the natural phrase explaining why you were late due to traffic.",
@@ -2530,8 +2531,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🥶 🧥 ❄️",
-    speechBubble: "덜덜 떨려요!",
     keyword: "날씨",
+    speechBubble: "덜덜 떨려요!",
     situations: {
       "KO": "외투를 입은 이유를 날씨와 연결하여 설명하는 표현을 고르세요.",
       "EN": "Choose the expression explaining why you wore a coat due to cold weather.",
@@ -2558,8 +2559,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🤢 🏥",
-    speechBubble: "아야!",
     keyword: "복통",
+    speechBubble: "아야!",
     situations: {
       "KO": "병원에 가는 이유를 증상과 함께 말하는 표현을 고르세요.",
       "EN": "Choose the phrase explaining why you are going to the hospital.",
@@ -2586,8 +2587,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🎉 🥳 💯",
-    speechBubble: "만세!",
     keyword: "기분",
+    speechBubble: "만세!",
     situations: {
       "KO": "시험이 끝나서 기쁜 감정을 표현하는 말을 고르세요.",
       "EN": "Choose the expression showing happiness after exams finished.",
@@ -2614,8 +2615,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "⏰ 🌅",
-    speechBubble: "하품~ 좋은 아침!",
     keyword: "기상",
+    speechBubble: "하품~ 좋은 아침!",
     situations: {
       "KO": "아침에 일어나는 시간을 묻고 답하는 일상 대화를 고르세요.",
       "EN": "Choose the daily routine expression about wake-up time.",
@@ -2642,8 +2643,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🏢 🕕 💼",
-    speechBubble: "퇴근 시간이에요!",
     keyword: "퇴근",
+    speechBubble: "퇴근 시간이에요!",
     situations: {
       "KO": "퇴근 시간이나 일하는 시간을 묻고 답하는 표현을 고르세요.",
       "EN": "Choose the expression talking about work hours.",
@@ -2670,8 +2671,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "☕ 🥡",
-    speechBubble: "포장해 드릴까요?",
     keyword: "테이크아웃",
+    speechBubble: "포장해 드릴까요?",
     situations: {
       "KO": "카페에서 커피를 매장 밖으로 가지고 나갈 때 하는 표현을 고르세요.",
       "EN": "Choose the expression to take out coffee at a cafe.",
@@ -2698,8 +2699,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🧊 🥤",
-    speechBubble: "얼음 어떻게 해드릴까요?",
     keyword: "얼음",
+    speechBubble: "얼음 어떻게 해드릴까요?",
     situations: {
       "KO": "아이스 음료를 주문할 때 얼음 양을 줄여달라는 표현을 고르세요.",
       "EN": "Choose what to say to ask for less ice in an iced drink.",
@@ -2726,8 +2727,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "📶 📱",
-    speechBubble: "와이파이 이용 가능합니다.",
     keyword: "와이파이",
+    speechBubble: "와이파이 이용 가능합니다.",
     situations: {
       "KO": "카페에서 무료 인터넷 접속 정보를 직원에게 물어보는 표현을 고르세요.",
       "EN": "Choose how to ask for the Wi-Fi password at a cafe.",
@@ -2754,8 +2755,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🔔 ☕",
-    speechBubble: "벨이 울리면 픽업대로 오세요.",
     keyword: "진동벨",
+    speechBubble: "벨이 울리면 픽업대로 오세요.",
     situations: {
       "KO": "음료가 준비되면 진동벨을 가지고 픽업대로 오라는 직원의 안내 표현을 고르세요.",
       "EN": "Choose the staff's instruction to pick up the drink when the buzzer vibrates.",
@@ -2782,8 +2783,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🧾 🗑️",
-    speechBubble: "영수증 드릴까요?",
     keyword: "영수증",
+    speechBubble: "영수증 드릴까요?",
     situations: {
       "KO": "결제 후 영수증이 필요 없을 때 정중하게 사양하는 표현을 고르세요.",
       "EN": "Choose the natural phrase when you do not need the receipt.",
@@ -2810,8 +2811,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "👗 🪞",
-    speechBubble: "피팅룸은 저쪽입니다.",
     keyword: "피팅",
+    speechBubble: "피팅룸은 저쪽입니다.",
     situations: {
       "KO": "옷가게에서 마음에 드는 옷을 입어보고 싶을 때 직원에게 묻는 표현을 고르세요.",
       "EN": "Choose how to ask to try on clothes in a clothing store.",
@@ -2838,8 +2839,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🛍️ 🏪",
-    speechBubble: "봉투 필요하세요?",
     keyword: "봉투",
+    speechBubble: "봉투 필요하세요?",
     situations: {
       "KO": "편의점이나 마트에서 직원이 봉투가 필요한지 물어볼 때 쓰는 표현을 고르세요.",
       "EN": "Choose the question the cashier asks about needing a bag.",
@@ -2866,8 +2867,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "💳 📱",
-    speechBubble: "결제 도와드리겠습니다.",
     keyword: "카드결제",
+    speechBubble: "결제 도와드리겠습니다.",
     situations: {
       "KO": "계산대에서 신용카드나 모바일 페이로 값을 치르겠다고 말하는 표현을 고르세요.",
       "EN": "Choose how to say you will pay by credit card.",
@@ -2894,8 +2895,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🎉 😲",
-    speechBubble: "대박! 축하해!",
     keyword: "대박",
+    speechBubble: "대박! 축하해!",
     situations: {
       "KO": "친구가 엄청나게 좋은 소식을 전했을 때 놀람과 축하를 나타내는 리액션을 고르세요.",
       "EN": "Choose the popular reaction expressing amazement and excitement.",
@@ -2922,8 +2923,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "👀 😯",
-    speechBubble: "진짜요? 몰랐어요!",
     keyword: "진짜요",
+    speechBubble: "진짜요? 몰랐어요!",
     situations: {
       "KO": "믿기 어려운 사실을 듣고 예의 바르게 되물으며 놀라는 표현을 고르세요.",
       "EN": "Choose the polite phrase to react with surprise: 'Really?'",
@@ -2950,8 +2951,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "😱 🤦",
-    speechBubble: "헐... 어떡해...",
     keyword: "헐",
+    speechBubble: "헐... 어떡해...",
     situations: {
       "KO": "예상치 못한 황당하거나 안타까운 상황에서 쓰는 한국 특유의 감탄사를 고르세요.",
       "EN": "Choose the iconic Korean exclamation for shock or dismay: 'OMG / No way'.",
@@ -2978,8 +2979,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "✊ 🔥",
-    speechBubble: "오늘도 힘내자! 화이팅!",
     keyword: "화이팅",
+    speechBubble: "오늘도 힘내자! 화이팅!",
     situations: {
       "KO": "시험이나 힘든 일을 앞둔 친구에게 응원과 힘을 북돋워 주는 표현을 고르세요.",
       "EN": "Choose the famous Korean cheer expression: 'You can do it! / Cheer up!'",
@@ -3006,8 +3007,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🚌 💳",
-    speechBubble: "교통카드 충전해 주세요.",
     keyword: "충전",
+    speechBubble: "교통카드 충전해 주세요.",
     situations: {
       "KO": "편의점에서 대중교통 카드의 잔액을 채워달라고 요청하는 표현을 고르세요.",
       "EN": "Choose how to ask to top up your transit card at a convenience store.",
@@ -3034,8 +3035,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🚪 🚇",
-    speechBubble: "몇 번 출구로 나가야 해요?",
     keyword: "출구",
+    speechBubble: "몇 번 출구로 나가야 해요?",
     situations: {
       "KO": "지하철역에서 목적지로 가기 위해 몇 번 문으로 나가야 하는지 묻는 표현을 고르세요.",
       "EN": "Choose how to ask which exit number to take at a subway station.",
@@ -3062,8 +3063,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🔄 🚇",
-    speechBubble: "2호선으로 갈아타세요.",
     keyword: "환승",
+    speechBubble: "2호선으로 갈아타세요.",
     situations: {
       "KO": "지하철이나 버스 노선을 다른 노선으로 갈아타는 행위를 나타내는 단어를 고르세요.",
       "EN": "Choose the word for transferring to another subway or bus line.",
@@ -3090,8 +3091,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "⏱️ 🚶",
-    speechBubble: "얼마나 걸려요?",
     keyword: "시간",
+    speechBubble: "얼마나 걸려요?",
     situations: {
       "KO": "어떤 장소까지 이동하는 데 시간이 얼마나 소요되는지 묻는 필수 질문을 고르세요.",
       "EN": "Choose the essential question to ask how long it takes to get somewhere.",
@@ -3118,8 +3119,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🎟️ 🖥️",
-    speechBubble: "티켓팅 성공했어요!",
     keyword: "티켓",
+    speechBubble: "티켓팅 성공했어요!",
     situations: {
       "KO": "K-POP 콘서트나 공연 입장권을 예매할 때 쓰는 표현을 고르세요.",
       "EN": "Choose the word for admission tickets to a K-POP concert.",
@@ -3146,8 +3147,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🪄 🔋",
-    speechBubble: "건전지 갈아 끼워야 해요.",
     keyword: "배터리",
+    speechBubble: "건전지 갈아 끼워야 해요.",
     situations: {
       "KO": "콘서트장에서 응원봉에 불이 안 들어올 때 필요한 부품을 고르세요.",
       "EN": "Choose the item needed when the cheering light stick runs out of power.",
@@ -3174,8 +3175,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "💿 🎵",
-    speechBubble: "새 음반이 발매되었습니다.",
     keyword: "앨범",
+    speechBubble: "새 음반이 발매되었습니다.",
     situations: {
       "KO": "가수의 노래들이 수록된 실물 음반을 일컫는 말을 고르세요.",
       "EN": "Choose the word for a music record/album released by an artist.",
@@ -3202,8 +3203,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "👥 🏟️",
-    speechBubble: "팬들이 정말 많이 모였어요!",
     keyword: "인파",
+    speechBubble: "팬들이 정말 많이 모였어요!",
     situations: {
       "KO": "공연장에 모인 사람들의 수가 엄청나게 많은 상태를 묘사하는 형용사 표현을 고르세요.",
       "EN": "Choose the adjective describing a huge crowd gathered at a venue.",
@@ -3230,8 +3231,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🏪 🛍️",
-    speechBubble: "봉투 담아드릴까요?",
     keyword: "종량제 봉투",
+    speechBubble: "봉투 담아드릴까요?",
     situations: {
       "KO": "편의점에서 물건을 사고 담아갈 봉투를 요청하는 표현을 고르세요.",
       "EN": "Choose the expression to ask for a paid waste bag at a convenience store.",
@@ -3258,8 +3259,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🏷️ 🎁",
-    speechBubble: "1+1 행사 중이에요!",
     keyword: "원 플러스 원",
+    speechBubble: "1+1 행사 중이에요!",
     situations: {
       "KO": "편의점 행사 상품(1+1) 안내를 듣고 알맞은 행동을 고르세요.",
       "EN": "Choose the correct dialogue when informed about a 1+1 (Buy 1 Get 1) promotion.",
@@ -3286,8 +3287,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🧾 🗑️",
-    speechBubble: "영수증 필요 없어요!",
     keyword: "버려주세요",
+    speechBubble: "영수증 필요 없어요!",
     situations: {
       "KO": "계산 후 영수증을 받지 않고 버려달라고 직원에게 말하는 표현을 고르세요.",
       "EN": "Choose what to say when you don't need a receipt and want the cashier to discard it.",
@@ -3314,8 +3315,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🍱 ♨️",
-    speechBubble: "따뜻하게 데워 드세요!",
     keyword: "데워 먹을",
+    speechBubble: "따뜻하게 데워 드세요!",
     situations: {
       "KO": "편의점에서 도시락을 전자레인지로 데워 먹을 수 있는지 묻는 표현을 고르세요.",
       "EN": "Choose how to ask if you can heat up your lunchbox in the store microwave.",
@@ -3342,8 +3343,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "💬 📱 😅",
-    speechBubble: "ㅋ 하나는 무서워요!",
     keyword: "카톡 ㅋ",
+    speechBubble: "ㅋ 하나는 무서워요!",
     situations: {
       "KO": "카톡 메시지에서 'ㅋ' 개수에 따른 한국인 감정 뉘앙스를 고르세요.",
       "EN": "Choose the emotion implied by a single 'ㅋ' in Korean texting culture.",
@@ -3370,8 +3371,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🍚 👋 🤝",
-    speechBubble: "식사하셨어요?",
     keyword: "밥 먹었어",
+    speechBubble: "식사하셨어요?",
     situations: {
       "KO": "한국인이 만났을 때 '밥 먹었어?'라고 묻는 진짜 문화적 의미를 고르세요.",
       "EN": "Choose the cultural meaning behind Koreans greeting each other with 'Did you eat?'.",
@@ -3398,8 +3399,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🤝 ⏰ 🗓️",
-    speechBubble: "다음에 꼭 봐요!",
     keyword: "밥 한번 먹자",
+    speechBubble: "다음에 꼭 봐요!",
     situations: {
       "KO": "한국인들이 헤어질 때 가볍게 건네는 '다음에 밥 한번 먹자'의 속뜻을 고르세요.",
       "EN": "Choose the context behind the common farewell phrase 'Let's have a meal sometime'.",
@@ -3426,8 +3427,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "👀 ❌ 📵",
-    speechBubble: "답장이 안 와요!",
     keyword: "읽씹",
+    speechBubble: "답장이 안 와요!",
     situations: {
       "KO": "메시지를 읽고도 답장을 보내지 않는 행동을 뜻하는 신조어를 고르세요.",
       "EN": "Choose the Korean slang term for leaving someone on read without replying.",
@@ -3454,8 +3455,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🚖 🛑 🚦",
-    speechBubble: "여기서 세워주세요!",
     keyword: "내려주세요",
+    speechBubble: "여기서 세워주세요!",
     situations: {
       "KO": "택시를 타고 가다가 원하는 목적지 앞에서 세워달라고 요청하는 표현을 고르세요.",
       "EN": "Choose what to say to ask the taxi driver to let you off right here.",
@@ -3482,8 +3483,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "💳 🚕 📳",
-    speechBubble: "카드로 결제할게요!",
     keyword: "결제해도",
+    speechBubble: "카드로 결제할게요!",
     situations: {
       "KO": "택시 요금을 교통카드나 신용카드로 지불할 수 있는지 묻는 표현을 고르세요.",
       "EN": "Choose how to ask if you can pay the taxi fare with a card.",
@@ -3510,8 +3511,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🛵 🚪 🔔",
-    speechBubble: "문 앞에 두고 가세요!",
     keyword: "벨",
+    speechBubble: "문 앞에 두고 가세요!",
     situations: {
       "KO": "배달 주문 시 비대면으로 문 앞에 음식을 두고 가라는 요청사항 표현을 고르세요.",
       "EN": "Choose the common delivery request instruction to leave food at the door.",
@@ -3538,8 +3539,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "⏱️ 🛣️ 💨",
-    speechBubble: "빨리 가야 해요!",
     keyword: "가장 빠른",
+    speechBubble: "빨리 가야 해요!",
     situations: {
       "KO": "시간이 촉박해 택시 기사님께 가장 빠른 길로 가달라고 정중히 부탁하는 표현을 고르세요.",
       "EN": "Choose how to politely ask the taxi driver to take the fastest route when in a rush.",
@@ -3566,8 +3567,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🥓 🥬 🧄",
-    speechBubble: "상추에 싸서 드세요!",
     keyword: "쌈",
+    speechBubble: "상추에 싸서 드세요!",
     situations: {
       "KO": "고깃집에서 상추나 깻잎에 고기를 싸서 먹는 한국의 음식 문화를 고르세요.",
       "EN": "Choose the term for wrapping grilled meat in lettuce with garlic and sauce.",
@@ -3594,8 +3595,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🥣 🍲 🥄",
-    speechBubble: "앞접시 드릴게요!",
     keyword: "앞접시",
+    speechBubble: "앞접시 드릴게요!",
     situations: {
       "KO": "식당에서 찌개나 음식을 덜어 먹기 위해 개인용 작은 접시를 요청하는 표현을 고르세요.",
       "EN": "Choose the word to ask for an individual side plate to share stew or soup.",
@@ -3622,8 +3623,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🍻 🥂 🙇",
-    speechBubble: "짠! 건배해요!",
     keyword: "낮게",
+    speechBubble: "짠! 건배해요!",
     situations: {
       "KO": "한국 술자리에서 윗사람이나 선배와 건배할 때 지켜야 할 예절을 고르세요.",
       "EN": "Choose the proper etiquette when clinking glasses with seniors in Korean drinking culture.",
@@ -3650,8 +3651,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🍺 🍗 🌙",
-    speechBubble: "다음 장소로 가요!",
     keyword: "2차",
+    speechBubble: "다음 장소로 가요!",
     situations: {
       "KO": "식사를 마친 후 자리를 옮겨 술이나 차를 마시는 한국의 모임 차수 문화를 고르세요.",
       "EN": "Choose the term for moving to a second venue (bar/cafe) in Korean social outings.",
@@ -3678,8 +3679,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏫 🪑",
-    speechBubble: "교실에 무엇이 있어요?",
     keyword: "교실",
+    speechBubble: "교실에 무엇이 있어요?",
     situations: {
       "KO": "교실 그림을 보고 대화를 완성하세요.",
       "EN": "Look at the classroom picture and complete the dialogue.",
@@ -3706,8 +3707,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🧢 ❌",
-    speechBubble: "모자를 찾고 있어요!",
     keyword: "모자",
+    speechBubble: "모자를 찾고 있어요!",
     situations: {
       "KO": "물건이 있는지 묻는 질문에 알맞게 답하세요.",
       "EN": "Answer the question asking if the item is there.",
@@ -3734,8 +3735,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🖥️ ❓",
-    speechBubble: "교실에 컴퓨터가 있나요?",
     keyword: "컴퓨터",
+    speechBubble: "교실에 컴퓨터가 있나요?",
     situations: {
       "KO": "교실에 컴퓨터가 없는 상황입니다. 알맞은 대답을 고르세요.",
       "EN": "There is no computer in the classroom. Choose the correct answer.",
@@ -3762,8 +3763,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "📖 👉",
-    speechBubble: "네 손에 있는 건 뭐야?",
     keyword: "지칭",
+    speechBubble: "네 손에 있는 건 뭐야?",
     situations: {
       "KO": "상대방(듣는 사람)이 들고 있는 물건을 가리키며 묻는 대화입니다.",
       "EN": "Asking about an object held by the listener.",
@@ -3790,8 +3791,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏫 👀",
-    speechBubble: "저기 멀리 보이는 건물!",
     keyword: "학교",
+    speechBubble: "저기 멀리 보이는 건물!",
     situations: {
       "KO": "두 사람 모두에게서 멀리 떨어져 있는 건물을 보며 묻습니다.",
       "EN": "Asking about a building that is far away from both speakers.",
@@ -3818,8 +3819,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "📚 🔍",
-    speechBubble: "단어를 찾는 책이에요.",
     keyword: "사전",
+    speechBubble: "단어를 찾는 책이에요.",
     situations: {
       "KO": "사물을 소개하는 올바른 서술격 조사 형태를 고르세요.",
       "EN": "Choose the correct predicate ending for identifying an object.",
@@ -3846,8 +3847,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🧢 ✨",
-    speechBubble: "생일 선물로 받았어요.",
     keyword: "모자",
+    speechBubble: "생일 선물로 받았어요.",
     situations: {
       "KO": "물건이 무엇인지 묻는 질문에 알맞게 답하세요.",
       "EN": "Answer the question asking what the object is.",
@@ -3874,8 +3875,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "☕ 💳",
-    speechBubble: "시원한 커피 한 잔!",
     keyword: "카페",
+    speechBubble: "시원한 커피 한 잔!",
     situations: {
       "KO": "카페에서 커피를 주문할 때 쓰는 가장 자연스러운 표현을 고르세요.",
       "EN": "Choose the most natural expression when ordering coffee at a cafe.",
@@ -3902,8 +3903,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "👠 🛍️",
-    speechBubble: "이 구두가 마음에 들어요.",
     keyword: "구두",
+    speechBubble: "이 구두가 마음에 들어요.",
     situations: {
       "KO": "신발 매장에서 마음에 드는 구두를 사려고 합니다.",
       "EN": "Buying a pair of shoes you like at a shoe store.",
@@ -3930,8 +3931,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "📓 📖",
-    speechBubble: "공부할 책들을 골랐어요.",
     keyword: "서점",
+    speechBubble: "공부할 책들을 골랐어요.",
     situations: {
       "KO": "두 명사를 나열하여 문장을 완성하세요.",
       "EN": "Connect two nouns to complete the sentence.",
@@ -3958,8 +3959,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "👖 👕",
-    speechBubble: "새 옷을 사러 왔어요.",
     keyword: "옷가게",
+    speechBubble: "새 옷을 사러 왔어요.",
     situations: {
       "KO": "쇼핑한 물건 두 가지를 바르게 연결한 표현을 고르세요.",
       "EN": "Choose the correct phrase connecting two shopped items.",
@@ -3986,8 +3987,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🗼 ⛰️",
-    speechBubble: "서울의 랜드마크는 어디?",
     keyword: "남산",
+    speechBubble: "서울의 랜드마크는 어디?",
     situations: {
       "KO": "서울의 명소 위치를 묻고 답하는 대화입니다.",
       "EN": "Asking and answering about the location of a Seoul landmark.",
@@ -4014,8 +4015,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🎒 👓",
-    speechBubble: "안경이 어디에 있더라?",
     keyword: "가방",
+    speechBubble: "안경이 어디에 있더라?",
     situations: {
       "KO": "물건이 어디에 있는지 묻고 답하는 상황입니다.",
       "EN": "Asking and answering where an item is.",
@@ -4042,8 +4043,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏣 🏦",
-    speechBubble: "우체국 바로 뒤에 은행이 있어요.",
     keyword: "우체국",
+    speechBubble: "우체국 바로 뒤에 은행이 있어요.",
     situations: {
       "KO": "우체국이 은행 앞에 있습니다. 은행의 위치를 바르게 설명한 것은?",
       "EN": "The post office is in front of the bank. Where is the bank?",
@@ -4070,8 +4071,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "💇 🏥",
-    speechBubble: "병원 바로 오른쪽에 있어요!",
     keyword: "미용실",
+    speechBubble: "병원 바로 오른쪽에 있어요!",
     situations: {
       "KO": "두 건물이 나란히 붙어 있을 때 위치를 설명하는 대화입니다.",
       "EN": "Describing the location of two buildings side by side.",
@@ -4098,8 +4099,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "💊 🏥",
-    speechBubble: "1층은 병원, 2층은 약국!",
     keyword: "약국",
+    speechBubble: "1층은 병원, 2층은 약국!",
     situations: {
       "KO": "1층에 병원이 있고, 2층에 약국이 있습니다. 약국의 위치는?",
       "EN": "Hospital is on the 1st floor and pharmacy on the 2nd floor. Where is the pharmacy?",
@@ -4126,8 +4127,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏬 🚶",
-    speechBubble: "쇼핑하러 백화점으로 가요.",
     keyword: "백화점",
+    speechBubble: "쇼핑하러 백화점으로 가요.",
     situations: {
       "KO": "이동하는 목적지를 묻고 답할 때 쓰는 조사를 고르세요.",
       "EN": "Choose the correct particle for the destination of movement.",
@@ -4154,8 +4155,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "👜 🛍️",
-    speechBubble: "백화점에서 무엇을 해요?",
     keyword: "쇼핑",
+    speechBubble: "백화점에서 무엇을 해요?",
     situations: {
       "KO": "구체적인 행동이 일어나는 장소를 나타내는 조사를 고르세요.",
       "EN": "Choose the particle that indicates the location where an action takes place.",
@@ -4182,8 +4183,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "📚 👧",
-    speechBubble: "도서관에서 무엇을 해요?",
     keyword: "도서관",
+    speechBubble: "도서관에서 무엇을 해요?",
     situations: {
       "KO": "장소에 어울리는 올바른 일상 행동을 고르세요.",
       "EN": "Choose the appropriate action that matches the place.",
@@ -4210,8 +4211,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🎬 🍿",
-    speechBubble: "극장에서 무엇을 해요?",
     keyword: "극장",
+    speechBubble: "극장에서 무엇을 해요?",
     situations: {
       "KO": "장소에서 하는 활동을 묻는 질문에 알맞게 답하세요.",
       "EN": "Answer what activity you do at this venue.",
@@ -4238,8 +4239,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🚌 🔔",
-    speechBubble: "이번 정류장은 홍대입구입니다.",
     keyword: "하차 벨",
+    speechBubble: "이번 정류장은 홍대입구입니다.",
     situations: {
       "KO": "버스에서 다음 정류장에 내리기 위해 미리 누르는 버튼을 고르세요.",
       "EN": "Choose what to press before getting off at the next bus stop.",
@@ -4266,8 +4267,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🥢 🥄",
-    speechBubble: "환경 보호에 동참해 주세요.",
     keyword: "일회용 수저",
+    speechBubble: "환경 보호에 동참해 주세요.",
     situations: {
       "KO": "배달 주문할 때 일회용 숟가락과 젓가락을 받지 않겠다고 요청하는 말을 고르세요.",
       "EN": "Choose how to request not to receive disposable spoons and chopsticks when ordering delivery.",
@@ -4294,8 +4295,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🖥️ 👆",
-    speechBubble: "무인 주문기로 주문해 주세요.",
     keyword: "키오스크",
+    speechBubble: "무인 주문기로 주문해 주세요.",
     situations: {
       "KO": "식당이나 패스트푸드점에서 터치 화면으로 직접 주문하는 무인 기기를 고르세요.",
       "EN": "Choose the self-service touch screen machine used for ordering at restaurants.",
@@ -4322,8 +4323,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🥡 🛍️",
-    speechBubble: "매장에서 드시나요, 포장하시나요?",
     keyword: "포장",
+    speechBubble: "매장에서 드시나요, 포장하시나요?",
     situations: {
       "KO": "음식을 매장에서 먹지 않고 집이나 밖으로 가지고 가겠다고 선택하는 말을 고르세요.",
       "EN": "Choose the word for takeout/to-go instead of dining inside the restaurant.",
@@ -4350,8 +4351,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "📦 🔐",
-    speechBubble: "택배를 보관함에 넣어두었습니다.",
     keyword: "무인 택배함",
+    speechBubble: "택배를 보관함에 넣어두었습니다.",
     situations: {
       "KO": "집을 비웠을 때 택배 기사님께 물품을 맡겨달라고 요청하는 전자 보관함을 고르세요.",
       "EN": "Choose the electronic parcel locker where couriers can leave your packages safely.",
@@ -4378,8 +4379,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🏪 📦",
-    speechBubble: "편의점 택배 접수 기계는 저쪽에 있습니다.",
     keyword: "편의점 택배",
+    speechBubble: "편의점 택배 접수 기계는 저쪽에 있습니다.",
     situations: {
       "KO": "우체국에 가지 않고 가까운 편의점에서 24시간 물건을 부치는 서비스를 고르세요.",
       "EN": "Choose the convenient service used to send parcels at 24-hour convenience stores.",
@@ -4406,8 +4407,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🎒 ❓",
-    speechBubble: "잃어버린 물건을 찾아드립니다.",
     keyword: "유실물 센터",
+    speechBubble: "잃어버린 물건을 찾아드립니다.",
     situations: {
       "KO": "지하철이나 버스에 물건을 두고 내렸을 때 분실물을 찾기 위해 문의하는 곳을 고르세요.",
       "EN": "Choose where to contact or visit to find lost belongings left on subways or buses.",
@@ -4434,8 +4435,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "📶 📷",
-    speechBubble: "카메라로 QR코드를 스캔해 보세요.",
     keyword: "QR코드 와이파이",
+    speechBubble: "카메라로 QR코드를 스캔해 보세요.",
     situations: {
       "KO": "식당이나 카페 벽의 QR코드를 카메라로 스캔하여 무선 인터넷에 접속하는 방법을 고르세요.",
       "EN": "Choose the method to quickly connect to wireless internet by scanning a QR code with your camera.",
@@ -4462,8 +4463,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🤕 💊",
-    speechBubble: "머리가 어떻게 아프신가요?",
     keyword: "두통약",
+    speechBubble: "머리가 어떻게 아프신가요?",
     situations: {
       "KO": "약국에서 머리가 아프고 열이 날 때 먹는 진통제를 요청하는 표현을 고르세요.",
       "EN": "Choose how to ask for headache medicine at a pharmacy when your head hurts.",
@@ -4490,8 +4491,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🤢 🥛",
-    speechBubble: "속이 답답하고 소화가 안 되세요?",
     keyword: "소화제",
+    speechBubble: "속이 답답하고 소화가 안 되세요?",
     situations: {
       "KO": "밥을 먹고 체했거나 속이 답답할 때 약국에서 소화제를 달라고 요청하는 말을 고르세요.",
       "EN": "Choose what medicine to ask for when suffering from indigestion after eating.",
@@ -4518,8 +4519,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "⏰ 🍚",
-    speechBubble: "하루 세 번, 밥 드시고 드세요.",
     keyword: "식후 30분",
+    speechBubble: "하루 세 번, 밥 드시고 드세요.",
     situations: {
       "KO": "약사가 밥을 다 먹고 나서 30분 뒤에 약을 복용하라고 안내하는 말을 고르세요.",
       "EN": "Choose the word used to indicate taking medication 30 minutes AFTER meals.",
@@ -4546,8 +4547,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "🩹 🩸",
-    speechBubble: "상처 소독하고 발라 드릴게요.",
     keyword: "연고와 밴드",
+    speechBubble: "상처 소독하고 발라 드릴게요.",
     situations: {
       "KO": "넘어져서 무릎이 까졌을 때 상처에 바르는 약과 반창고를 요청하는 말을 고르세요.",
       "EN": "Choose the ointment to apply on wounds when you scrape your knee.",
@@ -4574,8 +4575,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🩹 ⚡",
-    speechBubble: "시원한 쿨파스로 드릴까요?",
     keyword: "파스",
+    speechBubble: "시원한 쿨파스로 드릴까요?",
     situations: {
       "KO": "허리나 관절이 결리고 삐었을 때 아픈 부위에 붙이는 소염진통 외용제를 고르세요.",
       "EN": "Choose the pain-relief patch/plaster to stick onto aching muscles or joints.",
@@ -4602,8 +4603,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "📋 💊",
-    speechBubble: "처방전 접수해 드립니다.",
     keyword: "처방전",
+    speechBubble: "처방전 접수해 드립니다.",
     situations: {
       "KO": "병원 진료 후 의사가 작성해 준 약 조제 서류를 약국에 제출하는 상황을 고르세요.",
       "EN": "Choose the medical paper given by a doctor to get medication prepared at the pharmacy.",
@@ -4630,8 +4631,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "⚠️ 🤧",
-    speechBubble: "특정 성분에 과민 반응이 있으세요?",
     keyword: "알레르기",
+    speechBubble: "특정 성분에 과민 반응이 있으세요?",
     situations: {
       "KO": "의사가 환자에게 특정 약물이나 음식에 과민 반응(알레르기)이 있는지 묻는 상황을 고르세요.",
       "EN": "Choose the word used when a doctor asks if you have allergic reactions to certain drugs or food.",
@@ -4658,8 +4659,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🚨 🚑",
-    speechBubble: "응급 환자가 발생했습니다!",
     keyword: "119 응급전화",
+    speechBubble: "응급 환자가 발생했습니다!",
     situations: {
       "KO": "주변 사람이 쓰러져 구급차나 소방관의 긴급 출동이 필요할 때 누르는 긴급 번호를 고르세요.",
       "EN": "Choose the emergency phone number to call for an ambulance and firefighters in Korea.",
@@ -4686,8 +4687,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🗓️ 👥",
-    speechBubble: "11월 30일에 친구를 만나요.",
     keyword: "날짜 조사 -에",
+    speechBubble: "11월 30일에 친구를 만나요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4715,8 +4716,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🎓 💐",
-    speechBubble: "2월 21일에 졸업해요.",
     keyword: "졸업하다",
+    speechBubble: "2월 21일에 졸업해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4744,8 +4745,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏖️ ☀️",
-    speechBubble: "7월에 방학해요.",
     keyword: "방학하다",
+    speechBubble: "7월에 방학해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4773,8 +4774,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🍿 🎬",
-    speechBubble: "토요일에 영화를 봐요.",
     keyword: "영화를 보다",
+    speechBubble: "토요일에 영화를 봐요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4802,8 +4803,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🛍️ 🏬",
-    speechBubble: "주말에 쇼핑해요.",
     keyword: "쇼핑하다",
+    speechBubble: "주말에 쇼핑해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4831,8 +4832,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🎂 🎉",
-    speechBubble: "생일에 케이크를 사요.",
     keyword: "케이크를 사다",
+    speechBubble: "생일에 케이크를 사요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4852,7 +4853,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "在特别的日子'생일'（生日）后加'-에'，购买的物品'케이크'（蛋糕）后加'-를'，'사다'（买）变形为'사요'。",
       "JA": "特別な日「생일（誕生日）」の後には「-에」、買う物「케이크（ケーキ）」の後には「-를」がつき、「사다」は「사요」になります。",
     },
-    chips: ["오후에", "운동해요.", "오후을", "운동하어요."],
+    chips: ["생일에", "케이크를", "사요.", "생일을", "케이크가"],
   ),
   QuizQuestion(
     id: 175,
@@ -4860,8 +4861,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "📚 🇰🇷",
-    speechBubble: "오늘 한국어를 공부해요.",
     keyword: "오늘 공부하다",
+    speechBubble: "오늘 한국어를 공부해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4881,7 +4882,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "【核心语法】'오늘'（今天）、'어제'（昨天）、'내일'（明天）、'지금'（现在）等时间副词后面绝不能加助词'-에'！",
       "JA": "【重要文法】「오늘（今日）」「어제（昨日）」「내일（明日）」「지금（今）」などの時間副詞の後には助詞「-에」をつけません！（오늘에 ✕ → 오늘 ◯）",
     },
-    chips: ["아침 8시에", "일어나요.", "아침 8시를", "일어나해요."],
+    chips: ["오늘", "한국어를", "공부해요.", "오늘에", "한국어가"],
   ),
   QuizQuestion(
     id: 176,
@@ -4889,8 +4890,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "💼 🏢",
-    speechBubble: "내일 일해요.",
     keyword: "내일 일하다",
+    speechBubble: "내일 일해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4910,7 +4911,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "'내일'（明天）后面不加助词'-에'。'일하다'（工作）变形为'일해요'。",
       "JA": "「내일（明日）」の後には助詞「-에」をつけずに使います。「일하다（働く）」は「일해요」になります。",
     },
-    chips: ["저녁에", "한국어를", "공부해요.", "저녁을", "한국어가"],
+    chips: ["내일", "일해요.", "내일에", "일하다요."],
   ),
   QuizQuestion(
     id: 177,
@@ -4918,8 +4919,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "☕ 👥",
-    speechBubble: "어제 친구를 만났어요.",
     keyword: "어제 만났어요",
+    speechBubble: "어제 친구를 만났어요.",
     situations: {
       "KO": "<보기>와 같이 과거에 일어난 일을 나타내는 문장을 고르세요.",
       "EN": "Choose the correct past-tense sentence formed from the given words.",
@@ -4939,7 +4940,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "'어제'（昨天）后不加'-에'，过去时词尾'-았어요'与'만나다'结合变为'만났어요'。",
       "JA": "「어제（昨日）」に「-에」はつかず、過去形語尾「-았어요」が結合して「만났어요」になります。",
     },
-    chips: ["오늘", "커피를", "마셔요.", "오늘에", "커피가"],
+    chips: ["어제", "친구를", "만났어요.", "어제에", "만나요."],
   ),
   QuizQuestion(
     id: 178,
@@ -4947,8 +4948,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🎧 🎶",
-    speechBubble: "지금 음악을 들어요.",
     keyword: "음악을 들어요",
+    speechBubble: "지금 음악을 들어요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4968,7 +4969,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "'지금'（现在）后不加'-에'。'듣다'（听）是不规则动词，韵尾'ㄷ'遇到元音变为'ㄹ'，写作'들어요'。",
       "JA": "「지금（今）」に「-에」はつきません。動詞「듣다（聞く）」はパッチム「ㄷ」が「ㄹ」に変わる不規則動詞で、「들어요」になります。",
     },
-    chips: ["내일", "회사에", "가요.", "내일에", "회사를"],
+    chips: ["지금", "음악을", "들어요.", "지금에", "듣어요."],
   ),
   QuizQuestion(
     id: 179,
@@ -4976,8 +4977,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🌳 🚶",
-    speechBubble: "일요일에 공원에 가요.",
     keyword: "공원에 가요",
+    speechBubble: "일요일에 공원에 가요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -4997,7 +4998,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "时间'일요일'（星期日）后加'-에'，目的地'공원'（公园）后也加方向助词'-에'，构成'일요일에 공원에 가요'。",
       "JA": "曜日「일요일（日曜日）」の後に「-에」がつき、目的地の「공원（公園）」の後にも場所助詞「-에」がつきます。",
     },
-    chips: ["어제", "도서관에서", "책을", "읽었어요.", "어제에", "도서관에"],
+    chips: ["일요일에", "공원에", "가요.", "일요일을", "공원에서"],
   ),
   QuizQuestion(
     id: 180,
@@ -5005,8 +5006,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🍞 ☕",
-    speechBubble: "아침에 빵을 먹어요.",
     keyword: "아침에 먹어요",
+    speechBubble: "아침에 빵을 먹어요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -5026,7 +5027,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "时间段'아침'（早晨）后接助词'-에'，食物'빵'（面包）后接宾格助词'-을'，'먹다'变形为'먹어요'。",
       "JA": "時間帯「아침（朝）」の後に「-에」、食べ物「빵（パン）」の後に「-을」がつき、「먹다」は「먹어요」になります。",
     },
-    chips: ["지금", "음악을", "들어요.", "지금에", "듣어요."],
+    chips: ["아침에", "빵을", "먹어요.", "아침을", "빵이"],
   ),
   QuizQuestion(
     id: 181,
@@ -5034,8 +5035,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏃 🌙",
-    speechBubble: "저녁에 운동해요.",
     keyword: "저녁에 운동해요",
+    speechBubble: "저녁에 운동해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -5055,7 +5056,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "时间段'저녁'（晚上）后加'-에'，'운동하다'（运动）变形为'운동해요'。",
       "JA": "時間帯「저녁（夕方・夜）」の後に「-에」がつき、「운동하다（運動する）」は「운동해요」になります。",
     },
-    chips: ["일요일에", "공원에", "가요.", "일요일을", "가어요."],
+    chips: ["저녁에", "운동해요.", "저녁을", "운동하다요."],
   ),
   QuizQuestion(
     id: 182,
@@ -5063,8 +5064,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "☕ 🕑",
-    speechBubble: "오후 2시에 커피를 마셔요.",
     keyword: "커피를 마셔요",
+    speechBubble: "오후 2시에 커피를 마셔요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -5084,7 +5085,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "具体钟点'오후 2시'（下午2点）后加'-에'，饮料'커피'（咖啡）后加'-를'，'마시다'（喝）缩合为'마셔요'。",
       "JA": "時刻「오후 2시（午後2時）」の後に「-에」、飲み物「커피（コーヒー）」の後に「-를」がつき、「마시다」は縮約されて「마셔요」になります。",
     },
-    chips: ["오후 2시에", "카페에서", "커피를", "마셔요.", "오후 2시를", "카페에"],
+    chips: ["오후 2시에", "커피를", "마셔요.", "오후 2시를", "커피가"],
   ),
   QuizQuestion(
     id: 183,
@@ -5092,8 +5093,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🗣️ 📖",
-    speechBubble: "매일 한국어를 연습해요.",
     keyword: "매일 연습해요",
+    speechBubble: "매일 한국어를 연습해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -5113,7 +5114,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "ZH": "【语法规则】'매일'（每天）、'자주'（经常）、'항상'（总是）等频度副词后面不能加助词'-에'！",
       "JA": "【文法規則】「매일（毎日）」「자주（よく・頻繁に）」「항상（いつも）」などの頻度副詞の後には助詞「-에」をつけません！",
     },
-    chips: ["매일", "아침에", "사과를", "먹어요.", "매일에", "사과가"],
+    chips: ["매일", "한국어를", "연습해요.", "매일에", "한국어가"],
   ),
   QuizQuestion(
     id: 184,
@@ -5121,8 +5122,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "✈️ 🌴",
-    speechBubble: "다음 주에 제주도를 여행해요.",
     keyword: "제주도를 여행해요",
+    speechBubble: "다음 주에 제주도를 여행해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
       "EN": "Choose the correct sentence formed from the given words like the example.",
@@ -5150,8 +5151,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🪟 🥵",
-    speechBubble: "창문 좀 열어 주세요.",
     keyword: "열다",
+    speechBubble: "창문 좀 열어 주세요.",
     situations: {
       "KO": "방 안이 더워서 상대방에게 창문을 열어 달라고 정중하게 부탁하는 상황입니다.",
       "EN": "A situation where you politely ask someone to open the window because the room is hot.",
@@ -5178,8 +5179,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🎂 🛍️",
-    speechBubble: "딸기 케이크를 사 주세요.",
     keyword: "사다",
+    speechBubble: "딸기 케이크를 사 주세요.",
     situations: {
       "KO": "무엇을 사 줄지 묻는 상대방에게 딸기 케이크를 사 달라고 요청하는 상황입니다.",
       "EN": "A situation where someone asks what to buy for you, and you ask them to buy a strawberry cake.",
@@ -5206,8 +5207,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "📷 🤝",
-    speechBubble: "무엇을 도와줄까요?",
     keyword: "돕다",
+    speechBubble: "무엇을 도와줄까요?",
     situations: {
       "KO": "상대방에게 어떤 도움을 줄지 물어보고 사진을 찍어 달라고 부탁받는 상황입니다.",
       "EN": "A situation where you ask how you can help someone, and they ask you to take a photo.",
@@ -5234,8 +5235,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🎧 🗣️",
-    speechBubble: "잘 들어 주세요.",
     keyword: "듣다",
+    speechBubble: "잘 들어 주세요.",
     situations: {
       "KO": "발표나 설명을 하면서 상대방에게 이야기를 잘 들어 달라고 요청하는 상황입니다.",
       "EN": "A situation where you ask someone to listen carefully during a presentation or explanation.",
@@ -5262,8 +5263,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🏠 🚶",
-    speechBubble: "집으로 가요.",
     keyword: "집",
+    speechBubble: "집으로 가요.",
     situations: {
       "KO": "어디로 이동하는지 방향이나 목적지를 묻고 답하는 상황입니다.",
       "EN": "A situation of asking and answering about the direction or destination you are heading to.",
@@ -5290,8 +5291,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "✈️ 🌴",
-    speechBubble: "제주도로 여행 가요.",
     keyword: "제주도",
+    speechBubble: "제주도로 여행 가요.",
     situations: {
       "KO": "어디로 여행을 가는지 목적지를 묻고 답하는 상황입니다.",
       "EN": "A situation where two people ask and answer about their travel destination.",
@@ -5318,8 +5319,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🎒 🙋",
-    speechBubble: "줄리앙의 가방입니다.",
     keyword: "가방",
+    speechBubble: "줄리앙의 가방입니다.",
     situations: {
       "KO": "가방의 주인이 누구인지 물어보고 대답하는 상황입니다.",
       "EN": "A situation where you ask and answer who owns a bag.",
@@ -5346,8 +5347,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "⌚ 🙋‍♂️",
-    speechBubble: "네, 제 시계예요.",
     keyword: "시계",
+    speechBubble: "네, 제 시계예요.",
     situations: {
       "KO": "상대방이 내 물건이 맞는지 물어봤을 때 내 것이 맞다고 대답하는 상황입니다.",
       "EN": "A situation where someone asks if an item is yours, and you confirm that it is yours.",
@@ -5374,8 +5375,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🙋‍♂️ 🇬🇧",
-    speechBubble: "저는 미국 사람이 아닙니다.",
     keyword: "아니다",
+    speechBubble: "저는 미국 사람이 아닙니다.",
     situations: {
       "KO": "격식 있는 자리에서 자신의 국적이 미국이 아니라고 정중하게 부인하는 상황입니다.",
       "EN": "A situation where you politely deny that your nationality is American in a formal setting.",
@@ -5402,8 +5403,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "✏️ 📓",
-    speechBubble: "지우개하고 연필 주세요.",
     keyword: "하고",
+    speechBubble: "지우개하고 연필 주세요.",
     situations: {
       "KO": "문구점이나 상점에서 두 가지 물건을 함께 달라고 요청하는 상황입니다.",
       "EN": "A situation where you ask for two items together at a stationery store or shop.",
@@ -5430,8 +5431,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "📚 🏠",
-    speechBubble: "집에서 공부해요.",
     keyword: "에서",
+    speechBubble: "집에서 공부해요.",
     situations: {
       "KO": "어느 장소에서 공부를 하는지 묻고 답하는 상황입니다.",
       "EN": "A situation of asking and answering about the location where someone studies.",
@@ -5458,8 +5459,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "word",
     level: 2,
     visual: "👵 🎂",
-    speechBubble: "할아버지 연세는 일흔둘입니다.",
     keyword: "연세",
+    speechBubble: "할아버지 연세는 일흔둘입니다.",
     situations: {
       "KO": "할아버지나 어르신의 나이를 높여서 정중하게 묻고 답하는 상황입니다.",
       "EN": "A situation where you politely ask and answer about the age of a grandfather or an elderly person.",
@@ -5486,8 +5487,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🍳 👍",
-    speechBubble: "요리를 잘해요.",
     keyword: "잘하다",
+    speechBubble: "요리를 잘해요.",
     situations: {
       "KO": "상대방이 어떤 일을 능숙하게 잘하는지 묻고 답하는 상황입니다.",
       "EN": "A situation of asking and answering what someone is good at doing.",
@@ -5514,8 +5515,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "📰 👓",
-    speechBubble: "아버지는 신문을 읽으세요.",
     keyword: "읽다",
+    speechBubble: "아버지는 신문을 읽으세요.",
     situations: {
       "KO": "아버지의 행동을 주체 높임 표현을 사용하여 정중하게 설명하는 상황입니다.",
       "EN": "A situation where you politely describe your father's action using subject honorifics.",
@@ -5542,8 +5543,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "⏰ 🏢",
-    speechBubble: "아홉 시 반부터 열한 시까지예요.",
     keyword: "까지",
+    speechBubble: "아홉 시 반부터 열한 시까지예요.",
     situations: {
       "KO": "회의가 시작하는 시간과 끝나는 시간을 묻고 답하는 상황입니다.",
       "EN": "A situation of asking and answering about the start and end time of a meeting.",
@@ -5570,8 +5571,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🛒 🍎",
-    speechBubble: "시장에 가서 사과를 샀어요.",
     keyword: "가서",
+    speechBubble: "시장에 가서 사과를 샀어요.",
     situations: {
       "KO": "어제 시장에 간 후 그곳에서 사과를 샀다고 순서대로 말하는 상황입니다.",
       "EN": "A situation where you sequentially explain that you went to the market yesterday and bought apples there.",
@@ -5598,8 +5599,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "word",
     level: 1,
     visual: "😷 🌡️",
-    speechBubble: "열도 나고 목도 아파요.",
     keyword: "열",
+    speechBubble: "열도 나고 목도 아파요.",
     situations: {
       "KO": "병원에서 의사 선생님께 감기 증상을 설명하는 상황입니다.",
       "EN": "A situation where you explain your cold symptoms to a doctor at a hospital.",
@@ -5626,8 +5627,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🗣️ 🍵",
-    speechBubble: "이야기를 많이 하지 마세요.",
     keyword: "마세요",
+    speechBubble: "이야기를 많이 하지 마세요.",
     situations: {
       "KO": "목이 아픈 사람에게 말을 많이 하지 말라고 조언하는 상황입니다.",
       "EN": "A situation where you advise someone with a sore throat not to talk too much.",
@@ -5654,8 +5655,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 2,
     visual: "🎬 📵",
-    speechBubble: "휴대폰을 꺼야 돼요.",
     keyword: "끄다",
+    speechBubble: "휴대폰을 꺼야 돼요.",
     situations: {
       "KO": "극장이나 수업 시간에 휴대폰 전원을 꺼야 하는 의무 상황을 설명합니다.",
       "EN": "A situation explaining the obligation to turn off your mobile phone in a theater or during class.",
@@ -5682,8 +5683,8 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🚿 📞",
-    speechBubble: "샤워를 하고 있어서 전화를 못 받았어요.",
     keyword: "전화를 받다",
+    speechBubble: "샤워를 하고 있어서 전화를 못 받았어요.",
     situations: {
       "KO": "샤워 중이어서 상대방의 전화를 받지 못했다고 이유를 설명하는 상황입니다.",
       "EN": "A situation where you explain the reason you couldn't answer the phone was because you were taking a shower.",
