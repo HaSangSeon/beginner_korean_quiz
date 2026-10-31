@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 
 import 'services/ad_service.dart';
+import 'services/notification_service.dart';
 import 'services/progress_service.dart';
 import 'services/quiz_repository.dart';
+
+final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await QuizRepository.loadQuestions();
   await ProgressService().init();
+  await NotificationService().init();
   await AdService().initialize();
   runApp(const BeginnerKoreanQuizApp());
 }
@@ -23,6 +27,7 @@ class BeginnerKoreanQuizApp extends StatelessWidget {
     return ListenableBuilder(
       listenable: ProgressService(),
       builder: (context, _) => MaterialApp(
+        navigatorKey: rootNavigatorKey,
         title: 'Beginner Korean Quiz',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

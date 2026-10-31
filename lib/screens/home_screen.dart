@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../data/app_localization.dart';
 import '../data/dialogue_data.dart';
 import '../data/quiz_data.dart';
 import '../data/survival_phrases_data.dart';
 import '../services/ad_service.dart';
+import '../services/notification_service.dart';
 import '../services/progress_service.dart';
 import '../services/quiz_repository.dart';
 import '../services/tts_service.dart';
 import 'dialogue_screen.dart';
 import 'favorites_screen.dart';
+import 'hangul_screen.dart';
+import 'privacy_policy_dialog.dart';
 import 'quiz_screen.dart';
 
 /// Emoji icon per quiz category (0-byte vector icons)
@@ -204,6 +208,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     // 1. Greeting + Daily Goal / Streak / Learned stats
                     _buildDailyGoalCard(context, isDark),
+                    const SizedBox(height: 14),
+
+                    // 1.5. Hangul Alphabet Quick Learning Card (왕초보 한글 장벽 해소)
+                    _buildHangulAlphabetBanner(context, isDark),
                     const SizedBox(height: 16),
 
                     // 2. Word & Expression of the Day (오늘의 생존 한국어)
@@ -288,9 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
       actions: [
         _buildFavoritesButton(context, isDark),
         const SizedBox(width: 8),
-        _buildThemeToggle(context, isDark),
-        const SizedBox(width: 8),
-        _buildLanguageMenu(isDark),
+        _buildSettingsButton(context, isDark),
         const SizedBox(width: 16),
       ],
     );
@@ -355,21 +361,19 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildThemeToggle(BuildContext context, bool isDark) {
+  Widget _buildSettingsButton(BuildContext context, bool isDark) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(19),
-        onTap: () {
-          ProgressService().toggleTheme(context);
-        },
+        onTap: () => _showSettingsBottomSheet(context),
         child: Container(
-          width: 38,
           height: 38,
+          width: 38,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: isDark ? const Color(0xFF1E293B) : Colors.white,
-            shape: BoxShape.circle,
+            borderRadius: BorderRadius.circular(19),
             border: Border.all(
               color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
               width: 1.2,
@@ -384,103 +388,437 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           child: Icon(
-            isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
-            size: 18,
-            color: isDark ? const Color(0xFFFCD34D) : const Color(0xFF475569),
+            Icons.settings_outlined,
+            size: 20,
+            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildLanguageMenu(bool isDark) {
-    final currentLang = supportedLanguages.firstWhere(
-      (l) => l.code == _selectedLangCode,
-      orElse: () => supportedLanguages.first,
-    );
-    return PopupMenuButton<String>(
-      tooltip: AppStrings.tr('lang_selector_title', _selectedLangCode),
-      initialValue: _selectedLangCode,
-      elevation: 8,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-        ),
-      ),
-      color: isDark ? const Color(0xFF1E293B) : Colors.white,
-      onSelected: (code) {
-        ProgressService().setLanguage(code);
-        setState(() {});
-      },
-      itemBuilder: (context) => supportedLanguages.map((lang) {
-        final isSelected = lang.code == _selectedLangCode;
-        return PopupMenuItem<String>(
-          value: lang.code,
-          child: Row(
-            children: [
-              Text(lang.flag, style: const TextStyle(fontSize: 18)),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  lang.label,
-                  style: TextStyle(
-                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                    fontSize: 14,
-                    color: isSelected
-                        ? const Color(0xFF3B82F6)
-                        : (isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B)),
+  void _showSettingsBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (modalCtx) {
+        return ListenableBuilder(
+          listenable: ProgressService(),
+          builder: (ctx, _) {
+            final progress = ProgressService();
+            final isNotifEnabled = progress.isNotificationEnabled;
+            final isDarkNow = Theme.of(ctx).brightness == Brightness.dark;
+            final currentLang = supportedLanguages.firstWhere(
+              (l) => l.code == _selectedLangCode,
+              orElse: () => supportedLanguages.first,
+            );
+
+            return Container(
+              decoration: BoxDecoration(
+                color: isDarkNow ? const Color(0xFF1E293B) : Colors.white,
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: isDarkNow ? 0.5 : 0.15),
+                    blurRadius: 20,
+                    offset: const Offset(0, -4),
                   ),
-                ),
+                ],
               ),
-              if (isSelected) const Icon(Icons.check_rounded, size: 18, color: Color(0xFF3B82F6)),
-            ],
-          ),
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 44,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: isDarkNow ? const Color(0xFF475569) : const Color(0xFFCBD5E1),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  Row(
+                    children: [
+                      const Icon(Icons.settings_rounded, size: 22, color: Color(0xFF3B82F6)),
+                      const SizedBox(width: 10),
+                      Text(
+                        AppStrings.tr('settings_title', _selectedLangCode),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                          color: isDarkNow ? Colors.white : const Color(0xFF0F172A),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+
+                  // 1. Language Selection Tile
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    decoration: BoxDecoration(
+                      color: isDarkNow ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isDarkNow ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(currentLang.flag, style: const TextStyle(fontSize: 22)),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                AppStrings.tr('lang_selector_title', _selectedLangCode),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: isDarkNow ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                currentLang.label,
+                                style: TextStyle(
+                                  fontSize: 14.5,
+                                  fontWeight: FontWeight.w700,
+                                  color: isDarkNow ? Colors.white : const Color(0xFF0F172A),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        PopupMenuButton<String>(
+                          initialValue: _selectedLangCode,
+                          elevation: 8,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                            side: BorderSide(
+                              color: isDarkNow ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                            ),
+                          ),
+                          color: isDarkNow ? const Color(0xFF1E293B) : Colors.white,
+                          onSelected: (code) {
+                            ProgressService().setLanguage(code);
+                            setState(() {});
+                          },
+                          itemBuilder: (context) => supportedLanguages.map((lang) {
+                            final isSelected = lang.code == _selectedLangCode;
+                            return PopupMenuItem<String>(
+                              value: lang.code,
+                              child: Row(
+                                children: [
+                                  Text(lang.flag, style: const TextStyle(fontSize: 18)),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    child: Text(
+                                      lang.label,
+                                      style: TextStyle(
+                                        fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                                        fontSize: 14,
+                                        color: isSelected
+                                            ? const Color(0xFF3B82F6)
+                                            : (isDarkNow ? const Color(0xFFF1F5F9) : const Color(0xFF1E293B)),
+                                      ),
+                                    ),
+                                  ),
+                                  if (isSelected) const Icon(Icons.check_rounded, size: 18, color: Color(0xFF3B82F6)),
+                                ],
+                              ),
+                            );
+                          }).toList(),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF3B82F6).withValues(alpha: 0.12),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: const Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'Change',
+                                  style: TextStyle(
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFF3B82F6),
+                                  ),
+                                ),
+                                SizedBox(width: 2),
+                                Icon(Icons.arrow_drop_down, color: Color(0xFF3B82F6), size: 18),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // 2. Daily Study Notification Toggle
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: isDarkNow ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isDarkNow ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          isNotifEnabled ? Icons.notifications_active_rounded : Icons.notifications_off_outlined,
+                          color: isNotifEnabled ? const Color(0xFF3B82F6) : const Color(0xFF94A3B8),
+                          size: 22,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                AppStrings.tr('settings_notif_title', _selectedLangCode),
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                  color: isDarkNow ? Colors.white : const Color(0xFF0F172A),
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                AppStrings.tr('settings_notif_desc', _selectedLangCode),
+                                style: TextStyle(
+                                  fontSize: 11.5,
+                                  color: isDarkNow ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Switch(
+                          value: isNotifEnabled,
+                          activeThumbColor: const Color(0xFF3B82F6),
+                          onChanged: (val) async {
+                            if (val) {
+                              await NotificationService().requestPermission();
+                            }
+                            progress.setNotificationEnabled(val);
+                            if (val) {
+                              await NotificationService().scheduleDailyReminder();
+                            } else {
+                              await NotificationService().cancelAll();
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // 3. Dark/Light Theme Toggle
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: isDarkNow ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isDarkNow ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          isDarkNow ? Icons.dark_mode_rounded : Icons.light_mode_rounded,
+                          color: isDarkNow ? const Color(0xFFFCD34D) : const Color(0xFFF59E0B),
+                          size: 22,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            AppStrings.tr('settings_theme_title', _selectedLangCode),
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: isDarkNow ? Colors.white : const Color(0xFF0F172A),
+                            ),
+                          ),
+                        ),
+                        Switch(
+                          value: isDarkNow,
+                          activeThumbColor: const Color(0xFF3B82F6),
+                          onChanged: (_) {
+                            progress.toggleTheme(context);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // 3.5. Pronunciation Hint Toggle
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: isDarkNow ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isDarkNow ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.record_voice_over_rounded,
+                          color: Color(0xFF3B82F6),
+                          size: 22,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                AppStrings.tr('quiz_hint_badge', _selectedLangCode),
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                  color: isDarkNow ? Colors.white : const Color(0xFF0F172A),
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                AppStrings.tr('quiz_hint_toggle_tooltip', _selectedLangCode),
+                                style: TextStyle(
+                                  fontSize: 11.5,
+                                  color: isDarkNow ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Switch(
+                          value: progress.showPronunciationHint,
+                          activeThumbColor: const Color(0xFF3B82F6),
+                          onChanged: (_) {
+                            progress.togglePronunciationHint();
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // 3.8. Hangul Alphabet Learning Tile
+                  InkWell(
+                    borderRadius: BorderRadius.circular(16),
+                    onTap: () {
+                      Navigator.of(modalCtx).pop();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const HangulScreen()),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                      decoration: BoxDecoration(
+                        color: isDarkNow ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: isDarkNow ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          const Text('🔤', style: TextStyle(fontSize: 20)),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  AppStrings.tr('hangul_title', _selectedLangCode),
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: isDarkNow ? Colors.white : const Color(0xFF0F172A),
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  AppStrings.tr('hangul_sub', _selectedLangCode),
+                                  style: TextStyle(
+                                    fontSize: 11.5,
+                                    color: isDarkNow ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 14,
+                            color: isDarkNow ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // 4. Privacy Policy Tile
+                  InkWell(
+                    borderRadius: BorderRadius.circular(16),
+                    onTap: () {
+                      Navigator.of(modalCtx).pop();
+                      PrivacyPolicyDialog.show(context);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                      decoration: BoxDecoration(
+                        color: isDarkNow ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: isDarkNow ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.shield_outlined, color: Color(0xFF3B82F6), size: 22),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              AppStrings.tr('settings_privacy_title', _selectedLangCode),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                                color: isDarkNow ? Colors.white : const Color(0xFF0F172A),
+                              ),
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 14,
+                            color: isDarkNow ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
         );
-      }).toList(),
-      child: Container(
-        height: 38,
-        padding: const EdgeInsets.symmetric(horizontal: 11),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: isDark ? const Color(0xFF1E293B) : Colors.white,
-          borderRadius: BorderRadius.circular(19),
-          border: Border.all(
-            color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-            width: 1.2,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: (isDark ? Colors.black : const Color(0xFF64748B))
-                  .withValues(alpha: isDark ? 0.3 : 0.05),
-              blurRadius: 4,
-              offset: const Offset(0, 1.5),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(currentLang.flag, style: const TextStyle(fontSize: 14)),
-            const SizedBox(width: 5),
-            Text(
-              currentLang.code,
-              style: TextStyle(
-                fontSize: 12.5,
-                fontWeight: FontWeight.w800,
-                color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
-                letterSpacing: 0.2,
-              ),
-            ),
-            const SizedBox(width: 3),
-            Icon(
-              Icons.keyboard_arrow_down_rounded,
-              size: 16,
-              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-            ),
-          ],
-        ),
-      ),
+      },
     );
   }
 
@@ -1844,6 +2182,149 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+
+  Widget _buildHangulAlphabetBanner(BuildContext context, bool isDark) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(22),
+        onTap: () {
+          HapticFeedback.lightImpact();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const HangulScreen()),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: isDark
+                  ? [const Color(0xFF1E293B), const Color(0xFF0F172A)]
+                  : [const Color(0xFFEEF2FF), const Color(0xFFE0E7FF)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(22),
+            border: Border.all(
+              color: isDark ? const Color(0xFF334155) : const Color(0xFFC7D2FE),
+              width: 1.3,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: (isDark ? Colors.black : const Color(0xFF4F46E5))
+                    .withValues(alpha: isDark ? 0.35 : 0.08),
+                blurRadius: 10,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF3B82F6), Color(0xFF2563EB)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF2563EB).withValues(alpha: 0.3),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                alignment: Alignment.center,
+                child: const Text('🔤', style: TextStyle(fontSize: 24)),
+              ),
+              const SizedBox(width: 13),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6.5, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: isDark ? const Color(0xFF312E81) : const Color(0xFFDBEAFE),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Text(
+                            'BEGINNER GUIDE',
+                            style: TextStyle(
+                              fontSize: 9.5,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 0.5,
+                              color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF1D4ED8),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 3),
+                    Text(
+                      AppStrings.tr('hangul_home_banner_title', _selectedLangCode),
+                      style: TextStyle(
+                        fontSize: 14.5,
+                        fontWeight: FontWeight.w800,
+                        color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E1B4B),
+                        letterSpacing: -0.2,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      AppStrings.tr('hangul_home_banner_sub', _selectedLangCode),
+                      style: TextStyle(
+                        fontSize: 11.5,
+                        fontWeight: FontWeight.w600,
+                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF4338CA),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 6),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                decoration: BoxDecoration(
+                  color: isDark ? const Color(0xFF312E81) : Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: isDark ? const Color(0xFF4338CA) : const Color(0xFFC7D2FE),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'START',
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w900,
+                        color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF4F46E5),
+                      ),
+                    ),
+                    const SizedBox(width: 3),
+                    Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 10,
+                      color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF4F46E5),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget _buildWordOfTheDayCard(BuildContext context, bool isDark) {
     final phrase = SurvivalPhraseRepository.getTodayPhrase();

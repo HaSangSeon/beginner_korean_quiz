@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import '../models/quiz_question.dart';
 import '../data/quiz_data.dart';
 import 'progress_service.dart';
@@ -5,7 +7,7 @@ import 'progress_service.dart';
 class QuizRepository {
   static List<QuizQuestion> _questions = [];
 
-  /// Get the currently loaded questions (always synchronized with sampleQuizQuestions)
+  /// Get the currently loaded questions (defaults to in-memory fallback if JSON not yet loaded)
   static List<QuizQuestion> get questions {
     if (_questions.isNotEmpty) {
       return _questions;
@@ -16,9 +18,17 @@ class QuizRepository {
   /// Total count of loaded questions
   static int get totalCount => questions.length;
 
-  /// Load questions (defaults to live in-memory sampleQuizQuestions)
+  /// Load questions from assets/data/questions.json (with fallback to sampleQuizQuestions)
   static Future<List<QuizQuestion>> loadQuestions({bool reload = false}) async {
-    _questions = List.from(sampleQuizQuestions);
+    if (_questions.isNotEmpty && !reload) return _questions;
+    try {
+      final jsonString = await rootBundle.loadString('assets/data/questions.json');
+      final List<dynamic> jsonList = jsonDecode(jsonString);
+      _questions = jsonList.map((e) => QuizQuestion.fromJson(e)).toList();
+    } catch (e) {
+      // Fallback in case of asset loading failure (e.g. headless unit tests)
+      _questions = List.from(sampleQuizQuestions);
+    }
     return _questions;
   }
 

@@ -22,3 +22,9 @@
 -dontwarn com.google.android.play.core.splitcompat.**
 -dontwarn com.google.android.play.core.splitinstall.**
 -dontwarn com.google.android.play.core.tasks.**
+
+# Plugins
+-keep class com.dexterous.flutterlocalnotifications.** { *; }
+-keep class xyz.luan.audioplayers.** { *; }
+-keep class com.tundralabs.fluttertts.** { *; }
+-keep class io.flutter.plugins.sharedpreferences.** { *; }

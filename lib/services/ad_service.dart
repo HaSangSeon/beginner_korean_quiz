@@ -28,14 +28,46 @@ class AdService {
     return testAndroidBannerAdUnitId;
   }
 
-  /// Initialize Google Mobile Ads SDK
+  /// Initialize Google Mobile Ads SDK with UMP (User Messaging Platform) Consent
   Future<void> initialize() async {
+    if (_isInitialized) return;
+    try {
+      final params = ConsentRequestParameters();
+      ConsentInformation.instance.requestConsentInfoUpdate(
+        params,
+        () async {
+          ConsentForm.loadAndShowConsentFormIfRequired((FormError? error) async {
+            if (error != null) {
+              debugPrint('Consent form error: ${error.message}');
+            }
+            if (await ConsentInformation.instance.canRequestAds()) {
+              await _initMobileAds();
+            }
+          });
+        },
+        (FormError error) async {
+          debugPrint('Consent info update error: ${error.message}');
+          await _initMobileAds();
+        },
+      );
+      
+      // Fallback: If consent takes too long or already determined
+      if (await ConsentInformation.instance.canRequestAds()) {
+        await _initMobileAds();
+      }
+    } catch (e) {
+      debugPrint('AdMob initialization error: $e');
+      await _initMobileAds();
+    }
+  }
+
+  Future<void> _initMobileAds() async {
     if (_isInitialized) return;
     try {
       await MobileAds.instance.initialize();
       _isInitialized = true;
     } catch (e) {
-      debugPrint('AdMob initialization error: $e');
+      debugPrint('MobileAds initialize error: $e');
     }
   }
 }

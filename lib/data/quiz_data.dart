@@ -41,7 +41,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "철수: 한국어를 할 수 있어요?\n영희: 네, (   ).",
     },
-    options: ["하지 않아요", "할 수 있어요", "했어요", "해요"],
+    options: ["하지 않아요", "할 수 있어요", "했어요", "할 거예요"],
     answerIndex: 1,
     explanations: {
       "KO": "'할 수 있어요'는 무언가를 할 수 있을 때 써요. '하다'에 능력을 나타내는 '~ㄹ 수 있어요'를 붙인 표현이에요!",
@@ -69,7 +69,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "철수: 운전할 수 있어요?\n영희: 네, (   ).",
     },
-    options: ["운전 못 해요", "운전해요", "운전했어요", "운전할 수 있어요"],
+    options: ["운전 못 해요", "운전했었어요", "운전했어요", "운전할 수 있어요"],
     answerIndex: 3,
     explanations: {
       "KO": "운전할 줄 알 때는 능력을 나타내는 '~ㄹ 수 있어요'를 써서 '운전할 수 있어요'라고 해요!",
@@ -97,7 +97,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "철수: 케이크를 만들 수 있어요?\n영희: 네, (   ).",
     },
-    options: ["만들 수 있어요", "만들었어요", "만들어요", "만들지 못해요"],
+    options: ["만들 수 있어요", "만들었어요", "만들지 않았어요", "만들지 못해요"],
     answerIndex: 0,
     explanations: {
       "KO": "'만들다'처럼 끝에 'ㄹ'이 있으면 바로 '수 있어요'를 붙여서 '만들 수 있어요'라고 해요!",
@@ -235,16 +235,16 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "<例>のように絵を見て会話を完成させてください。",
     },
     questions: {
-      "KO": "철수: 목이 많이 마른데 어디에 가요?\n영희: (   ).",
+      "KO": "철수: 영희 씨, 어디에 가요?\n영희: 목이 말라서 (   ).",
     },
-    options: ["편의점에 물건이 많아요", "물건을 사러 편의점이 와요", "물건을 사서 편의점에 가요", "물건을 사러 편의점에 가요"],
+    options: ["편의점에 물건이 많아요", "물을 사러 편의점이 와요", "물을 사서 편의점에 가요", "물을 사러 편의점에 가요"],
     answerIndex: 3,
     explanations: {
-      "KO": "물건을 사러 가는 목적을 말할 때는 '~러'를 붙여 '물건을 사러 편의점에 가요'라고 해요!",
-      "EN": "To state your purpose of shopping: '사다' + '-러' = '물건을 사러 편의점에 가요' (Going to the store to buy things).",
-      "VI": "Chỉ mục đích mua sắm tại cửa hàng tiện lợi: '물건을 사러 편의점에 가요' (Đi cửa hàng tiện lợi để mua đồ).",
-      "ZH": "去便利店买东西的目的表达：'사다'（买）+ '-러' = '물건을 사러 편의점에 가요'（去便利店买东西）。",
-      "JA": "コンビニに買い物に行く目的を表す表現：「물건을 사러 편의점에 가요（買い物をしにコンビニに行きます）」。",
+      "KO": "물을 사러 가는 목적을 말할 때는 '~러'를 붙여 '물을 사러 편의점에 가요'라고 해요!",
+      "EN": "To express the purpose of going somewhere to buy water, use '~러' in '물을 사러 편의점에 가요'!",
+      "VI": "Khi nói về mục đích đi đâu để mua nước, dùng đuôi ngữ pháp '~러': '물을 사러 편의점에 가요'!",
+      "ZH": "表示去便利店买水的目的时，加上'~러'，表达为'물을 사러 편의점에 가요'！",
+      "JA": "水を買いに行く目的を言う時は「〜러」をつけて「물을 사러 편의점에 가요（水を買いにコンビニへ行きます）」と言います！",
     },
   ),
   QuizQuestion(
@@ -265,7 +265,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "철수: 부산에 왜 가요?\n영희: (   ).",
     },
-    options: ["친구를 만나러 부산에 가요", "친구랑 부산이 가요", "친구를 만나서 부산에 가요", "부산에 친구가 살아요"],
+    options: ["친구를 만나러 부산에 가요", "친구랑 부산이 가요", "친구를 만나서 부산에 가요", "부산에 비가 와요"],
     answerIndex: 0,
     explanations: {
       "KO": "'왜 가요?'라고 목적을 물어볼 때는 '~러'를 넣어 '친구를 만나러 부산에 가요'라고 답해요!",
@@ -374,14 +374,14 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "가: 밖에서 찬 바람이 들어와요.\n나: 추우니까 (   ) 좀 닫아 주세요.",
     },
-    options: ["천장", "벽", "창문", "문"],
+    options: ["천장", "벽", "책상", "문"],
     answerIndex: 3,
     explanations: {
-      "KO": "열고 방으로 들어가는 출입구는 '문(door)'입니다. 창문(window)과 구분하세요.",
-      "EN": "The doorway to enter a room is '문' (door). Compare with 창문 (window).",
-      "VI": "Lối vào phòng là '문' (cửa ra vào). Phân biệt với 창문 (cửa sổ).",
-      "ZH": "进入房间的入口是'문'（门）。与창문（窗户）区分。",
-      "JA": "部屋に入る出入り口は「문（ドア・扉）」です。「창문（窓）」と区別しましょう。",
+      "KO": "열고 방이나 건물로 들어가는 출입구는 '문(door)'입니다.",
+      "EN": "The entrance used to enter a room or building is '문(door)'.",
+      "VI": "Lối ra vào dùng để mở và bước vào phòng/tòa nhà là '문(cửa chính)'.",
+      "ZH": "打开进入房间或建筑物的出入口是'문'（门）。",
+      "JA": "開けて部屋や建物に入る出入口は「문（ドア・扉）」です。",
     },
   ),
   QuizQuestion(
@@ -725,7 +725,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "가: 다리가 많이 아프세요?\n나: 네, 저기 빈 (   )에 앉고 싶어요.",
     },
-    options: ["침대", "소파", "의자", "책상"],
+    options: ["침대", "냉장고", "의자", "책상"],
     answerIndex: 2,
     explanations: {
       "KO": "사람이 앉을 수 있도록 만든 가구는 '의자(chair)'입니다. 책상(desk)과 구별하세요.",
@@ -779,7 +779,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "가: 돈과 카드를 어디에 넣고 다녀요?\n나: 가방 속 (   )에 넣어요.",
     },
-    options: ["지갑", "주머니", "상자", "가방"],
+    options: ["지갑", "서랍", "상자", "가방"],
     answerIndex: 0,
     explanations: {
       "KO": "돈이나 카드를 넣어 가지고 다니는 것은 '지갑(wallet/purse)'입니다.",
@@ -833,7 +833,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。",
     },
     questions: {
-      "KO": "가: 다니엘 씨는 베를린에서 태어났어요?\n나: 네, 저는 유럽의 (   ) 사람이에요.",
+      "KO": "가: 다니엘 씨는 베를린에서 태어났어요?\n나: 네, 저는 (   ) 사람이에요.",
     },
     options: ["호주", "영국", "프랑스", "독일"],
     answerIndex: 3,
@@ -1001,7 +1001,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。",
     },
     questions: {
-      "KO": "가: 병원에서 아픈 환자를 진료해 주시는 분은 누구예요?\n나: 제 직업은 (   )예요.",
+      "KO": "가: 병원에서 아픈 환자를 진료하세요?\n나: 네, 제 직업은 (   )예요.",
     },
     options: ["학생", "회사원", "의사", "선생님"],
     answerIndex: 2,
@@ -1057,7 +1057,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。",
     },
     questions: {
-      "KO": "가: 서울이 수도이고 한글을 쓰는 나라는 어디예요?\n나: 바로 (   ) 사람이에요.",
+      "KO": "가: 서울에서 태어나고 자라셨어요?\n나: 네, 저는 (   ) 사람이에요.",
     },
     options: ["호주", "한국", "독일", "미국"],
     answerIndex: 1,
@@ -1169,7 +1169,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。",
     },
     questions: {
-      "KO": "가: 식당 주방에서 맛있는 음식을 만드는 사람을 뭐라고 해요?\n나: 요리를 만드는 (   )예요.",
+      "KO": "가: 식당 주방에서 맛있는 음식을 만드는 직업은 뭐예요?\n나: 바로 (   )예요.",
     },
     options: ["요리사", "의사", "회사원", "경찰관"],
     answerIndex: 0,
@@ -1258,7 +1258,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     options: ["통장", "여권", "지갑", "신분증"],
     answerIndex: 1,
     explanations: {
-      "KO": "외국 여행 갈 때 꼭 필요한 신분증은 '여권(passport)'이에요. '여권입니다'라고 말해요!",
+      "KO": "외국 여행 갈 때 꼭 필요한 신분증은 '여권(passport)'이에요. '여권이에요'라고 말해요!",
       "EN": "The identification needed for international travel is '여권' (passport).",
       "VI": "'여권' là hộ chiếu, giấy tờ bắt buộc khi xuất nhập cảnh tại sân bay. Kết hợp với '-입니다' -> '여권입니다' (Là hộ chiếu).",
       "ZH": "'여권'是护照，出入境和国际旅行时的必备身份证件。加上'-입니다' -> '여권입니다'（是护照）。",
@@ -1354,7 +1354,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     category: "음식·음료",
     type: "word",
     level: 1,
-    visual: "🍙",
+    visual: "🍱 🥢",
     keyword: "김밥",
     situations: {
       "KO": "그림을 보고 알맞은 것을 고르십시오.",
@@ -1499,7 +1499,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "絵を見て正しいものを選んでください。",
     },
     questions: {
-      "KO": "가: 초록빛 찻잎을 따뜻한 물에 우려 마시는 건강 차는 뭐예요?\n나: 구수한 (   )예요.",
+      "KO": "가: 초록빛 찻잎을 따뜻한 물에 우려 마시는 건강 차는 뭐예요?\n나: 향긋한 (   )예요.",
     },
     options: ["보리차", "녹차", "홍차", "유자차"],
     answerIndex: 1,
@@ -1823,7 +1823,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "絵を見て正しい交通手段を選んでください。",
     },
     questions: {
-      "KO": "가: 지하로 빠르게 달려서 막히지 않는 대중교통은 뭐예요?\n나: 시원한 (   )이에요.",
+      "KO": "가: 지하로 빠르게 달려서 막히지 않는 대중교통은 뭐예요?\n나: 빠른 (   )이에요.",
     },
     options: ["기차", "비행기", "지하철", "오토바이"],
     answerIndex: 2,
@@ -2121,7 +2121,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "飲食店で料理を注文する自然な表現を選んでください。",
     },
     questions: {
-      "KO": "철수: 사장님, 비빔밥 하나 (   ).\n영희: 네, 알겠습니다.",
+      "KO": "손님: 사장님, 비빔밥 하나 (   ).\n사장님: 네, 알겠습니다.",
     },
     options: ["주세요", "먹어요", "있어요", "가세요"],
     answerIndex: 0,
@@ -2179,7 +2179,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "철수: 떡볶이가 어때요?\n영희: 조금 (   ). 하지만 맛있어요!",
     },
-    options: ["매워요", "시원해요", "차가워요", "비싸요"],
+    options: ["매워요", "시원해요", "차가워요", "추워요"],
     answerIndex: 0,
     explanations: {
       "KO": "고추장이나 고춧가루가 들어가 매콤할 때는 형용사 '맵다'의 해요체인 '매워요(It's spicy)'를 씁니다.",
@@ -2429,7 +2429,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "飲み物を勧める丁寧な尊敬語表現を選んでください。",
     },
     questions: {
-      "KO": "철수: 따뜻한 차 한잔 (   ).\n영희: 고맙습니다. 잘 마실게요.",
+      "KO": "철수: 따뜻한 차 한 잔 (   ).\n영희: 고맙습니다. 잘 마실게요.",
     },
     options: ["먹어요", "드세요", "마시지 마세요", "사세요"],
     answerIndex: 1,
@@ -2709,7 +2709,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "アイスドリンクで氷少なめを頼む時の表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 아이스티 한 잔 주시는데, 얼음은 (   ) 넣어주세요.\n직원: 네, 얼음 적게 넣어드릴게요.",
+      "KO": "손님: 아이스티 한 잔 주세요. 얼음은 (   ) 넣어 주세요.\n직원: 네, 얼음 적게 넣어드릴게요.",
     },
     options: ["크게", "많이", "적게", "빨리"],
     answerIndex: 2,
@@ -2849,7 +2849,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "コンビニやマートでレジ袋が必要か尋ねる表現を選んでください。",
     },
     questions: {
-      "KO": "직원: 담아갈 봉투 (   )?\n손님: 네, 종량제 봉투 한 장 주세요.",
+      "KO": "직원: 담아 갈 봉투 (   )?\n손님: 네, 종량제 봉투 한 장 주세요.",
     },
     options: ["필요하세요", "확인하세요", "준비하세요", "선택하세요"],
     answerIndex: 0,
@@ -2867,7 +2867,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "survival",
     level: 1,
     visual: "💳 📱",
-    keyword: "카드결제",
+    keyword: "카드 결제",
     speechBubble: "결제 도와드리겠습니다.",
     situations: {
       "KO": "계산대에서 신용카드나 모바일 페이로 값을 치르겠다고 말하는 표현을 고르세요.",
@@ -3215,14 +3215,14 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "친구: 오늘 팬미팅 현장 분위기 어때?\n나: 사람이 정말 (   )! 자리가 꽉 찼어.",
     },
-    options: ["작아요", "많아요", "차가워요", "어두워요"],
+    options: ["작아", "많아", "차가워", "어두워"],
     answerIndex: 1,
     explanations: {
-      "KO": "사람이나 사물의 수가 풍부하게 많을 때는 형용사 '많다'를 써서 '사람이 정말 많아요'라고 합니다.",
-      "EN": "To express a large crowd, use the adjective '많다' -> '사람이 정말 많아요' (There are so many people).",
-      "VI": "Chỉ số lượng người đông đúc, dùng '많다' -> '사람이 정말 많아요'.",
-      "ZH": "表示人多热闹时使用形容词'많다'，说'사람이 정말 많아요'（人真的好多）。",
-      "JA": "人がたくさん集まっている時は「사람이 정말 많아요（人が本当に多いです）」と言います。",
+      "KO": "사람이나 사물의 수가 많을 때는 형용사 '많다'를 써서 '사람이 정말 많아'라고 표현합니다.",
+      "EN": "When there are a lot of people or things, use '많다': '사람이 정말 많아' (There are so many people).",
+      "VI": "Khi số lượng người hoặc vật nhiều, dùng tính từ '많다': '사람이 정말 많아' (Đông người thật đấy).",
+      "ZH": "形容人或物很多时使用形容词'많다'，口语中说'사람이 정말 많아'。",
+      "JA": "人や物の数が多い時は形容詞「많다」を使って「사람이 정말 많아（人が本当に多いね）」と表現します。",
     },
   ),
   QuizQuestion(
@@ -3246,11 +3246,11 @@ final List<QuizQuestion> sampleQuizQuestions = [
     options: ["종량제 봉투", "우편 봉투", "축의금 봉투", "편지 봉투"],
     answerIndex: 0,
     explanations: {
-      "KO": "한국 편의점에서는 일반 비닐봉투 무상 제공이 금지되어 있어 100~200원 상당의 '종량제 봉투(쓰레기 봉투)' 또는 종이봉투를 구매해 물건을 담아갑니다.",
-      "EN": "In Korea, free plastic bags are banned. Stores sell standard pay-as-you-throw garbage bags ('종량제 봉투') for 100–200 Won to carry items home.",
-      "VI": "Tại Hàn Quốc cấm túi nilon miễn phí, cửa hàng bán 'túi rác chuyên dụng (종량제 봉투)' giá 100-200 Won để khách đựng đồ và tái sử dụng đựng rác.",
-      "ZH": "韩国便利店禁止免费提供塑料袋，通常购买100~200韩元的'计量垃圾袋（종량제 봉투）'装东西，带回家后还可作为垃圾袋使用。",
-      "JA": "韓国ではレジ袋の無料配布が禁止されているため、100〜200ウォンの「従量制ゴミ袋（종량제 봉투）」を購入して持ち帰るのが一般的です。",
+      "KO": "한국 편의점에서는 일회용 비닐봉투 사용이 금지되어 있어 100~200원 상당의 '종량제 봉투(쓰레기 봉투)' 또는 종이봉투를 구매해 물건을 담아갑니다.",
+      "EN": "In Korea, single-use plastic bags are banned in convenience stores. Customers purchase pay-as-you-throw garbage bags ('종량제 봉투') or paper bags for 100–200 KRW to carry items.",
+      "VI": "Tại các cửa hàng tiện lợi Hàn Quốc, túi nilon dùng một lần bị cấm. Khách hàng mua 'túi rác theo thể tích (종량제 봉투)' hoặc túi giấy giá 100-200 Won để đựng đồ.",
+      "ZH": "韩国便利店禁止使用一次性塑料袋，顾客通常购买100~200韩元的'计量垃圾袋（종량제 봉투）'或纸袋来装东西。",
+      "JA": "韓国のコンビニでは使い捨てレジ袋の使用が禁止されており、100〜200ウォンの「従量制ゴミ袋（종량제 봉투）」や紙袋を購入して持ち帰ります。",
     },
   ),
   QuizQuestion(
@@ -3286,9 +3286,9 @@ final List<QuizQuestion> sampleQuizQuestions = [
     category: "편의점·마트·쇼핑",
     type: "survival",
     level: 2,
-    visual: "🧾 🗑️",
-    keyword: "버려주세요",
-    speechBubble: "영수증 필요 없어요!",
+    visual: "📱 💳",
+    keyword: "포인트 적립",
+    speechBubble: "포인트 있으세요?",
     situations: {
       "KO": "계산 후 영수증을 받지 않고 버려달라고 직원에게 말하는 표현을 고르세요.",
       "EN": "Choose what to say when you don't need a receipt and want the cashier to discard it.",
@@ -3297,16 +3297,16 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "お会計後にレシートが不要で捨ててほしい時の表現を選んでください。",
     },
     questions: {
-      "KO": "알바생: 영수증 드릴까요?\n손님: 아니요, (   ).",
+      "KO": "알바생: 포인트 적립 (   )?\n손님: 아니요, 없어요.",
     },
-    options: ["버려주세요", "돌려주세요", "만들어주세요", "도와주세요"],
+    options: ["하시겠어요", "만드시겠어요", "버리시겠어요", "주세요"],
     answerIndex: 0,
     explanations: {
-      "KO": "영수증이 필요 없을 때는 '아니요, 버려주세요' 또는 '괜찮습니다'라고 공손하게 말하면 됩니다.",
-      "EN": "When you don't need the paper receipt, politely say '아니요, 버려주세요' (No thanks, please throw it away) or '괜찮습니다'.",
-      "VI": "Khi không lấy hóa đơn thanh toán, câu nói tự nhiên và lịch sự nhất là '아니요, 버려주세요' (Dạ thôi, vứt giúp tôi ạ).",
-      "ZH": "结账不要小票时，礼貌且地道的说法是'아니요, 버려주세요'（不用了，请帮我扔掉吧）。",
-      "JA": "レシートが不要な時は「아니요, 버려주세요（いいえ、捨ててください）」または「괜찮습니다（大丈夫です）」と言います。",
+      "KO": "계산할 때 회원 포인트나 마일리지를 적립할지 물어볼 때는 '포인트 적립 하시겠어요?'라고 정중하게 묻습니다.",
+      "EN": "When cashier asks if you want to earn membership points, they politely say '포인트 적립 하시겠어요?'.",
+      "VI": "Khi thanh toán, nhân viên hỏi có muốn tích điểm thành viên không sẽ dùng câu '포인트 적립 하시겠어요?'.",
+      "ZH": "在结账时，店员礼貌询问是否积分通常会说'포인트 적립 하시겠어요?'。",
+      "JA": "お会計時にポイントを貯めるか尋ねる時は「포인트 적립 하시겠어요?（ポイントを貯めますか？）」と丁寧に聞かれます。",
     },
   ),
   QuizQuestion(
@@ -3577,7 +3577,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "焼肉店でサンチュに肉や味噌を包んで食べる韓国特有の文化用語を選んでください。",
     },
     questions: {
-      "KO": "외국인: 삼겹살은 어떻게 먹는 게 제일 맛있어요?\n한국인: 상추에 고기랑 쌈장, 마늘을 올려서 (   )을 싸서 드셔보세요!",
+      "KO": "외국인: 삼겹살은 어떻게 먹는 게 제일 맛있어요?\n한국인: 상추에 고기랑 쌈장, 마늘을 올려서 (   )을 싸 드셔 보세요!",
     },
     options: ["쌈", "잠", "꿈", "짐"],
     answerIndex: 0,
@@ -3605,7 +3605,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "飲食店で鍋料理などを取り分けて食べるための小皿を頼む表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 저기요, 찌개 덜어먹게 (   ) 두 개만 더 주세요.\n직원: 네, 바로 가져다 드리겠습니다.",
+      "KO": "손님: 저기요, 찌개 덜어 먹게 (   ) 두 개만 더 주세요.\n직원: 네, 바로 가져다 드리겠습니다.",
     },
     options: ["앞접시", "신발장", "선풍기", "재활용"],
     answerIndex: 0,
@@ -3913,7 +3913,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "靴売り場で気に入った靴を買おうとしています。",
     },
     questions: {
-      "KO": "손님: 직원분, (   ) 구두 주세요.\n직원: 네, 사이즈가 240이신가요?",
+      "KO": "손님: 저기요, (   ) 구두 주세요.\n직원: 네, 사이즈는 몇 신으세요?",
     },
     options: ["이", "무엇", "어디", "언제"],
     answerIndex: 0,
@@ -4109,16 +4109,16 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "1階に病院があり、2階に薬局があります。薬局の位置は？",
     },
     questions: {
-      "KO": "가: 약국이 어디에 있어요?\n나: 병원 (   ) 2층에 있어요.",
+      "KO": "가: 약국이 어디에 있어요?\n나: 병원 (   )층인 2층에 있어요.",
     },
-    options: ["위", "아래", "뒤", "밖"],
+    options: ["위", "아래", "앞", "밖"],
     answerIndex: 0,
     explanations: {
-      "KO": "1층 병원의 위층(2층)에 약국이 위치하므로 기준점 위쪽을 나타내는 '위(위에)'를 씁니다.",
-      "EN": "Since the pharmacy is on the 2nd floor above the hospital, use '위' (above/on top of): '병원 위 2층에 있어요'.",
-      "VI": "Vì hiệu thuốc ở tầng 2 phía trên bệnh viện, dùng từ '위' (trên): '병원 위 2층에 있어요' (Ở tầng 2 phía trên bệnh viện).",
-      "ZH": "因为药店在医院的上层（2楼），所以使用表示上方的'위'（上面）：'병원 위 2층에 있어요'。",
-      "JA": "1階の病院の上（2階）に薬局があるので、基準の上を表す「위（上）」を使います。「병원 위 2층에 있어요」となります。",
+      "KO": "1층 병원의 위층(2층)에 약국이 있으므로 '위층'을 나타내는 '위'를 씁니다.",
+      "EN": "Since the pharmacy is on the upper floor (2nd floor) of the clinic, use '위' to mean '위층 (upper floor)'.",
+      "VI": "Vì hiệu thuốc nằm ở tầng trên (tầng 2) của bệnh viện, dùng '위' để tạo thành '위층 (tầng trên)'.",
+      "ZH": "药店位于1楼医院的楼上（2楼），因此使用表示楼上的'위'（위층）。",
+      "JA": "1階の病院の上の階（2階）に薬局があるため、「上の階（위층）」を表す「위」を使います。",
     },
   ),
   QuizQuestion(
@@ -4361,7 +4361,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "不在時に宅配便を預けてもらう電子式の宅配ボックスを選んでください。",
     },
     questions: {
-      "KO": "고객: 지금 집에 없으니 아파트 1층 무인 택배(   )에 넣어주세요.",
+      "KO": "고객: 지금 집에 없으니 아파트 1층 무인 택배 (   )에 넣어주세요.",
     },
     options: ["보관함", "우체통", "쓰레기통", "냉장고"],
     answerIndex: 0,
@@ -4445,7 +4445,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "壁のQRコードをカメラで読み取ってWi-Fiに接続する表現を選んでください。",
     },
     questions: {
-      "KO": "손님: 벽에 붙은 QR코드를 카메라로 찍으면 (   )가 바로 연결돼요.",
+      "KO": "직원: 벽에 붙은 QR코드를 카메라로 찍으면 (   )가 바로 연결돼요.",
     },
     options: ["와이파이", "전화", "블루투스", "결제"],
     answerIndex: 0,
@@ -4919,7 +4919,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "☕ 👥",
-    keyword: "어제 만났어요",
+    keyword: "친구를 만났어요",
     speechBubble: "어제 친구를 만났어요.",
     situations: {
       "KO": "<보기>와 같이 과거에 일어난 일을 나타내는 문장을 고르세요.",
@@ -5006,7 +5006,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 1,
     visual: "🍞 ☕",
-    keyword: "아침에 먹어요",
+    keyword: "빵을 먹어요",
     speechBubble: "아침에 빵을 먹어요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
@@ -5093,7 +5093,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     type: "sentence",
     level: 2,
     visual: "🗣️ 📖",
-    keyword: "매일 연습해요",
+    keyword: "한국어를 연습해요",
     speechBubble: "매일 한국어를 연습해요.",
     situations: {
       "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
@@ -5166,7 +5166,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     options: ["열어 주세요", "열어 가세요", "열고 있어요", "열지 마세요"],
     answerIndex: 0,
     explanations: {
-      "KO": "친절하게 부탁할 때는 '~아/어 주세요'를 써요. 문을 열어 달라고 할 때는 '열어 주세요(Please open it)'라고 해요!",
+      "KO": "친절하게 부탁할 때는 '~아/어 주세요'를 써요. 창문을 열어 달라고 할 때는 '열어 주세요(Please open it)'라고 해요!",
       "EN": "To make a polite request, use '~아/어 주세요'. To ask to open the door: '열어 주세요' (Please open it).",
       "VI": "Gắn '-아/어 주세요' sau động từ để yêu cầu ai đó làm việc gì một cách lịch sự. Vì nguyên âm gốc của '열다' là 'ㅕ' nên chia thành '열어 주세요'.",
       "ZH": "在动词后加上'-아/어 주세요'，表示礼貌地请求对方做某事。因为'열다'词干的元音是'ㅕ'，所以变成'열어 주세요'。",
@@ -5329,7 +5329,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
       "JA": "かばんの持ち主が誰なのかを尋ねて答える場面です。",
     },
     questions: {
-      "KO": "가: 이거는 누구의 가방입니까?\n나: (   ) 가방입니다.",
+      "KO": "가: 이것은 누구의 가방입니까?\n나: (   ) 가방입니다.",
     },
     options: ["줄리앙의", "줄리앙을", "줄리앙에", "줄리앙으로"],
     answerIndex: 0,
@@ -5387,7 +5387,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "가: 마이클 씨는 미국 사람입니까?\n나: 아니요, 저는 미국 사람(   ). 영국 사람입니다.",
     },
-    options: ["가 아닙니다", "이 아닙니다", "은 아닙니다", "를 아닙니다"],
+    options: ["가 아닙니다", "이 아닙니다", "에 아닙니다", "를 아닙니다"],
     answerIndex: 1,
     explanations: {
       "KO": "명사를 부정할 때는 'N이/가 아닙니다'를 사용해요. 앞 명사 '사람'에 받침이 있으므로 '사람이 아닙니다'라고 말해요!",
@@ -5499,7 +5499,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "가: 마리코 씨 남편도 요리를 잘해요?\n나: 아니요, 요리를 잘 (   ).",
     },
-    options: ["안 해요", "못해요", "없어요", "말아요"],
+    options: ["않아요", "못해요", "없어요", "말아요"],
     answerIndex: 1,
     explanations: {
       "KO": "어떤 일을 잘하지 못하거나 실력이 부족할 때는 '잘 못해요'라고 표현해요!",
@@ -5527,7 +5527,7 @@ final List<QuizQuestion> sampleQuizQuestions = [
     questions: {
       "KO": "가: 아버지는 지금 뭐 하세요?\n나: 거실에서 신문을 (   ).",
     },
-    options: ["읽세요", "읽으셔요", "읽으세요", "읽으십니까"],
+    options: ["읽세요", "읽어세요", "읽으세요", "읽으십니까"],
     answerIndex: 2,
     explanations: {
       "KO": "어른의 행동을 높여 말할 때는 동사 뒤에 '-(으)세요'를 붙여요. '읽다'는 받침이 있으므로 '읽으세요'가 돼요!",

@@ -20,6 +20,8 @@ class ProgressService extends ChangeNotifier {
   static const _kFavorites = 'progress_favorite_ids';
   static const _kThemeMode = 'app_theme_mode';
   static const _kLanguage = 'app_language';
+  static const _kNotification = 'app_notification_enabled';
+  static const _kPronunciationHint = 'app_pronunciation_hint';
 
   SharedPreferences? _prefs;
   int _streak = 0;
@@ -31,6 +33,8 @@ class ProgressService extends ChangeNotifier {
   Set<int> _favorites = {};
   ThemeMode _themeMode = ThemeMode.system;
   String _language = detectDefaultLanguage();
+  bool _isNotificationEnabled = true;
+  bool _showPronunciationHint = true;
 
   Future<void> init() async {
     try {
@@ -67,6 +71,9 @@ class ProgressService extends ChangeNotifier {
       } else {
         _themeMode = ThemeMode.system;
       }
+
+      _isNotificationEnabled = _prefs!.getBool(_kNotification) ?? true;
+      _showPronunciationHint = _prefs!.getBool(_kPronunciationHint) ?? true;
     } catch (e) {
       debugPrint('ProgressService init error: $e');
     }
@@ -93,6 +100,30 @@ class ProgressService extends ChangeNotifier {
     if (_language == code) return;
     _language = code;
     _prefs?.setString(_kLanguage, code);
+    notifyListeners();
+  }
+
+  bool get isNotificationEnabled => _isNotificationEnabled;
+
+  void setNotificationEnabled(bool enabled) {
+    if (_isNotificationEnabled == enabled) return;
+    _isNotificationEnabled = enabled;
+    _prefs?.setBool(_kNotification, enabled);
+    notifyListeners();
+  }
+
+  bool get showPronunciationHint => _showPronunciationHint;
+
+  void togglePronunciationHint() {
+    _showPronunciationHint = !_showPronunciationHint;
+    _prefs?.setBool(_kPronunciationHint, _showPronunciationHint);
+    notifyListeners();
+  }
+
+  void setPronunciationHint(bool enabled) {
+    if (_showPronunciationHint == enabled) return;
+    _showPronunciationHint = enabled;
+    _prefs?.setBool(_kPronunciationHint, enabled);
     notifyListeners();
   }
 
