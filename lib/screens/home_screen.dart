@@ -143,6 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
   String get _selectedLangCode => ProgressService().language;
   String _selectedTrack = 'survival'; // Default to 'survival' (K-라이프 실전) for high immersion
   bool _isWordBookmarked = false;
+  String _selectedDialogueFilter = 'all'; // 'all', 'food', 'transit', 'life', 'public', 'health'
+  bool _isDialogueExpanded = false;
 
   @override
   void initState() {
@@ -1509,6 +1511,25 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildDialogueSection(BuildContext context, bool isDark) {
+    final filterCategories = const [
+      {'key': 'all', 'emoji': '✨', 'labelKey': 'dialogue_filter_all'},
+      {'key': 'food', 'emoji': '🍽️', 'labelKey': 'dialogue_filter_food'},
+      {'key': 'transit', 'emoji': '🚇', 'labelKey': 'dialogue_filter_transit'},
+      {'key': 'life', 'emoji': '🛍️', 'labelKey': 'dialogue_filter_life'},
+      {'key': 'public', 'emoji': '🏛️', 'labelKey': 'dialogue_filter_public'},
+      {'key': 'health', 'emoji': '🏥', 'labelKey': 'dialogue_filter_health'},
+    ];
+
+    final filteredDialogues = _selectedDialogueFilter == 'all'
+        ? dialogues
+        : dialogues.where((d) => d.category == _selectedDialogueFilter).toList();
+
+    const int initialVisibleCount = 8;
+    final bool hasMore = filteredDialogues.length > initialVisibleCount;
+    final visibleDialogues = (_isDialogueExpanded || !hasMore)
+        ? filteredDialogues
+        : filteredDialogues.take(initialVisibleCount).toList();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -1527,10 +1548,111 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              decoration: BoxDecoration(
+                color: const Color(0xFFDB2777).withValues(alpha: isDark ? 0.2 : 0.1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                '${filteredDialogues.length}/${dialogues.length}',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w800,
+                  color: isDark ? const Color(0xFFF472B6) : const Color(0xFFDB2777),
+                ),
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 12),
-        ...dialogues.map((d) {
+        // Horizontal Category Filter Chips
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: filterCategories.map((cat) {
+              final key = cat['key']!;
+              final emoji = cat['emoji']!;
+              final label = AppStrings.tr(cat['labelKey']!, _selectedLangCode);
+              final isSelected = _selectedDialogueFilter == key;
+              final count = key == 'all'
+                  ? dialogues.length
+                  : dialogues.where((d) => d.category == key).length;
+
+              return Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Material(
+                  color: isSelected
+                      ? const Color(0xFFDB2777)
+                      : (isDark ? const Color(0xFF1E293B) : Colors.white),
+                  borderRadius: BorderRadius.circular(20),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(20),
+                    onTap: () {
+                      if (_selectedDialogueFilter != key) {
+                        setState(() {
+                          _selectedDialogueFilter = key;
+                          _isDialogueExpanded = false;
+                        });
+                      }
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: isSelected
+                              ? const Color(0xFFDB2777)
+                              : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(emoji, style: const TextStyle(fontSize: 13)),
+                          const SizedBox(width: 5),
+                          Text(
+                            label,
+                            style: TextStyle(
+                              fontSize: 12.5,
+                              fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
+                              color: isSelected
+                                  ? Colors.white
+                                  : (isDark ? const Color(0xFFCBD5E1) : const Color(0xFF475569)),
+                            ),
+                          ),
+                          const SizedBox(width: 5),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                            decoration: BoxDecoration(
+                              color: isSelected
+                                  ? Colors.white.withValues(alpha: 0.25)
+                                  : (isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9)),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Text(
+                              '$count',
+                              style: TextStyle(
+                                fontSize: 10.5,
+                                fontWeight: FontWeight.w700,
+                                color: isSelected
+                                    ? Colors.white
+                                    : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+        const SizedBox(height: 14),
+        // Visible dialogues list
+        ...visibleDialogues.map((d) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: Material(
@@ -1612,6 +1734,61 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         }),
+        // Show More / Collapse Button
+        if (hasMore) ...[
+          const SizedBox(height: 4),
+          Center(
+            child: Material(
+              color: isDark ? const Color(0xFF1E293B) : Colors.white,
+              borderRadius: BorderRadius.circular(24),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(24),
+                onTap: () {
+                  setState(() {
+                    _isDialogueExpanded = !_isDialogueExpanded;
+                  });
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 11),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(
+                      color: isDark
+                          ? const Color(0xFFDB2777).withValues(alpha: 0.45)
+                          : const Color(0xFFF472B6),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        _isDialogueExpanded
+                            ? AppStrings.tr('dialogue_collapse_btn', _selectedLangCode)
+                            : AppStrings.tr('dialogue_more_btn', _selectedLangCode, {
+                                'n': '${filteredDialogues.length - initialVisibleCount}',
+                              }),
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                          color: isDark ? const Color(0xFFF472B6) : const Color(0xFFDB2777),
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Icon(
+                        _isDialogueExpanded
+                            ? Icons.keyboard_arrow_up_rounded
+                            : Icons.keyboard_arrow_down_rounded,
+                        size: 20,
+                        color: isDark ? const Color(0xFFF472B6) : const Color(0xFFDB2777),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+        ],
       ],
     );
   }

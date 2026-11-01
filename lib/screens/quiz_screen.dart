@@ -1170,84 +1170,6 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
             );
           }),
-          // Pronunciation & Romanization Hint Toggle (38dp Pill)
-          Builder(builder: (context) {
-            final progress = ProgressService();
-            final isHintOn = progress.showPronunciationHint;
-            return Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(19),
-                  onTap: () {
-                    HapticFeedback.lightImpact();
-                    progress.togglePronunciationHint();
-                    final isNowOn = progress.showPronunciationHint;
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              isNowOn ? Icons.visibility_rounded : Icons.visibility_off_rounded,
-                              color: Colors.white,
-                              size: 17,
-                            ),
-                            const SizedBox(width: 8),
-                            Text(
-                              isNowOn ? 'Aa 발음 힌트 ON' : 'Aa 발음 힌트 OFF',
-                              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
-                            ),
-                          ],
-                        ),
-                        duration: const Duration(milliseconds: 1000),
-                        behavior: SnackBarBehavior.floating,
-                      ),
-                    );
-                    setState(() {});
-                  },
-                  child: Container(
-                    width: 38,
-                    height: 38,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: isHintOn
-                          ? (isDark ? const Color(0xFF1E3A8A) : const Color(0xFFEFF6FF))
-                          : (isDark ? const Color(0xFF1E293B) : Colors.white),
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: isHintOn
-                            ? const Color(0xFF3B82F6)
-                            : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
-                        width: 1.2,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: (isHintOn ? const Color(0xFF3B82F6) : (isDark ? Colors.black : const Color(0xFF64748B)))
-                              .withValues(alpha: isHintOn ? 0.28 : (isDark ? 0.3 : 0.05)),
-                          blurRadius: 4,
-                          offset: const Offset(0, 1.5),
-                        ),
-                      ],
-                    ),
-                    child: Text(
-                      'Aa',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w900,
-                        color: isHintOn
-                            ? const Color(0xFF3B82F6)
-                            : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
-                        letterSpacing: -0.3,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }),
           // Dynamic Language Switcher Popup (Standard 38dp Pill)
           PopupMenuButton<String>(
             tooltip: 'Switch Explanation Language',
@@ -1888,16 +1810,6 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '🗣️ [ ${KoreanRomanizer.romanize(rawQuestion.replaceAll(_blankPattern, '___'))} ]',
-                    style: TextStyle(
-                      fontSize: 11.5,
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.italic,
-                      color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF78350F),
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
                     '👉 ${AppStrings.tr('quiz_tap_for_hint', _currentLangCode)}',
                     style: TextStyle(
                       fontSize: 11,
@@ -2012,9 +1924,7 @@ class _QuizScreenState extends State<QuizScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              ProgressService().showPronunciationHint
-                                  ? '${currentQuestion.keyword!} (${KoreanRomanizer.romanize(currentQuestion.keyword!)})'
-                                  : currentQuestion.keyword!,
+                              currentQuestion.keyword!,
                               style: TextStyle(
                                 fontSize: 12.5,
                                 fontWeight: FontWeight.w800,
@@ -2148,9 +2058,7 @@ class _QuizScreenState extends State<QuizScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              ProgressService().showPronunciationHint
-                                  ? '${currentQuestion.keyword!} (${KoreanRomanizer.romanize(currentQuestion.keyword!)})'
-                                  : currentQuestion.keyword!,
+                              currentQuestion.keyword!,
                               style: TextStyle(
                                 fontSize: 13.5,
                                 fontWeight: FontWeight.w800,
@@ -2359,32 +2267,6 @@ class _QuizScreenState extends State<QuizScreen> {
                             Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-                                  decoration: BoxDecoration(
-                                    color: isDark ? const Color(0xFF0F172A).withValues(alpha: 0.6) : const Color(0xFFF1F5F9),
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(
-                                      color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                                      width: 0.8,
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      const Text('💡', style: TextStyle(fontSize: 10.5)),
-                                      const SizedBox(width: 3.5),
-                                      Text(
-                                        AppStrings.tr('quiz_hint_badge', _currentLangCode),
-                                        style: TextStyle(
-                                          fontSize: 10.5,
-                                          fontWeight: FontWeight.w700,
-                                          color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
                                 if (!turn.isBlankTarget || _isAnswered) ...[
                                   const SizedBox(width: 6),
                                   Material(
@@ -2769,29 +2651,7 @@ class _QuizScreenState extends State<QuizScreen> {
     );
 
     if (!hasBlank) {
-      final lineWidget = Text(line, style: baseStyle);
-      if (!ProgressService().showPronunciationHint) return lineWidget;
-      final romanized = KoreanRomanizer.romanize(line);
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          lineWidget,
-          if (romanized.isNotEmpty) ...[
-            const SizedBox(height: 3),
-            Text(
-              romanized,
-              style: TextStyle(
-                fontSize: 12.5,
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.italic,
-                color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                letterSpacing: 0.1,
-              ),
-            ),
-          ],
-        ],
-      );
+      return Text(line, style: baseStyle);
     }
 
     final match = _blankPattern.firstMatch(line)!;
@@ -2934,31 +2794,7 @@ class _QuizScreenState extends State<QuizScreen> {
       ),
     );
 
-    if (!ProgressService().showPronunciationHint) return richLineWidget;
-
-    final targetLine = _isAnswered ? _fillBlank(line, correctAnswer) : line.replaceAll(_blankPattern, '___');
-    final romanized = KoreanRomanizer.romanize(targetLine);
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        richLineWidget,
-        if (romanized.isNotEmpty) ...[
-          const SizedBox(height: 3),
-          Text(
-            romanized,
-            style: TextStyle(
-              fontSize: 12.5,
-              fontWeight: FontWeight.w600,
-              fontStyle: FontStyle.italic,
-              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-              letterSpacing: 0.1,
-            ),
-          ),
-        ],
-      ],
-    );
+    return richLineWidget;
   }
 
   static String _getSpeakerEmoji(String speaker, bool isFirst) {
@@ -3260,19 +3096,6 @@ class _QuizScreenState extends State<QuizScreen> {
                           letterSpacing: -0.3,
                         ),
                       ),
-                      if (ProgressService().showPronunciationHint) ...[
-                        const SizedBox(height: 2.5),
-                        Text(
-                          KoreanRomanizer.romanize(optionText),
-                          style: TextStyle(
-                            fontSize: 12.5,
-                            fontWeight: FontWeight.w600,
-                            fontStyle: FontStyle.italic,
-                            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                            letterSpacing: 0.1,
-                          ),
-                        ),
-                      ],
                     ],
                   ),
                 ),
@@ -3579,18 +3402,6 @@ class _QuizScreenState extends State<QuizScreen> {
                             color: isDark ? const Color(0xFFF8FAFC) : const Color(0xFF0F172A),
                           ),
                         ),
-                        if (ProgressService().showPronunciationHint) ...[
-                          const SizedBox(height: 2),
-                          Text(
-                            KoreanRomanizer.romanize(chip),
-                            style: TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w600,
-                              fontStyle: FontStyle.italic,
-                              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                            ),
-                          ),
-                        ],
                       ],
                     ),
                   ),

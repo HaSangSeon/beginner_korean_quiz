@@ -34,7 +34,7 @@ class ProgressService extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.system;
   String _language = detectDefaultLanguage();
   bool _isNotificationEnabled = true;
-  bool _showPronunciationHint = true;
+  bool _showPronunciationHint = false;
 
   Future<void> init() async {
     try {
@@ -73,7 +73,7 @@ class ProgressService extends ChangeNotifier {
       }
 
       _isNotificationEnabled = _prefs!.getBool(_kNotification) ?? true;
-      _showPronunciationHint = _prefs!.getBool(_kPronunciationHint) ?? true;
+      _showPronunciationHint = _prefs!.getBool(_kPronunciationHint) ?? false;
     } catch (e) {
       debugPrint('ProgressService init error: $e');
     }
