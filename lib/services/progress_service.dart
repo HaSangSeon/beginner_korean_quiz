@@ -57,7 +57,7 @@ class ProgressService extends ChangeNotifier {
           .toSet();
 
       final savedLang = _prefs!.getString(_kLanguage);
-      if (savedLang != null && savedLang.isNotEmpty) {
+      if (savedLang != null && const ['KO', 'EN', 'VI', 'ZH', 'JA'].contains(savedLang)) {
         _language = savedLang;
       } else {
         _language = detectDefaultLanguage();
@@ -85,12 +85,10 @@ class ProgressService extends ChangeNotifier {
       if (code.startsWith('vi')) return 'VI';
       if (code.startsWith('zh')) return 'ZH';
       if (code.startsWith('ja')) return 'JA';
-      if (code.startsWith('es')) return 'ES';
-      if (code.startsWith('pt')) return 'PT';
       if (code.startsWith('ko')) return 'KO';
       return 'EN';
     } catch (_) {
-      return 'VI';
+      return 'KO';
     }
   }
 

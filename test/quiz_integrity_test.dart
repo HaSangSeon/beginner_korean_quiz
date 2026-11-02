@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:beginner_korean_quiz/models/quiz_question.dart';
 import 'package:beginner_korean_quiz/data/quiz_data.dart';
 import 'dart:io';
 

@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import '../models/quiz_question.dart';
 import '../data/quiz_data.dart';
 import 'progress_service.dart';
 
@@ -111,6 +110,7 @@ class QuizRepository {
         options: shuffledOptions,
         answerIndex: newAnswerIndex >= 0 ? newAnswerIndex : q.answerIndex,
         explanations: q.explanations,
+        chips: q.chips != null ? List<String>.from(q.chips!) : null,
       );
     }).toList();
   }

@@ -20,8 +20,6 @@ const List<LanguageOption> supportedLanguages = [
   LanguageOption(code: 'ZH', label: '中文', flag: '🇨🇳'),
   LanguageOption(code: 'JA', label: '日本語', flag: '🇯🇵'),
   LanguageOption(code: 'VI', label: 'Tiếng Việt', flag: '🇻🇳'),
-  LanguageOption(code: 'ES', label: 'Español', flag: '🇪🇸'),
-  LanguageOption(code: 'PT', label: 'Português', flag: '🇧🇷'),
 ];
 
 /// Fallback in-memory quiz questions synchronized with assets/data/questions.json

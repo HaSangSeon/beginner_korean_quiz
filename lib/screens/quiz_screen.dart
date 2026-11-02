@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../data/app_localization.dart';
 import '../data/quiz_data.dart';
-import '../models/quiz_question.dart';
 import '../services/ad_service.dart';
 import '../services/progress_service.dart';
 import '../services/quiz_repository.dart';
@@ -123,14 +122,46 @@ class _QuizScreenState extends State<QuizScreen> {
     super.initState();
     _currentLangCode = ProgressService().language;
     final isReview = widget.reviewIds != null && widget.reviewIds!.isNotEmpty;
+    final isCategoryMode = widget.category != null && widget.category!.isNotEmpty && !isReview;
+
     _questions = QuizRepository.getQuestions(
       type: isReview ? null : widget.quizType,
       category: isReview ? null : widget.category,
       level: isReview ? null : widget.level,
       ids: isReview ? widget.reviewIds : null,
-      limit: QuizRepository.sessionSize,
+      limit: (isCategoryMode || isReview) ? null : QuizRepository.sessionSize,
+      shuffle: !isCategoryMode && !isReview,
     );
     _sessionSize = _questions.length;
+
+    if (isCategoryMode && _questions.isNotEmpty) {
+      final progress = ProgressService();
+
+      final attemptedQuestions = _questions
+          .where((q) => progress.isLearned(q.id) || progress.wrongIds.contains(q.id))
+          .toList();
+      final unattemptedQuestions = _questions
+          .where((q) => !progress.isLearned(q.id) && !progress.wrongIds.contains(q.id))
+          .toList();
+
+      if (unattemptedQuestions.isNotEmpty && attemptedQuestions.isNotEmpty) {
+        // [Already attempted questions] + [Unattempted questions]
+        // This guarantees _currentIndex is exactly attemptedQuestions.length (e.g. 9),
+        // which displays as Question 10 / 29!
+        _questions = [...attemptedQuestions, ...unattemptedQuestions];
+        _currentIndex = attemptedQuestions.length;
+        _score = _questions.take(_currentIndex).where((q) => progress.isLearned(q.id)).length;
+        for (final q in _questions.take(_currentIndex)) {
+          if (progress.wrongIds.contains(q.id) && !_sessionWrongIds.contains(q.id)) {
+            _sessionWrongIds.add(q.id);
+          }
+        }
+      } else {
+        _currentIndex = 0;
+        _score = 0;
+      }
+    }
+
     _initChipsForCurrentQuestion();
   }
 
@@ -142,26 +173,6 @@ class _QuizScreenState extends State<QuizScreen> {
 
   bool get _isRetryQuestion => _retryIndexes.contains(_currentIndex);
   bool get _isReviewMode => widget.reviewIds != null && widget.reviewIds!.isNotEmpty;
-
-  /// Copy a question with freshly shuffled options (used when re-queuing a mistake)
-  QuizQuestion _reshuffled(QuizQuestion q) {
-    final correct = q.options[q.answerIndex];
-    final options = List<String>.from(q.options)..shuffle();
-    return QuizQuestion(
-      id: q.id,
-      category: q.category,
-      type: q.type,
-      visual: q.visual,
-      keyword: q.keyword,
-      speechBubble: q.speechBubble,
-      situations: q.situations,
-      questions: q.questions,
-      options: options,
-      answerIndex: options.indexOf(correct),
-      explanations: q.explanations,
-      chips: q.chips != null ? List<String>.from(q.chips!) : null,
-    );
-  }
 
   /// Replace the blank "(     )" in a dialogue line with [answer]
   static final RegExp _blankPattern = RegExp(r'\(\s*\)|_{3,}');
@@ -212,11 +223,6 @@ class _QuizScreenState extends State<QuizScreen> {
         _combo++;
       } else {
         _combo = 0;
-        // Duolingo-style: ask a missed question once more at the end of the session
-        if (!_isRetryQuestion) {
-          _questions.add(_reshuffled(currentQuestion));
-          _retryIndexes.add(_questions.length - 1);
-        }
       }
     });
   }

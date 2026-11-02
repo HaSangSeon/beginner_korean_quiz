@@ -1218,7 +1218,9 @@ class _HomeScreenState extends State<HomeScreen> {
             final catIds = QuizRepository.getIdsByCategory(cat);
             final total = catIds.length;
             final learned = catIds.where((id) => progress.isLearned(id)).length;
-            final ratio = total > 0 ? (learned / total) : 0.0;
+            final wrong = catIds.where((id) => progress.wrongIds.contains(id)).length;
+            final attempted = learned + wrong;
+            final ratio = total > 0 ? (attempted / total) : 0.0;
             final emoji = _categoryEmoji[cat] ?? '📌';
             final isComplete = learned == total && total > 0;
             final accentColor = _getCategoryAccentColor(cat);
@@ -1305,7 +1307,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                             )
-                          else if (learned > 0)
+                          else if (attempted > 0)
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 7.5, vertical: 3.5),
                               decoration: BoxDecoration(
@@ -1317,7 +1319,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               child: Text(
-                                '${(ratio * 100).toInt()}%',
+                                '$attempted/$total',
                                 style: TextStyle(
                                   fontSize: 10.5,
                                   fontWeight: FontWeight.w800,
@@ -1333,7 +1335,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(7),
                               ),
                               child: Text(
-                                '$learned/$total',
+                                '0/$total',
                                 style: TextStyle(
                                   fontSize: 10.5,
                                   fontWeight: FontWeight.w700,
@@ -1368,9 +1370,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ? AppStrings.tr('category_progress', _selectedLangCode)
                                       .replaceAll('{done}', learned.toString())
                                       .replaceAll('{total}', total.toString())
-                                  : (learned > 0
+                                  : (attempted > 0
                                       ? AppStrings.tr('category_progress', _selectedLangCode)
-                                          .replaceAll('{done}', learned.toString())
+                                          .replaceAll('{done}', attempted.toString())
                                           .replaceAll('{total}', total.toString())
                                       : AppStrings.tr('cat_count_badge', _selectedLangCode)
                                           .replaceAll('{count}', total.toString())),
@@ -1379,7 +1381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontWeight: FontWeight.w600,
                                 color: isComplete
                                     ? const Color(0xFF22C55E)
-                                    : (learned > 0
+                                    : (attempted > 0
                                         ? (isDark ? const Color(0xFFCBD5E1) : const Color(0xFF475569))
                                         : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B))),
                               ),
@@ -1414,10 +1416,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildTrackSwitcherSection(BuildContext context, bool isDark) {
-    final wordCount = QuizRepository.getCountByType('word');
-    final sentenceCount = QuizRepository.getCountByType('sentence');
-    final survivalCount = QuizRepository.getCountByType('survival');
-
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
@@ -1445,7 +1443,6 @@ class _HomeScreenState extends State<HomeScreen> {
               isSelected: _selectedTrack == 'survival',
               emoji: '🇰🇷',
               label: AppStrings.tr('track_tab_survival', _selectedLangCode),
-              badge: '$survivalCount',
               activeColor: const Color(0xFFEA580C), // Orange 600
               onTap: () {
                 if (_selectedTrack != 'survival') {
@@ -1462,7 +1459,6 @@ class _HomeScreenState extends State<HomeScreen> {
               isSelected: _selectedTrack == 'sentence',
               emoji: '💬',
               label: AppStrings.tr('track_tab_sentence', _selectedLangCode),
-              badge: '$sentenceCount',
               activeColor: const Color(0xFF2563EB), // Blue 600
               onTap: () {
                 if (_selectedTrack != 'sentence') {
@@ -1479,7 +1475,6 @@ class _HomeScreenState extends State<HomeScreen> {
               isSelected: _selectedTrack == 'word',
               emoji: '📚',
               label: AppStrings.tr('track_tab_vocab', _selectedLangCode),
-              badge: '$wordCount',
               activeColor: const Color(0xFF0D9488), // Teal 600
               onTap: () {
                 if (_selectedTrack != 'word') {
@@ -1496,7 +1491,6 @@ class _HomeScreenState extends State<HomeScreen> {
               isSelected: _selectedTrack == 'dialogue',
               emoji: '📖',
               label: AppStrings.tr('track_tab_dialogue', _selectedLangCode),
-              badge: '${dialogues.length}',
               activeColor: const Color(0xFFDB2777), // Pink 600
               onTap: () {
                 if (_selectedTrack != 'dialogue') {
@@ -1798,7 +1792,6 @@ class _HomeScreenState extends State<HomeScreen> {
     required bool isSelected,
     required String emoji,
     required String label,
-    required String badge,
     required Color activeColor,
     required VoidCallback onTap,
   }) {
@@ -1810,7 +1803,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 220),
           curve: Curves.easeOutCubic,
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+          padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 4),
           decoration: BoxDecoration(
             color: isSelected
                 ? (isDark ? activeColor.withValues(alpha: 0.25) : Colors.white)
@@ -1837,33 +1830,9 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Top Row: Emoji + Count Badge
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(emoji, style: const TextStyle(fontSize: 14)),
-                  const SizedBox(width: 4),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? (isDark ? activeColor : activeColor.withValues(alpha: 0.15))
-                          : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: Text(
-                      badge,
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w800,
-                        color: isSelected
-                            ? (isDark ? Colors.white : activeColor)
-                            : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
-                      ),
-                    ),
-                  ),
-                ],
+              Text(
+                emoji,
+                style: const TextStyle(fontSize: 17),
               ),
               const SizedBox(height: 3.5),
               // Bottom Label: Full width, clean, legible without truncation
@@ -1987,15 +1956,61 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Hero Badge
-                Text(
-                  heroBadgeText,
-                  style: const TextStyle(
-                    color: Color(0xFFFDE047),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 0.4,
-                  ),
+                // Hero Header Row: Badge + Total Count Pill
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        heroBadgeText,
+                        style: const TextStyle(
+                          color: Color(0xFFFDE047),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 0.4,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.5, vertical: 3.5),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.16),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.white.withValues(alpha: 0.28),
+                          width: 0.9,
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            isDialogueTrack ? Icons.forum_rounded : Icons.quiz_rounded,
+                            size: 13,
+                            color: Colors.white,
+                          ),
+                          const SizedBox(width: 4.5),
+                          Text(
+                            isDialogueTrack
+                                ? AppStrings.tr('dialogue_count_badge', _selectedLangCode)
+                                    .replaceAll('{count}', '${dialogues.length}')
+                                : AppStrings.tr('cat_count_badge', _selectedLangCode).replaceAll(
+                                    '{count}',
+                                    '${isWordTrack ? QuizRepository.getCountByType('word') : (isSurvivalTrack ? QuizRepository.getCountByType('survival') : QuizRepository.getCountByType('sentence'))}',
+                                  ),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 11.5,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: -0.2,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 6),
 
