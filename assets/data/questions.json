@@ -7,14 +7,14 @@
     "speechBubble": "저는 미국 사람이지만...",
     "keyword": "한국어",
     "situations": {
-      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn tranh và hoàn thành hội thoại.",
-      "ZH": "看图并仿照例子完成对话。",
-      "JA": "絵を見て会話を完成させてください。"
+      "KO": "노래방에서 친구에게 한국어 노래를 부를 수 있는지 묻고 답하는 상황입니다.",
+      "EN": "Asking and answering if a friend can sing Korean songs at karaoke.",
+      "VI": "Tình huống hỏi đáp tại phòng hát xem bạn có thể hát được bài hát tiếng Hàn không.",
+      "ZH": "在KTV询问朋友是否会唱韩语歌曲并回答的日常情景。",
+      "JA": "カラオケで友達に韓国語の歌が歌えるか尋ねて答える場面です。"
     },
     "questions": {
-      "KO": "철수: 한국어를 할 수 있어요?\n영희: 네, (   )."
+      "KO": "가: 지민 씨는 K-POP을 자주 듣네요! 혹시 한국어 노래도 (   )?\n나: 네, 발음 연습을 많이 해서 능숙하게 (   )."
     },
     "options": [
       "하지 않아요",
@@ -24,11 +24,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "'할 수 있어요'는 무언가를 할 수 있을 때 써요. '하다'에 능력을 나타내는 '~ㄹ 수 있어요'를 붙인 표현이에요!",
-      "EN": "Use '할 수 있어요' when you can do something! '하다' (to do) + '~ㄹ 수 있어요' (can) = '할 수 있어요' (I can do it).",
-      "VI": "Động từ '하다' kết hợp với ngữ pháp chỉ khả năng '-(으)ㄹ 수 있어요' tạo thành '할 수 있어요' (Vâng, tôi có thể nói được).",
-      "ZH": "动词'하다'加上表示能力的'-(으)ㄹ 수 있어요'，变为'할 수 있어요'（是的，我会说）。",
-      "JA": "動詞「하다（する）」に可能を表す「-(으)ㄹ 수 있어요」がついて「할 수 있어요（話せます）」になります。"
+      "KO": "어떤 행동을 할 수 있는 능력이 있음을 나타낼 때 동사 뒤에 '-(으)ㄹ 수 있어요'를 써서 '할 수 있어요'라고 해요!",
+      "EN": "When expressing the ability to do something, attach '-(으)ㄹ 수 있어요' to the verb: '할 수 있어요' (I can do it)!",
+      "VI": "Khi biểu thị khả năng có thể làm gì đó, gắn '-(으)ㄹ 수 있어요' vào sau động từ: '할 수 있어요' (Tôi có thể làm được)!",
+      "ZH": "表示具备做某事的能力时，在动词后加上'-(으)ㄹ 수 있어요'，表达为'할 수 있어요'（会/能够做）！",
+      "JA": "何かをする能力があることを表す時は、動詞の後ろに「-(으)ㄹ 수 있어요」をつけて「할 수 있어요（できます）」と言います！"
     },
     "level": 1
   },
@@ -40,14 +40,14 @@
     "speechBubble": "차 열쇠가 있어요!",
     "keyword": "운전",
     "situations": {
-      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn tranh và hoàn thành hội thoại.",
-      "ZH": "看图并仿照例子完成对话。",
-      "JA": "絵を見て会話を完成させてください。"
+      "KO": "제주도 렌터카 여행을 앞두고 운전 능력을 묻고 답하는 상황입니다.",
+      "EN": "Asking and answering about driving ability before a Jeju rental car road trip.",
+      "VI": "Tình huống hỏi đáp về khả năng lái xe trước chuyến du lịch thuê xe tự lái ở đảo Jeju.",
+      "ZH": "在济州岛自驾租车旅行前询问开车能力并回答的情景。",
+      "JA": "済州島のレンタカー旅行を前に、運転ができるか尋ねて答える場面です。"
     },
     "questions": {
-      "KO": "철수: 운전할 수 있어요?\n영희: 네, (   )."
+      "KO": "가: 이번 주말에 제주도로 드라이브 여행 가는데, 민수 씨 혹시 운전할 줄 알아요?\n나: 네, 1종 보통 면허가 있어서 (   )."
     },
     "options": [
       "운전 못 해요",
@@ -57,11 +57,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "운전할 줄 알 때는 능력을 나타내는 '~ㄹ 수 있어요'를 써서 '운전할 수 있어요'라고 해요!",
-      "EN": "To say you know how to drive, use '~ㄹ 수 있어요' (can): '운전할 수 있어요' (I can drive).",
-      "VI": "Biểu thị khả năng lái xe khẳng định là '운전할 수 있어요' (Vâng, tôi có thể lái xe).",
-      "ZH": "'운전하다'（开车）表示肯定的能力表达是'운전할 수 있어요'（是的，我会开车）。",
-      "JA": "「운전하다（運転する）」の可能表現は「운전할 수 있어요（運転できます）」です。"
+      "KO": "운전할 수 있는 면허와 능력이 있음을 긍정적으로 표현할 때 '운전할 수 있어요'라고 답해요!",
+      "EN": "Use '운전할 수 있어요' (I can drive) to confirm that you have the ability and license to drive!",
+      "VI": "Dùng '운전할 수 있어요' (Tôi có thể lái xe) để khẳng định bản thân có bằng lái và biết lái xe!",
+      "ZH": "肯定地表达自己有驾照并具备开车能力时，回答'운전할 수 있어요'（我会开车）！",
+      "JA": "運転免許と運転する能力があることを肯定的に伝える時は「운전할 수 있어요（運転できます）」と答えます！"
     },
     "level": 1
   },
@@ -73,14 +73,14 @@
     "speechBubble": "달콤한 케이크!",
     "keyword": "케이크",
     "situations": {
-      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn tranh và hoàn thành hội thoại.",
-      "ZH": "看图并仿照例子完成对话。",
-      "JA": "絵を見て会話を完成させてください。"
+      "KO": "친구 생일 파티를 위해 케이크를 직접 만들 수 있는지 묻는 상황입니다.",
+      "EN": "Asking whether someone can bake a birthday cake themselves for a party.",
+      "VI": "Tình huống hỏi xem có thể tự tay làm bánh kem cho bữa tiệc sinh nhật của bạn không.",
+      "ZH": "为了朋友的生日聚会询问是否能亲手制作蛋糕的日常情景。",
+      "JA": "友達の誕生日パーティーのために、自分でケーキを作れるか尋ねる場面です。"
     },
     "questions": {
-      "KO": "철수: 케이크를 만들 수 있어요?\n영희: 네, (   )."
+      "KO": "가: 다가오는 주말에 친구 생일 파티를 열려고 해요. 유진 씨는 케이크를 직접 (   )?\n나: 네, 홈베이킹을 배워서 집에서 달콤하게 (   )."
     },
     "options": [
       "만들 수 있어요",
@@ -90,11 +90,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "'만들다'처럼 끝에 'ㄹ'이 있으면 바로 '수 있어요'를 붙여서 '만들 수 있어요'라고 해요!",
-      "EN": "For words ending in 'ㄹ' like '만들다', directly add '수 있어요' -> '만들 수 있어요' (I can make it).",
-      "VI": "Vì '만들다' kết thúc bằng 'ㄹ' nên kết hợp thành '만들 수 있어요' (Vâng, tôi có thể làm được).",
-      "ZH": "'만들다'是以'ㄹ'收音结尾的动词，直接接'수 있어요'，变为'만들 수 있어요'（是的，我会做）。",
-      "JA": "「만들다（作る）」はパッチム「ㄹ」のため「만들 수 있어요（作れます）」になります。"
+      "KO": "케이크를 제작할 수 있는 능력이 있음을 나타내어 '만들 수 있어요'를 사용해요!",
+      "EN": "Use '만들 수 있어요' (I can make it) to express the ability to bake or create a cake!",
+      "VI": "Dùng '만들 수 있어요' (Tôi có thể làm được) để thể hiện khả năng tự làm bánh kem!",
+      "ZH": "表达具备烘焙或制作蛋糕的能力时，使用'만들 수 있어요'（会做/能做）！",
+      "JA": "ケーキを作ることができる能力があることを表して「만들 수 있어요（作れます）」を使います！"
     },
     "level": 1
   },
@@ -106,14 +106,14 @@
     "speechBubble": "너무 매워요!",
     "keyword": "김치",
     "situations": {
-      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn tranh và hoàn thành hội thoại.",
-      "ZH": "看图并仿照例子完成对话。",
-      "JA": "絵を見て会話を完成させてください。"
+      "KO": "매운 음식을 잘 먹지 못하는 식성을 솔직하게 설명하는 상황입니다.",
+      "EN": "Honestly explaining that you cannot eat spicy food well due to taste tolerance.",
+      "VI": "Tình huống thành thật giải thích rằng bản thân không ăn được đồ cay.",
+      "ZH": "坦诚说明自己不太能吃辣的饮食偏好的日常场景。",
+      "JA": "辛いものが苦手で上手に食べられない好みを正直に説明する場面です。"
     },
     "questions": {
-      "KO": "철수: 김치를 먹을 수 있어요?\n영희: 아니요, (   )."
+      "KO": "가: 이 식당 닭볶음탕은 청양고추가 들어가서 아주 매워요. 수현 씨 매운 거 잘 먹어요?\n나: 아니요, 저는 매운맛에 약해서 매운 음식은 (   ). 덜 맵게 해 달라고 해요."
     },
     "options": [
       "먹을 수 있어요",
@@ -123,11 +123,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "매운 음식을 못 먹을 때는 '아니요' 뒤에 '못 먹어요' 또는 '먹을 수 없어요'라고 답해요!",
-      "EN": "When you can't eat spicy food, answer with '못 먹어요' or '먹을 수 없어요' (No, I can't eat it).",
-      "VI": "Khi không thể ăn được đồ cay, dùng '못 + Động từ (못 먹어요)' hoặc '먹을 수 없어요' (Không, tôi không ăn được).",
-      "ZH": "表示不能吃辣等情况时，在'아니요'后接'못 + 动词（못 먹어요）'或'먹을 수 없어요'（不，我吃不了）。",
-      "JA": "辛くて食べられない等の不可能を表す時は「아니요（いいえ）」に続き「못 + 動詞（못 먹어요）」または「먹을 수 없어요（食べられません）」を使います。"
+      "KO": "능력이나 여건상 어떤 행위를 하지 못함을 나타낼 때 '못 + 동사'를 써서 '못 먹어요'라고 해요!",
+      "EN": "Use '못 먹어요' (I cannot eat it) with '못 + verb' when you are unable to eat something due to low tolerance!",
+      "VI": "Dùng '못 먹어요' (Không thể ăn được) với cấu trúc '못 + động từ' khi không thể ăn món gì đó!",
+      "ZH": "表示因能力或体质无法做某事时，用'못 + 动词'，表达为'못 먹어요'（吃不了/不能吃）！",
+      "JA": "能力や体質上、何かを食べることができない時は「못 ＋ 動詞」を使って「못 먹어요（食べられません）」と言います！"
     },
     "level": 1
   },
@@ -139,14 +139,14 @@
     "speechBubble": "넘어졌어요!",
     "keyword": "스키",
     "situations": {
-      "KO": "그림을 보고 [보기]와 같이 대화를 완성하세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn tranh và hoàn thành hội thoại.",
-      "ZH": "看图并仿照例子完成对话。",
-      "JA": "絵を見て会話を完成させてください。"
+      "KO": "겨울 스키장 여행에서 스키를 탈 줄 모른다고 사양하는 상황입니다.",
+      "EN": "Politely declining skiing because you do not know how to ski on a winter trip.",
+      "VI": "Tình huống từ chối trượt tuyết vì chưa biết trượt trong chuyến đi khu trượt tuyết mùa đông.",
+      "ZH": "在冬季滑雪场旅行中说明自己不会滑雪并委婉拒绝的日常情景。",
+      "JA": "冬のスキー場旅行でスキーが滑れないと丁寧に断る場面です。"
     },
     "questions": {
-      "KO": "철수: 스키를 탈 수 있어요?\n영희: 아니요, (   )."
+      "KO": "가: 이번 주말에 다 같이 강원도 스키장 가는데, 지우 씨도 스키 탈래요?\n나: 아니요, 저는 겁이 많아서 스키는 아직 (   ). 그냥 눈썰매 탈게요."
     },
     "options": [
       "탈 수 있어요",
@@ -156,11 +156,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "스키를 못 탈 때는 '아니요, 못 타요' 또는 '탈 수 없어요'라고 답해요!",
-      "EN": "When you can't ski, answer with '아니요, 못 타요' or '탈 수 없어요' (No, I can't ski).",
-      "VI": "Khi không biết trượt tuyết, câu trả lời phủ định phù hợp là '못 타요' hoặc '탈 수 없어요' (Không, tôi không trượt được).",
-      "ZH": "不会滑雪时，紧接着'아니요'的否定回答是'못 타요'或'탈 수 없어요'（不，我不会滑）。",
-      "JA": "スキーが滑れない時、「아니요」に続く正しい否定表現は「못 타요」または「탈 수 없어요（滑れません）」です。"
+      "KO": "기술이나 능력이 부족하여 탈 수 없음을 나타낼 때 '못'을 붙여 '못 타요'라고 해요!",
+      "EN": "Use '못 타요' (I cannot ride/ski) when you lack the skill or ability to ride skis!",
+      "VI": "Dùng '못 타요' (Không biết trượt/đi) khi chưa có kỹ năng hoặc không thể trượt được!",
+      "ZH": "表示因缺乏技巧或不会做而无法滑雪时，加上'못'表达为'못 타요'（不会滑/滑不了）！",
+      "JA": "技術や能力がなくて乗ることができない時は「못」をつけて「못 타요（滑れません/乗れません）」と言います！"
     },
     "level": 1
   },
@@ -172,14 +172,14 @@
     "speechBubble": "날씨가 좋아요!",
     "keyword": "공원",
     "situations": {
-      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
-      "EN": "Complete the dialogue based on the picture like the example.",
-      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
-      "ZH": "仿照<例子>看图完成对话。",
-      "JA": "<例>のように絵を見て会話を完成させてください。"
+      "KO": "화창한 날씨에 강아지와 산책하러 공원에 간다고 외출 목적을 밝히는 상황입니다.",
+      "EN": "Sharing that you are going to the park to walk your puppy on a sunny day.",
+      "VI": "Nói rằng mình đang đến công viên để dắt cún đi dạo vào một ngày đẹp trời.",
+      "ZH": "在天气晴朗的日子说明去公园遛狗散步的目的的日常情景。",
+      "JA": "天気の良い日に子犬の散歩をしに公園へ行くと外出の目的を伝える場面です。"
     },
     "questions": {
-      "KO": "철수: 날씨가 정말 화창하네요. 지금 어디에 가요?\n영희: (   )."
+      "KO": "가: 오늘 햇살도 따뜻하고 바람도 상쾌하네요! 어디 가세요?\n나: 날씨가 너무 좋아서 강아지와 함께 (   )."
     },
     "options": [
       "산책하러 공원이 와요",
@@ -189,11 +189,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "어디 가는 목적을 말할 때는 '~러 가요'를 써요. 산책이 목적이면 '산책하러 공원에 가요'라고 해요!",
-      "EN": "To express your purpose of going somewhere, use '~러 가요'. '산책하다' -> '산책하러 공원에 가요' (Going to the park for a walk).",
-      "VI": "Để chỉ mục đích đi đâu, dùng cấu trúc 'Động từ-(으)러 + Địa điểm에 가다': '산책하러 공원에 가요' (Tôi đi công viên để đi dạo).",
-      "ZH": "表示去某处的目的时使用'动词-(으)러 + 地点에 가다'。'산책하다'加上'-러'变为'산책하러 공원에 가요'（去公园散步）。",
-      "JA": "行く目的を表す時「動詞-(으)러 + 場所에 가다（〜しに行く）」を使います。「산책하러 공원에 가요（散歩しに公園へ行きます）」。"
+      "KO": "어떤 목적을 위해 장소로 이동함을 나타낼 때 '-(으)러 가다'를 써서 '산책하러 공원에 가요'가 맞아요!",
+      "EN": "When going to a place for a purpose, use '-(으)러 가다': '산책하러 공원에 가요' (I'm going to the park to take a walk)!",
+      "VI": "Khi di chuyển đến đâu để thực hiện mục đích, dùng '-(으)러 가다': '산책하러 공원에 가요' (Đi đến công viên để đi dạo)!",
+      "ZH": "表示为了某种目的前往某地时，使用'-(으)러 가다'，即'산책하러 공원에 가요'（去公园散步）！",
+      "JA": "目的のために場所へ移動することを表す時は「-(으)러 가다」を使って「산책하러 공원에 가요（散歩しに公園へ行きます）」が正解です！"
     },
     "level": 1
   },
@@ -205,14 +205,14 @@
     "speechBubble": "책이 많아요!",
     "keyword": "도서관",
     "situations": {
-      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
-      "EN": "Complete the dialogue based on the picture like the example.",
-      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
-      "ZH": "仿照<例子>看图完成对话。",
-      "JA": "<例>のように絵を見て会話を完成させてください。"
+      "KO": "대학 과제 리포트 작성을 위해 책을 대출하러 도서관에 가는 상황입니다.",
+      "EN": "Going to the library to borrow books for a university assignment report.",
+      "VI": "Đi đến thư viện mượn sách để làm bài tập báo cáo đại học.",
+      "ZH": "为了撰写大学课题报告去图书馆借书的校园生活情景。",
+      "JA": "大学のレポート作成のために本を借りに図書館へ行く場面です。"
     },
     "questions": {
-      "KO": "철수: 가방에 책이 가득하네요. 어디에 가요?\n영희: (   )."
+      "KO": "가: 지우 씨, 손에 전공 서적이 가득하네요. 지금 어디에 가요?\n나: 다음 주 과제 발표를 준비하려고 (   )."
     },
     "options": [
       "도서관에 책이 있어요",
@@ -222,11 +222,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "도서관에 책을 빌리러 가는 목적을 말할 때는 '~러'를 붙여 '책을 빌리러 도서관에 가요'라고 해요!",
-      "EN": "To express the purpose of borrowing books: '빌리다' + '-러' = '책을 빌리러 도서관에 가요' (Going to the library to borrow books).",
-      "VI": "Mục đích đến thư viện: '빌리다' (mượn) + '-러' = '책을 빌리러 도서관에 가요' (Đi thư viện để mượn sách).",
-      "ZH": "去图书馆的目的：'빌리다'（借）+ '-러' = '책을 빌리러 도서관에 가요'（去图书馆借书）。",
-      "JA": "図書館へ本を借りに行く目的を表す表現：「책을 빌리러 도서관에 가요（本を借りに行きます）」。"
+      "KO": "도서관에 가는 목적(책 대출)을 나타내는 연결 어미 '-(으)러'를 사용한 '책을 빌리러 도서관에 가요'가 가장 자연스러워요!",
+      "EN": "Use '책을 빌리러 도서관에 가요' (I'm going to the library to borrow books) to express the purpose of going to the library!",
+      "VI": "Dùng '책을 빌리러 도서관에 가요' (Đến thư viện để mượn sách) với đuôi chỉ mục đích '-(으)러'!",
+      "ZH": "表示去图书馆的目的（借书）时，使用目的连接词尾'-(으)러'，即'책을 빌리러 도서관에 가요'（去图书馆借书）！",
+      "JA": "図書館へ行く目的（本の貸出）を表す連結語尾「-(으)러」を使った「책을 빌리러 도서관에 가요（本を借りに図書館へ行きます）」が最も自然です！"
     },
     "level": 1
   },
@@ -238,14 +238,14 @@
     "speechBubble": "24 HOURS",
     "keyword": "편의점",
     "situations": {
-      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
-      "EN": "Complete the dialogue based on the picture like the example.",
-      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
-      "ZH": "仿照<例子>看图完成对话。",
-      "JA": "<例>のように絵を見て会話を完成させてください。"
+      "KO": "운동 후 갈증이 나서 시원한 생수를 사러 편의점에 들르는 상황입니다.",
+      "EN": "Stopping by a convenience store to buy cold water after working out.",
+      "VI": "Ghé vào cửa hàng tiện lợi mua nước suối mát lạnh sau khi tập thể dục vì khát nước.",
+      "ZH": "运动后口渴去便利店买一瓶清凉矿泉水的日常情景。",
+      "JA": "運動後に喉が渇いて冷たい水を買うためにコンビニに立ち寄る場面です。"
     },
     "questions": {
-      "KO": "철수: 영희 씨, 어디에 가요?\n영희: 목이 말라서 (   )."
+      "KO": "가: 헬스장에서 땀을 많이 흘리셨네요. 어디로 가세요?\n나: 목이 너무 말라서 시원한 (   )."
     },
     "options": [
       "편의점에 물건이 많아요",
@@ -255,11 +255,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "물을 사러 가는 목적을 말할 때는 '~러'를 붙여 '물을 사러 편의점에 가요'라고 해요!",
-      "EN": "To express the purpose of going somewhere to buy water, use '~러' in '물을 사러 편의점에 가요'!",
-      "VI": "Khi nói về mục đích đi đâu để mua nước, dùng đuôi ngữ pháp '~러': '물을 사러 편의점에 가요'!",
-      "ZH": "表示去便利店买水的目的时，加上'~러'，表达为'물을 사러 편의점에 가요'！",
-      "JA": "水を買いに行く目的を言う時は「〜러」をつけて「물을 사러 편의점에 가요（水を買いにコンビニへ行きます）」と言います！"
+      "KO": "물을 사기 위한 목적을 가지고 편의점으로 이동하므로 '물을 사러 편의점에 가요'가 올바른 표현이에요!",
+      "EN": "Moving toward the convenience store to buy water is expressed as '물을 사러 편의점에 가요' (I'm going to the convenience store to buy water)!",
+      "VI": "Di chuyển đến cửa hàng tiện lợi với mục đích mua nước, do đó dùng '물을 사러 편의점에 가요' (Đến cửa hàng tiện lợi để mua nước)!",
+      "ZH": "带着买水的目的前往便利店，因此'물을 사러 편의점에 가요'（去便利店买水）是正确表达！",
+      "JA": "水を買う目的を持ってコンビニへ向かうため、「물을 사러 편의점에 가요（水を買いにコンビニへ行きます）」が正しい表現です！"
     },
     "level": 1
   },
@@ -271,14 +271,14 @@
     "speechBubble": "친구야 반가워!",
     "keyword": "부산",
     "situations": {
-      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
-      "EN": "Complete the dialogue based on the picture like the example.",
-      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
-      "ZH": "仿照<例子>看图完成对话。",
-      "JA": "<例>のように絵を見て会話を完成させてください。"
+      "KO": "주말 KTX를 타고 오랜 친구를 만나러 부산으로 떠나는 상황입니다.",
+      "EN": "Taking the KTX train on the weekend to visit an old friend in Busan.",
+      "VI": "Đi tàu cao tốc KTX vào cuối tuần để đến Busan gặp lại người bạn thân lâu năm.",
+      "ZH": "周末乘坐KTX高速列车去釜山见老朋友的旅行情景。",
+      "JA": "週末にKTXに乗って旧友に会いに釜山へ向かう場面です。"
     },
     "questions": {
-      "KO": "철수: 부산에 왜 가요?\n영희: (   )."
+      "KO": "가: 주말 아침부터 서울역 KTX 승강장에는 무슨 일로 오셨어요?\n나: 오랜만에 휴가를 받아서 (   )."
     },
     "options": [
       "친구를 만나러 부산에 가요",
@@ -288,11 +288,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "'왜 가요?'라고 목적을 물어볼 때는 '~러'를 넣어 '친구를 만나러 부산에 가요'라고 답해요!",
-      "EN": "When asked '왜 가요?' (Why are you going?), state your purpose: '친구를 만나러 부산에 가요' (Going to Busan to meet a friend).",
-      "VI": "Đáp lại câu hỏi mục đích '왜 가요?': '친구를 만나러 부산에 가요' (Tôi đi Busan để gặp bạn).",
-      "ZH": "回答'왜 가요?'（为什么去？）这一目的问题时，回答'친구를 만나러 부산에 가요'（去釜山见朋友）。",
-      "JA": "「왜 가요?（なぜ行きますか？）」という目的の問いに「친구를 만나러 부산에 가요（友達に会いに釜山へ行きます）」と答えます。"
+      "KO": "목적지(부산)와 이동 목적(친구 만남)을 문법 '-(으)러'로 결합한 '친구를 만나러 부산에 가요'가 정답이에요!",
+      "EN": "Combining the destination (Busan) and the purpose (meeting a friend) with '-(으)러' yields '친구를 만나러 부산에 가요'!",
+      "VI": "Kết hợp điểm đến (Busan) và mục đích (gặp bạn bè) với ngữ pháp '-(으)러' tạo thành '친구를 만나러 부산에 가요'!",
+      "ZH": "结合目的地（釜山）和出行目的（见朋友），用'-(으)러'组合成'친구를 만나러 부산에 가요'（去釜山见朋友）！",
+      "JA": "目的地（釜山）と移動の目的（友達に会う）を文法「-(으)러」で結んだ「친구를 만나러 부산에 가요（友達に会いに釜山へ行きます）」が正解です！"
     },
     "level": 1
   },
@@ -304,14 +304,14 @@
     "speechBubble": "한국어 공부해요!",
     "keyword": "한국",
     "situations": {
-      "KO": "<보기>처럼 그림을 보고 대화를 완성하세요.",
-      "EN": "Complete the dialogue based on the picture like the example.",
-      "VI": "Nhìn tranh hoàn thành hội thoại theo mẫu <Ví dụ>.",
-      "ZH": "仿照<例子>看图完成对话。",
-      "JA": "<例>のように絵を見て会話を完成させてください。"
+      "KO": "외국인 교환학생이 한국 대학교에 유학 온 목적을 설명하는 상황입니다.",
+      "EN": "An international exchange student explaining their purpose of studying in Korea.",
+      "VI": "Sinh viên trao đổi quốc tế giải thích mục đích đến du học tại trường đại học Hàn Quốc.",
+      "ZH": "国际交换生说明自己来到韩国大学留学的目的的场景。",
+      "JA": "外国人交換留学生が韓国の大学に留学に来た目的を説明する場面です。"
     },
     "questions": {
-      "KO": "철수: 한국에 왜 왔어요?\n영희: (   )."
+      "KO": "가: 올리버 씨는 처음에 어떤 계기로 멀리서 한국까지 유학을 오게 되셨어요?\n나: K-드라마를 보면서 관심이 생겨서 대학교 어학당에 (   )."
     },
     "options": [
       "한국어가 재미있어요",
@@ -321,11 +321,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "이미 한국에 도착한 상태에서 온 목적을 말할 때는 '가요' 대신 '왔어요'를 써서 '한국어를 배우러 왔어요'라고 해요!",
-      "EN": "Since you are already in Korea, use '왔어요' (came), not '가요' (go): '한국어를 배우러 왔어요' (I came to learn Korean).",
-      "VI": "Người nói đã ở Hàn Quốc nên dùng '왔어요' thay vì '가요': '한국어를 배우러 왔어요' (Tôi đến để học tiếng Hàn).",
-      "ZH": "因身在韩国被问'왜 왔어요?'（为什么来？），使用'왔어요'（来了）而不是'가요'：'한국어를 배우러 왔어요'（我来学韩语）。",
-      "JA": "すでに韓国にいて「왜 왔어요?（なぜ来ましたか？）」と聞かれているため、「가요」ではなく「왔어요」を使って「한국어를 배우러 왔어요（韓国語を学びに来ました）」と答えます。"
+      "KO": "이미 한국에 도착한 상태에서 과거의 입국 목적을 회상하며 말하므로 '한국어를 배우러 왔어요'가 알맞아요!",
+      "EN": "Since you have already arrived in Korea, expressing your initial purpose of coming uses '왔어요': '한국어를 배우러 왔어요' (I came to learn Korean)!",
+      "VI": "Vì đã có mặt tại Hàn Quốc, diễn tả mục đích ban đầu khi đến dùng '왔어요': '한국어를 배우러 왔어요' (Tôi đến để học tiếng Hàn)!",
+      "ZH": "既然人已经在韩国，回顾最初前来的目的时用'왔어요'，即'한국어를 배우러 왔어요'（来学习韩语）！",
+      "JA": "すでに韓国に到着した状態で、以前韓国に来た目的を話すので「한국어를 배우러 왔어요（韓国語を学びに来ました）」が適切です！"
     },
     "level": 1
   },
@@ -335,14 +335,14 @@
     "type": "word",
     "visual": "🌹",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "기념일을 맞아 선물 받은 향기로운 장미꽃을 보며 감탄하는 상황입니다.",
+      "EN": "Admiring fragrant anniversary roses received as a thoughtful gift.",
+      "VI": "Trầm trồ khen ngợi bó hoa hồng thơm ngát được tặng nhân ngày kỷ niệm.",
+      "ZH": "纪念日收到充满香气的玫瑰花礼物时赞叹喜悦的日常场景。",
+      "JA": "記念日にもらった香りの良いバラの花を見ながら感嘆する場面です。"
     },
     "questions": {
-      "KO": "가: 정원에 예쁜 빨간 (   )이/가 피었어요.\n나: 와, 장미꽃이 정말 아름답네요!"
+      "KO": "가: 책상 위에 꽂아 둔 붉은 식물이 방 안을 화사하게 만들어 주네요!\n나: 오늘 1주년 기념일이라서 친구한테 향기로운 (   )을/를 선물 받았어요."
     },
     "options": [
       "나무",
@@ -352,11 +352,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "그림은 아름다운 붉은 '꽃(장미)'입니다. '나무(tree)', '풀(grass)', '잎(leaf)'과 구별하세요.",
-      "EN": "The picture shows a '꽃' (flower/rose). Distinguish from 나무 (tree), 풀 (grass), 잎 (leaf).",
-      "VI": "Hình ảnh là '꽃' (hoa). Phân biệt với 나무 (cây), 풀 (cỏ), 잎 (lá).",
-      "ZH": "图片是'꽃'（花）。注意区分 나무（树）、풀（草）、잎（叶）。",
-      "JA": "絵は「꽃（花）」です。「나무（木）」「풀（草）」「잎（葉）」と区別しましょう。"
+      "KO": "붉은 꽃잎과 아름다운 향기를 지닌 식물은 '꽃(Flower)'이에요!",
+      "EN": "A plant with beautiful colorful petals and lovely fragrance is '꽃' (Flower)!",
+      "VI": "Thực vật có cánh rực rỡ và hương thơm ngát chính là '꽃' (Hoa)!",
+      "ZH": "有着鲜艳花瓣和芬芳香气的植物是'꽃'（花）！",
+      "JA": "赤い花びらと美しい香りを持つ植物は「꽃（花）」です！"
     },
     "level": 1,
     "keyword": "꽃"
@@ -367,14 +367,14 @@
     "type": "word",
     "visual": "🧢",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "야외 페스티벌에서 강한 자외선을 가리기 위해 착용할 소품을 권하는 상황입니다.",
+      "EN": "Recommending headwear to block strong sunlight during an outdoor festival.",
+      "VI": "Gợi ý phụ kiện đội đầu để che bớt tia cực tím gay gắt khi tham gia lễ hội ngoài trời.",
+      "ZH": "在户外音乐节推荐佩戴遮挡强烈紫外线的头部用品的场景。",
+      "JA": "野外フェスで強い紫外線を遮るために身につける小物を勧める場面です。"
     },
     "questions": {
-      "KO": "가: 오늘 햇빛이 너무 강해요.\n나: 그럼 외출할 때 이 (   )을/를 쓰세요."
+      "KO": "가: 야외 록 페스티벌에 가는데 한낮 햇빛이 너무 뜨거워요.\n나: 자외선 차단하려면 가방에서 이 챙 넓은 (   )을/를 꺼내서 머리에 쓰세요."
     },
     "options": [
       "모자",
@@ -384,11 +384,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "머리에 쓰는 물건은 '모자(cap/hat)'입니다. '모자를 쓰다' 동사와 함께 쓰입니다.",
-      "EN": "An item worn on the head is '모자' (hat/cap). Used with the verb '쓰다'.",
-      "VI": "Đồ đội trên đầu là '모자' (mũ). Dùng với động từ '쓰다'.",
-      "ZH": "戴在头上的物品是'모자'（帽子）。常与动词'쓰다'搭配。",
-      "JA": "頭にかぶる物は「모자（帽子）」です。「쓰다」と一緒に使います。"
+      "KO": "머리에 써서 햇빛을 가리거나 멋을 내는 패션 소품은 '모자(Cap/Hat)'예요!",
+      "EN": "An accessory worn on the head to block the sun or add style is '모자' (Hat/Cap)!",
+      "VI": "Phụ kiện đội trên đầu để che nắng hoặc làm đẹp là '모자' (Mũ/Nón)!",
+      "ZH": "戴在头上遮挡阳光或搭配造型的时尚配饰是'모자'（帽子）！",
+      "JA": "頭にかぶって日差しを遮ったりおしゃれを楽しむアイテムは「모자（帽子）」です！"
     },
     "level": 1,
     "keyword": "모자"
@@ -399,14 +399,14 @@
     "type": "word",
     "visual": "🚪",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "바깥에서 찬 바람과 소음이 들어와 닫아달라고 정중히 부탁하는 상황입니다.",
+      "EN": "Politely asking to close the door/window because cold wind and noise are coming in.",
+      "VI": "Lịch sự nhờ đóng lại vì có gió lạnh và tiếng ồn từ bên ngoài lọt vào.",
+      "ZH": "因外面吹进冷风和噪音而礼貌请对方随手关门的日常场景。",
+      "JA": "外から冷たい風や騒音が入ってくるため、閉めてもらうよう頼む場面です。"
     },
     "questions": {
-      "KO": "가: 밖에서 찬 바람이 들어와요.\n나: 추우니까 (   ) 좀 닫아 주세요."
+      "KO": "가: 바깥에 공사 소음도 시끄럽고 찬 바람이 쌩쌩 불어서 춥네요.\n나: 실내 온도를 지키려면 저기 열려 있는 (   ) 좀 꼭 닫아 주세요."
     },
     "options": [
       "천장",
@@ -416,11 +416,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "열고 방이나 건물로 들어가는 출입구는 '문(door)'입니다.",
-      "EN": "The entrance used to enter a room or building is '문(door)'.",
-      "VI": "Lối ra vào dùng để mở và bước vào phòng/tòa nhà là '문(cửa chính)'.",
-      "ZH": "打开进入房间或建筑物的出入口是'문'（门）。",
-      "JA": "開けて部屋や建物に入る出入口は「문（ドア・扉）」です。"
+      "KO": "열고 닫으며 방 안팎을 드나들거나 바람을 막는 출입구 구조물은 '문(Door)'이에요!",
+      "EN": "The barrier that opens and closes to enter a room or block drafts is '문' (Door)!",
+      "VI": "Cánh cửa đóng mở để ra vào phòng hoặc ngăn gió lùa là '문' (Cửa)!",
+      "ZH": "用来开关出入房间或阻挡冷风的隔断设施是'문'（门）！",
+      "JA": "開け閉めして出入りしたり風を防いだりする出入り口の構造物は「문（ドア/扉）」です！"
     },
     "level": 1,
     "keyword": "문"
@@ -431,14 +431,14 @@
     "type": "word",
     "visual": "📰",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "아침마다 최신 시사 뉴스를 확인하기 위해 읽는 종이 인쇄물을 묻는 상황입니다.",
+      "EN": "Asking about the printed daily paper read every morning for current news.",
+      "VI": "Hỏi về tờ báo giấy được đọc mỗi sáng để cập nhật các tin tức thời sự mới nhất.",
+      "ZH": "询问每天清晨为了阅读最新时事资讯而订阅的纸质报纸的场景。",
+      "JA": "毎朝最新の時事ニュースを確認するために読む新聞について尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 아버지는 아침마다 무엇을 읽으세요?\n나: 매일 아침 (   )을/를 읽으세요."
+      "KO": "가: 할아버지께서는 매일 아침 식사 전에 활자가 가득한 인쇄물을 꼼꼼히 읽으세요.\n나: 세상 돌아가는 소식을 확인하시려고 매일 현관으로 배달되는 (   )을/를 보시는군요."
     },
     "options": [
       "사전",
@@ -448,11 +448,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "매일 새로운 소식을 전해주는 종이는 '신문(newspaper)'이에요!",
-      "EN": "A printed daily publication with the latest news is '신문' (newspaper).",
-      "VI": "Ấn phẩm tin tức hàng ngày là '신문' (báo).",
-      "ZH": "每天刊登新闻的纸质印刷品是'신문'（报纸）。",
-      "JA": "毎日のニュースを伝える印刷物は「신문（新聞）」です。"
+      "KO": "사회, 정치, 경제 소식을 종이에 인쇄하여 매일 아침 전해주는 매체는 '신문(Newspaper)'이에요!",
+      "EN": "A daily printed publication reporting social, political, and economic news is '신문' (Newspaper)!",
+      "VI": "Ấn phẩm báo chí in trên giấy truyền tải tin tức xã hội mỗi ngày là '신문' (Báo)!",
+      "ZH": "将社会、政治、经济等即时新闻印在纸上发行的刊物是'신문'（报纸）！",
+      "JA": "社会や政治、経済のニュースを紙に印刷して毎朝届ける刊行物は「신문（新聞）」です！"
     },
     "level": 1,
     "keyword": "신문"
@@ -463,14 +463,14 @@
     "type": "word",
     "visual": "👟",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "공원 산책과 만 보 걷기를 위해 발이 편안한 워킹화를 챙겨 신는 상황입니다.",
+      "EN": "Putting on comfortable footwear before heading out for a 10,000-step park walk.",
+      "VI": "Xỏ đôi giày êm ái trước khi ra ngoài công viên đi bộ tập thể dục.",
+      "ZH": "去公园散步健走前挑选穿戴轻便舒适鞋子的日常场景。",
+      "JA": "公園の散歩やウォーキングのために足が楽な靴を履く場面です。"
     },
     "questions": {
-      "KO": "가: 밖에 나가려면 발에 (   )을/를 신어야 해요.\n나: 네, 편한 운동화를 신을게요."
+      "KO": "가: 오늘 만 보 걷기 운동하러 올림픽공원에 나갈 건데 뭐가 필요해요?\n나: 오래 걸어도 발이 아프지 않게 푹신하고 편안한 (   )을/를 꼭 챙겨 신고 나가세요."
     },
     "options": [
       "양말",
@@ -480,11 +480,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "발에 신는 것은 '신발(shoes)'입니다. '신발을 신다' 동사와 함께 쓰입니다.",
-      "EN": "What you wear on your feet are '신발' (shoes/footwear). Used with '신다'.",
-      "VI": "Đồ mang ở chân là '신발' (giày dép). Dùng với động từ '신다'.",
-      "ZH": "穿在脚上的物品是'신발'（鞋子）。常与动词'신다'搭配。",
-      "JA": "足に履く物は「신발（靴・履物）」です。「신다」と一緒に使います。"
+      "KO": "발에 신어서 땅을 딛고 걷거나 뛰도록 보호해 주는 물건은 '신발(Shoes)'이에요!",
+      "EN": "The protective footwear worn on the feet to walk or run is '신발' (Shoes)!",
+      "VI": "Vật mang vào chân để bảo vệ khi đi lại hoặc chạy nhảy là '신발' (Giày dép)!",
+      "ZH": "穿在脚上用于保护双脚行走奔跑的物品是'신발'（鞋子）！",
+      "JA": "足に履いて地面を踏みしめ歩いたり走ったりするものを「신발（靴）」と言います！"
     },
     "level": 1,
     "keyword": "신발"
@@ -495,14 +495,14 @@
     "type": "word",
     "visual": "👓",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "영화관에서 자막이 흐릿하게 보일 때 시력 교정용 도구를 추천하는 상황입니다.",
+      "EN": "Recommending corrective glasses when movie subtitles appear blurry.",
+      "VI": "Gợi ý đeo kính cận khi phụ đề phim trong rạp chiếu bị mờ do giảm thị lực.",
+      "ZH": "在电影院看字幕模糊不清时建议佩戴近视眼镜的场景。",
+      "JA": "映画館で字幕がぼやけて見える時に視力矯正用のメガネを勧める場面です。"
     },
     "questions": {
-      "KO": "가: 글씨가 작아서 잘 안 보여요.\n나: 그럼 이 (   )을/를 써 보세요."
+      "KO": "가: 영화관 맨 뒷자리에 앉았더니 스크린 자막 글씨가 흐릿하게 보여요.\n나: 시력이 떨어져서 멀리 있는 게 안 보이면 가방에 넣어 둔 (   )을/를 쓰세요."
     },
     "options": [
       "반지",
@@ -512,11 +512,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "눈이 잘 보이도록 착용하는 물건은 '안경(glasses)'입니다. '안경을 쓰다'로 표현합니다.",
-      "EN": "Eyewear used for vision correction is '안경' (glasses). Used with '쓰다'.",
-      "VI": "Vật đeo để nhìn rõ hơn là '안경' (kính mắt). Dùng với '쓰다'.",
-      "ZH": "用于看清东西的物品是'안경'（眼镜）。常与'쓰다'搭配。",
-      "JA": "目をよく見えるようにかける物は「안경（眼鏡）」です。「쓰다」を使います。"
+      "KO": "시력이 안 좋을 때 눈앞에 착용하여 사물을 또렷하게 보게 해주는 물건은 '안경(Glasses)'이에요!",
+      "EN": "An optical device worn in front of the eyes to see clearly is '안경' (Glasses)!",
+      "VI": "Dụng cụ đeo trước mắt giúp nhìn rõ mọi vật khi thị lực kém là '안경' (Kính mắt)!",
+      "ZH": "在视力不好时佩戴在眼前让人看清事物的用具是'안경'（眼镜）！",
+      "JA": "視力が悪い時に目の前に着用して物をはっきり見せる器具は「안경（メガネ）」です！"
     },
     "level": 1,
     "keyword": "안경"
@@ -527,14 +527,14 @@
     "type": "word",
     "visual": "⏰",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "휴대폰 배터리가 방전되어 벽걸이 계측기로 현재 시각을 확인하는 상황입니다.",
+      "EN": "Checking the time on a wall clock because your smartphone battery died.",
+      "VI": "Xem giờ trên chiếc đồng hồ treo tường vì điện thoại đã cạn sạch pin.",
+      "ZH": "手机电量耗尽关机时，看墙上的时钟确认准确时间的日常情景。",
+      "JA": "スマホの充電が切れてしまい、壁掛けの時計で現在時刻を確認する場面です。"
     },
     "questions": {
-      "KO": "가: 지금 몇 시인지 알고 싶어요.\n나: 벽에 걸린 (   )을/를 보세요."
+      "KO": "가: 휴대폰 배터리가 꺼져서 그런데 지금 정확히 몇 시 몇 분이에요?\n나: 저기 거실 벽에 걸려 있는 둥근 (   )을/를 한번 보세요."
     },
     "options": [
       "시계",
@@ -544,11 +544,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "시간을 알려주는 도구는 '시계(clock/watch)'입니다.",
-      "EN": "A device that tells the time is '시계' (clock/watch).",
-      "VI": "Dụng cụ chỉ thời gian là '시계' (đồng hồ).",
-      "ZH": "指示时间的工具是'시계'（表/钟）。",
-      "JA": "時間を知らせる道具は「시계（時計）」です。"
+      "KO": "시침과 분침으로 현재 시각을 알려주는 기기는 '시계(Clock/Watch)'예요!",
+      "EN": "The device that shows the current time with hands or digital numbers is '시계' (Clock/Watch)!",
+      "VI": "Thiết bị hiển thị thời gian chính xác qua kim giờ và phút là '시계' (Đồng hồ)!",
+      "ZH": "用时针和分针指示当前具体时间的仪器是'시계'（时钟/手表）！",
+      "JA": "時針と分針で現在の時刻を教えてくれる機器は「시계（時計）」です！"
     },
     "level": 1,
     "keyword": "시계"
@@ -559,14 +559,14 @@
     "type": "word",
     "visual": "👕",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "대기업 신입사원 최종 면접에 입고 갈 단정한 복장을 조언하는 상황입니다.",
+      "EN": "Advising on neat, professional clothing to wear to a job interview.",
+      "VI": "Tư vấn trang phục lịch sự và chỉn chu để đi phỏng vấn xin việc.",
+      "ZH": "为求职面试提供穿着端庄得体职业装建议的日常场景。",
+      "JA": "就職面接に着ていくきちんとした服装についてアドバイスする場面です。"
     },
     "questions": {
-      "KO": "가: 내일 친구 결혼식에 가요.\n나: 멋진 (   )을/를 입고 가세요."
+      "KO": "가: 내일 대기업 신입사원 최종 면접시험에 가야 하는데 어떻게 입죠?\n나: 첫인상이 중요하니까 아주 깔끔하고 단정한 (   )을/를 입고 가세요."
     },
     "options": [
       "수건",
@@ -576,11 +576,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "몸에 입는 것은 '옷(clothes)'입니다. '옷을 입다' 동사와 함께 쓰입니다.",
-      "EN": "Items worn on the body are '옷' (clothes). Used with the verb '입다'.",
-      "VI": "Đồ mặc trên người là '옷' (quần áo). Dùng với động từ '입다'.",
-      "ZH": "穿在身上的物品是'옷'（衣服）。常与动词'입다'搭配。",
-      "JA": "体に着るものは「옷（服・衣服）」です。「입다」と一緒に使います。"
+      "KO": "사람의 몸을 감싸서 가리고 체온을 유지해 주는 의복류를 통틀어 '옷(Clothes)'이라고 해요!",
+      "EN": "The general term for garments worn on the human body is '옷' (Clothes)!",
+      "VI": "Từ chung chỉ các loại trang phục mặc trên người là '옷' (Quần áo)!",
+      "ZH": "穿在身上遮蔽身体、保暖打扮的服饰总称为'옷'（衣服）！",
+      "JA": "人の体に身につけて保護し体温を保つ衣類の総称を「옷（服）」と言います！"
     },
     "level": 1,
     "keyword": "옷"
@@ -591,14 +591,14 @@
     "type": "word",
     "visual": "🧦",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "운동화를 신기 전 발을 따뜻하게 보호하기 위해 착용할 소품을 챙기는 상황입니다.",
+      "EN": "Putting on socks to protect feet and stay warm before wearing sneakers.",
+      "VI": "Xỏ tất để bảo vệ đôi chân êm ấm trước khi đi giày thể thao.",
+      "ZH": "穿运动鞋之前先穿好棉袜以保护双脚保暖防磨的日常场景。",
+      "JA": "スニーカーを履く前に、足を温かく保護する靴下を履く場面です。"
     },
     "questions": {
-      "KO": "가: 신발을 신기 전에 발에 (   )을/를 신어요.\n나: 네, 따뜻하게 신었어요."
+      "KO": "가: 겨울철에 새 운동화를 맨발로 신었더니 발이 시렵고 뒤꿈치도 쓸려요.\n나: 발을 보호하고 따뜻하게 하려면 신발 안에 도톰한 (   )을/를 먼저 신어야죠."
     },
     "options": [
       "신발",
@@ -608,11 +608,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "발을 보호하기 위해 신발 안에 신는 것은 '양말(socks)'입니다.",
-      "EN": "Footwear worn inside shoes for protection is '양말' (socks).",
-      "VI": "Đồ đi bên trong giày là '양말' (tất/vớ).",
-      "ZH": "穿在鞋子里面保护双脚的是'양말'（袜子）。",
-      "JA": "靴の中に履く物は「양말（靴下）」です。"
+      "KO": "신발을 신기 전에 발에 신어서 땀을 흡수하고 보온해 주는 소품은 '양말(Socks)'이에요!",
+      "EN": "The fabric item worn on the feet inside shoes to absorb sweat and stay warm is '양말' (Socks)!",
+      "VI": "Phụ kiện vải mang vào chân trước khi xỏ giày để hút mồ hôi và giữ ấm là '양말' (Tất/Vớ)!",
+      "ZH": "穿鞋前套在脚上用于保暖吸汗的棉质服饰是'양말'（袜子）！",
+      "JA": "靴を履く前に足に履いて汗を吸い保温するアイテムは「양말（靴下）」です！"
     },
     "level": 1,
     "keyword": "양말"
@@ -623,14 +623,14 @@
     "type": "word",
     "visual": "✏️",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "관공서 신청 서류에 손글씨로 이름과 연락처를 작성하기 위해 도구를 찾는 상황입니다.",
+      "EN": "Looking for a pencil or pen to handwrite your name on government forms.",
+      "VI": "Tìm bút viết để điền họ tên và số điện thoại vào giấy tờ tại cơ quan nhà nước.",
+      "ZH": "在办事大厅表格上手写姓名与联系方式寻找书写工具的场景。",
+      "JA": "申請書類に手書きで名前や連絡先を記入するため筆記用具を探す場面です。"
     },
     "questions": {
-      "KO": "가: 종이에 글씨를 쓰고 싶어요.\n나: 필통에 있는 (   )을/를 쓰세요."
+      "KO": "가: 민원실 신청 서류 양식에 이름과 전화번호를 직접 손글씨로 적어야 해요.\n나: 여기 필통에 흑연심이 들어 있는 뾰족한 (   )이/가 있으니 이걸로 쓰세요."
     },
     "options": [
       "지우개",
@@ -640,11 +640,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "글씨나 그림을 그리는 필기구는 '연필(pencil)'입니다. '연필로 쓰다'로 사용합니다.",
-      "EN": "Writing instrument with graphite is '연필' (pencil).",
-      "VI": "Dụng cụ dùng để viết là '연필' (bút chì).",
-      "ZH": "用来书写或绘画的文具是'연필'（铅笔）。",
-      "JA": "文字や絵を書く筆記用具は「연필（鉛筆）」です。"
+      "KO": "흑연으로 심을 만들어 종이에 글씨를 쓰거나 그림을 그릴 때 사용하는 필기구는 '연필(Pencil)'이에요!",
+      "EN": "A wooden writing utensil with a graphite core used for writing and drawing is '연필' (Pencil)!",
+      "VI": "Dụng cụ học tập bằng than chì dùng để viết hoặc vẽ trên giấy là '연필' (Bút chì)!",
+      "ZH": "用石墨做芯、在纸上书写绘图的书写工具是'연필'（铅笔）！",
+      "JA": "黒鉛の芯を使って紙に文字を書いたり絵を描いたりする筆記具は「연필（鉛筆）」です！"
     },
     "level": 1,
     "keyword": "연필"
@@ -655,14 +655,14 @@
     "type": "word",
     "visual": "⛰️",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "단풍이 물든 주말에 맑은 공기를 마시며 힐링 등산을 떠나는 상황입니다.",
+      "EN": "Heading out for an autumn hike to enjoy fresh air and colorful foliage.",
+      "VI": "Đi leo núi ngắm lá đỏ mùa thu và tận hưởng không khí trong lành vào cuối tuần.",
+      "ZH": "在秋高气爽的周末去大自然爬山呼吸新鲜空气的登山休闲场景。",
+      "JA": "紅葉が色づく週末に澄んだ空気を吸いながら山登りに出かける場面です。"
     },
     "questions": {
-      "KO": "가: 주말에 어디로 등산하러 가요?\n나: 공기 좋은 (   )에 가요."
+      "KO": "가: 가을이 깊어져서 나무들이 울긋불긋 단풍으로 곱게 물들었어요.\n나: 맑은 공기도 마시고 힐링할 겸 이번 주말에 설악(   )으로 등산 갈까요?"
     },
     "options": [
       "강",
@@ -672,11 +672,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "높이 솟아오른 지형은 '산(mountain)'입니다. '산에 오르다/등산하다'로 씁니다.",
-      "EN": "Elevated natural terrain is '산' (mountain).",
-      "VI": "Địa hình cao tự nhiên là '산' (núi).",
-      "ZH": "高高耸立的自然地形是'산'（山）。",
-      "JA": "高くそびえ立つ自然の地形は「산（山）」です。"
+      "KO": "주위의 평지보다 훨씬 높이 솟아올라 나무와 바위가 우거진 자연 지형은 '산(Mountain)'이에요!",
+      "EN": "A high, elevated natural landform rising above surrounding land is '산' (Mountain)!",
+      "VI": "Địa hình tự nhiên nhô cao hùng vĩ với cây cối và vách đá là '산' (Núi)!",
+      "ZH": "比周围地面高耸拔起、林木葱郁的自然地貌是'산'（山）！",
+      "JA": "平地よりも高くそびえ立ち木々や岩が茂る自然地形は「산（山）」です！"
     },
     "level": 1,
     "keyword": "산"
@@ -687,14 +687,14 @@
     "type": "word",
     "visual": "🍞",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "지하철역 앞 베이커리에서 갓 구운 고소한 크루아상을 사 먹는 상황입니다.",
+      "EN": "Buying a freshly baked, warm croissant from a bakery near the subway.",
+      "VI": "Mua một chiếc bánh mì nóng giòn thơm phức tại tiệm bánh trước ga tàu điện ngầm.",
+      "ZH": "在地铁站前的面包店购买刚出炉热气腾腾牛角面包的早餐情景。",
+      "JA": "駅前のベーカリーで焼きたての香ばしいクロワッサンを買う場面です。"
     },
     "questions": {
-      "KO": "가: 빵집에서 고소한 냄새가 나요.\n나: 아침으로 맛있는 (   )을/를 먹을까요?"
+      "KO": "가: 출근길 지하철역 앞 베이커리에서 갓 구운 고소한 버터 냄새가 솔솔 나요.\n나: 아침 거르지 말고 들어가서 따뜻한 크루아상 (   ) 하나랑 커피 사서 가요."
     },
     "options": [
       "빵",
@@ -704,11 +704,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "밀가루를 반죽하여 구워 만든 음식은 '빵(bread)'입니다.",
-      "EN": "Baked dough made from flour is '빵' (bread).",
-      "VI": "Món ăn nướng làm từ bột mì là '빵' (bánh mì).",
-      "ZH": "用面粉烘焙而成的食品是'빵'（面包）。",
-      "JA": "小麦粉をこねて焼いた食べ物は「빵（パン）」です。"
+      "KO": "밀가루 반죽을 오븐에 부풀려 구워낸 고소한 주식 간편식은 '빵(Bread)'이에요!",
+      "EN": "The staple baked food made by mixing flour, water, and yeast is '빵' (Bread)!",
+      "VI": "Món ăn nướng làm từ bột mì nở xốp thơm lừng là '빵' (Bánh mì)!",
+      "ZH": "用面粉和黄油发酵在烤箱中烘烤而成的香醇食品是'빵'（面包）！",
+      "JA": "小麦粉の生地をオーブンでふっくらと焼き上げた香ばしい食品は「빵（パン）」です！"
     },
     "level": 2,
     "keyword": "빵"
@@ -719,14 +719,14 @@
     "type": "word",
     "visual": "🍎",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "마트 과일 코너에서 아침에 먹기 좋은 아삭아삭한 꿀사과를 고르는 상황입니다.",
+      "EN": "Picking crisp, sweet red apples at the supermarket fruit section.",
+      "VI": "Chọn những quả táo mật đỏ tươi giòn ngọt tại quầy hoa quả siêu thị.",
+      "ZH": "在超市水果区挑选适合早晨食用的爽脆红苹果的场景。",
+      "JA": "スーパーの果物コーナーで朝食にぴったりのシャキシャキしたリンゴを選ぶ場面です。"
     },
     "questions": {
-      "KO": "가: 과일 가게에서 빨간 (   )을/를 샀어요.\n나: 와, 달콤하고 맛있겠네요!"
+      "KO": "가: 마트 과일 코너에서 아침 공복에 먹으면 건강에 좋은 빨간 과일을 고르고 있어요.\n나: 껍질째 씻어 먹을 수 있는 아삭아삭하고 상큼한 꿀(   ) 한 봉지 사요."
     },
     "options": [
       "사과",
@@ -736,11 +736,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "빨갛고 둥근 대표 과일은 '사과(apple)'입니다. '사과를 깎다'로 표현합니다.",
-      "EN": "A round red popular fruit is '사과' (apple).",
-      "VI": "Loại quả tròn màu đỏ là '사과' (táo).",
-      "ZH": "又红又圆的代表性水果是'사과'（苹果）。",
-      "JA": "赤くて丸い代表的な果物は「사과（りんご）」です。"
+      "KO": "빨갛게 익고 과즙이 풍부하며 아삭아삭 씹히는 과일은 '사과(Apple)'예요!",
+      "EN": "A sweet, crisp, round red fruit popular for breakfast is '사과' (Apple)!",
+      "VI": "Loại trái cây màu đỏ giòn ngọt nhiều nước rất tốt cho sức khỏe là '사과' (Táo)!",
+      "ZH": "外皮鲜红、香甜爽脆的多汁温带水果是'사과'（苹果）！",
+      "JA": "赤く実り果汁たっぷりでシャキシャキとした食感の果物は「사과（リンゴ）」です！"
     },
     "level": 1,
     "keyword": "사과"
@@ -751,14 +751,14 @@
     "type": "word",
     "visual": "🖼️",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "봄꽃 축제에서 스마트폰 카메라로 담은 기념 촬영물을 함께 보는 상황입니다.",
+      "EN": "Looking at memory photos taken with a smartphone camera at a spring festival.",
+      "VI": "Cùng xem lại những tấm hình kỷ niệm đẹp được chụp bằng điện thoại tại lễ hội hoa xuân.",
+      "ZH": "在春季花卉节用智能手机相机拍照留念并一起欣赏照片的情景。",
+      "JA": "春の花祭りでスマホカメラを使って撮った記念写真を一緒に見る場面です。"
     },
     "questions": {
-      "KO": "가: 여행 가서 찍은 (   ) 좀 보여주세요.\n나: 여기 있어요! 제주도 바다예요."
+      "KO": "가: 가족들과 벚꽃 축제에 놀러 가서 스마트폰 카메라로 추억을 많이 남겼어요.\n나: 활짝 웃는 모습이 너무 보기 좋아요! 저한테도 그 (   ) 몇 장 전송해 주세요."
     },
     "options": [
       "엽서",
@@ -768,11 +768,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "카메라로 촬영하여 인화한 것은 '사진(photo/picture)'입니다. '사진을 찍다'로 씁니다.",
-      "EN": "An image captured with a camera is '사진' (photo). Used with '사진을 찍다'.",
-      "VI": "Hình ảnh chụp bằng máy ảnh là '사진' (bức ảnh). Dùng với '사진을 찍다'.",
-      "ZH": "用相机拍摄出的影像是'사진'（照片）。常与'사진을 찍다'搭配。",
-      "JA": "カメラで撮影したものは「사진（写真）」です。「사진을 찍다」と使います。"
+      "KO": "카메라 렌즈를 통해 인물이나 풍경의 빛을 기록한 시각 영상물은 '사진(Photo)'이에요!",
+      "EN": "An image produced by capturing light on a camera sensor or film is '사진' (Photo)!",
+      "VI": "Tác phẩm hình ảnh ghi lại cảnh vật và con người bằng máy ảnh là '사진' (Ảnh/Hình)!",
+      "ZH": "通过照相机镜头定格记录人物与风景的图像画面是'사진'（照片）！",
+      "JA": "カメラのレンズを通して人物や風景を写した視覚的記録は「사진（写真）」です！"
     },
     "level": 2,
     "keyword": "사진"
@@ -783,14 +783,14 @@
     "type": "word",
     "visual": "🥛",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "매운 음식을 먹고 나서 입안을 달래기 위해 고소한 흰색 음료를 마시는 상황입니다.",
+      "EN": "Drinking cold, creamy white milk to soothe your tongue after spicy food.",
+      "VI": "Uống một cốc sữa tươi mát để làm dịu vị cay trong miệng sau khi ăn đồ cay.",
+      "ZH": "吃完辛辣食物后喝冰凉香浓的白牛奶来解辣舒缓口腔的场景。",
+      "JA": "辛い料理を食べた後、口の中を落ち着かせるために白い牛乳を飲む場面です。"
     },
     "questions": {
-      "KO": "가: 시원한 음료수 마실래요?\n나: 저는 건강에 좋은 흰 (   )을/를 마실게요."
+      "KO": "가: 매운 떡볶이를 먹었더니 입안에 불이 난 것처럼 혀가 너무 얼얼해요!\n나: 매운맛을 달래려면 냉장고에 있는 차갑고 고소한 흰 (   )을/를 얼른 마셔요."
     },
     "options": [
       "우유",
@@ -800,11 +800,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "소의 젖에서 나오는 하얀 음료는 '우유(milk)'입니다.",
-      "EN": "The white beverage from dairy cows is '우유' (milk).",
-      "VI": "Thức uống màu trắng bổ dưỡng là '우유' (sữa).",
-      "ZH": "奶牛产出的白色饮品是'우유'（牛奶）。",
-      "JA": "牛から取れる白い飲み物は「우유（牛乳・ミルク）」です。"
+      "KO": "젖소에서 짜내어 칼슘과 영양이 풍부한 하얀 음료는 '우유(Milk)'예요!",
+      "EN": "The white, nutrient-rich liquid produced by dairy cows is '우유' (Milk)!",
+      "VI": "Thức uống màu trắng bổ dưỡng giàu canxi từ bò sữa là '우유' (Sữa)!",
+      "ZH": "从奶牛身上采集提取、富含钙质与营养的白色饮品是'우유'（牛奶）！",
+      "JA": "牛から絞ったカルシウムと栄養が豊富な白い飲み物は「우유（牛乳）」です！"
     },
     "level": 1,
     "keyword": "우유"
@@ -815,14 +815,14 @@
     "type": "word",
     "visual": "🪑",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "오래 걸어 다리가 아파 휴게 공간의 빈 좌석에 앉아 쉬려는 상황입니다.",
+      "EN": "Looking for an empty seat to sit down and rest tired legs after walking.",
+      "VI": "Tìm chiếc ghế trống ở khu nghỉ chân để ngồi nghỉ vì đi bộ mỏi chân.",
+      "ZH": "长时间逛街步行双腿酸痛，找一张空椅子坐下休息的日常场景。",
+      "JA": "長く歩いて足が痛いため、休憩スペースの空いた椅子に座って休む場面です。"
     },
     "questions": {
-      "KO": "가: 다리가 많이 아프세요?\n나: 네, 저기 빈 (   )에 앉고 싶어요."
+      "KO": "가: 백화점에서 세 시간 동안 걸어 다녔더니 다리가 너무 뻐근하고 아파요.\n나: 저기 카페 휴게 공간에 빈 (   )이/가 있으니까 잠시 앉아서 쉬었다 가요."
     },
     "options": [
       "침대",
@@ -832,11 +832,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "사람이 앉을 수 있도록 만든 가구는 '의자(chair)'입니다. 책상(desk)과 구별하세요.",
-      "EN": "Furniture designed for sitting is '의자' (chair). Compare with 책상 (desk).",
-      "VI": "Đồ nội thất dùng để ngồi là '의자' (ghế). Phân biệt với 책상 (bàn).",
-      "ZH": "供人坐的家具是'의자'（椅子）。与책상（书桌）区分。",
-      "JA": "人が座るための家具は「의자（椅子）」です。「책상（机）」と区別しましょう。"
+      "KO": "사람이 엉덩이를 대고 편안하게 앉을 수 있도록 만든 가구는 '의자(Chair)'예요!",
+      "EN": "A piece of furniture designed for one person to sit on is '의자' (Chair)!",
+      "VI": "Món đồ nội thất có chân dùng để ngồi nghỉ ngơi là '의자' (Ghế)!",
+      "ZH": "供人坐下来休息放松的单人家具是'의자'（椅子）！",
+      "JA": "人が腰掛けて快適に座れるように作られた家具は「의자（椅子）」です！"
     },
     "level": 2,
     "keyword": "의자"
@@ -847,14 +847,14 @@
     "type": "word",
     "visual": "☂️",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "예고 없는 소나기가 쏟아져 비를 피하기 위한 물건을 편의점에서 구매하는 상황입니다.",
+      "EN": "Buying an umbrella at a convenience store during an unexpected sudden downpour.",
+      "VI": "Mua một chiếc ô ở cửa hàng tiện lợi khi gặp cơn mưa rào bất chợt.",
+      "ZH": "遭遇突如其来的倾盆雷阵雨，去便利店买雨伞避雨的日常场景。",
+      "JA": "突然の夕立に見舞われ、雨をしのぐためにコンビニで傘を買う場面です。"
     },
     "questions": {
-      "KO": "가: 밖에 갑자기 비가 와요!\n나: 가방에 있는 (   )을/를 쓰세요."
+      "KO": "가: 일기예보도 못 봤는데 갑자기 하늘에서 장대비가 쏟아지기 시작했어요!\n나: 비 맞으면 감기 걸리니까 편의점에 가서 비를 막아줄 튼튼한 (   ) 하나 사요."
     },
     "options": [
       "비옷",
@@ -864,11 +864,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "비가 올 때 비를 막아주는 물건은 '우산(umbrella)'입니다. '우산을 쓰다'로 표현합니다.",
-      "EN": "An item to shield from rain is '우산' (umbrella). Used with '우산을 쓰다'.",
-      "VI": "Đồ vật che mưa là '우산' (cây dù/ô). Dùng với '우산을 쓰다'.",
-      "ZH": "下雨时用来遮雨的物品是'우산'（雨伞）。常与'우산을 쓰다'搭配。",
-      "JA": "雨が降る時に雨を防ぐ物は「우산（傘）」です。「우산을 쓰다」と言います。"
+      "KO": "비가 올 때 머리 위로 펼쳐서 빗방울을 막아주는 비가림 도구는 '우산(Umbrella)'이에요!",
+      "EN": "A portable canopy that opens overhead to shield you from rain is '우산' (Umbrella)!",
+      "VI": "Vật dụng xòe ra che trên đầu để không bị ướt khi trời mưa là '우산' (Cái ô/dù)!",
+      "ZH": "下雨天撑开在头顶阻挡雨水淋湿身体的随身工具是'우산'（雨伞）！",
+      "JA": "雨が降る時に頭上に広げて雨粒を防ぐ雨具は「우산（傘）」です！"
     },
     "level": 1,
     "keyword": "우산"
@@ -879,14 +879,14 @@
     "type": "word",
     "visual": "👛",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh 및 chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "버스 요금을 내기 위해 가방 속에 둔 카드 보관용 소품을 찾는 상황입니다.",
+      "EN": "Searching for your wallet inside your bag to pay for the bus fare.",
+      "VI": "Tìm chiếc ví cất trong túi xách để lấy thẻ thanh toán tiền vé xe buýt.",
+      "ZH": "为了刷卡乘坐公交车，在背包内侧寻找存放卡片钱包的日常情景。",
+      "JA": "バス料金を支払うためにバッグの中にある財布を探す場面です。"
     },
     "questions": {
-      "KO": "가: 돈과 카드를 어디에 넣고 다녀요?\n나: 가방 속 (   )에 넣어요."
+      "KO": "가: 버스 요금을 결제해야 하는데 신용카드와 교통카드가 어디 갔지?\n나: 아까 가방 안쪽 주머니에 넣어 둔 가죽 (   ) 안에 잘 들어있을 거예요."
     },
     "options": [
       "지갑",
@@ -896,11 +896,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "돈이나 카드를 넣어 가지고 다니는 것은 '지갑(wallet/purse)'입니다.",
-      "EN": "A small case for carrying money and cards is '지갑' (wallet/purse).",
-      "VI": "Vật nhỏ đựng tiền và thẻ là '지갑' (ví tiền).",
-      "ZH": "用来装钱和卡片随身携带的是'지갑'（钱包）。",
-      "JA": "お金やカードを入れて持ち歩くものは「지갑（財布）」です。"
+      "KO": "현금, 동전, 신용카드, 신분증을 넣어 휴대하는 소형 주머니 소품은 '지갑(Wallet)'이에요!",
+      "EN": "A pocket-sized case used for carrying paper money, cards, and coins is '지갑' (Wallet)!",
+      "VI": "Vật dụng nhỏ gọn bằng da để đựng tiền mặt, thẻ ngân hàng và giấy tờ là '지갑' (Ví tiền)!",
+      "ZH": "随身携带用来存放现金纸币、银行卡与证件的小包是'지갑'（钱包）！",
+      "JA": "紙幣や硬貨、クレジットカードを入れて持ち歩くケースは「지갑（財布）」です！"
     },
     "level": 2,
     "keyword": "지갑"
@@ -913,14 +913,14 @@
     "speechBubble": "후지산이 아름다워요!",
     "keyword": "일본",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "도쿄 타워가 있는 일본에서 태어난 친구의 출신 국적을 확인하는 상황입니다.",
+      "EN": "Confirming Japanese nationality for a friend born in Tokyo, Japan.",
+      "VI": "Xác nhận quốc tịch Nhật Bản của một người bạn sinh ra tại Tokyo.",
+      "ZH": "向出生在拥有东京铁塔的日本东京的朋友确认国籍的情景。",
+      "JA": "東京タワーがある日本出身の友達の国籍を確認する場面です。"
     },
     "questions": {
-      "KO": "가: 다나카 씨는 고향이 도쿄예요?\n나: 네, 저는 (   ) 사람이에요."
+      "KO": "가: 켄지 씨는 후지산과 도쿄 타워가 있는 수도 도쿄에서 자라셨나요?\n나: 네, 제 고향은 도쿄이고 저는 (   ) 사람이에요."
     },
     "options": [
       "일본",
@@ -930,11 +930,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "일장기(🇯🇵)와 후지산은 '일본(Japan)'을 나타냅니다. '일본 사람이에요'라고 답합니다.",
-      "EN": "The Japanese flag (🇯🇵) and Mt. Fuji represent '일본' (Japan). Say '일본 사람이에요' (I am Japanese).",
-      "VI": "Quốc kỳ Nhật Bản (🇯🇵) và núi Phú Sĩ thể hiện '일본' (Nhật Bản). Trả lời '일본 사람이에요' (Tôi là người Nhật Bản).",
-      "ZH": "日本国旗（🇯🇵）和富士山代表'일본'（日本）。回答：'일본 사람이에요'（我是日本人）。",
-      "JA": "日本の国旗（🇯🇵）と富士山は「일본（日本）」を表します。「일본 사람이에요（日本人です）」と答えます。"
+      "KO": "도쿄를 수도로 가진 이웃 나라는 '일본(Japan)'이에요!",
+      "EN": "The neighboring Asian country whose capital is Tokyo is '일본' (Japan)!",
+      "VI": "Đất nước láng giềng có thủ đô là Tokyo chính là '일본' (Nhật Bản)!",
+      "ZH": "首都是东京的东亚邻国是'일본'（日本）！",
+      "JA": "東京を首都に持つお隣の国は「일본（日本）」です！"
     },
     "level": 1
   },
@@ -946,14 +946,14 @@
     "speechBubble": "옥토버페스트 축제예요!",
     "keyword": "독일",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "베를린 장벽과 맥주로 유명한 유럽 독일 출신임을 확인하는 상황입니다.",
+      "EN": "Confirming German nationality for a friend from Berlin, Germany.",
+      "VI": "Xác nhận người bạn đến từ nước Đức, nơi nổi tiếng với bia và thủ đô Berlin.",
+      "ZH": "向来自以啤酒和柏林闻名的欧洲德国的朋友确认国籍的情景。",
+      "JA": "ベルリンの壁やビールで有名なヨーロッパのドイツ出身であることを確認する場面です。"
     },
     "questions": {
-      "KO": "가: 다니엘 씨는 베를린에서 태어났어요?\n나: 네, 저는 (   ) 사람이에요."
+      "KO": "가: 루카스 씨는 맥주 축제와 유서 깊은 베를린이 있는 나라에서 오셨나요?\n나: 네, 맞아요. 저는 유럽 대륙의 (   ) 사람이에요."
     },
     "options": [
       "호주",
@@ -963,11 +963,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "검정·빨강·노랑 3색 국기(🇩🇪)와 축제 맥주는 '독일(Germany)'을 나타냅니다. '독일 사람이에요'라고 답합니다.",
-      "EN": "The German flag (🇩🇪) represents '독일' (Germany). Say '독일 사람이에요' (I am German).",
-      "VI": "Quốc kỳ ba màu (🇩🇪) đại diện cho '독일' (nước Đức). Trả lời '독일 사람이에요' (Tôi là người Đức).",
-      "ZH": "德国国旗（🇩🇪）代表'독일'（德国）。回答：'독일 사람이에요'（我是德国人）。",
-      "JA": "ドイツの国旗（🇩🇪）は「독일（ドイツ）」を表します。「독일 사람이에요（ドイツ人です）」と答えます。"
+      "KO": "베를린을 수도로 둔 유럽의 국가는 '독일(Germany)'이에요!",
+      "EN": "The European country with Berlin as its capital is '독일' (Germany)!",
+      "VI": "Đất nước châu Âu có thủ đô Berlin là '독일' (Nước Đức)!",
+      "ZH": "首都是柏林的欧洲国家是'독일'（德国）！",
+      "JA": "ベルリンを首都とするヨーロッパの国は「독일（ドイツ）」です！"
     },
     "level": 2
   },
@@ -979,14 +979,14 @@
     "speechBubble": "만리장성이 있어요!",
     "keyword": "중국",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "만리장성과 자금성이 위치한 베이징 출신 중국인임을 확인하는 상황입니다.",
+      "EN": "Confirming Chinese nationality for a friend from Beijing, China.",
+      "VI": "Xác nhận người bạn đến từ Bắc Kinh, Trung Quốc nơi có Vạn Lý Trường Thành.",
+      "ZH": "向来自拥有故宫和长城的北京的朋友确认其为中国人的场景。",
+      "JA": "万里の長城や紫禁城がある北京出身の中国人であることを確認する場面です。"
     },
     "questions": {
-      "KO": "가: 왕웨이 씨는 베이징에서 오셨어요?\n나: 네, 저는 (   ) 사람이에요."
+      "KO": "가: 웨이 씨는 만리장성과 웅장한 자금성이 있는 베이징 출신이신가요?\n나: 네, 제 고향은 베이징이고 저는 (   ) 사람이에요."
     },
     "options": [
       "중국",
@@ -996,11 +996,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "붉은 바탕에 노란 별이 있는 국기(🇨🇳)와 만리장성은 '중국(China)'을 나타냅니다. '중국 사람이에요'라고 답합니다.",
-      "EN": "The flag (🇨🇳) and Great Wall represent '중국' (China). Say '중국 사람이에요' (I am Chinese).",
-      "VI": "Quốc kỳ (🇨🇳) và Vạn Lý Trường Thành là '중국' (Trung Quốc). Trả lời '중국 사람이에요' (Tôi là người Trung Quốc).",
-      "ZH": "五星红旗（🇨🇳）和万里长城代表'중국'（中国）。回答：'중국 사람이에요'（我是中国人）。",
-      "JA": "中国の国旗（🇨🇳）と万里の長城は「중국（中国）」を表します。「중국 사람이에요（中国人です）」と答えます。"
+      "KO": "베이징을 수도로 두고 만리장성이 있는 아시아 국가는 '중국(China)'이에요!",
+      "EN": "The Asian country home to the Great Wall and capital Beijing is '중국' (China)!",
+      "VI": "Quốc gia châu Á có Vạn Lý Trường Thành và thủ đô Bắc Kinh là '중국' (Trung Quốc)!",
+      "ZH": "首都是北京、拥有万里长城的邻邦是'중국'（中国）！",
+      "JA": "北京を首都とし万里の長城がある国は「중국（中国）」です！"
     },
     "level": 1
   },
@@ -1012,14 +1012,14 @@
     "speechBubble": "시드니 오페라하우스가 있어요!",
     "keyword": "호주",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "캥거루와 시드니 오페라 하우스로 유명한 호주 출신임을 밝히는 상황입니다.",
+      "EN": "Explaining that someone is from Australia, famous for kangaroos and Sydney.",
+      "VI": "Nói về việc mình đến từ nước Úc, nơi nổi tiếng với chuột túi kangaroo và Sydney.",
+      "ZH": "介绍自己来自以袋鼠和悉尼歌剧院闻名的澳大利亚的场景。",
+      "JA": "カンガルーやシドニーオペラハウスで有名なオーストラリア出身を明かす場面です。"
     },
     "questions": {
-      "KO": "가: 시드니 오페라 하우스가 있는 곳에서 왔어요?\n나: 네, 저는 (   )에서 왔어요."
+      "KO": "가: 캥거루가 뛰놀고 하얀 조개 모양의 오페라 하우스가 있는 남반구 나라에서 오셨어요?\n나: 네, 저는 시드니와 멜버른이 있는 아름다운 (   )에서 왔어요."
     },
     "options": [
       "미국",
@@ -1029,11 +1029,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "국기(🇦🇺)와 캥거루는 '호주(Australia)'예요. 어디서 왔는지 말할 때는 '~에서 왔어요'를 써요!",
-      "EN": "The flag 🇦🇺 and kangaroo represent Australia (호주). To say where you are from, use '~에서 왔어요'!",
-      "VI": "Quốc kỳ (🇦🇺) và chuột túi là '호주' (Úc). Đi kèm trợ từ '-에서' (từ), trả lời '호주에서 왔어요' (Tôi đến từ Úc).",
-      "ZH": "国旗（🇦🇺）和袋鼠代表'호주'（澳大利亚）。接助词'-에서'（从），回答：'호주에서 왔어요'（我来自澳大利亚）。",
-      "JA": "国旗（🇦🇺）とカンガルーは「호주（オーストラリア）」です。助詞「-에서（〜から）」を付けて「호주에서 왔어요（オーストラリアから来ました）」となります。"
+      "KO": "시드니 오페라 하우스와 캥거루로 유명한 남반구의 영연방 국가는 '호주(Australia)'예요!",
+      "EN": "The Southern Hemisphere nation famous for Sydney and kangaroos is '호주' (Australia)!",
+      "VI": "Quốc gia ở Nam bán cầu nổi tiếng với nhà hát con sò và kangaroo là '호주' (Nước Úc)!",
+      "ZH": "拥有悉尼歌剧院和可爱袋鼠的南半球大洋洲国家是'호주'（澳大利亚）！",
+      "JA": "シドニーオペラハウスやカンガルーで有名な南半球の国は「호주（オーストラリア）」です！"
     },
     "level": 2
   },
@@ -1045,14 +1045,14 @@
     "speechBubble": "파리 에펠탑이 유명해요!",
     "keyword": "프랑스",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "에펠탑과 낭만의 도시 파리로 유명한 프랑스에서 왔음을 소개하는 상황입니다.",
+      "EN": "Introducing that someone came from France, world-famous for Paris and the Eiffel Tower.",
+      "VI": "Giới thiệu mình đến từ nước Pháp, kinh đô ánh sáng nổi tiếng với tháp Eiffel và Paris.",
+      "ZH": "介绍自己来自以埃菲尔铁塔和巴黎闻名的浪漫法国的场景。",
+      "JA": "エッフェル塔や花の都パリで有名なフランスから来たことを紹介する場面です。"
     },
     "questions": {
-      "KO": "가: 에펠탑과 파리가 있는 나라에서 오셨어요?\n나: 네, 저는 (   )에서 왔어요."
+      "KO": "가: 에펠탑 야경과 바게트 빵, 루브르 박물관으로 유명한 파리가 고향이신가요?\n나: 네, 낭만과 예술의 도시 파리가 있는 (   )에서 왔습니다."
     },
     "options": [
       "독일",
@@ -1062,11 +1062,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "파란색·흰색·빨간색 3색기(🇫🇷)와 에펠탑은 '프랑스(France)'입니다. '프랑스에서 왔어요'라고 말합니다.",
-      "EN": "The Tricolour flag (🇫🇷) and Eiffel Tower represent '프랑스' (France). Say '프랑스에서 왔어요' (I came from France).",
-      "VI": "Cờ ba màu (🇫🇷) và tháp Eiffel đại diện cho '프랑스' (Pháp). Nói '프랑스에서 왔어요' (Tôi đến từ Pháp).",
-      "ZH": "三色旗（🇫🇷）和埃菲尔铁塔代表'프랑스'（法国）。回答：'프랑스에서 왔어요'（我来自法国）。",
-      "JA": "三色旗（🇫🇷）とエッフェル塔は「프랑스（フランス）」です。「프랑스에서 왔어요（フランスから来ました）」と答えます。"
+      "KO": "파리를 수도로 두고 에펠탑이 서 있는 서유럽 국가는 '프랑스(France)'예요!",
+      "EN": "The Western European country with Paris as its capital and the Eiffel Tower is '프랑스' (France)!",
+      "VI": "Quốc gia Tây Âu có thủ đô Paris và tháp Eiffel là '프랑스' (Nước Pháp)!",
+      "ZH": "首都是巴黎、矗立着埃菲尔铁塔的西欧国家是'프랑스'（法国）！",
+      "JA": "パリを首都としエッフェル塔がある西ヨーロッパの国は「프랑스（フランス）」です！"
     },
     "level": 1
   },
@@ -1078,14 +1078,14 @@
     "speechBubble": "교실에서 학생들을 가르쳐요!",
     "keyword": "선생님",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "어학당 교실에서 외국인 학생들에게 한국어를 가르치는 직업을 밝히는 상황입니다.",
+      "EN": "Sharing that your profession is a Korean language teacher at a language institute.",
+      "VI": "Giới thiệu nghề nghiệp là giáo viên dạy tiếng Hàn cho người nước ngoài tại trung tâm.",
+      "ZH": "在语学院课堂上向大家介绍自己教授外国人韩语的教师职业的场景。",
+      "JA": "語学堂で外国人学生に韓国語を教える先生という職業を伝える場面です。"
     },
     "questions": {
-      "KO": "가: 학교에서 학생들에게 한국어를 가르치세요?\n나: 네, 제 직업은 (   )이에요."
+      "KO": "가: 다정 씨는 대학교 어학당 교실에서 외국인 유학생들에게 한국어 문법을 가르치시나요?\n나: 네, 교실에서 학생들을 사랑으로 가르치는 한국어 (   )이에요."
     },
     "options": [
       "학생",
@@ -1095,11 +1095,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "가르치는 사람은 '선생님(teacher)'이에요. 받침이 있는 단어 뒤에는 '~이에요'를 붙여 '선생님이에요'라고 해요!",
-      "EN": "A teacher is '선생님'. Words with a final consonant (받침) take '~이에요' -> '선생님이에요' (I am a teacher).",
-      "VI": "'선생님' là giáo viên. Do có phụ âm cuối (받침 'ㅁ') nên kết hợp với '-이에요' -> '선생님이에요' (Tôi là giáo viên).",
-      "ZH": "'선생님'是老师。因有收音（받침 'ㅁ'），接'-이에요'，变为'선생님이에요'（我是老师）。",
-      "JA": "教える人は「선생님（先生）」です。パッチム「ㅁ」があるため「-이에요」がつき「선생님이에요（先生です）」になります。"
+      "KO": "학교나 학원에서 지식과 학문을 가르치는 직업은 '선생님(Teacher)'이에요!",
+      "EN": "An educator who teaches knowledge and languages at school is '선생님' (Teacher)!",
+      "VI": "Người làm nghề truyền thụ kiến thức cho học sinh tại trường lớp là '선생님' (Thầy/Cô giáo)!",
+      "ZH": "在学校传授知识、培育学生的教育职业是'선생님'（老师）！",
+      "JA": "学校や塾で知識や語学を教える職業は「선생님（先生）」です！"
     },
     "level": 2
   },
@@ -1111,14 +1111,14 @@
     "speechBubble": "사무실에서 컴퓨터로 일해요!",
     "keyword": "회사원",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "테크노밸리 사옥으로 매일 출근해 사무 업무를 보는 직장인을 소개하는 상황입니다.",
+      "EN": "Introducing an office worker commuting to an IT company headquarters daily.",
+      "VI": "Giới thiệu một nhân viên văn phòng đi làm mỗi ngày tại tòa nhà công nghệ IT.",
+      "ZH": "介绍每天前往科技园区大厦上班打卡做办公业务的上班族职业的场景。",
+      "JA": "オフィスビルへ毎日出勤してデスクワークをする会社員の職業を紹介する場面です。"
     },
     "questions": {
-      "KO": "가: 아침마다 회사로 출근해서 컴퓨터로 일하세요?\n나: 네, 저는 (   )이에요."
+      "KO": "가: 민호 씨는 판교 IT 테크노밸리 사옥으로 매일 아침 출근하시나요?\n나: 네, 사무실에서 컴퓨터로 마케팅 기획 업무를 담당하는 (   )이에요."
     },
     "options": [
       "가수",
@@ -1128,11 +1128,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "회사에서 일하는 직원은 '회사원(office worker)'이에요. 받침이 있어서 '~이에요'를 붙여요!",
-      "EN": "An office worker is '회사원'. Since it ends with a final consonant, use '~이에요' -> '회사원이에요'.",
-      "VI": "'회사원' là nhân viên văn phòng. Có phụ âm cuối ('ㄴ') nên kết hợp với '-이에요' -> '회사원이에요' (Tôi là nhân viên công ty).",
-      "ZH": "'회사원'是公司职员。有收音（'ㄴ'），接'-이에요' -> '회사원이에요'（我是公司职员）。",
-      "JA": "会社で働く人は「회사원（会社員）」です。パッチム「ㄴ」があるため「-이에요」がつき「회사원이에요（会社員です）」になります。"
+      "KO": "기업체나 회사에 소속되어 월급을 받으며 일하는 사무직 근로자는 '회사원(Office worker)'이에요!",
+      "EN": "An employee who works in an office or corporate business is '회사원' (Office worker)!",
+      "VI": "Người làm việc tại các công ty, doanh nghiệp văn phòng là '회사원' (Nhân viên công ty)!",
+      "ZH": "在企事业单位上班从事日常业务的工薪职场人是'회사원'（公司职员/上班族）！",
+      "JA": "会社に所属してオフィスでデスクワークを行う職業は「회사원（会社員）」です！"
     },
     "level": 1
   },
@@ -1144,14 +1144,14 @@
     "speechBubble": "병원에서 아픈 환자를 진료해요!",
     "keyword": "의사",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "대학병원 진료실에서 아픈 환자의 질병을 진찰하고 치료하는 직업을 묻는 상황입니다.",
+      "EN": "Asking about a medical doctor examining and treating sick patients at a hospital.",
+      "VI": "Hỏi về bác sĩ khám và điều trị bệnh cho bệnh nhân tại phòng khám bệnh viện.",
+      "ZH": "询问在大学医院诊室里用听诊器为病人问诊治疗的医生职业的日常场景。",
+      "JA": "大学病院の診察室で病気の患者を診察し治療する医師について尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 병원에서 아픈 환자를 진료하세요?\n나: 네, 제 직업은 (   )예요."
+      "KO": "가: 대학병원 진료실에서 청진기를 대고 아픈 환자를 진찰해 주시는 분은 누구예요?\n나: 흰 가운을 입고 병을 고쳐주는 전문 의료인 (   ) 선생님이세요."
     },
     "options": [
       "학생",
@@ -1161,11 +1161,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "환자를 치료하는 분은 '의사(doctor)'예요. 받침이 없는 단어 뒤에는 '~예요'를 붙여 '의사예요'라고 해요!",
-      "EN": "A doctor is '의사'. Words ending in a vowel (no 받침) take '~예요' -> '의사예요' (I am a doctor).",
-      "VI": "'의사' là bác sĩ. Từ này không có phụ âm cuối (không có 받침) nên đi với '-예요' -> '의사예요' (Tôi là bác sĩ).",
-      "ZH": "'의사'是医生。词尾无收音（无받침），接'-예요' -> '의사예요'（我是医生）。",
-      "JA": "患者を診察する人は「의사（医者）」です。パッチムがないため「-예요」がつき「의사예요（医者です）」になります。"
+      "KO": "환자의 질병을 진단하고 약을 처방하거나 수술하는 의료인은 '의사(Doctor)'예요!",
+      "EN": "A licensed medical professional who diagnoses and treats patients is '의사' (Doctor)!",
+      "VI": "Chuyên gia y tế được cấp phép khám và chữa bệnh cho bệnh nhân là '의사' (Bác sĩ)!",
+      "ZH": "在医院诊断病情、开具处方救治患者的白衣天使是'의사'（医生）！",
+      "JA": "病気を診断して治療や投薬を行う医療の専門家は「의사（医師/お医者さん）」です！"
     },
     "level": 2
   },
@@ -1177,14 +1177,14 @@
     "speechBubble": "하노이와 쌀국수가 유명해요!",
     "keyword": "베트남",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "하롱베이와 쌀국수로 유명한 동남아시아 베트남 출신임을 확인하는 상황입니다.",
+      "EN": "Confirming Vietnamese nationality for someone from Hanoi, Vietnam.",
+      "VI": "Xác nhận quốc tích Việt Nam của một người bạn đến từ thủ đô Hà Nội tươi đẹp.",
+      "ZH": "向来自拥有下龙湾美景和美味河粉的越南的朋友确认国籍的日常场景。",
+      "JA": "ハロン湾やフォーで有名な東南アジアのベトナム出身であることを確認する場面です。"
     },
     "questions": {
-      "KO": "가: 쌀국수가 유명하고 하노이가 수도인 나라에서 오셨어요?\n나: 네, 저는 (   ) 사람이에요."
+      "KO": "가: 린 씨는 하롱베이 관광지와 따뜻하고 맛있는 쌀국수로 유명한 곳에서 오셨나요?\n나: 네, 맞아요! 수도가 하노이인 아름다운 나라 (   ) 사람이에요."
     },
     "options": [
       "중국",
@@ -1194,11 +1194,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "붉은 바탕 가운데 노란 큰 별이 있는 국기(🇻🇳)는 '베트남(Vietnam)'입니다. '베트남 사람이에요'라고 답합니다.",
-      "EN": "The red flag with a golden star (🇻🇳) represents '베트남' (Vietnam). Say '베트남 사람이에요' (I am Vietnamese).",
-      "VI": "Cờ đỏ sao vàng (🇻🇳) là biểu tượng của '베트남' (Việt Nam). Trả lời '베트남 사람이에요' (Tôi là người Việt Nam).",
-      "ZH": "红底金星旗帜（🇻🇳）代表'베트남'（越南）。回答：'베트남 사람이에요'（我是越南人）。",
-      "JA": "赤地に金星の国旗（🇻🇳）は「베트남（ベトナム）」を表します。「베트남 사람이에요（ベトナム人です）」と答えます。"
+      "KO": "하노이가 수도이고 쌀국수(포)로 유명한 동남아 국가는 '베트남(Vietnam)'이에요!",
+      "EN": "The Southeast Asian nation with Hanoi as capital, famous for Pho, is '베트남' (Vietnam)!",
+      "VI": "Quốc gia Đông Nam Á có thủ đô là Hà Nội và nổi tiếng với món phở là '베트남' (Việt Nam)!",
+      "ZH": "首都是河内、以美味河粉闻名的东南亚国家是'베트남'（越南）！",
+      "JA": "ハノイを首都としフォーが有名な東南アジアの国は「베트남（ベトナム）」です！"
     },
     "level": 1
   },
@@ -1210,14 +1210,14 @@
     "speechBubble": "서울에 살아요!",
     "keyword": "한국",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "서울 경복궁 근처에서 태어나고 자란 대한민국 토박이임을 밝히는 상황입니다.",
+      "EN": "Explaining that someone was born in Seoul and is a local Korean citizen.",
+      "VI": "Nói rằng mình sinh ra và lớn lên tại Seoul, là người bản xứ Hàn Quốc.",
+      "ZH": "向外国朋友介绍自己土生土长在首尔是韩国本地人的日常场景。",
+      "JA": "ソウルの景福宮の近くで生まれ育った生粋の韓国人であることを伝える場面です。"
     },
     "questions": {
-      "KO": "가: 서울에서 태어나고 자라셨어요?\n나: 네, 저는 (   ) 사람이에요."
+      "KO": "가: 지훈 씨는 서울 경복궁 근처 종로에서 태어나고 자란 현지인이신가요?\n나: 네, 저는 대한민국 서울 토박이 (   ) 사람이에요."
     },
     "options": [
       "호주",
@@ -1227,11 +1227,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "태극기(🇰🇷)와 경복궁은 '한국(Korea)'을 나타냅니다. '한국 사람이에요'라고 답합니다.",
-      "EN": "Taegeukgi (🇰🇷) represents '한국' (Korea). Say '한국 사람이에요' (I am Korean).",
-      "VI": "Quốc kỳ Taegeukgi (🇰🇷) đại diện cho '한국' (Hàn Quốc). Nói '한국 사람이에요' (Tôi là người Hàn Quốc).",
-      "ZH": "太极旗（🇰🇷）代表'한국'（韩国）。回答：'한국 사람이에요'（我是韩国人）。",
-      "JA": "太極旗（🇰🇷）は「한국（韓国）」を表します。「한국 사람이에요（韓国人です）」と答えます。"
+      "KO": "한글을 창제하고 서울을 수도로 둔 우리나라는 '한국(Korea)'이에요!",
+      "EN": "The country home to the Korean language and capital Seoul is '한국' (Korea)!",
+      "VI": "Đất nước của chữ Hangeul và thủ đô Seoul tươi đẹp chính là '한국' (Hàn Quốc)!",
+      "ZH": "创造了韩文字母、首都是首尔的国家是'한국'（韩国）！",
+      "JA": "ハングルを創製しソウルを首都とする国は「한국（韓国）」です！"
     },
     "level": 2
   },
@@ -1243,14 +1243,14 @@
     "speechBubble": "자유의 여신상이 있어요!",
     "keyword": "미국",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "자유의 여신상과 뉴욕 타임스퀘어가 있는 미국 출신임을 소개하는 상황입니다.",
+      "EN": "Introducing that someone came from the USA, home to New York and the Statue of Liberty.",
+      "VI": "Giới thiệu mình đến từ nước Mỹ, nơi có tượng Nữ Thần Tự Do và New York sầm uất.",
+      "ZH": "介绍自己来自拥有自由女神像与纽约时代广场的美国的日常场景。",
+      "JA": "自由の女神やタイムズスクエアがあるアメリカ出身であることを紹介する場面です。"
     },
     "questions": {
-      "KO": "가: 자유의 여신상과 뉴욕이 있는 곳에서 오셨어요?\n나: 네, 저는 (   )에서 왔어요."
+      "KO": "가: 엠마 씨는 자유의 여신상과 타임스퀘어가 있는 뉴욕 맨해튼에서 오셨어요?\n나: 네, 저는 북미 대륙에 위치한 (   )에서 유학 온 교환학생이에요."
     },
     "options": [
       "호주",
@@ -1260,11 +1260,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "성조기(🇺🇸)와 자유의 여신상은 '미국(USA)'을 나타냅니다. '미국에서 왔어요'라고 답합니다.",
-      "EN": "The Stars and Stripes (🇺🇸) and Statue of Liberty represent '미국' (USA). Say '미국에서 왔어요' (I came from the USA).",
-      "VI": "Cờ sọc sao (🇺🇸) và Tượng Nữ thần Tự do là '미국' (nước Mỹ). Nói '미국에서 왔어요' (Tôi đến từ Mỹ).",
-      "ZH": "星条旗（🇺🇸）和自由女神像代表'미국'（美国）。回答：'미국에서 왔어요'（我来自美国）。",
-      "JA": "星条旗（🇺🇸）と自由の女神像は「미국（アメリカ）」です。「미국에서 왔어요（アメリカから来ました）」と答えます。"
+      "KO": "워싱턴 D.C.가 수도이고 뉴욕이 위치한 북아메리카의 대국은 '미국(USA)'이에요!",
+      "EN": "The North American nation home to New York and Washington D.C. is '미국' (USA)!",
+      "VI": "Quốc gia Bắc Mỹ có thủ đô Washington D.C. và New York hoa lệ là '미국' (Nước Mỹ)!",
+      "ZH": "首都是华盛顿特区、拥有纽约等大都市的北美大国是'미국'（美国）！",
+      "JA": "ワシントンD.C.を首都としニューヨークがある北米の国は「미국（アメリカ）」です！"
     },
     "level": 1
   },
@@ -1276,14 +1276,14 @@
     "speechBubble": "대학교에서 한국어를 공부해요!",
     "keyword": "학생",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "대학교 강의실과 도서관에서 전공 공부에 열중하는 대학생 신분을 소개하는 상황입니다.",
+      "EN": "Introducing someone's status as a university student studying hard in class.",
+      "VI": "Giới thiệu thân phận là sinh viên đại học đang chăm chỉ học tập tại giảng đường.",
+      "ZH": "在大学教室和图书馆里专心攻读专业的大学生日常自我介绍情景。",
+      "JA": "大学の講義室や図書館で専門の勉強に励む学生であることを紹介する場面です。"
     },
     "questions": {
-      "KO": "가: 대학교에서 열심히 공부하고 있어요?\n나: 네, 저는 공부하는 (   )이에요."
+      "KO": "가: 수현 씨는 요즘 대학교 강의실과 도서관에서 주로 무엇을 하고 지내세요?\n나: 경영학 전공 수업을 열심히 수강하고 있는 대(   )이에요."
     },
     "options": [
       "선생님",
@@ -1293,11 +1293,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "학교에서 공부하는 사람은 '학생(student)'이에요. 받침이 있어서 '~이에요'를 붙여요!",
-      "EN": "A student is '학생'. Since it ends with a final consonant, use '~이에요' -> '학생이에요'.",
-      "VI": "'학생' là học sinh / sinh viên. Có phụ âm cuối ('ㅇ') nên đi cùng '-이에요' -> '학생이에요' (Tôi là sinh viên/học sinh).",
-      "ZH": "'학생'是学生。有收音（'ㅇ'），接'-이에요' -> '학생이에요'（我是学生）。",
-      "JA": "学校で勉強する人は「학생（学生）」です。パッチム「ㅇ」があるため「-이에요」がつき「학생이에요（学生です）」になります。"
+      "KO": "학교에 다니며 스승에게 배움을 얻는 신분은 '학생(Student)'이에요!",
+      "EN": "A person who is enrolled in school and learning from instructors is '학생' (Student)!",
+      "VI": "Người đang theo học tại các trường lớp là '학생' (Học sinh/Sinh viên)!",
+      "ZH": "在学校跟随老师读书求学的身份是'학생'（学生）！",
+      "JA": "学校に通って先生から学びを得る立場の人を「학생（学生）」と言います！"
     },
     "level": 2
   },
@@ -1309,14 +1309,14 @@
     "speechBubble": "병원에서 환자를 돌봐요!",
     "keyword": "간호사",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "병원 병동에서 환자들의 혈압과 건강 상태를 따뜻하게 보살피는 직업을 묻는 상황입니다.",
+      "EN": "Asking about a nurse who measures blood pressure and cares for hospital patients.",
+      "VI": "Hỏi về nghề y tá ân cần đo huyết áp và chăm sóc bệnh nhân trong phòng bệnh.",
+      "ZH": "询问在医院病房里测量血压、悉心照料病患健康的护士职业的日常场景。",
+      "JA": "病棟で患者の血圧や健康状態を温かくケアする看護師について尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 병원에서 환자들을 따뜻하게 돌봐주는 직업은 뭐예요?\n나: 바로 (   )예요."
+      "KO": "가: 병동을 돌며 입원 환자들의 체온과 혈압을 꼼꼼하게 측정하고 돌봐주시는 분은 누구예요?\n나: 환자 곁을 24시간 지키며 정성을 다해 치료를 돕는 백의의 천사 (   ) 선생님이세요."
     },
     "options": [
       "약사",
@@ -1326,11 +1326,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "환자를 돌보는 분은 '간호사(nurse)'예요. 받침이 없는 단어 뒤에는 '~예요'를 붙여요!",
-      "EN": "A nurse is '간호사'. Since it ends with a vowel (no 받침), use '~예요' -> '간호사예요'.",
-      "VI": "'간호사' là y tá / điều dưỡng. Không có phụ âm cuối nên kết hợp với '-예요' -> '간호사예요' (Tôi là y tá).",
-      "ZH": "'간호사'是护士。无收音，接'-예요' -> '간호사예요'（我是护士）。",
-      "JA": "病院で患者の世話をする人は「간호사（看護師）」です。パッチムがないため「-예요」がつき「간호사예요（看護師です）」になります。"
+      "KO": "의사의 진료를 보조하고 환자를 직접 보살피는 의료 전문직은 '간호사(Nurse)'예요!",
+      "EN": "A licensed healthcare professional who assists doctors and cares for patients is '간호사' (Nurse)!",
+      "VI": "Người làm công tác điều dưỡng chăm sóc bệnh nhân tại cơ sở y tế là '간호사' (Y tá/Điều dưỡng)!",
+      "ZH": "协助医生诊疗、在病床前悉心护理照料病患的专业医护工作者是'간호사'（护士）！",
+      "JA": "医師の診療を補助し患者を直接ケアする医療専門職は「간호사（看護師）」です！"
     },
     "level": 1
   },
@@ -1342,14 +1342,14 @@
     "speechBubble": "식당에서 맛있는 요리를 만들어요!",
     "keyword": "요리사",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "고급 레스토랑 주방에서 최고의 풍미를 내는 메인 코스 요리를 만드는 전문가를 묻는 상황입니다.",
+      "EN": "Asking about a professional chef who prepares exquisite fine dining dishes in the kitchen.",
+      "VI": "Hỏi về người đầu bếp tài hoa đứng bếp nấu các món ăn cao cấp tại nhà hàng sang trọng.",
+      "ZH": "询问在高级餐厅后厨精心烹制顶级美味料理的专业厨师的日常场景。",
+      "JA": "高級レストランの厨房で最高の一皿を作る専門家について尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 식당 주방에서 맛있는 음식을 만드는 직업은 뭐예요?\n나: 바로 (   )예요."
+      "KO": "가: 이 레스토랑의 메인 스테이크 코스 요리는 누가 직접 정성껏 만드나요?\n나: 주방에서 하얀 모자를 쓰고 최고의 맛을 조리해 내는 전문 셰프 (   )예요."
     },
     "options": [
       "요리사",
@@ -1359,11 +1359,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "맛있는 음식을 만드는 분은 '요리사(chef)'예요. 받침이 없어서 '~예요'를 붙여요!",
-      "EN": "A chef is '요리사'. Since it ends with a vowel, use '~예요' -> '요리사예요'.",
-      "VI": "'요리사' là đầu bếp. Không có phụ âm cuối nên dùng '-예요' -> '요리사예요' (Tôi là đầu bếp).",
-      "ZH": "'요리사'是厨师。无收音，接'-예요' -> '요리사예요'（我是厨师）。",
-      "JA": "料理を作る人は「요리사（料理人・シェフ）」です。パッチムがないため「-예요」がつき「요리사예요（料理人です）」になります。"
+      "KO": "다양한 식재료를 손질하여 맛있는 음식을 전문적으로 만드는 사람은 '요리사(Chef/Cook)'예요!",
+      "EN": "A professional who prepares delicious meals in restaurant kitchens is '요리사' (Chef/Cook)!",
+      "VI": "Người chế biến nguyên liệu thành các món ăn thơm ngon trong nhà bếp là '요리사' (Đầu bếp)!",
+      "ZH": "在厨房挥勺掌勺、专业制作各种美味珍馐的人是'요리사'（厨师）！",
+      "JA": "食材を調理して美味しい料理を専門的に作る人は「요리사（料理人/シェフ）」です！"
     },
     "level": 2
   },
@@ -1375,14 +1375,14 @@
     "speechBubble": "시민의 안전을 지켜요!",
     "keyword": "경찰관",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "어두운 밤길을 순찰하며 시민들의 안전을 든든하게 지켜주는 수호자를 묻는 상황입니다.",
+      "EN": "Asking about a police officer patrolling dark night streets to keep citizens safe.",
+      "VI": "Hỏi về chú công an tuần tra đường phố ban đêm để bảo vệ bình yên cho nhân dân.",
+      "ZH": "询问在深夜巡逻街巷、坚守岗位保卫市民人身财产安全的警察的日常场景。",
+      "JA": "夜道をパトロールしながら市民の安全を守る警察官について尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 시민들의 안전을 지키고 범인을 잡는 분은 누구예요?\n나: 멋진 제복을 입은 (   )이에요."
+      "KO": "가: 늦은 밤 골목길을 순찰차로 돌며 시민들의 밤길 안전을 든든하게 지켜주시는 분은 누구예요?\n나: 멋진 제복을 입고 범죄를 예방하는 우리 동네 (   ) 아저씨예요."
     },
     "options": [
       "소방관",
@@ -1392,11 +1392,11 @@
     ],
     "answerIndex": 2,
     "explanations": {
-      "KO": "치안과 범죄 예방을 담당하는 사람은 '경찰관(police officer)'입니다. 받침 'ㄴ'이 있으므로 '-이에요'와 결합합니다.",
-      "EN": "'경찰관' means police officer. Since it ends with consonant 'ㄴ', use '-이에요' -> '경찰관이에요' (I am a police officer).",
-      "VI": "'경찰관' là cảnh sát. Có phụ âm cuối 'ㄴ' nên đi với '-이에요' -> '경찰관이에요' (Tôi là cảnh sát).",
-      "ZH": "'경찰관'是警察。以'ㄴ'收音结尾，接'-이에요' -> '경찰관이에요'（我是警察）。",
-      "JA": "治安を守る人は「경찰관（警察官）」です。パッチム「ㄴ」があるため「-이에요」がつき「경찰관이에요（警察官です）」になります。"
+      "KO": "사회의 법률과 질서를 유지하고 국민의 생명과 재산을 보호하는 공무원은 '경찰관(Police officer)'이에요!",
+      "EN": "A public officer who upholds law and order and protects citizens is '경찰관' (Police officer)!",
+      "VI": "Cán bộ thực thi pháp luật giữ gìn trật tự và an toàn xã hội là '경찰관' (Cảnh sát/Công an)!",
+      "ZH": "维护社会治安秩序、惩治违法犯罪守护人民安全的国家公职人员是'경찰관'（警察）！",
+      "JA": "社会の法と秩序を維持し、国民の安全と財産を守る公務員は「경찰관（警察官）」です！"
     },
     "level": 1
   },
@@ -1408,14 +1408,14 @@
     "speechBubble": "K-POP 노래를 불러요!",
     "keyword": "가수",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "콘서트 무대 위에서 마이크를 잡고 감미로운 목소리로 노래하는 직업을 묻는 상황입니다.",
+      "EN": "Asking about a musical artist singing with a microphone on a concert stage.",
+      "VI": "Hỏi về người ca sĩ cầm mic cất giọng hát truyền cảm trên sân khấu buổi hòa nhạc.",
+      "ZH": "询问在演唱会聚光灯下拿起麦克风倾情放歌的歌手职业的场景。",
+      "JA": "コンサートのステージでマイクを握り美しい声で歌う歌手について尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 무대 위에서 마이크를 잡고 노래를 부르는 직업은 뭐예요?\n나: 노래를 부르는 (   )예요."
+      "KO": "가: 화려한 콘서트 무대 조명 아래에서 감미로운 목소리로 노래를 들려주는 저분은 누구예요?\n나: 이번에 최신 음원 차트 1위에 오른 인기 만점 대중(   )예요."
     },
     "options": [
       "배우",
@@ -1425,11 +1425,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "노래를 부르는 직업은 '가수(singer)'예요. 받침이 없어서 '~예요'를 붙여요!",
-      "EN": "A singer is '가수'. Since it ends with a vowel, use '~예요' -> '가수예요'.",
-      "VI": "'가수' là ca sĩ. Kết thúc bằng nguyên âm (không có phụ âm cuối) nên dùng '-예요' -> '가수예요' (Tôi là ca sĩ).",
-      "ZH": "'가수'是歌手。词尾无收音，接'-예요' -> '가수예요'（我是歌手）。",
-      "JA": "歌を歌う職業は「가수（歌手）」です。パッチムがないため「-예요」がつき「가수예요（歌手です）」になります。"
+      "KO": "대중 앞에서 음악에 맞춰 아름다운 목소리로 노래를 부르는 예술가는 '가수(Singer)'예요!",
+      "EN": "A musical artist who performs vocal songs for audiences is '가수' (Singer)!",
+      "VI": "Nghệ sĩ biểu diễn giọng hát truyền cảm cho công chúng thưởng thức là '가수' (Ca sĩ)!",
+      "ZH": "用歌声传递情感、在舞台上为大家献唱的音乐人是'가수'（歌手）！",
+      "JA": "大勢の聴衆の前で音楽に合わせて歌を歌うアーティストは「가수（歌手）」です！"
     },
     "level": 2
   },
@@ -1441,14 +1441,14 @@
     "speechBubble": "공항 출입국 때 보여줘요!",
     "keyword": "여권",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "인천국제공항 출국 심사대에서 해외 신분 확인을 위해 제시하는 공문서를 묻는 상황입니다.",
+      "EN": "Asking about the official passport document presented for international boarding checks.",
+      "VI": "Hỏi về cuốn hộ chiếu xuất trình tại quầy kiểm soát xuất cảnh sân bay quốc tế.",
+      "ZH": "询问在仁川国际机场出境边防检查大厅出示以证明国籍身份的护照证件的场景。",
+      "JA": "空港の出国審査場で身分証明のために提示する公的書類のパスポートを尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 외국으로 여행 갈 때 공항에서 꼭 필요한 신분증이 뭐예요?\n나: 바로 (   )이에요."
+      "KO": "가: 인천국제공항에서 비행기 탑승권을 발권하고 출국 심사할 때 반드시 제시해야 하는 해외 신분증은 뭐예요?\n나: 정부 외교부에서 발급한 녹색/남색 표지의 공식 (   )이에요."
     },
     "options": [
       "통장",
@@ -1458,11 +1458,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "외국 여행 갈 때 꼭 필요한 신분증은 '여권(passport)'이에요. '여권이에요'라고 말해요!",
-      "EN": "The identification needed for international travel is '여권' (passport).",
-      "VI": "'여권' là hộ chiếu, giấy tờ bắt buộc khi xuất nhập cảnh tại sân bay. Kết hợp với '-입니다' -> '여권입니다' (Là hộ chiếu).",
-      "ZH": "'여권'是护照，出入境和国际旅行时的必备身份证件。加上'-입니다' -> '여권입니다'（是护照）。",
-      "JA": "海外旅行や空港で提示する身分証明書は「여권（パスポート）」です。「여권입니다（パスポートです）」となります。"
+      "KO": "외국을 여행할 때 자신의 국적과 신분을 국제적으로 증명해 주는 정부 발행 수첩은 '여권(Passport)'이에요!",
+      "EN": "The official government booklet verifying your identity and nationality abroad is '여권' (Passport)!",
+      "VI": "Cuốn sổ thông hành chính thức chứng minh quốc tịch khi ra nước ngoài là '여권' (Hộ chiếu)!",
+      "ZH": "前往外国旅行时用来在国际上证明国籍与身份的政府签发证件是'여권'（护照）！",
+      "JA": "海外旅行の際に自分の国籍と身分を証明する公的な手帳は「여권（パスポート/旅券）」です！"
     },
     "level": 1
   },
@@ -1474,14 +1474,14 @@
     "speechBubble": "의사 선생님과 구급차가 있어요!",
     "keyword": "병원",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "고열과 심한 기침 증상으로 의사의 전문 진료를 받기 위해 찾아갈 시설을 권하는 상황입니다.",
+      "EN": "Recommending visiting a hospital to get professional doctor treatment for high fever.",
+      "VI": "Khuyên nên đến bệnh viện gặp bác sĩ thăm khám khi bị sốt cao và ho dữ dội.",
+      "ZH": "因持续高烧剧烈咳嗽而建议前往就医找专业医生诊治的场所场景。",
+      "JA": "高熱と激しい咳のため、医師の診察を受けるべく病院を勧める場面です。"
     },
     "questions": {
-      "KO": "가: 몸이 아프거나 다쳤을 때 치료받으러 가는 곳은 어디예요?\n나: 의사 선생님이 계신 (   )이에요."
+      "KO": "가: 기침이 멈추지 않고 열이 38.5도까지 치솟아서 온몸이 너무 아파요.\n나: 더 악화되기 전에 얼른 의사 선생님이 계신 종합(   )에 가서 전문 진료를 받으세요."
     },
     "options": [
       "은행",
@@ -1491,11 +1491,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "몸이 아플 때 치료를 받으러 가는 곳은 '병원(hospital)'이에요. 받침이 있어서 '~이에요'를 붙여요!",
-      "EN": "A hospital is '병원'. Since it ends with a final consonant, use '~이에요' -> '병원이에요'.",
-      "VI": "'병원' là bệnh viện/phòng khám. Có phụ âm cuối 'ㄴ' nên kết hợp với '-이에요' -> '병원이에요' (Đây là bệnh viện).",
-      "ZH": "'병원'是医院。有收音'ㄴ'，接'-이에요' -> '병원이에요'（这里是医院）。",
-      "JA": "医師が治療を行う場所は「병원（病院）」です。パッチム「ㄴ」があるため「-이에요」がつき「병원이에요（病院です）」になります。"
+      "KO": "의사와 간호사가 환자를 검사하고 치료해 주는 전문 의료 기관은 '병원(Hospital)'이에요!",
+      "EN": "A medical institution where doctors and nurses provide healthcare treatment is '병원' (Hospital)!",
+      "VI": "Cơ sở y tế chuyên khám chữa bệnh cho người đau ốm là '병원' (Bệnh viện)!",
+      "ZH": "由医生和护士为病人检查诊断、施行治疗的专业医疗机构是'병원'（医院）！",
+      "JA": "医師や看護師が患者を診察し治療を行う医療機関は「병원（病院）」です！"
     },
     "level": 2
   },
@@ -1507,14 +1507,14 @@
     "speechBubble": "조용히 책을 읽고 빌려요!",
     "keyword": "도서관",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "조용한 분위기에서 집중해서 공부하고 전공 서적을 빌릴 수 있는 공공시설을 묻는 상황입니다.",
+      "EN": "Asking about a public library where you can focus on studying and borrow books.",
+      "VI": "Hỏi về thư viện công cộng, nơi yên tĩnh để tập trung học tập và mượn sách chuyên ngành.",
+      "ZH": "询问在安静氛围下专心学习自习并借阅各类图书的公共设施图书馆的场景。",
+      "JA": "静かな環境で集中して勉強し、本を借りることができる図書館について尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 조용하게 책을 읽거나 빌릴 수 있는 곳은 어디예요?\n나: 책이 가득한 (   )이에요."
+      "KO": "가: 소음 없이 조용한 열람실에서 집중해서 시험공부도 하고 전공 책도 빌릴 수 있는 곳은 어디예요?\n나: 수만 권의 장서와 쾌적한 학습 좌석이 마련되어 있는 시립(   )이에요."
     },
     "options": [
       "식당",
@@ -1524,11 +1524,11 @@
     ],
     "answerIndex": 3,
     "explanations": {
-      "KO": "많은 책이 보관되어 있고 조용히 공부하는 장소는 '도서관(library)'입니다. 받침 'ㄴ'이 있으므로 '-이에요'가 결합합니다.",
-      "EN": "'도서관' is library. It ends with consonant 'ㄴ', taking '-이에요' -> '도서관이에요' (It is a library).",
-      "VI": "'도서관' là thư viện. Có phụ âm cuối 'ㄴ' nên kết hợp với '-이에요' -> '도서관이에요' (Đây là thư viện).",
-      "ZH": "'도서관'是图书馆。有收音'ㄴ'，接'-이에요' -> '도서관이에요'（这里是图书馆）。",
-      "JA": "本を読んだり借りたりする静かな場所は「도서관（図書館）」です。パッチム「ㄴ」があるため「도서관이에요（図書館です）」になります。"
+      "KO": "온갖 서적과 자료를 모아 두고 대출해 주거나 공부할 수 있는 공공시설은 '도서관(Library)'이에요!",
+      "EN": "A public institution providing books, study areas, and learning resources is '도서관' (Library)!",
+      "VI": "Nơi lưu trữ sách báo để mọi người đến mượn đọc và học tập là '도서관' (Thư viện)!",
+      "ZH": "收藏各种图书报刊供公众借阅自修的文化学习设施是'도서관'（图书馆）！",
+      "JA": "多くの書籍を集めて貸し出したり勉強できる公共施設は「도서관（図書館）」です！"
     },
     "level": 1
   },
@@ -1540,14 +1540,14 @@
     "speechBubble": "맛있는 밥을 먹어요!",
     "keyword": "식당",
     "situations": {
-      "KO": "그림을 보고 대화의 빈칸에 알맞은 말을 고르세요.",
-      "EN": "Look at the picture and complete the dialogue.",
-      "VI": "Nhìn hình và chọn từ thích hợp để hoàn thành hội thoại.",
-      "ZH": "看图并选择恰当的词语完成对话。",
-      "JA": "絵を見て会話の空欄に入る正しい言葉を選んでください。"
+      "KO": "점심시간에 따뜻하고 푸짐한 한식 백반을 사 먹기 위해 들어갈 외식 장소를 찾는 상황입니다.",
+      "EN": "Finding a traditional Korean restaurant to eat a hearty home-style lunch.",
+      "VI": "Tìm một quán ăn ngon để thưởng thức bữa trưa cơm phần kiểu Hàn ấm cúng.",
+      "ZH": "在午餐时间寻找品尝热气腾腾地道家常定食的餐厅就餐场景。",
+      "JA": "お昼休みに温かい韓食の定食を食べるために食堂を探す場面です。"
     },
     "questions": {
-      "KO": "가: 배가 고플 때 맛있는 밥을 사 먹으러 가는 곳은 어디예요?\n나: 맛있는 메뉴가 있는 (   )이에요."
+      "KO": "가: 배가 너무 고픈데 근처에 점심으로 따뜻한 찌개 백반을 푸짐하게 잘하는 곳이 있어요?\n나: 네, 골목 안쪽에 가면 맛있는 정식을 파는 유명한 한식 (   )이/가 있어요."
     },
     "options": [
       "식당",
@@ -1557,11 +1557,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "맛있는 밥을 사 먹는 곳은 '식당(restaurant)'이에요. 받침이 있어서 '~이에요'를 붙여요!",
-      "EN": "A restaurant is '식당'. Since it ends with a final consonant, use '~이에요' -> '식당이에요'.",
-      "VI": "'식당' là nhà hàng/quán ăn. Có phụ âm cuối 'ㅇ' nên đi với '-이에요' -> '식당이에요' (Đây là quán ăn).",
-      "ZH": "'식당'是餐厅/饭馆。有收音'ㅇ'，接'-이에요' -> '식당이에요'（这里是餐厅）。",
-      "JA": "料理を注文して食べる場所は「식당（食堂・レストラン）」です。パッチム「ㅇ」があるため「-이에요」がつき「식당이에요（食堂です）」になります。"
+      "KO": "돈을 내고 음식을 주문하여 사 먹을 수 있는 외식 전문 업소는 '식당(Restaurant)'이에요!",
+      "EN": "A commercial place where meals are prepared, served, and eaten is '식당' (Restaurant)!",
+      "VI": "Nơi nấu nướng phục vụ các món ăn ngon cho thực khách là '식당' (Nhà hàng/Quán ăn)!",
+      "ZH": "向公众提供烹饪好的菜肴饭食供人点餐食用的场所是'식당'（餐馆/餐厅）！",
+      "JA": "料理を注文して食事をすることができる飲食店を「식당（食堂/レストラン）」と言います！"
     },
     "level": 2
   },
@@ -1573,14 +1573,14 @@
     "visual": "🍱 🥢",
     "keyword": "김밥",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "소풍 갈 때 은박지에 싸서 간편하게 먹기 좋은 한국인의 대표 도시락 메뉴를 묻는 상황입니다.",
+      "EN": "Asking about gimbap, the iconic Korean picnic lunchbox wrapped in foil.",
+      "VI": "Hỏi về món gimbap cơm cuộn rong biển quen thuộc cho các chuyến dã ngoại ngoài trời.",
+      "ZH": "询问在春游郊游时用锡纸包装携带的韩国代表性便当美食紫菜包饭的情景。",
+      "JA": "遠足やピクニックのお弁当としてアルミホイルに包んで持っていく海苔巻きキンパを尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 소풍 갈 때 간편하게 먹기 좋은 대표 음식은 뭐예요?\n나: 밥과 야채를 김으로 만 (   )이에요."
+      "KO": "가: 주말 소풍 갈 때 간편하게 은박지에 싸서 야외에서 먹기 가장 좋은 한국 도시락 메뉴는 뭐예요?\n나: 참기름을 바른 밥에 단무지, 당근, 햄을 넣고 김으로 돌돌 말아 썬 (   )이에요."
     },
     "options": [
       "김밥",
@@ -1590,11 +1590,11 @@
     ],
     "answerIndex": 0,
     "explanations": {
-      "KO": "밥에 여러 재료를 넣고 김으로 말아서 싼 한국의 대표 소풍 음식은 '김밥(Gimbap)'입니다.",
-      "EN": "'김밥' (Gimbap) is Korean seaweed rice roll filled with various ingredients.",
-      "VI": "'김밥' (Gimbap) là cơm cuộn rong biển truyền thống của Hàn Quốc.",
-      "ZH": "'김밥'（紫菜包饭）是用紫菜卷米饭和各种蔬菜的韩国代表性食物。",
-      "JA": "海苔でご飯と具材を巻いた韓国の定番料理は「김밥（キンパ・海苔巻き）」です。"
+      "KO": "밥에 다양한 채소와 햄 등을 넣고 김으로 말아서 썰어 먹는 소풍 대표 음식은 '김밥(Gimbap)'이에요!",
+      "EN": "The iconic Korean rolled rice dish wrapped in toasted seaweed with fillings is '김밥' (Gimbap)!",
+      "VI": "Món cơm cuộn rong biển trứ danh kết hợp cùng các loại nhân rau củ là '김밥' (Gimbap)!",
+      "ZH": "在米饭中卷入火腿、黄萝卜丝等配料用紫菜包裹切段的标志性美食是'김밥'（紫菜包饭）！",
+      "JA": "ご飯に具材をのせて海苔で巻いて輪切りにする代表的な遠足料理は「김밥（キンパ）」です！"
     }
   },
   {
@@ -1605,14 +1605,14 @@
     "visual": "🍲 🥢",
     "keyword": "비빔밥",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "전주 한옥마을에서 다양한 신선 나물과 고추장을 밥에 쓱쓱 비벼 먹는 명물 음식을 묻는 상황입니다.",
+      "EN": "Asking about Jeonju's specialty bibimbap mixed with vegetables and red chili paste.",
+      "VI": "Hỏi về món cơm trộn bibimbap trứ danh của làng cổ Jeonju kết hợp nhiều loại rau tươi và tương ớt.",
+      "ZH": "询问在全州韩屋村品尝的将各种新鲜野菜与辣酱拌饭食用的招牌美食拌饭的场景。",
+      "JA": "全州の伝統的な名物で、ご飯にナムルとコチュジャンを混ぜて食べるビビンバを尋ねる場面です。"
     },
     "questions": {
-      "KO": "가: 밥 위에 여러 나물과 고추장을 쓱쓱 비벼 먹는 음식은 뭐예요?\n나: 맛있는 (   )이에요."
+      "KO": "가: 전주 한옥마을에 놀러 가면 놋그릇에 담아 나오는 꼭 먹어야 할 전통 한식 명물 메뉴는 뭐예요?\n나: 고슬고슬한 밥 위에 형형색색의 나물과 고추장을 듬뿍 넣어 쓱쓱 섞어 먹는 (   )이에요."
     },
     "options": [
       "불고기",
@@ -1622,11 +1622,11 @@
     ],
     "answerIndex": 1,
     "explanations": {
-      "KO": "밥 위에 나물, 고기, 고추장을 넣고 비벼 먹는 음식은 '비빔밥(Bibimbap)'입니다.",
-      "EN": "'비빔밥' (Bibimbap) is a bowl of mixed rice with seasoned vegetables and chili paste.",
-      "VI": "'비빔밥' (Bibimbap) là món cơm trộn với rau thơm, thịt và tương ớt.",
-      "ZH": "'비빔밥'（石锅/拌饭）是在米饭上放各种蔬菜和辣椒酱拌着吃的料理。",
-      "JA": "ご飯にナムルやコチュジャンを混ぜて食べる料理は「비빔밥（ビビンバ）」です。"
+      "KO": "밥에 여러 가지 나물, 고기, 양념 고추장을 골고루 비벼서 먹는 대표적인 전통 요리는 '비빔밥(Bibimbap)'이에요!",
+      "EN": "The famous Korean dish of warm rice topped with seasoned vegetables, chili paste, and meat is '비빔밥' (Bibimbap)!",
+      "VI": "Món ăn truyền thống gồm cơm nóng trộn đều với các loại rau thịt và sốt tương ớt là '비빔밥' (Cơm trộn)!",
+      "ZH": "在米饭上码放各种凉拌菜、肉丝与甜辣酱拌匀享用的韩国经典名菜是'비빔밥'（拌饭）！",
+      "JA": "温かいご飯に様々なナムルや牛肉、コチュジャンを入れて混ぜて食べる代表的な料理は「비빔밥（ビビンバ）」です！"
     }
   },
   {
@@ -1637,11 +1637,11 @@
     "visual": "🍜",
     "keyword": "라면",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "뜨거운 국물에 꼬들꼬들한 면을 끓여 먹는 한국인의 대표 간편식을 묻는 상황입니다.",
+      "EN": "Asking about instant ramen noodles, Korea's most popular comfort food.",
+      "VI": "Hỏi về món mì gói ramen quen thuộc thơm ngon với nước dùng nóng hổi.",
+      "ZH": "询问韩国人最喜爱的带汤即食拉面美食的场景。",
+      "JA": "熱いスープにコシのある麺を茹でて食べる代表的な即席麺ラーメンを尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 뜨거운 국물에 꼬들꼬들한 면을 끓여 먹는 간편식은 뭐예요?\n나: 한국 사람들이 좋아하는 (   )이에요."
@@ -1669,11 +1669,11 @@
     "visual": "🥩 🧅",
     "keyword": "불고기",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "밥에 여러 가지 속재료를 넣고 김으로 돌돌 말아 썬 한국 소풍 음식을 묻는 상황입니다.",
+      "EN": "Asking about gimbap, seaweed rice rolls packed with delicious ingredients.",
+      "VI": "Hỏi về món cơm cuộn rong biển gimbap truyền thống của Hàn Quốc.",
+      "ZH": "询问用米饭和各种配料裹在紫菜里卷制切段的紫菜包饭的场景。",
+      "JA": "ご飯と具材を海苔で巻いて食べる韓国の海苔巻きキンパを尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 얇게 썬 소고기를 달콤한 양념에 볶아 먹는 음식은 뭐예요?\n나: 외국인에게도 인기 많은 (   )예요."
@@ -1701,11 +1701,11 @@
     "visual": "☕",
     "keyword": "커피",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "매콤달콤한 고추장 양념에 쫄깃한 떡을 볶아 만든 길거리 대표 간식을 묻는 상황입니다.",
+      "EN": "Asking about tteokbokki, chewy rice cakes cooked in sweet and spicy sauce.",
+      "VI": "Hỏi về món bánh gạo cay tteokbokki đường phố nổi tiếng của Hàn Quốc.",
+      "ZH": "询问用甜辣酱炒制软糯年糕的代表性街头小吃辣炒年糕的场景。",
+      "JA": "甘辛いタレでもちもちの餅を炒めた代表的なおやつトッポッキを尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 아침에 졸음을 깨우려고 따뜻한 음료 한 잔을 마셨어요.\n나: 향긋한 (   )를 마셨군요!"
@@ -1733,11 +1733,11 @@
     "visual": "🍵 🍃",
     "keyword": "녹차",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "갈증이 날 때 목을 시원하게 축여주는 생명수를 묻는 일상 대화 상황입니다.",
+      "EN": "Asking for pure, clean water to quench your thirst on a hot day.",
+      "VI": "Hỏi xin ly nước lọc mát lạnh để làm dịu cơn khát.",
+      "ZH": "口渴时喝一口清凉解渴的纯净水的日常场景。",
+      "JA": "喉の渇きを潤す冷たい水について尋ねる日常会話の場面です。"
     },
     "questions": {
       "KO": "가: 초록빛 찻잎을 따뜻한 물에 우려 마시는 건강 차는 뭐예요?\n나: 향긋한 (   )예요."
@@ -1765,11 +1765,11 @@
     "visual": "🍦",
     "keyword": "아이스크림",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "식후에 향긋한 원두를 내려 마시는 대중적인 기호 음료를 묻는 상황입니다.",
+      "EN": "Asking about coffee, a beloved brewed beverage enjoyed after meals.",
+      "VI": "Hỏi về món cà phê thơm ngon được nhiều người yêu thích sau bữa ăn.",
+      "ZH": "询问餐后品尝的香醇提神饮品咖啡的场景。",
+      "JA": "食後に豆から淹れて飲む人気の嗜好飲料コーヒーについて尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 더운 여름에 달콤하고 시원하게 먹는 차가운 디저트는 뭐예요?\n나: 부드러운 (   )이에요."
@@ -1797,11 +1797,11 @@
     "visual": "🍬",
     "keyword": "사탕",
     "situations": {
-      "KO": "그림을 보고 알맞은 것을 고르십시오.",
-      "EN": "Look at the picture and choose the correct answer.",
-      "VI": "Nhìn tranh và chọn đáp án đúng.",
-      "ZH": "看图选择正确的答案。",
-      "JA": "絵を見て正しいものを選んでください。"
+      "KO": "찻잎을 우려내어 은은한 향과 따뜻한 온기를 즐기는 전통 음료를 묻는 상황입니다.",
+      "EN": "Asking about brewed tea, a warm, aromatic traditional beverage.",
+      "VI": "Hỏi về món trà ấm nóng thanh tao làm từ lá trà tự nhiên.",
+      "ZH": "询问用茶叶冲泡的温热香醇传统茶饮的日常场景。",
+      "JA": "茶葉を煎じて豊かな香りと温もりを楽しむお茶について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 입안에서 달콤하게 녹여 먹는 작고 단 간식은 뭐예요?\n나: 알록달록한 (   )이에요."
@@ -1829,11 +1829,11 @@
     "visual": "🧑‍🦲 💆",
     "keyword": "머리",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
-      "EN": "Look at the picture and choose the correct body part.",
-      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
-      "ZH": "看图选择正确的身体部位。",
-      "JA": "絵を見て正しい体の部位を選んでください。"
+      "KO": "세상을 바라보고 아름다운 풍경을 담는 시각 감각 기관을 묻는 상황입니다.",
+      "EN": "Asking about the eyes, the sensory organ used to see the world.",
+      "VI": "Hỏi về đôi mắt, cơ quan thị giác dùng để ngắm nhìn thế giới xung quanh.",
+      "ZH": "询问用来观察世界和美景的视觉感官眼睛的场景。",
+      "JA": "世界を見て美しい景色を捉える視覚器官の目について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 모자를 쓰고 생각을 하는 신체 부위는 어디예요?\n나: 바로 (   )예요."
@@ -1861,11 +1861,11 @@
     "visual": "👁️",
     "keyword": "눈",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
-      "EN": "Look at the picture and choose the correct body part.",
-      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
-      "ZH": "看图选择正确的身体部位。",
-      "JA": "絵を見て正しい体の部位を選んでください。"
+      "KO": "향기로운 냄새를 맡고 호흡을 돕는 얼굴 중앙의 감각 기관을 묻는 상황입니다.",
+      "EN": "Asking about the nose, the organ in the center of the face for smelling and breathing.",
+      "VI": "Hỏi về chiếc mũi nằm ở giữa khuôn mặt dùng để ngửi mùi và hít thở.",
+      "ZH": "询问位于面部中央用于闻气味和呼吸的鼻子感官的场景。",
+      "JA": "匂いを嗅いで呼吸をする顔の中心にある鼻について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 아름다운 경치를 보고 책을 읽는 신체 부위는 어디예요?\n나: 반짝이는 (   )이에요."
@@ -1893,11 +1893,11 @@
     "visual": "👃",
     "keyword": "코",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
-      "EN": "Look at the picture and choose the correct body part.",
-      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
-      "ZH": "看图选择正确的身体部位。",
-      "JA": "絵を見て正しい体の部位を選んでください。"
+      "KO": "맛있는 음식을 맛보고 소리를 내어 말을 하는 신체 부위를 묻는 상황입니다.",
+      "EN": "Asking about the mouth, used for tasting food and speaking.",
+      "VI": "Hỏi về chiếc miệng dùng để thưởng thức món ăn và trò chuyện.",
+      "ZH": "询问用于品尝美食和发声说话的口腔部位的场景。",
+      "JA": "料理を味わい言葉を発する体の部位である口について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 좋은 향기를 맡고 숨을 쉴 때 쓰는 곳은 어디예요?\n나: 얼굴 가운데 있는 (   )예요."
@@ -1925,11 +1925,11 @@
     "visual": "👄",
     "keyword": "입",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
-      "EN": "Look at the picture and choose the correct body part.",
-      "VI": "Nhìn tranh và chọn bộ phận cơ체 đúng.",
-      "ZH": "看图选择正确的身体部位。",
-      "JA": "絵を見て正しい体の部位を選んでください。"
+      "KO": "감미로운 음악과 상대방의 목소리를 듣는 청각 감각 기관을 묻는 상황입니다.",
+      "EN": "Asking about the ears, the organ for listening to voices and music.",
+      "VI": "Hỏi về đôi tai, cơ quan thính giác dùng để lắng nghe âm thanh và âm nhạc.",
+      "ZH": "询问用来倾听美妙音乐和对方说话声音的耳朵部位的场景。",
+      "JA": "音楽や人の声を聞く聴覚器官の耳について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 맛있는 밥을 먹고 이야기를 할 때 쓰는 곳은 어디예요?\n나: 빨간 입술이 있는 (   )이에요."
@@ -1957,11 +1957,11 @@
     "visual": "👂",
     "keyword": "귀",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
-      "EN": "Look at the picture and choose the correct body part.",
-      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
-      "ZH": "看图选择正确的身体部位。",
-      "JA": "絵を見て正しい体の部位を選んでください。"
+      "KO": "물건을 집거나 글씨를 쓸 때 섬세하게 사용하는 신체 부위를 묻는 상황입니다.",
+      "EN": "Asking about the hands, used delicately to hold objects and write.",
+      "VI": "Hỏi về bàn tay khéo léo dùng để cầm nắm đồ vật và viết chữ.",
+      "ZH": "询问在拿取物品和写字时灵活使用的双手部位的场景。",
+      "JA": "物を持ったり文字を書くときに器用に使う手について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 음악을 듣고 상대방의 목소리를 듣는 곳은 어디예요?\n나: 머리 양옆에 있는 (   )예요."
@@ -1989,11 +1989,11 @@
     "visual": "✋",
     "keyword": "손",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
-      "EN": "Look at the picture and choose the correct body part.",
-      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
-      "ZH": "看图选择正确的身体部位。",
-      "JA": "絵を見て正しい体の部位を選んでください。"
+      "KO": "대지를 딛고 서서 몸의 균형을 잡아주는 다리의 맨 아래 부위를 묻는 상황입니다.",
+      "EN": "Asking about the feet, located at the bottom of legs to balance the body.",
+      "VI": "Hỏi về bàn chân giúp nâng đỡ cơ thể và giữ thăng bằng khi đứng.",
+      "ZH": "询问支撑身体站立保持平衡的下肢脚部部位的场景。",
+      "JA": "地面を踏みしめて立ち体のバランスを取る足について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 물건을 잡고 글씨를 쓸 때 사용하는 신체 부위는 어디예요?\n나: 다섯 손가락이 있는 (   )이에요."
@@ -2021,11 +2021,11 @@
     "visual": "🦶",
     "keyword": "발",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
-      "EN": "Look at the picture and choose the correct body part.",
-      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
-      "ZH": "看图选择正确的身体部位。",
-      "JA": "絵を見て正しい体の部位を選んでください。"
+      "KO": "두 발로 힘차게 걷고 달리며 계단을 오를 수 있게 하는 하체 부위를 묻는 상황입니다.",
+      "EN": "Asking about the legs, used for walking, running, and climbing stairs.",
+      "VI": "Hỏi về đôi chân giúp con người có thể đi lại, chạy nhảy và leo cầu thang.",
+      "ZH": "询问用于行走奔跑和攀登台阶的下肢腿部部位的场景。",
+      "JA": "歩いたり走ったり階段を上るときに使う脚について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 양말과 신발을 신고 땅을 딛고 걷는 부위는 어디예요?\n나: 몸의 맨 아래에 있는 (   )이에요."
@@ -2053,11 +2053,11 @@
     "visual": "🦵",
     "keyword": "다리",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위를 고르십시오.",
-      "EN": "Look at the picture and choose the correct body part.",
-      "VI": "Nhìn tranh và chọn bộ phận cơ thể đúng.",
-      "ZH": "看图选择正确的身体部位。",
-      "JA": "絵を見て正しい体の部位を選んでください。"
+      "KO": "생각을 하고 기억을 담당하는 뇌가 위치한 신체 최상단 부위를 묻는 상황입니다.",
+      "EN": "Asking about the head, located at the top of the body containing the brain.",
+      "VI": "Hỏi về phần đầu, nơi chứa bộ não giúp con người suy nghĩ và ghi nhớ.",
+      "ZH": "询问位于人体最上端负责思考和记忆的头部部位的场景。",
+      "JA": "思考や記憶を司る脳がある体の一番上の頭について尋ねる場面입니다。"
     },
     "questions": {
       "KO": "가: 걷거나 달릴 때 몸을 튼튼하게 지탱해 주는 부위는 어디예요?\n나: 곧게 뻗은 (   )예요."
@@ -2085,11 +2085,11 @@
     "visual": "🚌",
     "keyword": "버스",
     "situations": {
-      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
-      "EN": "Look at the picture and choose the correct transportation.",
-      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
-      "ZH": "看图选择正确的交通工具。",
-      "JA": "絵を見て正しい交通手段を選んでください。"
+      "KO": "정류장에서 승객을 태우고 시내 곳곳을 운행하는 대중교통을 묻는 상황입니다.",
+      "EN": "Asking about a public city bus that picks up passengers at stops.",
+      "VI": "Hỏi về xe buýt công cộng đón trả khách tại các trạm dừng trong thành phố.",
+      "ZH": "询问在公交站停靠接送乘客穿梭于市内的公共汽车的场景。",
+      "JA": "バス停で乗客を乗せて市内を運行する市バスについて尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 정류장에서 많은 사람이 줄 서서 타는 대중교통은 뭐예요?\n나: 길에서 타는 (   )예요."
@@ -2117,11 +2117,11 @@
     "visual": "🚇",
     "keyword": "지하철",
     "situations": {
-      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
-      "EN": "Look at the picture and choose the correct transportation.",
-      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
-      "ZH": "看图选择正确的交通工具。",
-      "JA": "絵を見て正しい交通手段を選んでください。"
+      "KO": "교통 체증 없이 지하 선로를 따라 정시에 빠르게 달리는 도시 철도를 묻는 상황입니다.",
+      "EN": "Asking about the subway metro that runs quickly underground without traffic.",
+      "VI": "Hỏi về tàu điện ngầm chạy nhanh dưới lòng đất tránh ùn tắc giao thông.",
+      "ZH": "询问避开地面堵车在地下铁轨上准点运行的地铁交通的场景。",
+      "JA": "渋滞なく地下の線路を正確に素早く走る地下鉄について尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 지하로 빠르게 달려서 막히지 않는 대중교통은 뭐예요?\n나: 빠른 (   )이에요."
@@ -2149,11 +2149,11 @@
     "visual": "🚕",
     "keyword": "택시",
     "situations": {
-      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
-      "EN": "Look at the picture and choose the correct transportation.",
-      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
-      "ZH": "看图选择正确的交通工具。",
-      "JA": "絵を見て正しい交通手段を選んでください。"
+      "KO": "원하는 목적지까지 신속하고 편안하게 요금을 내고 이동하는 승용차 교통을 묻는 상황입니다.",
+      "EN": "Asking about a taxi that takes passengers directly to their destination for a fare.",
+      "VI": "Hỏi về xe taxi chở khách đến tận nơi một cách tiện lợi và nhanh chóng.",
+      "ZH": "询问按计价器收费将乘客快捷送达目的地的出租车的场景。",
+      "JA": "目的地まで迅速かつ快適に料金を払って乗るタクシーについて尋ねる場面です。"
     },
     "questions": {
       "KO": "가: 길에서 손을 흔들어 목적지까지 바로 가는 차는 뭐예요?\n나: 노란색이나 주황색 (   )예요."
@@ -2181,11 +2181,11 @@
     "visual": "✈️",
     "keyword": "비행기",
     "situations": {
-      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
-      "EN": "Look at the picture and choose the correct transportation.",
-      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
-      "ZH": "看图选择正确的交通工具。",
-      "JA": "絵を見て正しい交通手段を選んでください。"
+      "KO": "도시와 도시 사이의 철로를 시속 수백 킬로미터로 달리는 기차를 묻는 상황입니다.",
+      "EN": "Asking about a passenger train connecting cities along long railway tracks.",
+      "VI": "Hỏi về đoàn tàu hỏa chạy trên đường ray kết nối giữa các thành phố.",
+      "ZH": "询问在城市之间铁轨上长途奔驰的高速列车火车的场景。",
+      "JA": "都市と都市の間の鉄路を走る長距離列車・汽車について尋ねる場面입니다。"
     },
     "questions": {
       "KO": "가: 하늘을 날아 외국까지 빠르게 갈 수 있는 탈것은 뭐예요?\n나: 날개가 있는 (   )예요."
@@ -2213,11 +2213,11 @@
     "visual": "🚆",
     "keyword": "기차",
     "situations": {
-      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
-      "EN": "Look at the picture and choose the correct transportation.",
-      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
-      "ZH": "看图选择正确的交通工具。",
-      "JA": "絵を見て正しい交通手段を選んでください。"
+      "KO": "하늘 높이 날아올라 대륙과 바다를 건너는 항공 교통수단을 묻는 상황입니다.",
+      "EN": "Asking about an airplane that flies high across skies and oceans.",
+      "VI": "Hỏi về chiếc máy bay bay lượn trên bầu trời qua các lục địa và đại dương.",
+      "ZH": "询问飞翔在蓝天之中横跨海洋大陆的民航飞机的场景。",
+      "JA": "大空高く飛び立ち海や大陸を渡る飛行機について尋ねる場面입니다。"
     },
     "questions": {
       "KO": "가: 철길을 따라 서울에서 부산까지 빠르게 달리는 것은 뭐예요?\n나: 역에서 타는 (   )예요."
@@ -2245,11 +2245,11 @@
     "visual": "🚲",
     "keyword": "자전거",
     "situations": {
-      "KO": "그림을 보고 알맞은 교통수단을 고르십시오.",
-      "EN": "Look at the picture and choose the correct transportation.",
-      "VI": "Nhìn tranh và chọn phương tiện giao thông đúng.",
-      "ZH": "看图选择正确的交通工具。",
-      "JA": "絵を見て正しい交通手段を選んでください。"
+      "KO": "바다나 강 위를 떠다니며 섬과 육지를 연결해 주는 수상 교통수단을 묻는 상황입니다.",
+      "EN": "Asking about a boat or ship that sails across waters connecting islands.",
+      "VI": "Hỏi về con tàu thuyền di chuyển trên sông nước để kết nối đảo và đất liền.",
+      "ZH": "询问在水面航行连接海岛与陆地的轮船船只的场景。",
+      "JA": "海や川を航行して島と陸をつなぐ船・ボートについて尋ねる場面입니다。"
     },
     "questions": {
       "KO": "가: 두 바퀴로 페달을 밟으며 한강에서 신나게 타는 것은 뭐예요?\n나: 친환경적인 (   )예요."
@@ -2277,11 +2277,11 @@
     "visual": "🌧️ ☔",
     "keyword": "비",
     "situations": {
-      "KO": "그림을 보고 알맞은 날씨를 고르십시오.",
-      "EN": "Look at the picture and choose the correct weather.",
-      "VI": "Nhìn tranh và chọn thời tiết đúng.",
-      "ZH": "看图选择正确的天气。",
-      "JA": "絵を見て正しい天気を選んでください。"
+      "KO": "구름 한 점 없이 하늘이 푸르고 햇빛이 밝게 비치는 기상 상태를 묻는 상황입니다.",
+      "EN": "Asking about clear, sunny weather with bright sunshine and blue skies.",
+      "VI": "Hỏi về thời tiết trong xanh có nắng ấm áp không một gợn mây.",
+      "ZH": "询问晴空万里、阳光明媚的晴朗天气状态的日常场景。",
+      "JA": "雲ひとつなく青空が広がり太陽が照らす晴れの天気について尋ねる場面です。"
     },
     "questions": {
       "KO": "철수: 하늘에서 무엇이 내려요?\n영희: (   )가 내려요."
@@ -2309,11 +2309,11 @@
     "visual": "❄️ ☃️",
     "keyword": "눈",
     "situations": {
-      "KO": "그림을 보고 알맞은 날씨를 고르십시오.",
-      "EN": "Look at the picture and choose the correct weather.",
-      "VI": "Nhìn tranh và chọn thời tiết đúng.",
-      "ZH": "看图选择正确的天气。",
-      "JA": "絵を見て正しい天気を選んでください。"
+      "KO": "먹구름이 끼고 하늘에서 빗방울이 촉촉하게 떨어지는 날씨를 묻는 상황입니다.",
+      "EN": "Asking about rainy weather as raindrops fall from dark clouds.",
+      "VI": "Hỏi về thời tiết mưa khi những hạt mưa rơi xuống từ bầu trời âm u.",
+      "ZH": "询问天空乌云密布下起雨滴的下雨天气的日常场景。",
+      "JA": "雨雲が広がり空から雨粒が降る雨の天気について尋ねる場面です。"
     },
     "questions": {
       "KO": "철수: 하늘에서 무엇이 내려요?\n영희: 하얀 (   )이 내려요."
@@ -2341,11 +2341,11 @@
     "visual": "💨 🍃",
     "keyword": "바람",
     "situations": {
-      "KO": "그림을 보고 알맞은 자연 현상을 고르십시오.",
-      "EN": "Look at the picture and choose the correct phenomenon.",
-      "VI": "Nhìn tranh và chọn hiện tượng đúng.",
-      "ZH": "看图选择正确的自然现象。",
-      "JA": "絵を見て正しい現象を選んでください。"
+      "KO": "겨울철에 기온이 영하로 내려가 하늘에서 하얗게 내리는 결정체를 묻는 상황입니다.",
+      "EN": "Asking about snow falling from the sky when temperatures drop below freezing.",
+      "VI": "Hỏi về tuyết trắng rơi xuống vào mùa đông khi nhiệt độ xuống thấp.",
+      "ZH": "询问冬季气温降至零度以下时空中飘落的雪花天气的场景。",
+      "JA": "冬の冷え込みで空から白く舞い落ちる雪について尋ねる場面です。"
     },
     "questions": {
       "KO": "철수: 무엇이 시원하게 불어요?\n영희: (   )이 불어요."
@@ -2373,11 +2373,11 @@
     "visual": "☁️",
     "keyword": "구름",
     "situations": {
-      "KO": "그림을 보고 알맞은 자연 현상을 고르십시오.",
-      "EN": "Look at the picture and choose the correct phenomenon.",
-      "VI": "Nhìn tranh và chọn hiện tượng đúng.",
-      "ZH": "看图选择正确的自然现象。",
-      "JA": "絵を見て正しい現象を選んでください。"
+      "KO": "나뭇가지가 흔들리고 시원한 공기의 흐름이 피부에 느껴지는 현상을 묻는 상황입니다.",
+      "EN": "Asking about the wind as leaves rustle and air moves past.",
+      "VI": "Hỏi về hiện tượng gió thổi làm đung đưa cành cây và mát rượi.",
+      "ZH": "询问树枝摇曳、能感受到空气流动的刮风气象现象的场景。",
+      "JA": "木の枝が揺れて肌に涼しい空気の流れを感じる風について尋ねる場面です。"
     },
     "questions": {
       "KO": "철수: 하늘에 무엇이 떠 있어요?\n영희: 하얀 (   )이 떠 있어요."
@@ -2405,11 +2405,11 @@
     "visual": "🌸 🌿",
     "keyword": "봄",
     "situations": {
-      "KO": "그림을 보고 알맞은 계절을 고르십시오.",
-      "EN": "Look at the picture and choose the correct season.",
-      "VI": "Nhìn tranh và chọn mùa đúng.",
-      "ZH": "看图选择正确的季节。",
-      "JA": "絵を見て正しい季節を選んでください。"
+      "KO": "추운 겨울이 지나고 따스한 햇살과 함께 꽃이 피어나는 화사한 계절을 묻는 상황입니다.",
+      "EN": "Asking about spring, the blooming season that follows cold winter.",
+      "VI": "Hỏi về mùa xuân ấm áp với muôn hoa đua nở sau mùa đông giá rét.",
+      "ZH": "询问严冬过后春暖花开、生机勃勃的春天季节的场景。",
+      "JA": "寒い冬が去り暖かな日差しと共に花が咲く春の季節について尋ねる場面です。"
     },
     "questions": {
       "KO": "철수: 꽃이 피고 따뜻한 계절은 언제예요?\n영희: (   )이에요."
@@ -2437,11 +2437,11 @@
     "visual": "🍁 🍂",
     "keyword": "가을",
     "situations": {
-      "KO": "그림을 보고 알맞은 계절을 고르십시오.",
-      "EN": "Look at the picture and choose the correct season.",
-      "VI": "Nhìn tranh và chọn mùa đúng.",
-      "ZH": "看图选择正确的季节。",
-      "JA": "絵を見て正しい季節を選んでください。"
+      "KO": "기온이 높고 뜨거운 태양 아래 바다로 휴가를 떠나는 무더운 계절을 묻는 상황입니다.",
+      "EN": "Asking about summer, the hot season for vacationing at the sea.",
+      "VI": "Hỏi về mùa hè rực rỡ với cái nắng chói chang và những chuyến đi biển.",
+      "ZH": "询问烈日当头、适合去海边度假旅行的炎热夏天季节的场景。",
+      "JA": "気温が高く照りつける太陽の下で海へ遊びに行く夏の季節について尋ねる場面です。"
     },
     "questions": {
       "KO": "철수: 단풍이 들고 시원한 계절은 언제예요?\n영희: (   )이에요."
@@ -4318,11 +4318,11 @@
     "keyword": "교실",
     "speechBubble": "교실에 무엇이 있어요?",
     "situations": {
-      "KO": "교실 그림을 보고 대화를 완성하세요.",
-      "EN": "Look at the classroom picture and complete the dialogue.",
-      "VI": "Nhìn tranh lớp học và hoàn thành đoạn hội thoại.",
-      "ZH": "看教室图片并完成对话。",
-      "JA": "教室の絵を見て会話を完成させてください。"
+      "KO": "교실 안의 비품과 학습 시설에 대해 친구와 대화를 나누는 상황입니다.",
+      "EN": "A conversation with a classmate about classroom desks and furniture.",
+      "VI": "Cuộc trò chuyện với bạn học về bàn ghế và đồ dùng trong lớp học.",
+      "ZH": "和同学交谈教室里的课桌与教学设施的日常情景。",
+      "JA": "教室の中の机や学習設備について友達と会話する場面です。"
     },
     "questions": {
       "KO": "가: 교실에 책상이 있어요?\n나: 네, 책상이 (   )."
@@ -4688,7 +4688,7 @@
       "JA": "ソウルの名所の位置を尋ねて答える会話です。"
     },
     "questions": {
-      "KO": "스티븐: N서울타워가 어디에 있어요?\n지수: (   )에 있어요."
+      "KO": "가: 이번 주말에 서울 야경 보러 N서울타워에 가려고 해요. 어디에 있어요?\n나: N서울타워는 (   )에 있어요. 명동역에서 걸어서도 갈 수 있어요."
     },
     "options": [
       "남산",
@@ -5506,14 +5506,14 @@
     "keyword": "날짜 조사 -에",
     "speechBubble": "11월 30일에 친구를 만나요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "특정 날짜에 친구와 만날 약속 일정을 자연스럽게 말하는 상황입니다.",
+      "EN": "Stating a scheduled plan to meet a friend on a specific date.",
+      "VI": "Nói về kế hoạch gặp gỡ bạn bè vào một ngày cụ thể.",
+      "ZH": "自然表达在特定日期与朋友有约会日程的场景。",
+      "JA": "特定の日付に友達と会う予定を自然に伝える場面です。"
     },
     "questions": {
-      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 11월 30일 / 친구 / 만나다 → (   )"
+      "KO": "가: 11월 30일에 중요한 약속이 있어요?\n나: 네, (   )."
     },
     "options": [
       "11월 30일에 친구를 만나요.",
@@ -5546,14 +5546,14 @@
     "keyword": "졸업하다",
     "speechBubble": "2월 21일에 졸업해요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "대학교 졸업식 날짜를 묻고 답변하는 대화 상황입니다.",
+      "EN": "Asking and answering the graduation date from university.",
+      "VI": "Hỏi đáp về ngày lễ tốt nghiệp đại học.",
+      "ZH": "询问并回答大学毕业典礼日期的日常对话场景。",
+      "JA": "大学の卒業式の日程を尋ねて答える会話の場面です。"
     },
     "questions": {
-      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 2월 21일 / 졸업하다 → (   )"
+      "KO": "가: 대학교를 언제 졸업해요?\n나: (   )."
     },
     "options": [
       "2월 21일에 졸업해요.",
@@ -5585,14 +5585,14 @@
     "keyword": "방학하다",
     "speechBubble": "7월에 방학해요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "학교 방학이 시작되는 월을 묻고 답변하는 상황입니다.",
+      "EN": "Asking and answering which month the school vacation begins.",
+      "VI": "Hỏi đáp về tháng mà kỳ nghỉ của trường bắt đầu.",
+      "ZH": "询问并回答学校放假的月份的日常情景。",
+      "JA": "学校の休暇が始まる月について尋ねて答える場面です。"
     },
     "questions": {
-      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 7월 / 방학하다 → (   )"
+      "KO": "가: 학교 방학은 언제 시작해요?\n나: (   )."
     },
     "options": [
       "7월에 방학해요.",
@@ -5624,14 +5624,14 @@
     "keyword": "영화를 보다",
     "speechBubble": "토요일에 영화를 봐요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "주말 토요일에 영화를 관람할 여가 계획을 말하는 상황입니다.",
+      "EN": "Sharing plans to watch a movie on Saturday weekend.",
+      "VI": "Chia sẻ kế hoạch xem phim vào thứ Bảy cuối tuần.",
+      "ZH": "说明周六去电影院看电影的周末休闲计划的场景。",
+      "JA": "週末の土曜日に映画を見るレジャーの予定を話す場面です。"
     },
     "questions": {
-      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 토요일 / 영화 / 보다 → (   )"
+      "KO": "가: 이번 주 토요일에 무슨 계획이 있어요?\n나: (   )."
     },
     "options": [
       "토요일에 영화를 봐요.",
@@ -5664,14 +5664,14 @@
     "keyword": "쇼핑하다",
     "speechBubble": "주말에 쇼핑해요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "주말에 백화점이나 상점에서 쇼핑할 계획을 이야기하는 상황입니다.",
+      "EN": "Talking about shopping plans at a store over the weekend.",
+      "VI": "Nói về kế hoạch đi mua sắm vào dịp cuối tuần.",
+      "ZH": "谈论周末去商场或超市逛街购物的日程安排。",
+      "JA": "週末にショッピングをする予定について話す場面です。"
     },
     "questions": {
-      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 주말 / 쇼핑하다 → (   )"
+      "KO": "가: 주말에 보통 무엇을 하면서 시간을 보내요?\n나: (   )."
     },
     "options": [
       "주말에 쇼핑해요.",
@@ -5703,14 +5703,14 @@
     "keyword": "케이크를 사다",
     "speechBubble": "생일에 케이크를 사요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "생일 파티를 준비하며 달콤한 케이크를 살 일정을 말하는 상황입니다.",
+      "EN": "Talking about the schedule to buy a birthday cake for a party.",
+      "VI": "Nói về việc sẽ mua bánh kem để chuẩn bị cho bữa tiệc sinh nhật.",
+      "ZH": "准备生日派对并说明去买生日蛋糕的日程情景。",
+      "JA": "誕生日パーティーのためにケーキを買う予定を伝える場面です。"
     },
     "questions": {
-      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 생일 / 케이크 / 사다 → (   )"
+      "KO": "가: 친구 생일 파티 준비는 잘 되어 가요?\n나: 네, (   )."
     },
     "options": [
       "생일에 케이크를 사요.",
@@ -5743,14 +5743,14 @@
     "keyword": "오늘 공부하다",
     "speechBubble": "오늘 한국어를 공부해요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "수업이 끝난 후 오늘 한국어를 복습하고 공부할 일정을 밝히는 상황입니다.",
+      "EN": "Sharing plans to study and review Korean after class today.",
+      "VI": "Nói về kế hoạch học và ôn tập tiếng Hàn sau giờ học hôm nay.",
+      "ZH": "说明今天放学后要复习自习韩语的日程安排。",
+      "JA": "授業が終わった後、今日韓国語を勉強する予定を話す場面です。"
     },
     "questions": {
-      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 오늘 / 한국어 / 공부하다 → (   )"
+      "KO": "가: 오늘 수업이 끝난 후에 뭐 할 거예요?\n나: (   )."
     },
     "options": [
       "오늘 한국어를 공부해요.",
@@ -5783,14 +5783,14 @@
     "keyword": "내일 일하다",
     "speechBubble": "내일 일해요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "내일 휴일이지만 직장에 출근해 일해야 한다고 답하는 상황입니다.",
+      "EN": "Explaining that you have to work tomorrow despite it being a holiday.",
+      "VI": "Nói rằng ngày mai vẫn phải đi làm dù là ngày nghỉ.",
+      "ZH": "说明明天虽是假期但仍需去上班工作的场景。",
+      "JA": "明日休みだが仕事に行かなければならないと伝える場面です。"
     },
     "questions": {
-      "KO": "<보기> 8월 17일 / 여행하다 → 8월 17일에 여행해요.\n\n[문제] 내일 / 일하다 → (   )"
+      "KO": "가: 내일 휴일인데 쉴 수 있어요?\n나: 아니요, (   )."
     },
     "options": [
       "내일 일해요.",
@@ -5822,14 +5822,14 @@
     "keyword": "친구를 만났어요",
     "speechBubble": "어제 친구를 만났어요.",
     "situations": {
-      "KO": "<보기>와 같이 과거에 일어난 일을 나타내는 문장을 고르세요.",
-      "EN": "Choose the correct past-tense sentence formed from the given words.",
-      "VI": "Chọn câu thì quá khứ được kết hợp đúng từ các từ cho sẵn.",
-      "ZH": "选出由所给词语组成的正确过去时态句子。",
-      "JA": "与えられた単語から過去の出来事を表す正しい文を選んでください。"
+      "KO": "어제 친구와 만나 즐거운 시간을 보낸 과거 행동을 설명하는 상황입니다.",
+      "EN": "Describing past activities of meeting a friend yesterday.",
+      "VI": "Kể lại việc đã gặp gỡ bạn bè vào ngày hôm qua trong quá khứ.",
+      "ZH": "描述昨天和朋友见面度过美好时光的过去行为。",
+      "JA": "昨日友達に会って楽しい時間を過ごした過去の出来事を話す場面です。"
     },
     "questions": {
-      "KO": "<보기> 지난주 / 영화를 보다 → 지난주에 영화를 봤어요.\n\n[문제] 어제 / 친구 / 만나다 → (   )"
+      "KO": "가: 어제 하루 종일 무엇을 했어요?\n나: (   )."
     },
     "options": [
       "어제 친구를 만났어요.",
@@ -5862,14 +5862,14 @@
     "keyword": "음악을 들어요",
     "speechBubble": "지금 음악을 들어요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "방에서 좋아하는 음악을 감상하고 있는 현재 행동을 전하는 상황입니다.",
+      "EN": "Sharing that you are currently listening to favorite music in your room.",
+      "VI": "Nói rằng mình đang nghe bản nhạc yêu thích trong phòng.",
+      "ZH": "说明当前正在房间里听喜欢的音乐的日常情景。",
+      "JA": "部屋でお気に入りの音楽を聴いている現在の行動を伝える場面です。"
     },
     "questions": {
-      "KO": "<보기> 주말 / 책 / 읽다 → 주말에 책을 읽어요.\n\n[문제] 지금 / 음악 / 듣다 → (   )"
+      "KO": "가: 지금 방에서 무엇을 하고 있어요?\n나: (   )."
     },
     "options": [
       "지금 음악을 들어요.",
@@ -5902,14 +5902,14 @@
     "keyword": "공원에 가요",
     "speechBubble": "일요일에 공원에 가요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "일요일에 친구와 함께 공원으로 산책 갈 일정을 약속하는 상황입니다.",
+      "EN": "Agreeing on plans to go to the park together on Sunday.",
+      "VI": "Hẹn cùng nhau đi dạo ở công viên vào Chủ Nhật.",
+      "ZH": "约定周日一起去公园散步游玩的日程情景。",
+      "JA": "日曜日に友達と一緒に公園へ行く約束をする場面です。"
     },
     "questions": {
-      "KO": "<보기> 토요일 / 도서관 / 가다 → 토요일에 도서관에 가요.\n\n[문제] 일요일 / 공원 / 가다 → (   )"
+      "KO": "가: 일요일에 시간 있으면 같이 산책할래요?\n나: 좋아요, (   )."
     },
     "options": [
       "일요일에 공원에 가요.",
@@ -5942,14 +5942,14 @@
     "keyword": "빵을 먹어요",
     "speechBubble": "아침에 빵을 먹어요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "바쁜 아침 시간에 식사로 간편하게 빵을 먹는 습관을 이야기하는 상황입니다.",
+      "EN": "Talking about having bread for breakfast in the morning.",
+      "VI": "Nói về thói quen ăn bánh mì cho bữa sáng nhanh gọn.",
+      "ZH": "谈论早晨吃面包作为简便早餐的日常习惯。",
+      "JA": "忙しい朝に手軽にパンを食べる習慣について話す場面です。"
     },
     "questions": {
-      "KO": "<보기> 밤 / 라면 / 먹다 → 밤에 라면을 먹어요.\n\n[문제] 아침 / 빵 / 먹다 → (   )"
+      "KO": "가: 아침 식사로 보통 무엇을 드세요?\n나: (   )."
     },
     "options": [
       "아침에 빵을 먹어요.",
@@ -5982,14 +5982,14 @@
     "keyword": "저녁에 운동해요",
     "speechBubble": "저녁에 운동해요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "일과를 마치고 저녁 시간에 건강을 위해 운동하는 계획을 밝히는 상황입니다.",
+      "EN": "Stating plans to exercise in the evening after finishing work.",
+      "VI": "Chia sẻ kế hoạch tập thể dục vào buổi tối sau khi xong việc.",
+      "ZH": "说明下班后在傍晚锻炼身体的日常日程安排。",
+      "JA": "仕事帰りの夕方に運動をする予定を伝える場面です。"
     },
     "questions": {
-      "KO": "<보기> 오후 / 산책하다 → 오후에 산책해요.\n\n[문제] 저녁 / 운동하다 → (   )"
+      "KO": "가: 퇴근하고 저녁 시간에 보통 뭐 해요?\n나: (   )."
     },
     "options": [
       "저녁에 운동해요.",
@@ -6021,14 +6021,14 @@
     "keyword": "커피를 마셔요",
     "speechBubble": "오후 2시에 커피를 마셔요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "나른한 오후 2시에 동료와 카페에서 커피를 마시기로 약속하는 상황입니다.",
+      "EN": "Scheduling a coffee break with a colleague at 2 PM.",
+      "VI": "Hẹn uống cà phê cùng đồng nghiệp vào lúc 2 giờ chiều.",
+      "ZH": "约定下午2点和同事一起喝咖啡休息的日常场景。",
+      "JA": "午後2時に同僚とカフェでコーヒーを飲む約束をする場面です。"
     },
     "questions": {
-      "KO": "<보기> 오전 10시 / 회의하다 → 오전 10시에 회의해요.\n\n[문제] 오후 2시 / 커피 / 마시다 → (   )"
+      "KO": "가: 점심 먹고 나른한데 몇 시에 차 한잔할까요?\n나: (   )."
     },
     "options": [
       "오후 2시에 커피를 마셔요.",
@@ -6061,14 +6061,14 @@
     "keyword": "한국어를 연습해요",
     "speechBubble": "매일 한국어를 연습해요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "한국어 실력을 키우기 위해 매일 꾸준히 연습하고 있다고 답하는 상황입니다.",
+      "EN": "Explaining that you practice Korean every day to improve your skills.",
+      "VI": "Nói rằng mình kiên trì luyện tập tiếng Hàn mỗi ngày để tiến bộ.",
+      "ZH": "说明为了提高韩语水平而每天坚持练习的情景。",
+      "JA": "韓国語の上達のために毎日練習していると答える場面です。"
     },
     "questions": {
-      "KO": "<보기> 자주 / 친구를 만나다 → 자주 친구를 만나요.\n\n[문제] 매일 / 한국어 / 연습하다 → (   )"
+      "KO": "가: 한국어 실력이 정말 많이 늘었네요!\n나: 고마워요, (   )."
     },
     "options": [
       "매일 한국어를 연습해요.",
@@ -6101,14 +6101,14 @@
     "keyword": "제주도를 여행해요",
     "speechBubble": "다음 주에 제주도를 여행해요.",
     "situations": {
-      "KO": "<보기>와 같이 단어들을 바르게 결합한 문장을 고르세요.",
-      "EN": "Choose the correct sentence formed from the given words like the example.",
-      "VI": "Chọn câu được kết hợp đúng từ các từ cho sẵn như câu mẫu.",
-      "ZH": "仿照例句，选出由所给词语正确组成的句子。",
-      "JA": "例のように、与えられた単語を正しく組み合わせた文を選んでください。"
+      "KO": "다음 주 휴가 기간에 제주도로 여행을 떠날 설레는 계획을 전하는 상황입니다.",
+      "EN": "Sharing exciting vacation plans to travel to Jeju Island next week.",
+      "VI": "Chia sẻ kế hoạch hào hứng đi du lịch đảo Jeju vào tuần tới.",
+      "ZH": "说明下周假期将前往济州岛旅行的心动计划。",
+      "JA": "来週の休暇に済州島へ旅行に行く予定を話す場面です。"
     },
     "questions": {
-      "KO": "<보기> 내년 / 대학교 / 입학하다 → 내년에 대학교에 입학해요.\n\n[문제] 다음 주 / 제주도 / 여행하다 → (   )"
+      "KO": "가: 이번 휴가 때 어디로 떠나실 계획이에요?\n나: (   )."
     },
     "options": [
       "다음 주에 제주도를 여행해요.",
@@ -6379,7 +6379,7 @@
       "JA": "相手が自分の持ち物かどうかを尋ねた時、自分のものだと答える場面です。"
     },
     "questions": {
-      "KO": "가: 스티븐 씨, 이거 스티븐 씨 시계예요?\n스티븐: 네, (   ) 시계예요."
+      "KO": "가: (분실물 센터에서) 이 은색 손목시계, 혹시 손님 거예요?\n나: 네, 맞아요! (   ) 시계예요. 어제 헬스장에서 잃어버렸어요."
     },
     "options": [
       "제",
@@ -6411,7 +6411,7 @@
       "JA": "フォーマルな場面で、自分の国籍がアメリカではないと丁寧に否定する場面です。"
     },
     "questions": {
-      "KO": "가: 마이클 씨는 미국 사람입니까?\n나: 아니요, 저는 미국 사람(   ). 영국 사람입니다."
+      "KO": "가: (호텔 체크인 중) 고객님, 국적이 미국이십니까?\n나: 아니요, 저는 미국 사람(   ). 영국 사람입니다."
     },
     "options": [
       "가 아닙니다",
@@ -6543,7 +6543,7 @@
       "JA": "相手が何を得意としているかを尋ねて答える場面です。"
     },
     "questions": {
-      "KO": "가: 마리코 씨 남편도 요리를 잘해요?\n나: 아니요, 요리를 잘 (   )."
+      "KO": "가: 하준 씨는 주말에 집에서 요리를 자주 해요? 요리를 잘해요?\n나: 아니요, 저는 라면만 끓일 수 있어요. 요리를 잘 (   )."
     },
     "options": [
       "않아요",
@@ -7096,13 +7096,11 @@
     "keyword": "딸기",
     "speechBubble": "달콤하고 새콤한 딸기예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 과일 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the correct fruit name shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn hình và chọn đúng tên loại trái cây.",
-      "ZH": "看图片选择正确水果名称的基础词汇题。",
-      "JA": "絵を見て適切な果物の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir el nombre de la fruta que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher o nome da fruta exibida na imagem."
+      "KO": "새콤달콤하고 맛있는 붉은 딸기 과일의 이름을 묻고 답하는 상황입니다.",
+      "EN": "Asking and answering the name of sweet red strawberries.",
+      "VI": "Hỏi đáp về tên loại quả dâu tây đỏ tươi ngọt ngào.",
+      "ZH": "询问并回答酸甜可口的草莓水果名称的场景。",
+      "JA": "甘酸っぱくて美味しい赤いイチゴの名前を答える場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -7133,13 +7131,11 @@
     "keyword": "비행기",
     "speechBubble": "하늘을 나는 비행기예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 교통수단 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the transportation method shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên phương tiện giao thông.",
-      "ZH": "看图片选择对应交通工具的基础词汇题。",
-      "JA": "絵を見て適切な交通手段の単語を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir el medio de transporte que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher o meio de transporte exibido na imagem."
+      "KO": "하늘을 날아 외국으로 여행 갈 때 타는 비행기 교통수단을 확인하는 상황입니다.",
+      "EN": "Identifying an airplane used for traveling overseas through the sky.",
+      "VI": "Nhận biết máy bay, phương tiện di chuyển trên không khi đi nước ngoài.",
+      "ZH": "识别飞越天空前往外国旅行乘坐的飞机交通工具的场景。",
+      "JA": "空を飛んで海外旅行へ行くときに乗る飛行機を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -7170,13 +7166,11 @@
     "keyword": "침대",
     "speechBubble": "푹신하고 편안한 침대예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 방 안 가구 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the bedroom furniture shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên đồ nội thất trong phòng.",
-      "ZH": "看图片选择正确房间家具名称的基础词汇题。",
-      "JA": "絵を見て部屋の中の適切な家具の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar el mueble de dormitorio que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a mobília do quarto exibida na imagem."
+      "KO": "피곤할 때 편안하게 누워 잠을 자는 침실 가구의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying a bedroom bed where people sleep and rest comfortably.",
+      "VI": "Nhận biết chiếc giường ngủ trong phòng để nằm nghỉ ngơi êm ái.",
+      "ZH": "确认在疲惫时躺下安然入眠的卧室床铺家具名称的场景。",
+      "JA": "疲れたときに横になって眠る寝室のベッドを確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -7207,13 +7201,11 @@
     "keyword": "우산",
     "speechBubble": "비가 올 때 쓰는 우산이에요.",
     "situations": {
-      "KO": "그림을 보고 비가 올 때 쓰는 물건의 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the item used when it rains as shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng vật dụng dùng khi trời mưa.",
-      "ZH": "看图片选择下雨时使用的物品名称的基础词汇题。",
-      "JA": "絵を見て雨が降る時に使う物の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir el objeto que se usa cuando llueve.",
-      "PT": "Pergunta básica de vocabulário para escolher o item usado quando chove."
+      "KO": "비가 올 때 옷이 젖지 않도록 머리 위로 펼쳐 쓰는 비가림 소품을 확인하는 상황입니다.",
+      "EN": "Identifying an umbrella used overhead to stay dry in rainy weather.",
+      "VI": "Nhận biết chiếc ô che mưa để không bị ướt khi trời mưa.",
+      "ZH": "确认下雨天撑在头顶遮风挡雨的雨伞物品名称的场景。",
+      "JA": "雨が降る時に濡れないよう差す傘の名前を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -7984,13 +7976,11 @@
     "keyword": "사과",
     "speechBubble": "빨간 사과예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 과일 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the correct fruit shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên loại trái cây.",
-      "ZH": "看图片选择正确水果名称的基础词汇题。",
-      "JA": "絵を見て適切な果物の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir el nombre de la fruta que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher o nome da fruta exibida na imagem."
+      "KO": "나무에서 자란 아삭아삭하고 달콤한 사과 과일의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying a crisp, delicious red apple grown on trees.",
+      "VI": "Nhận biết quả táo đỏ giòn ngọt thơm ngon.",
+      "ZH": "确认树上结出的脆甜多汁的红苹果水果名称的场景。",
+      "JA": "木に実るシャキシャキと甘いリンゴの名前を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8021,13 +8011,11 @@
     "keyword": "우유",
     "speechBubble": "고소하고 하얀 우유예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 음료 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the correct drink shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên loại đồ uống.",
-      "ZH": "看图片选择对应饮品名称的基础词汇题。",
-      "JA": "絵を見て適切な飲み物の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir la bebida que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher a bebida exibida na imagem."
+      "KO": "아침마다 영양 보충을 위해 마시는 신선한 흰 우유의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying fresh white milk enjoyed for morning nutrition.",
+      "VI": "Nhận biết ly sữa tươi trắng bổ dưỡng uống vào mỗi buổi sáng.",
+      "ZH": "确认每天清晨为了补充营养而饮用的鲜牛奶的场景。",
+      "JA": "毎朝の栄養補給のために飲む新鮮な牛乳の名前を確認する場面입니다。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8058,13 +8046,11 @@
     "keyword": "눈",
     "speechBubble": "세상을 보는 눈이에요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the body part shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng bộ phận cơ thể.",
-      "ZH": "看图片选择对应身体部位的基础词汇题。",
-      "JA": "絵を見て適切な身体の部位の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la parte del cuerpo que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a parte do corpo exibida na imagem."
+      "KO": "앞을 보고 빛과 색상을 감지하는 눈의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying the eyes that perceive light, color, and sight.",
+      "VI": "Nhận biết đôi mắt dùng để nhìn thấy ánh sáng và màu sắc.",
+      "ZH": "确认用来观察视线、感知色彩的眼睛部位名称的场景。",
+      "JA": "前を見て光や色彩を感じ取る目の名前を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8095,13 +8081,11 @@
     "keyword": "손",
     "speechBubble": "다섯 손가락이 있는 손이에요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the body part shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng bộ phận cơ thể.",
-      "ZH": "看图片选择对应身体部位的基础词汇题。",
-      "JA": "絵を見て適切な身体の部位の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la parte del cuerpo que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a parte do corpo exibida na imagem."
+      "KO": "물건을 쥐고 따뜻한 온기를 전하는 손의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying the hand used to grasp objects and greet others.",
+      "VI": "Nhận biết bàn tay dùng để cầm nắm và chào hỏi.",
+      "ZH": "确认用来抓取物品、传递温暖的双手部位名称的场景。",
+      "JA": "物を握り温もりを伝える手の名前を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8132,13 +8116,11 @@
     "keyword": "신발",
     "speechBubble": "발에 신는 신발이에요.",
     "situations": {
-      "KO": "그림을 보고 발에 신는 물건의 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the footwear shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ giày dép.",
-      "ZH": "看图片选择穿在脚上的鞋类单字的基础词汇题。",
-      "JA": "絵を見て足に履く履物の単語を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir el calzado que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher o calçado exibido na imagem."
+      "KO": "야외에서 걸을 때 발을 안전하게 감싸주는 신발의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying footwear worn to walk safely outdoors.",
+      "VI": "Nhận biết đôi giày dép bảo vệ đôi chân khi đi ra ngoài.",
+      "ZH": "确认在户外行走时安全包裹双脚的鞋履物品名称的场景。",
+      "JA": "外を歩くときに足を安全に守る靴の名前を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8169,13 +8151,11 @@
     "keyword": "모자",
     "speechBubble": "머리에 쓰는 모자예요.",
     "situations": {
-      "KO": "그림을 보고 머리에 쓰는 패션 소품 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the headwear shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ mũ/nón.",
-      "ZH": "看图片选择戴在头上的帽子词汇的基础题。",
-      "JA": "絵を見て頭にかぶるアイテムの単語を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir la prenda de cabeza que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher o acessório de cabeça exibido na imagem."
+      "KO": "강한 햇빛을 가리고 패션을 더해주는 모자의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying a hat worn on the head for style and sun protection.",
+      "VI": "Nhận biết chiếc mũ đội trên đầu để che nắng và làm đẹp.",
+      "ZH": "确认戴在头上遮阳又增添时尚感的帽子名称的场景。",
+      "JA": "強い日差しを遮りファッションを彩る帽子の名前を確認する場面입니다。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8206,13 +8186,11 @@
     "keyword": "꽃",
     "speechBubble": "예쁘게 피어난 꽃이에요.",
     "situations": {
-      "KO": "그림을 보고 아름답게 피어난 식물 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the correct nature word shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ bông hoa.",
-      "ZH": "看图片选择美丽盛开的植物单字的基础词汇题。",
-      "JA": "絵を見て美しく咲いた植物の単語を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir la palabra de la naturaleza que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher a palavra da natureza exibida na imagem."
+      "KO": "향기롭고 화사하게 피어난 꽃 식물의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying beautiful, fragrant blossoms and flowers.",
+      "VI": "Nhận biết những bông hoa xinh tươi ngát hương thơm.",
+      "ZH": "确认花香四溢、美丽绽放的鲜花植物名称的场景。",
+      "JA": "香り高く華やかに咲いた花の名前を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8243,13 +8221,11 @@
     "keyword": "나무",
     "speechBubble": "푸르고 커다란 나무예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 자연 식물 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the tree shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ cây cối.",
-      "ZH": "看图片选择对应植物词汇的基础题。",
-      "JA": "絵を見て適切な自然・植物の単語を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir el árbol que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher a árvore exibida na imagem."
+      "KO": "푸른 잎과 튼튼한 줄기로 자연 그늘을 만들어주는 나무의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying a green tree providing cool natural shade with leaves.",
+      "VI": "Nhận biết cây xanh rợp bóng mát trong thiên nhiên.",
+      "ZH": "确认有着绿叶和粗壮树干、带来阴凉的树木名称的场景。",
+      "JA": "青々とした葉と丈夫な幹で日陰を作ってくれる木の名前を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8280,13 +8256,11 @@
     "keyword": "스마트폰",
     "speechBubble": "매일 사용하는 스마트폰이에요.",
     "situations": {
-      "KO": "그림을 보고 현대인의 필수품인 전자기기 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the modern electronic device shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên thiết bị điện tử hiện đại.",
-      "ZH": "看图片选择现代人必不可少的电子产品名称的基础题。",
-      "JA": "絵を見て現代人の必需品である電子機器の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar el dispositivo electrónico que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar o dispositivo eletrônico exibido na imagem."
+      "KO": "연락과 인터넷 검색에 매일 사용하는 스마트폰 기기를 확인하는 상황입니다.",
+      "EN": "Identifying a smartphone used daily for communication and internet browsing.",
+      "VI": "Nhận biết chiếc điện thoại di động thông minh dùng hàng ngày.",
+      "ZH": "确认每天用于联络与网络浏览的智能手机数码产品的场景。",
+      "JA": "連絡やネット検索に毎日使うスマートフォン端末を確認する場面입니다。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8317,13 +8291,11 @@
     "keyword": "버스",
     "speechBubble": "정류장에서 타는 버스예요.",
     "situations": {
-      "KO": "그림을 보고 정류장에서 승객을 태우는 대중교통 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the public transport vehicle shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên phương tiện giao thông công cộng.",
-      "ZH": "看图片选择在站点搭载乘客的公共交通工具基础词汇题。",
-      "JA": "絵を見て停留所で乗客を乗せる公共交通機関の単語を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar el medio de transporte público que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar o meio de transporte público exibido na imagem."
+      "KO": "정해진 노선을 따라 도로를 달리며 많은 승객을 태우는 버스를 확인하는 상황입니다.",
+      "EN": "Identifying a city bus that transports passengers along fixed routes.",
+      "VI": "Nhận biết xe buýt công cộng chạy trên đường phố chở nhiều hành khách.",
+      "ZH": "确认沿着固定路线行驶搭载广大乘客的公交车交通工具的场景。",
+      "JA": "定められたルートに沿って道路を走り多くの乗客を乗せるバスを確認する場面입니다。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8354,13 +8326,11 @@
     "keyword": "무릎",
     "speechBubble": "다리를 굽힐 때 쓰는 무릎이에요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the body part shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ bộ phận cơ thể.",
-      "ZH": "看图片选择对应身体部位的基础词汇题。",
-      "JA": "絵を見て適切な身体の部位の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la parte del cuerpo que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a parte do corpo exibida na imagem."
+      "KO": "다리를 부드럽게 굽히고 펴게 해주는 무릎 관절 부위를 확인하는 상황입니다.",
+      "EN": "Identifying the knee joint that allows legs to bend and walk smoothly.",
+      "VI": "Nhận biết khớp đầu gối giúp đôi chân gập duỗi linh hoạt.",
+      "ZH": "确认使腿部能够顺畅弯曲行走的膝盖关节部位名称的场景。",
+      "JA": "足を滑らかに曲げ伸ばしさせる膝（ひざ）の部位を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8391,13 +8361,11 @@
     "keyword": "어깨",
     "speechBubble": "목과 팔을 이어주는 어깨예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the body part shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ bộ phận cơ thể.",
-      "ZH": "看图片选择对应身体部位的基础词汇题。",
-      "JA": "絵を見て適切な身体の部位の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la parte del cuerpo que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a parte do corpo exibida na imagem."
+      "KO": "팔과 몸통을 이어주며 가방 끈을 메는 어깨 신체 부위를 확인하는 상황입니다.",
+      "EN": "Identifying the shoulder where bag straps rest and arms connect.",
+      "VI": "Nhận biết phần vai, nơi đeo quai túi xách và nối liền cánh tay.",
+      "ZH": "确认连接双臂与躯干、背负背包肩带的双肩部位名称的场景。",
+      "JA": "腕と胴体をつなぎカバンのストラップをかける肩の部位を確認する場面입니다。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8428,13 +8396,11 @@
     "keyword": "허리",
     "speechBubble": "몸의 중심을 지탱하는 허리예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the body part shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ bộ phận cơ thể.",
-      "ZH": "看图片选择对应身体部位的基础词汇题。",
-      "JA": "絵を見て適切な身体の部位の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la parte del cuerpo que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a parte do corpo exibida na imagem."
+      "KO": "상체와 하체를 지탱하며 곧게 서게 돕는 중심축 허리를 확인하는 상황입니다.",
+      "EN": "Identifying the waist and lower back that supports posture.",
+      "VI": "Nhận biết phần eo và thắt lưng giúp nâng đỡ cơ thể đứng thẳng.",
+      "ZH": "确认支撑上下身、保持身姿挺拔的腰部核心部位名称的场景。",
+      "JA": "上半身と下半身を支え姿勢をまっすぐ保つ腰の部位を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8465,13 +8431,11 @@
     "keyword": "귀",
     "speechBubble": "소리를 듣는 귀예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 신체 감각 기관 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the sensory organ shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng cơ quan thính giác.",
-      "ZH": "看图片选择对应感官器官的基础词汇题。",
-      "JA": "絵を見て適切な感覚器官の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar el órgano sensorial que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar o órgão sensorial exibido na imagem."
+      "KO": "음악과 사람들의 대화를 들을 수 있게 해주는 귀의 이름을 확인하는 상황입니다.",
+      "EN": "Identifying the ears that hear music and human voices.",
+      "VI": "Nhận biết đôi tai giúp lắng nghe giai điệu và lời nói của mọi người.",
+      "ZH": "确认能让人聆听音乐与人声交流的耳朵器官名称的场景。",
+      "JA": "音楽や人々の会話を聞くことができる耳の名前を確認する場面です。"
     },
     "questions": {
       "KO": "가 : 이것이 무엇입니까?\n나 : (       )입니다."
@@ -8511,7 +8475,7 @@
       "PT": "Uma situação em que um amigo pergunta seus sintomas e você explica que está tossindo e com febre."
     },
     "questions": {
-      "KO": "가: 나나 씨, 기침을 많이 하네요. 감기에 걸렸어요?\n나: 네, (   ) 열도 조금 나요."
+      "KO": "가: 목소리가 많이 잠겼네요. 어디 아파요?\n나: 네, 어제부터 (   ) 열도 조금 나요."
     },
     "options": [
       "기침도 하고",
@@ -9621,7 +9585,7 @@
       "PT": "Uma situação em que um amigo pergunta como você tem passado e você responde que está tudo bem."
     },
     "questions": {
-      "KO": "가: 수피카 씨, 정말 오랜만이에요! 그동안 어떻게 지내셨어요?\n나: 네, 민수 씨! 덕분에 (   )."
+      "KO": "가: 서윤 씨! 졸업하고 3년 만이네요. 요즘 어떻게 지내요?\n나: 와, 진짜 반가워요! 새 회사 다니면서 (   )."
     },
     "options": [
       "가지 못했어요",
@@ -10028,7 +9992,7 @@
       "PT": "Uma situação em que você elogia alguém dizendo que a roupa nova caiu muito bem nele."
     },
     "questions": {
-      "KO": "가: 오늘 입은 이 노란색 셔츠 어때요?\n나: 화사하고 수피카 씨한테 정말 잘 (   )!"
+      "KO": "가: 이번에 산 노란색 셔츠 처음 입어 봤는데 어때요?\n나: 화사하고 얼굴이 밝아 보여요. 정말 잘 (   )!"
     },
     "options": [
       "어울리는 것 같아요",
@@ -10139,7 +10103,7 @@
       "PT": "Uma situação em que você ganha um presente, agradece de coração e promete usar com carinho."
     },
     "questions": {
-      "KO": "가: 수피카 씨 생일 축하해요! 이 텀블러 마음에 들어요?\n나: 우와, 예쁜 보라색이네요! 정말 마음에 들어요. (   )!"
+      "KO": "가: 생일 축하해요! 보라색을 좋아한다고 해서 텀블러를 골랐어요. 마음에 들어요?\n나: 우와, 정말 예뻐요! 고마워요. (   )!"
     },
     "options": [
       "잘 쓸게요",
@@ -10176,7 +10140,7 @@
       "PT": "Uma situação em que você fica genuinamente surpreso com o quanto seu amigo fala coreano bem."
     },
     "questions": {
-      "KO": "가: 마이클 씨는 한국에 온 지 얼마 안 됐는데 발음이 원어민 같아요.\n나: 맞아요, 저도 처음에 목소리 듣고 (   )!"
+      "KO": "가: 새로 온 교환학생 친구는 한국에 온 지 6개월밖에 안 됐는데 발음이 원어민 같아요.\n나: 맞아요, 저도 처음에 목소리 듣고 (   )!"
     },
     "options": [
       "깜짝 놀랐어요",
@@ -10352,13 +10316,11 @@
     "keyword": "포도",
     "speechBubble": "달콤한 보라색 포도예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 과일 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the correct fruit shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên loại trái cây.",
-      "ZH": "看图片选择正确水果名称的基础词汇题。",
-      "JA": "絵を見て適切な果物の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la fruta que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a fruta exibida na imagem."
+      "KO": "과일가게에서 싱싱하고 달콤한 보라색 포도 한 송이를 고르는 상황입니다.",
+      "EN": "Choosing a bunch of fresh, sweet purple grapes at a fruit shop.",
+      "VI": "Chọn một chùm nho tím tươi ngon ngọt lịm tại tiệm trái cây.",
+      "ZH": "在水果店挑选一串新鲜多汁的紫葡萄的日常场景。",
+      "JA": "果物屋で新鮮で甘い紫のブドウを一房選ぶ場面です。"
     },
     "questions": {
       "KO": "가: 과일가게에서 달콤한 (   ) 한 송이 샀어요.\n나: 와, 보라색 알맹이가 정말 싱싱해 보이네요!"
@@ -10389,13 +10351,11 @@
     "keyword": "수박",
     "speechBubble": "여름에 시원하게 먹는 수박이에요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 여름 과일 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the summer fruit shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên loại trái cây mùa hè.",
-      "ZH": "看图片选择对应夏季水果名称的基础词汇题。",
-      "JA": "絵を見て適切な夏の果物の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir la fruta de verano que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para escolher a fruta de verão exibida na imagem."
+      "KO": "무더운 여름날 갈증을 해소하기 위해 시원한 수박을 권하는 상황입니다.",
+      "EN": "Recommending chilled, sweet watermelon to beat the hot summer heat.",
+      "VI": "Gợi ý ăn dưa hấu mát lạnh để giải nhiệt vào ngày hè oi bức.",
+      "ZH": "在炎热夏日推荐品尝清凉西瓜消暑解渴的场景。",
+      "JA": "暑い夏の日に喉の渇きを潤す冷たいスイカを勧める場面です。"
     },
     "questions": {
       "KO": "가: 날씨가 너무 더운데 시원한 (   ) 한 조각 먹을까요?\n나: 좋아요! 빨갛게 잘 익어서 정말 달콤하겠어요."
@@ -10426,13 +10386,11 @@
     "keyword": "빵",
     "speechBubble": "고소하고 부드러운 빵이에요.",
     "situations": {
-      "KO": "그림을 보고 베이커리에서 파는 음식 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the bakery food shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên món ăn nướng từ bột mì.",
-      "ZH": "看图片选择烘焙食品名称的基础词汇题。",
-      "JA": "絵を見てベーカリーで売られている食品の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar el alimento de panadería de la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar o alimento de padaria da imagem."
+      "KO": "베이커리에서 갓 구워낸 고소하고 따뜻한 빵을 아침으로 먹는 상황입니다.",
+      "EN": "Eating warm, freshly baked bread from a bakery for breakfast.",
+      "VI": "Thưởng thức bánh mì mới nướng thơm lừng cho bữa sáng.",
+      "ZH": "早晨品尝面包房刚出炉的热气腾腾香酥面包的场景。",
+      "JA": "ベーカリーで焼きたての香ばしいパンを朝食に食べる場面です。"
     },
     "questions": {
       "KO": "가: 오늘 아침 식사로 따뜻한 (   )과 우유를 먹었어요.\n나: 베이커리에서 갓 구운 거라 아주 고소했겠네요!"
@@ -10463,13 +10421,11 @@
     "keyword": "계란",
     "speechBubble": "닭이 낳은 영양 만점 계란이에요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 식재료 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the egg shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng tên thực phẩm.",
-      "ZH": "看图片选择对应常见食材名称的基础词汇题。",
-      "JA": "絵を見て適切な食材の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar el ingrediente que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar o ingrediente exibido na imagem."
+      "KO": "라면에 넣어 국물 맛을 부드럽게 해주는 계란을 넣을지 묻는 상황입니다.",
+      "EN": "Asking if you want an egg added to your ramen noodles.",
+      "VI": "Hỏi xem có muốn đập thêm một quả trứng vào bát mì tôm không.",
+      "ZH": "询问在煮拉面时是否要加入一个鸡蛋增添风味的日常场景。",
+      "JA": "ラーメンに卵を入れてまろやかにするか尋ねる場面입니다。"
     },
     "questions": {
       "KO": "가: 라면에 (   ) 하나 넣어서 끓여 드릴까요?\n나: 네, 노른자는 터뜨리지 말고 반숙으로 부탁해요."
@@ -10500,13 +10456,11 @@
     "keyword": "코",
     "speechBubble": "냄새를 맡고 숨을 쉬는 코예요.",
     "situations": {
-      "KO": "그림을 보고 얼굴 중앙에 위치한 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the facial feature shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng bộ phận trên khuôn mặt.",
-      "ZH": "看图片选择面部呼吸器官单字的基础词汇题。",
-      "JA": "絵を見て顔の中央にある身体の器官の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la parte del rostro de la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a parte do rosto da imagem."
+      "KO": "향수 냄새를 맡으려는데 감기 때문에 코가 막혀 답답한 상황입니다.",
+      "EN": "Mentioning that your nose is congested from a cold and cannot smell perfume.",
+      "VI": "Nói về việc bị nghẹt mũi do cảm cúm nên không ngửi được mùi nước hoa.",
+      "ZH": "因感冒鼻塞而闻不到好闻香水味道的日常情景。",
+      "JA": "香水の匂いを嗅ごうとしたが風邪で鼻が詰まって匂わない場面です。"
     },
     "questions": {
       "KO": "가: 향수 냄새가 정말 좋은데 맡아봤어요?\n나: 감기에 걸려서 (   )이/가 막혀 냄새를 잘 못 맡겠어요."
@@ -10537,13 +10491,11 @@
     "keyword": "입",
     "speechBubble": "음식을 먹고 말을 하는 입이에요.",
     "situations": {
-      "KO": "그림을 보고 음식 섭취와 발화에 쓰이는 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the mouth shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ miệng.",
-      "ZH": "看图片选择对应面部器官的基础词汇题。",
-      "JA": "絵を見て適切な身体の部位（口）の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la boca que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a boca exibida na imagem."
+      "KO": "병원 진료 시 의사 선생님의 말씀에 따라 입을 벌려 목을 보여주는 상황입니다.",
+      "EN": "Opening your mouth to let the doctor examine your throat during checkup.",
+      "VI": "Há to miệng để bác sĩ khám họng khi đi khám bệnh.",
+      "ZH": "就医检查时听从医生嘱咐张开嘴巴查看喉咙的场景。",
+      "JA": "診察の際に医師の指示に従って口を開け喉を見せる場面です。"
     },
     "questions": {
       "KO": "가: 의사 선생님께서 진찰할 때 뭐라고 하셨어요?\n나: 목 안쪽을 보신다고 (   )을/를 크게 벌리라고 하셨어요."
@@ -10574,13 +10526,11 @@
     "keyword": "다리",
     "speechBubble": "걷고 달릴 수 있게 해 주는 다리예요.",
     "situations": {
-      "KO": "그림을 보고 보행과 달리기에 쓰이는 하체 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the leg shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ cẳng chân.",
-      "ZH": "看图片选择下肢身体部位的基础词汇题。",
-      "JA": "絵を見て歩行やランニングに使う下肢の部位の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la pierna que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a perna exibida na imagem."
+      "KO": "등산을 오래 하여 다리 근육이 뻐근하고 피로해진 상태를 말하는 상황입니다.",
+      "EN": "Mentioning that your legs are sore and tired after a long hike.",
+      "VI": "Nói về việc đôi chân mỏi nhừ sau một chuyến leo núi dài.",
+      "ZH": "因长时间爬山而导致双腿酸痛疲惫的日常对话场景。",
+      "JA": "長時間の登山で脚が疲れて痛くなったと伝える場面입니다。"
     },
     "questions": {
       "KO": "가: 오늘 등산을 오래 했더니 (   )이/가 너무 아파요.\n나: 계단을 많이 오르내려서 근육이 뭉쳤나 봐요."
@@ -10611,13 +10561,11 @@
     "keyword": "발",
     "speechBubble": "땅을 딛고 신발을 신는 발이에요.",
     "situations": {
-      "KO": "그림을 보고 다리의 맨 끝부분 신체 부위 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the foot shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ bàn chân.",
-      "ZH": "看图片选择对应脚部单字的基础词汇题。",
-      "JA": "絵を見て地面を踏みしめる身体の部位（足）の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar el pie que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar o pé exibido na imagem."
+      "KO": "새 구두를 처음 신고 걸어서 발뒤꿈치가 쓸려 아픈 상태를 말하는 상황입니다.",
+      "EN": "Mentioning that your feet hurt from wearing brand-new shoes.",
+      "VI": "Nói về việc bị đau chân do mang đôi giày mới mua.",
+      "ZH": "说明刚穿新皮鞋走路导致脚后跟有点磨痛的情景。",
+      "JA": "新しい靴を履いて歩いたら足のかかとが少し痛いと話す場面です。"
     },
     "questions": {
       "KO": "가: 새 구두를 신었더니 (   )이/가 조금 아프네요.\n나: 뒤꿈치에 밴드를 붙이거나 편한 운동화로 갈아신으세요."
@@ -10648,13 +10596,11 @@
     "keyword": "바지",
     "speechBubble": "다리에 입는 편안한 바지예요.",
     "situations": {
-      "KO": "그림을 보고 하의 의류 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify pants shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ quần dài.",
-      "ZH": "看图片选择下装裤子名称的基础词汇题。",
-      "JA": "絵を見て下半身に履く衣類（ズボン）の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar los pantalones que se muestran en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a calça exibida na imagem."
+      "KO": "쌀쌀한 날씨에 활동하기 편하고 따뜻한 바지를 입기로 결정하는 상황입니다.",
+      "EN": "Choosing to wear warm, comfortable pants in chilly weather.",
+      "VI": "Quyết định mặc chiếc quần dài ấm áp khi thời tiết se lạnh.",
+      "ZH": "在天气转凉时决定穿上温暖舒适长裤出门的场景。",
+      "JA": "肌寒い天気に動きやすくて暖かいズボンを履くことにした場面です。"
     },
     "questions": {
       "KO": "가: 오늘 날씨가 쌀쌀한데 치마 대신 따뜻한 (   )을/를 입을까요?\n나: 네, 긴 청바지나 슬랙스를 입는 게 좋겠어요."
@@ -10685,13 +10631,11 @@
     "keyword": "치마",
     "speechBubble": "바람에 살랑거리는 예쁜 치마예요.",
     "situations": {
-      "KO": "그림을 보고 알맞은 의류 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify a skirt shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ váy.",
-      "ZH": "看图片选择裙装名称的基础词汇题。",
-      "JA": "絵を見て適切なスカートの名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la falda que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a saia exibida na imagem."
+      "KO": "결혼식이나 공식 모임에 어울리는 단정한 치마를 추천해달라고 하는 상황입니다.",
+      "EN": "Asking for recommendations of a neat, elegant skirt for weddings.",
+      "VI": "Nhờ gợi ý một chiếc chân váy thanh lịch để đi dự đám cưới.",
+      "ZH": "请朋友推荐一条适合去婚礼穿着的端庄裙子的场景。",
+      "JA": "結婚式に着ていくきちんとしたスカートを勧めてもらう場面です。"
     },
     "questions": {
       "KO": "가: 친구 결혼식 갈 때 입을 단정한 (   ) 하나 추천해 줄래?\n나: 무릎까지 오는 검은색 정장 치마가 깔끔하고 예뻐."
@@ -10722,13 +10666,11 @@
     "keyword": "양말",
     "speechBubble": "신발을 신기 전에 발에 신는 양말이에요.",
     "situations": {
-      "KO": "그림을 보고 발에 신는 의류 소품 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify socks shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ đôi tất.",
-      "ZH": "看图片选择穿在脚上的袜子单字的基础词汇题。",
-      "JA": "絵を見て靴を履く前に足に身につける靴下の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar los calcetines que se muestran en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar as meias exibidas na imagem."
+      "KO": "운동화를 신기 전에 발을 보호하고 땀을 흡수하는 양말을 챙겨 신는 상황입니다.",
+      "EN": "Putting on socks to protect feet before wearing sneakers.",
+      "VI": "Mang tất trước khi đi giày thể thao để bảo vệ bàn chân.",
+      "ZH": "在穿运动鞋前穿上保护双脚吸汗棉袜的日常场景。",
+      "JA": "スニーカーを履く前に足を保護する靴下を履く場面です。"
     },
     "questions": {
       "KO": "가: 운동화를 신기 전에 꼭 (   )을/를 신어야 발이 편해요.\n나: 네, 땀도 흡수해 주고 상처도 안 나요."
@@ -10759,13 +10701,11 @@
     "keyword": "안경",
     "speechBubble": "글씨를 또렷하게 보게 해 주는 안경이에요.",
     "situations": {
-      "KO": "그림을 보고 시력 교정이나 멋을 위해 눈앞에 쓰는 물건을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify eyeglasses shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ chiếc kính mắt.",
-      "ZH": "看图片选择视力矫正或遮阳配戴的眼镜单字的基础词汇题。",
-      "JA": "絵を見て視力矯正やファッションで目にかけるメガネの名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar las gafas/lentes que se muestran en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar os óculos exibidos na imagem."
+      "KO": "칠판 글씨가 흐릿하게 보여 시력 보정을 위해 안경을 쓰기로 권하는 상황입니다.",
+      "EN": "Recommending glasses because the board text looks blurry.",
+      "VI": "Khuyên nên đeo kính vì nhìn chữ trên bảng bị mờ do giảm thị lực.",
+      "ZH": "因看黑板字迹模糊不清而建议佩戴近视眼镜的场景。",
+      "JA": "黒板の文字がぼやけて見えるためメガネをかけるよう勧める場面입니다。"
     },
     "questions": {
       "KO": "가: 칠판 글씨가 흐릿하게 보여서 잘 안 보여요.\n나: 시력이 떨어진 것 같은데 (   )을/를 맞추러 가 보세요."
@@ -10796,13 +10736,11 @@
     "keyword": "해",
     "speechBubble": "낮에 밝게 빛나는 따뜻한 해예요.",
     "situations": {
-      "KO": "그림을 보고 낮 동안 하늘에서 세상을 비추는 태양의 순우리말 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to choose the native Korean word for the Sun.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ thuần Hàn chỉ mặt trời.",
-      "ZH": "看图片选择白天照亮大地的太阳纯韩语单字的基础词汇题。",
-      "JA": "絵を見て昼間に空で輝く太陽の固有語の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para elegir la palabra coreana nativa para el Sol.",
-      "PT": "Pergunta básica de vocabulário para escolher a palavra nativa em coreano para o Sol."
+      "KO": "이른 아침 동쪽 하늘 위로 붉게 떠오르는 해를 바라보며 감탄하는 상황입니다.",
+      "EN": "Admiring the bright red sun rising over the eastern sky at dawn.",
+      "VI": "Ngắm nhìn vầng mặt trời đỏ rực đang nhô lên ở phía đông vào sáng sớm.",
+      "ZH": "清晨欣赏东方天空冉冉升起的火红太阳的场景。",
+      "JA": "早朝の東の空に赤く昇る太陽（日）を眺めて感嘆する場面です。"
     },
     "questions": {
       "KO": "가: 아침 일찍 동쪽 하늘에서 붉은 (   )이/가 떠올랐어요.\n나: 새해 일출을 보니 올 한 해도 힘이 나네요!"
@@ -10833,13 +10771,11 @@
     "keyword": "달",
     "speechBubble": "밤하늘을 은은하게 비추는 달이에요.",
     "situations": {
-      "KO": "그림을 보고 밤하늘에 떠오르는 천체 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify the Moon shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ mặt trăng.",
-      "ZH": "看图片选择夜空中出现的月亮单字的基础词汇题。",
-      "JA": "絵を見て夜空に浮かぶ月の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la Luna que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a Lua exibida na imagem."
+      "KO": "구름 없는 맑은 밤하늘에 둥실 떠오른 밝은 보름달을 함께 바라보는 상황입니다.",
+      "EN": "Gazing at the bright, round full moon in a clear night sky.",
+      "VI": "Cùng ngắm nhìn vầng trăng tròn vành vạnh tỏa sáng trên bầu trời đêm trong vắt.",
+      "ZH": "一起仰望晴朗夜空中高悬的皎洁满月的浪漫场景。",
+      "JA": "雲ひとつない夜空に浮かぶ丸い満月を一緒に見上げる場面です。"
     },
     "questions": {
       "KO": "가: 오늘 밤하늘에 뜬 동그란 보름(   ) 봤어요?\n나: 네, 구름 없이 맑아서 정말 크고 밝게 빛나네요."
@@ -10870,13 +10806,11 @@
     "keyword": "별",
     "speechBubble": "깜깜한 밤하늘에 반짝이는 별이에요.",
     "situations": {
-      "KO": "그림을 보고 밤하늘에 반짝이는 작은 천체 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify a star shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ ngôi sao.",
-      "ZH": "看图片选择夜空闪烁的繁星单字的基础词汇题。",
-      "JA": "絵を見て夜空にきらきら輝く星の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar una estrella de la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar uma estrela da imagem."
+      "KO": "도심을 벗어나 시골 밤하늘에 보석처럼 수없이 반짝이는 별들을 바라보는 상황입니다.",
+      "EN": "Looking at countless sparkling stars in the quiet countryside night sky.",
+      "VI": "Ngắm nhìn vô số vì sao lấp lánh như ngọc trên bầu trời đêm ở vùng thôn quê.",
+      "ZH": "远离喧嚣都市，在乡下夜空下欣赏繁星点点的浪漫场景。",
+      "JA": "田舎の澄んだ夜空に無数にきらめく星々を見上げる場面です。"
     },
     "questions": {
       "KO": "가: 시골에 가니까 밤하늘에 반짝이는 (   )이/가 정말 많아요.\n나: 서울에서는 도심 불빛 때문에 잘 안 보였는데 참 아름답네요."
@@ -10907,13 +10841,11 @@
     "keyword": "구름",
     "speechBubble": "하늘에 둥둥 떠다니는 하얀 구름이에요.",
     "situations": {
-      "KO": "그림을 보고 하늘에 솜사탕처럼 떠다니는 기상 현상 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify a cloud shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ đám mây.",
-      "ZH": "看图片选择天空中漂浮的白云单字的基础词汇题。",
-      "JA": "絵を見て空に浮かぶ雲の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la nube que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a nuvem exibida na imagem."
+      "KO": "푸른 하늘에 하얀 솜사탕처럼 둥둥 떠다니는 구름을 올려다보는 상황입니다.",
+      "EN": "Looking up at white cotton-candy clouds floating across a blue sky.",
+      "VI": "Ngước nhìn những đám mây trắng bồng bềnh như kẹo bông gòn trên nền trời xanh.",
+      "ZH": "仰望蓝天中朵朵像棉花糖一样漂浮的白云的日常场景。",
+      "JA": "青空に白い綿菓子のように浮かぶ雲を見上げる場面です。"
     },
     "questions": {
       "KO": "가: 파란 하늘에 하얀 솜사탕 같은 (   )이/가 둥둥 떠 있어요.\n나: 날씨가 맑아서 산책하기 딱 좋은 날이네요."
@@ -10944,13 +10876,11 @@
     "keyword": "책",
     "speechBubble": "글과 지식이 담겨 있는 책이에요.",
     "situations": {
-      "KO": "그림을 보고 도서관에서 대출하여 읽는 인쇄물 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify a book shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ quyển sách.",
-      "ZH": "看图片选择供阅读学习的书籍单字的基础词汇题。",
-      "JA": "絵を見て図書館で読んだり借りたりする本・書籍の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar el libro que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar o livro exibido na imagem."
+      "KO": "주말에 서점에 들러 마음의 양식을 쌓을 유익한 책을 고르는 대화 상황입니다.",
+      "EN": "Discussing picking up a great book to read at a bookstore on the weekend.",
+      "VI": "Rủ nhau ghé hiệu sách vào cuối tuần để chọn một cuốn sách hay để đọc.",
+      "ZH": "周末去书店挑选一本好书阅读增进知识的日常对话情景。",
+      "JA": "週末に書店へ行って読む本を一冊選ぶ日常会話の場面です。"
     },
     "questions": {
       "KO": "가: 이번 주말에 서점에 가서 읽을 만한 (   ) 한 권 살까요?\n나: 좋아요, 새로 나온 한국어 소설을 골라봐요."
@@ -10981,13 +10911,11 @@
     "keyword": "의자",
     "speechBubble": "앉아서 공부할 때 쓰는 의자예요.",
     "situations": {
-      "KO": "그림을 보고 사람이 엉덩이를 대고 앉는 가구 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify a chair shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ chiếc ghế ngồi.",
-      "ZH": "看图片选择供人坐下的家具单字的基础词汇题。",
-      "JA": "絵を見て腰掛けて座る家具（イス）の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la silla que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a cadeira exibida na imagem."
+      "KO": "오래 걸어 다리가 아파 카페의 빈 의자에 앉아 휴식을 취하려는 상황입니다.",
+      "EN": "Looking for an empty chair to sit down and rest after walking a lot.",
+      "VI": "Tìm chiếc ghế trống ở quán để ngồi nghỉ ngơi vì đi bộ nhiều bị mỏi chân.",
+      "ZH": "走累了找一张空椅子坐下来歇息放松的场景。",
+      "JA": "たくさん歩いて足が痛いので空いた椅子に座って休む場面です。"
     },
     "questions": {
       "KO": "가: 다리가 아픈데 저기 빈 (   )에 앉아서 쉴까요?\n나: 네, 저 벤치에 앉아서 커피 마셔요."
@@ -11018,13 +10946,11 @@
     "keyword": "컴퓨터",
     "speechBubble": "인터넷과 과제를 할 때 쓰는 컴퓨터예요.",
     "situations": {
-      "KO": "그림을 보고 업무와 과제에 쓰이는 전자기기 이름을 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify a computer shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ máy vi tính.",
-      "ZH": "看图片选择办公学习用的电脑单字的基础词汇题。",
-      "JA": "絵を見て勉強や仕事で使うコンピュータ（パソコン）の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la computadora/ordenador de la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar o computador da imagem."
+      "KO": "대학 과제나 리포트 작성을 위해 도서관 컴퓨터를 이용해야 하는 상황입니다.",
+      "EN": "Needing a computer to write university assignments and reports.",
+      "VI": "Cần sử dụng máy tính để hoàn thành báo cáo và bài tập đại học.",
+      "ZH": "为了撰写大学论文报告需要使用电脑的校园学习情景。",
+      "JA": "大学のレポート作成のためにパソコンが必要な場面です。"
     },
     "questions": {
       "KO": "가: 대학교 리포트를 작성하려면 (   )이/가 필요해요.\n나: 중앙도서관 2층 디지털 자료실에 가면 사용할 수 있어요."
@@ -11055,13 +10981,11 @@
     "keyword": "자전거",
     "speechBubble": "페달을 밟아 달리는 자전거예요.",
     "situations": {
-      "KO": "그림을 보고 두 바퀴와 페달로 달리는 이동 수단 단어를 고르는 기초 단어 문제입니다.",
-      "EN": "A basic vocabulary quiz asking you to identify a bicycle shown in the picture.",
-      "VI": "Câu hỏi từ vựng cơ bản yêu cầu bạn nhìn tranh và chọn đúng từ chỉ xe đạp.",
-      "ZH": "看图片选择双轮脚踏代步工具单字的基础词汇题。",
-      "JA": "絵を見てペダルを踏んで走る二輪の乗り物（自転車）の名前を選ぶ基礎単語問題です。",
-      "ES": "Pregunta básica de vocabulario para identificar la bicicleta que se muestra en la imagen.",
-      "PT": "Pergunta básica de vocabulário para identificar a bicicleta exibida na imagem."
+      "KO": "주말에 한강 공원에서 시원한 바람을 가르며 자전거를 타는 여가 상황입니다.",
+      "EN": "Riding a bicycle while enjoying the cool breeze at Hangang Park on the weekend.",
+      "VI": "Đạp xe đạp đón gió mát thư giãn tại công viên sông Hàn vào cuối tuần.",
+      "ZH": "周末在汉江公园迎着清凉微风骑自行车的休闲生活场景。",
+      "JA": "週末に漢江公園で涼しい風を感じながら自転車に乗る場面です。"
     },
     "questions": {
       "KO": "가: 주말에 한강 공원에서 시원한 바람을 맞으며 (   )을/를 탔어요.\n나: 페달 밟으면서 달리니까 기분 전환도 되고 운동도 되죠!"
@@ -14235,7 +14159,7 @@
     "level": 1,
     "visual": "🚇 🔄",
     "keyword": "다음 역에서 갈아타야 해요",
-    "speechBubble": "강남역에 가려면 다음 역에서 갈아타야 해요.",
+    "speechBubble": "다음 역에서 갈아타야 해요.",
     "situations": {
       "KO": "목적지 노선으로 환승하기 위해 다음 정차역에서 내려 다른 열차로 갈아타야 함을 설명하는 상황입니다.",
       "EN": "A situation learning the expression or concept '다음 역에서 갈아타야 해요'.",
@@ -14246,7 +14170,7 @@
       "PT": "Uma situação para aprender e praticar a expressão '다음 역에서 갈아타야 해요'."
     },
     "questions": {
-      "KO": "가: 수피카 씨, 우리가 지금 1호선 타고 있는데 시청역으로 가려면 어떻게 가요?\n나: 이번 역 말고 (   ). 2호선으로 환승해야 해요."
+      "KO": "가: 우리 지금 1호선 타고 있는데 홍대입구역까지 어떻게 가요?\n나: 이번 역 말고 (   ). 시청역에서 2호선으로 환승하면 돼요."
     },
     "options": [
       "역 밖으로 뛰어야 해요",
@@ -14790,7 +14714,7 @@
     "level": 1,
     "visual": "👂 🌟",
     "keyword": "말씀 많이 들었어요",
-    "speechBubble": "영희 씨에게 철수 씨 말씀 많이 들었어요.",
+    "speechBubble": "도윤 씨한테 말씀 많이 들었어요.",
     "situations": {
       "KO": "지인의 소개로 처음 만난 사람에게 친근감과 호의를 표하는 상황입니다.",
       "EN": "A situation learning the expression or concept '말씀 많이 들었어요'.",
@@ -14801,7 +14725,7 @@
       "PT": "Uma situação para aprender e praticar a expressão '말씀 많이 들었어요'."
     },
     "questions": {
-      "KO": "가: 안녕하세요! 저는 영희의 대학교 친구 마이클이라고 합니다.\n나: 아, 마이클 씨! 영희한테 (   ). 정말 만나서 반가워요."
+      "KO": "가: 안녕하세요! 저는 도윤 씨 회사 동기 서준이라고 합니다.\n나: 아, 서준 씨! 도윤 씨한테 (   ). 정말 만나서 반가워요."
     },
     "options": [
       "이름 처음 봐요",
