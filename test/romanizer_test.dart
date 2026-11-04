@@ -10,6 +10,10 @@ void main() {
     expect(KoreanRomanizer.romanize('한글'), 'hangeul');
     expect(KoreanRomanizer.romanize('물'), 'mul');
     expect(KoreanRomanizer.romanize('가방'), 'gabang');
+    expect(KoreanRomanizer.romanize('물이'), 'muri');
+    expect(KoreanRomanizer.romanize('밥을'), 'babeul');
+    expect(KoreanRomanizer.romanize('있어요'), 'isseoyo');
+    expect(KoreanRomanizer.romanize('있어요?'), 'isseoyo?');
   });
 }
 

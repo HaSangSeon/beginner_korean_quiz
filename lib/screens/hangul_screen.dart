@@ -279,14 +279,18 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
           ),
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          _buildConsonantView(isDark),
-          _buildVowelGrid(HangulData.basicVowels, isDark),
-          _buildVowelGrid(HangulData.compoundVowels, isDark),
-          _buildSyllableBuilderView(isDark),
-        ],
+      body: SafeArea(
+        top: false,
+        bottom: true,
+        child: TabBarView(
+          controller: _tabController,
+          children: [
+            _buildConsonantView(isDark),
+            _buildVowelGrid(HangulData.basicVowels, isDark),
+            _buildVowelGrid(HangulData.compoundVowels, isDark),
+            _buildSyllableBuilderView(isDark),
+          ],
+        ),
       ),
       floatingActionButton: Container(
         decoration: BoxDecoration(
@@ -905,8 +909,8 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
                               const SizedBox(width: 4),
                               Text(
                                 _isAllInOneView
-                                    ? (_langCode == 'KO' ? '탭 모드' : 'Tab View')
-                                    : (_langCode == 'KO' ? '전체 펼치기' : 'All in One'),
+                                    ? AppStrings.tr('hangul_view_tab', _langCode)
+                                    : AppStrings.tr('hangul_view_all', _langCode),
                                 style: const TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w800,

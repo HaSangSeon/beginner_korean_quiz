@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -17,6 +18,7 @@ class TtsService {
   bool _hasCheckedAvailability = false;
   bool _isShowingPrompt = false;
   String? _currentlyPlayingText;
+  Completer<void>? _speakCompleter;
 
   String? get currentlyPlayingText => _currentlyPlayingText;
   bool get isKoreanAvailable => _isKoreanAvailable;
@@ -87,13 +89,29 @@ class TtsService {
       } catch (_) {}
 
       await _flutterTts!.setVolume(1.0);
+      try {
+        await _flutterTts!.awaitSpeakCompletion(true);
+      } catch (_) {}
 
       _flutterTts!.setCompletionHandler(() {
         _currentlyPlayingText = null;
+        if (_speakCompleter != null && !_speakCompleter!.isCompleted) {
+          _speakCompleter!.complete();
+        }
+      });
+
+      _flutterTts!.setCancelHandler(() {
+        _currentlyPlayingText = null;
+        if (_speakCompleter != null && !_speakCompleter!.isCompleted) {
+          _speakCompleter!.complete();
+        }
       });
 
       _flutterTts!.setErrorHandler((msg) {
         _currentlyPlayingText = null;
+        if (_speakCompleter != null && !_speakCompleter!.isCompleted) {
+          _speakCompleter!.complete();
+        }
       });
 
       _isInitialized = true;
@@ -178,6 +196,40 @@ class TtsService {
     }
   }
 
+  /// Speak a single line and await its completion (used for sequential dialogue TTS playback)
+  Future<void> speakAndWait(String text, {bool isSlow = false}) async {
+    final cleanText = _prepareTextForSpeech(text);
+    if (cleanText.isEmpty) return;
+
+    if (_speakCompleter != null && !_speakCompleter!.isCompleted) {
+      _speakCompleter!.complete();
+    }
+    final completer = Completer<void>();
+    _speakCompleter = completer;
+
+    final maxDuration = Duration(
+      milliseconds: (cleanText.length * 220 + 1800).clamp(2000, 12000),
+    );
+
+    try {
+      await speak(cleanText, isSlow: isSlow).timeout(
+        maxDuration,
+        onTimeout: () {},
+      );
+      if (!completer.isCompleted) {
+        await completer.future.timeout(
+          const Duration(milliseconds: 500),
+          onTimeout: () {},
+        );
+      }
+    } catch (_) {
+    } finally {
+      if (!completer.isCompleted) {
+        completer.complete();
+      }
+    }
+  }
+
   /// Stop current playback
   Future<void> stop() async {
     try {
@@ -188,6 +240,9 @@ class TtsService {
       debugPrint('TtsService stop error: $e');
     } finally {
       _currentlyPlayingText = null;
+      if (_speakCompleter != null && !_speakCompleter!.isCompleted) {
+        _speakCompleter!.complete();
+      }
     }
   }
 

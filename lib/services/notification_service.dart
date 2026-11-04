@@ -15,11 +15,52 @@ class NotificationService {
 
   bool _isInitialized = false;
 
+  void _configureLocalTimeZone() {
+    tz.initializeTimeZones();
+    final now = DateTime.now();
+    final offsetMs = now.timeZoneOffset.inMilliseconds;
+    final tzName = now.timeZoneName;
+
+    try {
+      if (tz.timeZoneDatabase.locations.containsKey(tzName)) {
+        tz.setLocalLocation(tz.getLocation(tzName));
+        return;
+      }
+
+      // Prioritize primary target regions by offset
+      const preferredByMinutes = <int, String>{
+        540: 'Asia/Seoul', // UTC+9 (Korea / Japan)
+        480: 'Asia/Shanghai', // UTC+8 (China / Taiwan / Singapore)
+        420: 'Asia/Ho_Chi_Minh', // UTC+7 (Vietnam / Thailand)
+      };
+      final preferredName = preferredByMinutes[now.timeZoneOffset.inMinutes];
+      if (preferredName != null &&
+          tz.timeZoneDatabase.locations.containsKey(preferredName)) {
+        tz.setLocalLocation(tz.getLocation(preferredName));
+        return;
+      }
+
+      // Fallback: match any IANA location with the device's current offset
+      final nowEpochMs = now.millisecondsSinceEpoch;
+      for (final loc in tz.timeZoneDatabase.locations.values) {
+        if (loc.timeZone(nowEpochMs).offset.inMilliseconds == offsetMs) {
+          tz.setLocalLocation(loc);
+          return;
+        }
+      }
+    } catch (e) {
+      debugPrint('Timezone configuration fallback to Asia/Seoul: $e');
+      if (tz.timeZoneDatabase.locations.containsKey('Asia/Seoul')) {
+        tz.setLocalLocation(tz.getLocation('Asia/Seoul'));
+      }
+    }
+  }
+
   Future<void> init() async {
     if (_isInitialized) return;
 
     try {
-      tz.initializeTimeZones();
+      _configureLocalTimeZone();
 
       const androidSettings =
           AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -43,8 +84,19 @@ class NotificationService {
 
       _isInitialized = true;
 
-      // Check notification preference and schedule
-      await scheduleDailyReminder();
+      // Check notification preference, request permission if enabled, and sync state
+      final progress = ProgressService();
+      if (progress.isNotificationEnabled) {
+        final granted = await requestPermission();
+        if (!granted) {
+          progress.setNotificationEnabled(false);
+          await cancelAll();
+          return;
+        }
+        await scheduleDailyReminder();
+      } else {
+        await cancelAll();
+      }
     } catch (e) {
       debugPrint('NotificationService init error: $e');
     }

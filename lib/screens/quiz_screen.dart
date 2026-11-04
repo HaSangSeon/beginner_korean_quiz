@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../data/app_localization.dart';
@@ -57,7 +56,14 @@ class _QuizScreenState extends State<QuizScreen> {
     if (_questions.isNotEmpty && _currentIndex < _questions.length) {
       final q = _questions[_currentIndex];
       if (q.chips != null && q.chips!.isNotEmpty) {
-        _bankChips = List<String>.from(q.chips!)..shuffle();
+        final chipsCopy = List<String>.from(q.chips!)..shuffle();
+        final targetClean = q.options[q.answerIndex].replaceAll(' ', '').trim();
+        if (chipsCopy.length > 1 &&
+            chipsCopy.map((c) => c.replaceAll(' ', '').trim()).join() == targetClean) {
+          final first = chipsCopy.removeAt(0);
+          chipsCopy.add(first);
+        }
+        _bankChips = chipsCopy;
       } else {
         _bankChips = [];
       }
@@ -278,10 +284,6 @@ class _QuizScreenState extends State<QuizScreen> {
           return '基础词汇测验';
         case 'JA':
           return '基礎単語クイズ';
-        case 'ES':
-          return 'Quiz de Vocabulario';
-        case 'PT':
-          return 'Quiz de Vocabulário';
         case 'KO':
         default:
           return '기초 단어 퀴즈';
@@ -296,10 +298,6 @@ class _QuizScreenState extends State<QuizScreen> {
           return '实战句子练习';
         case 'JA':
           return '実践文練習';
-        case 'ES':
-          return 'Práctica de Frases';
-        case 'PT':
-          return 'Prática de Frases';
         case 'KO':
         default:
           return '생활 대화 연습';
@@ -318,10 +316,6 @@ class _QuizScreenState extends State<QuizScreen> {
           return '💡 单词超简单速记';
         case 'JA':
           return '💡 単語のかんたん要点';
-        case 'ES':
-          return '💡 Consejo clave de la palabra';
-        case 'PT':
-          return '💡 Dica fácil da palavra';
         case 'KO':
         default:
           return '💡 초보자 단어 핵심 팁';
@@ -336,10 +330,6 @@ class _QuizScreenState extends State<QuizScreen> {
           return '💡 句子超简单速记';
         case 'JA':
           return '💡 文のかんたん要点';
-        case 'ES':
-          return '💡 Consejo clave para la frase';
-        case 'PT':
-          return '💡 Dica fácil da frase';
         case 'KO':
         default:
           return '💡 초보자 문장 핵심 꿀팁';
@@ -1276,7 +1266,7 @@ class _QuizScreenState extends State<QuizScreen> {
         ],
       ),
       body: SafeArea(
-        bottom: false,
+        bottom: true,
         child: Column(
           children: [
             // Top: Progress Bar, Question Counter & Category Badge
@@ -1483,7 +1473,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                             borderRadius: BorderRadius.circular(6),
                                           ),
                                           child: Text(
-                                            _getSituationTag(currentQuestion.id, 'KO'),
+                                            _getSituationTag(currentQuestion.id, _currentLangCode),
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
@@ -1589,15 +1579,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         );
                       }),
                     ],
-                    SizedBox(
-                      height: _isBannerAdLoaded
-                          ? 12.0
-                          : (12.0 +
-                              math.max(
-                                MediaQuery.paddingOf(context).bottom,
-                                MediaQuery.viewPaddingOf(context).bottom,
-                              )),
-                    ),
+                    const SizedBox(height: 24.0),
                   ],
                 ),
               ),
@@ -1666,7 +1648,7 @@ class _QuizScreenState extends State<QuizScreen> {
         children: [
           // 1. Sleek, uncluttered Type Badge Header
           Builder(builder: (context) {
-            final typeLabel = isWordQuiz ? '기초 단어' : '문장 연습';
+            final typeLabel = AppStrings.tr(isWordQuiz ? 'quiz_type_word' : 'quiz_type_sentence', _currentLangCode);
             final typeIcon = isWordQuiz ? Icons.auto_awesome_rounded : Icons.forum_rounded;
             final badgeBg = isDark
                 ? const Color(0xFF0F172A)
@@ -1741,7 +1723,7 @@ class _QuizScreenState extends State<QuizScreen> {
                           const SizedBox(width: 4),
                           Text(
                             _showQuestionHint
-                                ? '힌트 닫기'
+                                ? AppStrings.tr('quiz_hint_close', _currentLangCode)
                                 : '${AppStrings.tr('quiz_context_hint', _currentLangCode)} 💡',
                             style: TextStyle(
                               fontSize: 11,
@@ -2194,7 +2176,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                       pillText = isDark
                                           ? const Color(0xFFFCD34D)
                                           : const Color(0xFFB45309);
-                                      pillLabel = '보기 (예문)';
+                                      pillLabel = AppStrings.tr('quiz_dialogue_example', _currentLangCode);
                                     } else if (turn.speakerName == '문제') {
                                       pillBg = isDark
                                           ? const Color(0xFF312E81).withValues(alpha: 0.45)
@@ -2205,7 +2187,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                       pillText = isDark
                                           ? const Color(0xFFA5B4FC)
                                           : const Color(0xFF4F46E5);
-                                      pillLabel = '문제 (빈칸 완성)';
+                                      pillLabel = AppStrings.tr('quiz_dialogue_question', _currentLangCode);
                                     } else {
                                       pillBg = isFirst
                                           ? (isDark ? const Color(0xFF1E3A8A).withValues(alpha: 0.35) : const Color(0xFFEFF6FF))
@@ -2354,7 +2336,7 @@ class _QuizScreenState extends State<QuizScreen> {
         ? (_isAnswered ? _fillBlank(rawLine, correctAnswer) : rawLine.replaceAll(_blankPattern, ' ( ? ) '))
         : rawLine;
     final ttsKorean = turn.isBlankTarget
-        ? _fillBlank(rawLine, correctAnswer)
+        ? (_isAnswered ? _fillBlank(rawLine, correctAnswer) : rawLine.replaceAll(_blankPattern, ' '))
         : rawLine;
     final romanized = KoreanRomanizer.romanize(displayKorean);
     final situation = currentQuestion.getSituation(_currentLangCode);
@@ -2473,43 +2455,42 @@ class _QuizScreenState extends State<QuizScreen> {
                               ),
                             ],
                           ),
-                          InkWell(
-                            onTap: () {
-                              if (ttsKorean.trim().isNotEmpty) {
+                          if (ttsKorean.trim().isNotEmpty)
+                            InkWell(
+                              onTap: () {
                                 TtsService().speak(ttsKorean);
-                              }
-                            },
-                            borderRadius: BorderRadius.circular(8),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                              decoration: BoxDecoration(
-                                color: isDark ? const Color(0xFF1E3A8A).withValues(alpha: 0.4) : const Color(0xFFEFF6FF),
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.5) : const Color(0xFFBFDBFE),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.volume_up_rounded,
-                                    size: 14,
-                                    color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                              },
+                              borderRadius: BorderRadius.circular(8),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                decoration: BoxDecoration(
+                                  color: isDark ? const Color(0xFF1E3A8A).withValues(alpha: 0.4) : const Color(0xFFEFF6FF),
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(
+                                    color: isDark ? const Color(0xFF3B82F6).withValues(alpha: 0.5) : const Color(0xFFBFDBFE),
                                   ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    AppStrings.tr('quiz_listen_pronunciation', _currentLangCode),
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w700,
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.volume_up_rounded,
+                                      size: 14,
                                       color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      AppStrings.tr('quiz_listen_pronunciation', _currentLangCode),
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w700,
+                                        color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1D4ED8),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       ),
                       const SizedBox(height: 8),
@@ -3487,16 +3468,9 @@ class _QuizScreenState extends State<QuizScreen> {
     final currentQuestion = _questions[_currentIndex];
     final isCorrect = _selectedOptionIndex == currentQuestion.answerIndex;
 
-    // 기기 고유 소프트키(3버튼 내비게이션 바 / 제스처 홈 인디케이터 등) 인셋 정밀 감지
-    final bottomInset = math.max(
-      MediaQuery.paddingOf(context).bottom,
-      MediaQuery.viewPaddingOf(context).bottom,
-    );
-    // 광고가 없을 때는 소프트키 영역(삼성 갤럭시 등 48dp)을 100% 온전히 보장하고 추가 여백(14dp) 부여
-    // 광고가 로드되었을 때는 광고 위젯 자체가 bottomInset을 처리하므로 14dp 패딩 확보
-    final effectiveBottomPadding = _isBannerAdLoaded
-        ? 14.0
-        : (bottomInset > 0 ? (bottomInset + 14.0) : 22.0);
+    // SafeArea(bottom: true)가 기기 고유 소프트키(3버튼/제스처바)를 100% 완전 보장하므로
+    // 버튼 하단에 최적의 터치 여백(16dp)을 주어 어떤 기기에서도 가림 현상이 전혀 없습니다.
+    const effectiveBottomPadding = 16.0;
 
     final statusBgColor = isCorrect
         ? (isDark ? const Color(0xFF064E3B).withValues(alpha: 0.35) : const Color(0xFFECFDF5))
@@ -3767,7 +3741,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                       ),
                                       child: Text(
                                         isCorrect
-                                            ? (_currentLangCode == 'KO' ? '🎯 정답 표현' : '🎯 Answer')
+                                            ? AppStrings.tr('quiz_correct_answer_badge', _currentLangCode)
                                             : AppStrings.tr('quiz_correct_answer_label', _currentLangCode),
                                         style: const TextStyle(
                                           fontSize: 11,

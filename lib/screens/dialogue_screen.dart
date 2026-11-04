@@ -29,6 +29,12 @@ class _DialogueScreenState extends State<DialogueScreen> {
   Duration _duration = Duration.zero;
   Duration _position = Duration.zero;
 
+  bool _isTtsFallbackActive = false;
+  int _ttsCurrentLineIndex = 0;
+  int _ttsSessionId = 0;
+
+  bool get _hasRecordedMp3 => widget.dialogue.id >= 1 && widget.dialogue.id <= 8;
+
   StreamSubscription? _stateSub;
   StreamSubscription? _durationSub;
   StreamSubscription? _posSub;
@@ -40,20 +46,31 @@ class _DialogueScreenState extends State<DialogueScreen> {
     _player = AudioPlayer();
     _initAudioPlayer();
 
+    if (!_hasRecordedMp3) {
+      _isTtsFallbackActive = true;
+      _duration = Duration(seconds: widget.dialogue.lines.length * 3);
+    }
+
     _stateSub = _player.onPlayerStateChanged.listen((state) {
-      if (mounted) setState(() => _playerState = state);
+      if (mounted && !_isTtsFallbackActive) {
+        setState(() => _playerState = state);
+      }
     });
 
     _durationSub = _player.onDurationChanged.listen((d) {
-      if (mounted) setState(() => _duration = d);
+      if (mounted && !_isTtsFallbackActive) {
+        setState(() => _duration = d);
+      }
     });
 
     _posSub = _player.onPositionChanged.listen((p) {
-      if (mounted) setState(() => _position = p);
+      if (mounted && !_isTtsFallbackActive) {
+        setState(() => _position = p);
+      }
     });
 
     _completeSub = _player.onPlayerComplete.listen((_) {
-      if (mounted) {
+      if (mounted && !_isTtsFallbackActive) {
         setState(() {
           _playerState = PlayerState.completed;
           _position = Duration.zero;
@@ -87,10 +104,12 @@ class _DialogueScreenState extends State<DialogueScreen> {
 
   @override
   void dispose() {
+    _ttsSessionId++;
     _stateSub?.cancel();
     _durationSub?.cancel();
     _posSub?.cancel();
     _completeSub?.cancel();
+    TtsService().stop();
     _player.stop();
     _player.dispose();
     super.dispose();
@@ -103,8 +122,79 @@ class _DialogueScreenState extends State<DialogueScreen> {
     return fullPath;
   }
 
+  Future<void> _startTtsSequence({required int startIndex}) async {
+    final lines = widget.dialogue.lines;
+    if (lines.isEmpty) return;
+
+    final sessionId = ++_ttsSessionId;
+    final totalSeconds = lines.length * 3;
+
+    if (mounted) {
+      setState(() {
+        _isTtsFallbackActive = true;
+        _duration = Duration(seconds: totalSeconds);
+        _playerState = PlayerState.playing;
+      });
+    }
+
+    for (int i = startIndex; i < lines.length; i++) {
+      if (!mounted || _ttsSessionId != sessionId || _playerState != PlayerState.playing) {
+        return;
+      }
+      setState(() {
+        _ttsCurrentLineIndex = i;
+        _position = Duration(seconds: i * 3);
+      });
+
+      await TtsService().speakAndWait(lines[i].text);
+
+      if (!mounted || _ttsSessionId != sessionId || _playerState != PlayerState.playing) {
+        return;
+      }
+      if (mounted) {
+        setState(() {
+          _position = Duration(seconds: (i + 1) * 3);
+        });
+      }
+      if (i < lines.length - 1) {
+        await Future.delayed(const Duration(milliseconds: 220));
+      }
+    }
+
+    if (mounted && _ttsSessionId == sessionId && _playerState == PlayerState.playing) {
+      setState(() {
+        _playerState = PlayerState.completed;
+        _ttsCurrentLineIndex = 0;
+        _position = Duration.zero;
+      });
+    }
+  }
+
+  Future<void> _pauseTtsSequence() async {
+    _ttsSessionId++;
+    await TtsService().stop();
+    if (mounted) {
+      setState(() {
+        _playerState = PlayerState.paused;
+      });
+    }
+  }
+
   Future<void> _togglePlay() async {
+    if (!_hasRecordedMp3 || _isTtsFallbackActive) {
+      if (_playerState == PlayerState.playing) {
+        await _pauseTtsSequence();
+      } else if (_playerState == PlayerState.paused) {
+        await _startTtsSequence(startIndex: _ttsCurrentLineIndex);
+      } else {
+        _ttsCurrentLineIndex = 0;
+        await _startTtsSequence(startIndex: 0);
+      }
+      return;
+    }
+
     try {
+      await TtsService().stop();
       await _player.setVolume(1.0);
       if (_playerState == PlayerState.playing) {
         await _player.pause();
@@ -116,13 +206,22 @@ class _DialogueScreenState extends State<DialogueScreen> {
       }
     } catch (e) {
       debugPrint('Play error: $e - fallback to TTS');
-      final fullText = widget.dialogue.lines.map((l) => l.text).join(' ');
-      TtsService().speak(fullText);
+      _ttsCurrentLineIndex = 0;
+      await _startTtsSequence(startIndex: 0);
     }
   }
 
   Future<void> _replay() async {
+    if (!_hasRecordedMp3 || _isTtsFallbackActive) {
+      _ttsSessionId++;
+      await TtsService().stop();
+      _ttsCurrentLineIndex = 0;
+      await _startTtsSequence(startIndex: 0);
+      return;
+    }
+
     try {
+      await TtsService().stop();
       await _player.setVolume(1.0);
       final asset = _cleanAssetPath(widget.dialogue.audioAsset);
       await _player.stop();
@@ -130,8 +229,8 @@ class _DialogueScreenState extends State<DialogueScreen> {
       await _player.play(AssetSource(asset), volume: 1.0);
     } catch (e) {
       debugPrint('Replay error: $e - fallback to TTS');
-      final fullText = widget.dialogue.lines.map((l) => l.text).join(' ');
-      TtsService().speak(fullText);
+      _ttsCurrentLineIndex = 0;
+      await _startTtsSequence(startIndex: 0);
     }
   }
 
@@ -361,7 +460,7 @@ class _DialogueScreenState extends State<DialogueScreen> {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      '철수(남성) & 영희(여성) 원어민 대화',
+                      AppStrings.tr('dialogue_audio_subtitle', _langCode),
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -499,7 +598,16 @@ class _DialogueScreenState extends State<DialogueScreen> {
                 bottomLeft: const Radius.circular(18),
                 bottomRight: const Radius.circular(18),
               ),
-              onTap: () => TtsService().speak(line.text),
+              onTap: () async {
+                if (_playerState == PlayerState.playing) {
+                  if (!_hasRecordedMp3 || _isTtsFallbackActive) {
+                    await _pauseTtsSequence();
+                  } else {
+                    await _player.pause();
+                  }
+                }
+                await TtsService().speak(line.text);
+              },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
                 decoration: BoxDecoration(

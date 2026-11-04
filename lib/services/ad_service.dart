@@ -1,14 +1,17 @@
-import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-class AdService {
+class AdService extends ChangeNotifier {
   static final AdService _instance = AdService._internal();
   factory AdService() => _instance;
   AdService._internal();
 
   bool _isInitialized = false;
+  bool _canRequestAds = false;
+
+  bool get isInitialized => _isInitialized;
+  bool get canRequestAds => _canRequestAds && _isInitialized;
 
   /// Real AdMob IDs
   static const String realAndroidAppId = 'ca-app-pub-3702899361747571~5271747122';
@@ -40,24 +43,34 @@ class AdService {
             if (error != null) {
               debugPrint('Consent form error: ${error.message}');
             }
-            if (await ConsentInformation.instance.canRequestAds()) {
-              await _initMobileAds();
-            }
+            await _tryInitMobileAdsIfPermitted();
           });
         },
         (FormError error) async {
           debugPrint('Consent info update error: ${error.message}');
-          await _initMobileAds();
+          await _tryInitMobileAdsIfPermitted();
         },
       );
-      
-      // Fallback: If consent takes too long or already determined
-      if (await ConsentInformation.instance.canRequestAds()) {
+
+      // If consent was already gathered in a previous session, initialize immediately
+      await _tryInitMobileAdsIfPermitted();
+    } catch (e) {
+      debugPrint('AdMob UMP check error: $e');
+      await _tryInitMobileAdsIfPermitted();
+    }
+  }
+
+  Future<void> _tryInitMobileAdsIfPermitted() async {
+    try {
+      final permitted = await ConsentInformation.instance.canRequestAds();
+      _canRequestAds = permitted;
+      if (permitted) {
         await _initMobileAds();
+      } else {
+        notifyListeners();
       }
     } catch (e) {
-      debugPrint('AdMob initialization error: $e');
-      await _initMobileAds();
+      debugPrint('canRequestAds check error: $e');
     }
   }
 
@@ -66,6 +79,8 @@ class AdService {
     try {
       await MobileAds.instance.initialize();
       _isInitialized = true;
+      _canRequestAds = true;
+      notifyListeners();
     } catch (e) {
       debugPrint('MobileAds initialize error: $e');
     }
@@ -93,10 +108,23 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
   bool _isAdLoading = false;
 
   @override
+  void initState() {
+    super.initState();
+    AdService().addListener(_onAdServiceChanged);
+  }
+
+  void _onAdServiceChanged() {
+    if (!mounted || AdService.hideBannerForScreenshot) return;
+    if (AdService().canRequestAds && !_isAdLoading && _bannerAd == null) {
+      _loadBannerAd();
+    }
+  }
+
+  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (AdService.hideBannerForScreenshot) return;
-    if (!_isAdLoading && _bannerAd == null) {
+    if (AdService().canRequestAds && !_isAdLoading && _bannerAd == null) {
       _loadBannerAd();
     }
   }
@@ -112,11 +140,22 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
 
   Future<void> _loadBannerAd() async {
     if (AdService.hideBannerForScreenshot) return;
+    if (!AdService().canRequestAds) return;
     _isAdLoading = true;
     final deviceWidth = MediaQuery.sizeOf(context).width.truncate();
 
+    final canRequest = await ConsentInformation.instance.canRequestAds();
+    if (!canRequest || !mounted) {
+      _isAdLoading = false;
+      return;
+    }
+
     // ignore: deprecated_member_use
     final adaptiveSize = await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(deviceWidth);
+    if (!mounted) {
+      _isAdLoading = false;
+      return;
+    }
     final adSize = adaptiveSize ?? AdSize(width: deviceWidth, height: 50);
 
     _bannerAd = BannerAd(
@@ -125,6 +164,7 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
+          _isAdLoading = false;
           if (mounted) {
             setState(() {
               _isLoaded = true;
@@ -134,6 +174,7 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
         },
         onAdFailedToLoad: (ad, error) {
           debugPrint('BannerAd failed to load: $error');
+          _isAdLoading = false;
           ad.dispose();
           if (mounted) {
             setState(() {
@@ -149,6 +190,7 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
 
   @override
   void dispose() {
+    AdService().removeListener(_onAdServiceChanged);
     _bannerAd?.dispose();
     super.dispose();
   }
@@ -161,10 +203,7 @@ class _BottomBannerAdWidgetState extends State<BottomBannerAdWidget> {
     }
 
     // 3버튼 내비게이션 바(홈/뒤로가기/최근앱) 및 제스처 바 인셋 정밀 감지 (삼성 갤럭시 포함 모든 안드로이드 기기 완벽 대응)
-    final bottomInset = math.max(
-      MediaQuery.paddingOf(context).bottom,
-      MediaQuery.viewPaddingOf(context).bottom,
-    );
+    final bottomInset = MediaQuery.paddingOf(context).bottom;
 
     if (!_isLoaded || _bannerAd == null) {
       if (widget.fillSafeAreaWhenEmpty && bottomInset > 0) {

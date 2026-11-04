@@ -68,91 +68,280 @@ class KoreanRomanizer {
     // Check whole string dictionary match first
     final trimmed = text.trim();
     if (_customWordMap.containsKey(trimmed)) {
-      return _customWordMap[trimmed]!;
+      return text.replaceFirst(trimmed, _customWordMap[trimmed]!);
     }
 
+    // Process contiguous Hangul syllable blocks at the word/token level
+    // so punctuation (e.g. "있어요?") or surrounding text never breaks word-level rules.
     final buffer = StringBuffer();
     final chars = text.runes.toList();
+    int i = 0;
 
-    for (int i = 0; i < chars.length; i++) {
+    while (i < chars.length) {
       final code = chars[i];
       final charStr = String.fromCharCode(code);
 
-      // 1. Check standalone jamo
       if (_standaloneJamo.containsKey(charStr)) {
         buffer.write(_standaloneJamo[charStr]);
+        i++;
         continue;
       }
 
-      // 2. Check full syllable Hangul range [0xAC00 - 0xD7A3]
       if (code >= _hangulBase && code <= _hangulEnd) {
-        final syllableIndex = code - _hangulBase;
-        final initialIndex = syllableIndex ~/ (21 * 28);
-        final medialIndex = (syllableIndex % (21 * 28)) ~/ 28;
-        final finalIndex = syllableIndex % 28;
-
-        String initStr = _initials[initialIndex];
-        final medStr = _medials[medialIndex];
-        String finStr = _finals[finalIndex];
-
-        // Assimilation / Liaison rule:
-        // If next character starts with 'ㅇ' (silent initial), liaison occurs:
-        if (finalIndex != 0 && i + 1 < chars.length) {
-          final nextCode = chars[i + 1];
-          if (nextCode >= _hangulBase && nextCode <= _hangulEnd) {
-            final nextInitialIndex = (nextCode - _hangulBase) ~/ (21 * 28);
-            if (nextInitialIndex == 11) {
-              // 'ㅇ' initial
-              // Final consonant carries over to next syllable
-              if (finalIndex == 8) {
-                // ㄹ + vowel -> r
-                finStr = '';
-              } else if (finalIndex == 17) {
-                // ㅂ + vowel -> b
-                finStr = '';
-              } else if (finalIndex == 4) {
-                // ㄴ + vowel -> n
-                finStr = '';
-              } else if (finalIndex == 16) {
-                // ㅁ + vowel -> m
-                finStr = '';
-              } else if (finalIndex == 19) {
-                // ㅅ + vowel -> s
-                finStr = '';
-              } else if (finalIndex == 20) {
-                // ㅆ + vowel -> ss
-                finStr = '';
-              }
-            }
-          }
+        int end = i + 1;
+        while (end < chars.length &&
+            chars[end] >= _hangulBase &&
+            chars[end] <= _hangulEnd) {
+          end++;
         }
-
-        // Special case: Initial 'ㄹ' is 'r' before vowel, but if previous syllable ended in 'ㄹ', it becomes 'l'
-        if (initialIndex == 5 && buffer.isNotEmpty && buffer.toString().endsWith('l')) {
-          initStr = 'l';
+        final wordRunes = chars.sublist(i, end);
+        final wordStr = String.fromCharCodes(wordRunes);
+        if (_customWordMap.containsKey(wordStr)) {
+          buffer.write(_customWordMap[wordStr]);
+        } else {
+          buffer.write(_romanizeHangulWord(wordRunes));
         }
-
-        // 'ㅂ니다' / '습니다' nasalization (b -> m)
-        if (finalIndex == 17 && i + 1 < chars.length) {
-          final nextCode = chars[i + 1];
-          if (nextCode >= _hangulBase && nextCode <= _hangulEnd) {
-            final nextInitial = (nextCode - _hangulBase) ~/ (21 * 28);
-            if (nextInitial == 2) {
-              // 'ㄴ' initial (e.g. 니다)
-              finStr = 'm';
-            }
-          }
-        }
-
-        buffer.write(initStr);
-        buffer.write(medStr);
-        buffer.write(finStr);
+        i = end;
       } else {
         buffer.write(charStr);
+        i++;
       }
     }
 
     return buffer.toString();
+  }
+
+  /// Romanizes a contiguous sequence of Hangul syllables [0xAC00..0xD7A3]
+  /// with full Korean phonological rules (liaison/연음, nasalization/비음화,
+  /// palatalization/구개음화, aspiration/격음화, liquidization/유음화, ㅎ-deletion).
+  static String _romanizeHangulWord(List<int> runes) {
+    final n = runes.length;
+    final inits = List<int>.filled(n, 0);
+    final meds = List<int>.filled(n, 0);
+    final fins = List<int>.filled(n, 0);
+
+    final initStrs = List<String>.filled(n, '');
+    final medStrs = List<String>.filled(n, '');
+    final finStrs = List<String>.filled(n, '');
+
+    for (int i = 0; i < n; i++) {
+      final syllableIndex = runes[i] - _hangulBase;
+      inits[i] = syllableIndex ~/ (21 * 28);
+      meds[i] = (syllableIndex % (21 * 28)) ~/ 28;
+      fins[i] = syllableIndex % 28;
+
+      initStrs[i] = _initials[inits[i]];
+      medStrs[i] = _medials[meds[i]];
+      finStrs[i] = _finals[fins[i]];
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+      final f = fins[i];
+      final nextI = inits[i + 1];
+      final nextM = meds[i + 1];
+
+      if (f == 0) continue;
+
+      // 1. Next syllable starts with 'ㅇ' (silent initial, index 11) -> Liaison (연음)
+      if (nextI == 11) {
+        switch (f) {
+          case 1: // ㄱ -> g
+            finStrs[i] = '';
+            initStrs[i + 1] = 'g';
+            break;
+          case 2: // ㄲ -> kk
+            finStrs[i] = '';
+            initStrs[i + 1] = 'kk';
+            break;
+          case 3: // ㄳ -> k + s
+            finStrs[i] = 'k';
+            initStrs[i + 1] = 's';
+            break;
+          case 4: // ㄴ -> n
+            finStrs[i] = '';
+            initStrs[i + 1] = 'n';
+            break;
+          case 5: // ㄵ -> n + j
+            finStrs[i] = 'n';
+            initStrs[i + 1] = 'j';
+            break;
+          case 6: // ㄶ -> n (ㅎ silent before vowel)
+            finStrs[i] = '';
+            initStrs[i + 1] = 'n';
+            break;
+          case 7: // ㄷ -> j (before 이/여: 구개음화) or d
+            finStrs[i] = '';
+            initStrs[i + 1] = (nextM == 20 || nextM == 6) ? 'j' : 'd';
+            break;
+          case 8: // ㄹ -> r (e.g. 물이 -> muri)
+            finStrs[i] = '';
+            initStrs[i + 1] = 'r';
+            break;
+          case 9: // ㄺ -> l + g (e.g. 읽어요 -> ilgeoyo)
+            finStrs[i] = 'l';
+            initStrs[i + 1] = 'g';
+            break;
+          case 10: // ㄻ -> l + m (e.g. 삶이 -> salmi)
+            finStrs[i] = 'l';
+            initStrs[i + 1] = 'm';
+            break;
+          case 11: // ㄼ -> l + b (e.g. 넓은 -> neolbeun)
+            finStrs[i] = 'l';
+            initStrs[i + 1] = 'b';
+            break;
+          case 12: // ㄽ -> l + s
+            finStrs[i] = 'l';
+            initStrs[i + 1] = 's';
+            break;
+          case 13: // ㄾ -> l + ch (before 이) or l + t
+            finStrs[i] = 'l';
+            initStrs[i + 1] = (nextM == 20) ? 'ch' : 't';
+            break;
+          case 14: // ㄿ -> l + p
+            finStrs[i] = 'l';
+            initStrs[i + 1] = 'p';
+            break;
+          case 15: // ㅀ -> r (ㅎ silent before vowel: 싫어요 -> sireoyo)
+            finStrs[i] = '';
+            initStrs[i + 1] = 'r';
+            break;
+          case 16: // ㅁ -> m
+            finStrs[i] = '';
+            initStrs[i + 1] = 'm';
+            break;
+          case 17: // ㅂ -> b (e.g. 밥을 -> babeul)
+            finStrs[i] = '';
+            initStrs[i + 1] = 'b';
+            break;
+          case 18: // ㅄ -> p + s (e.g. 없어요 -> eopseoyo)
+            finStrs[i] = 'p';
+            initStrs[i + 1] = 's';
+            break;
+          case 19: // ㅅ -> s (e.g. 옷이 -> osi)
+            finStrs[i] = '';
+            initStrs[i + 1] = 's';
+            break;
+          case 20: // ㅆ -> ss (e.g. 있어요 -> isseoyo)
+            finStrs[i] = '';
+            initStrs[i + 1] = 'ss';
+            break;
+          case 21: // ㅇ -> stays ng
+            finStrs[i] = 'ng';
+            initStrs[i + 1] = '';
+            break;
+          case 22: // ㅈ -> j (e.g. 맞아요 -> majayo)
+            finStrs[i] = '';
+            initStrs[i + 1] = 'j';
+            break;
+          case 23: // ㅊ -> ch (e.g. 꽃이 -> kkochi)
+            finStrs[i] = '';
+            initStrs[i + 1] = 'ch';
+            break;
+          case 24: // ㅋ -> k
+            finStrs[i] = '';
+            initStrs[i + 1] = 'k';
+            break;
+          case 25: // ㅌ -> ch (before 이/여: 같이 -> gachi) or t
+            finStrs[i] = '';
+            initStrs[i + 1] = (nextM == 20 || nextM == 6) ? 'ch' : 't';
+            break;
+          case 26: // ㅍ -> p (e.g. 앞에 -> ape)
+            finStrs[i] = '';
+            initStrs[i + 1] = 'p';
+            break;
+          case 27: // ㅎ -> silent before vowel (e.g. 좋아요 -> joayo)
+            finStrs[i] = '';
+            initStrs[i + 1] = '';
+            break;
+        }
+        continue;
+      }
+
+      // 2. Aspiration (격음화) when final has ㅎ (ㄶ:6, ㅀ:15, ㅎ:27) + next initial is ㄱ(0)/ㄷ(3)/ㅂ(7)/ㅈ(12)
+      if ((f == 6 || f == 15 || f == 27) &&
+          (nextI == 0 || nextI == 3 || nextI == 7 || nextI == 12)) {
+        finStrs[i] = f == 6 ? 'n' : (f == 15 ? 'l' : '');
+        if (nextI == 0) initStrs[i + 1] = 'k';
+        if (nextI == 3) initStrs[i + 1] = 't';
+        if (nextI == 7) initStrs[i + 1] = 'p';
+        if (nextI == 12) initStrs[i + 1] = 'ch';
+        continue;
+      }
+
+      // 3. Aspiration (격음화) when next initial is ㅎ(18)
+      if (nextI == 18) {
+        if (f == 1 || f == 2 || f == 24) {
+          finStrs[i] = '';
+          initStrs[i + 1] = 'k';
+          continue;
+        } else if (f == 9) {
+          finStrs[i] = 'l';
+          initStrs[i + 1] = 'k';
+          continue;
+        } else if (f == 7 || f == 19 || f == 20 || f == 22 || f == 23 || f == 25) {
+          finStrs[i] = '';
+          initStrs[i + 1] = (nextM == 20 || nextM == 6) ? 'ch' : 't';
+          continue;
+        } else if (f == 5) {
+          finStrs[i] = 'n';
+          initStrs[i + 1] = 'ch';
+          continue;
+        } else if (f == 17 || f == 26) {
+          finStrs[i] = '';
+          initStrs[i + 1] = 'p';
+          continue;
+        } else if (f == 11) {
+          finStrs[i] = 'l';
+          initStrs[i + 1] = 'p';
+          continue;
+        }
+      }
+
+      // 4. Liquidization (유음화): ㄴ+ㄹ -> ll, ㄹ+ㄴ -> ll
+      if ((f == 4 && nextI == 5) || ((f == 8 || f == 15) && nextI == 2)) {
+        finStrs[i] = 'l';
+        initStrs[i + 1] = 'l';
+        continue;
+      }
+      if (f == 8 && nextI == 5) {
+        finStrs[i] = 'l';
+        initStrs[i + 1] = 'l';
+        continue;
+      }
+
+      // 5. Nasalization (비음화) before ㄴ(2) or ㅁ(6)
+      if (nextI == 2 || nextI == 6) {
+        if (f == 1 || f == 2 || f == 3 || f == 9 || f == 24) {
+          finStrs[i] = 'ng';
+        } else if (f == 7 || f == 19 || f == 20 || f == 22 || f == 23 || f == 25 || f == 27) {
+          finStrs[i] = 'n';
+        } else if (f == 11 || f == 14 || f == 17 || f == 18 || f == 26) {
+          finStrs[i] = 'm';
+        }
+        continue;
+      }
+
+      // 6. Nasalization of ㄹ(5) after non-ㄹ finals (ㅁ/ㅇ/ㄱ/ㅂ + ㄹ -> n)
+      if (nextI == 5) {
+        if (f == 16 || f == 21) {
+          initStrs[i + 1] = 'n';
+        } else if (f == 1 || f == 2 || f == 24) {
+          finStrs[i] = 'ng';
+          initStrs[i + 1] = 'n';
+        } else if (f == 17 || f == 26) {
+          finStrs[i] = 'm';
+          initStrs[i + 1] = 'n';
+        }
+      }
+    }
+
+    final out = StringBuffer();
+    for (int i = 0; i < n; i++) {
+      out.write(initStrs[i]);
+      out.write(medStrs[i]);
+      out.write(finStrs[i]);
+    }
+    return out.toString();
   }
 }
 

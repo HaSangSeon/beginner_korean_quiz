@@ -89,8 +89,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Lần đầu gặp mặt',
       'ZH': '初次见面',
       'JA': '初めて会ったとき',
-      'ES': 'Primer encuentro',
-      'PT': 'Primeiro encontro',
     },
     lines: [
       DialogueLine('영희', '안녕하세요? 저는 김영희예요.'),
@@ -114,8 +112,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Gọi món ở nhà hàng',
       'ZH': '在餐厅点餐',
       'JA': '食堂で注文する',
-      'ES': 'Pedir en un restaurante',
-      'PT': 'Pedindo no restaurante',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 몇 분이세요?'),
@@ -139,8 +135,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Ở quán cà phê',
       'ZH': '在咖啡店',
       'JA': 'カフェで',
-      'ES': 'En la cafetería',
-      'PT': 'Na cafeteria',
     },
     lines: [
       DialogueLine('철수', '주문하시겠어요?'),
@@ -164,8 +158,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Hỏi đường',
       'ZH': '问路',
       'JA': '道を尋ねる',
-      'ES': 'Preguntar direcciones',
-      'PT': 'Pedindo direções',
     },
     lines: [
       DialogueLine('영희', '실례합니다. 지하철역이 어디에 있어요?'),
@@ -189,8 +181,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Ở bệnh viện',
       'ZH': '在医院',
       'JA': '病院で',
-      'ES': 'En el hospital',
-      'PT': 'No hospital',
     },
     lines: [
       DialogueLine('철수', '어디가 아파요?'),
@@ -214,8 +204,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Mua đồ ở chợ',
       'ZH': '在市场买东西',
       'JA': '市場で買い物',
-      'ES': 'Comprar en el mercado',
-      'PT': 'Comprando no mercado',
     },
     lines: [
       DialogueLine('영희', '사과 얼마예요?'),
@@ -239,8 +227,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Hẹn cuối tuần',
       'ZH': '约周末见面',
       'JA': '週末の約束',
-      'ES': 'Planes para el fin de semana',
-      'PT': 'Combinando o fim de semana',
     },
     lines: [
       DialogueLine('철수', '영희 씨, 주말에 시간 있어요?'),
@@ -264,8 +250,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Gọi điện thoại',
       'ZH': '打电话',
       'JA': '電話をかける',
-      'ES': 'Hacer una llamada',
-      'PT': 'Fazendo uma ligação',
     },
     lines: [
       DialogueLine('철수', '여보세요?'),
@@ -288,14 +272,12 @@ const List<Dialogue> dialogues = [
       'VI': 'Ở cửa hàng tiện lợi',
       'ZH': '在便利店',
       'JA': 'コンビニで',
-      'ES': 'En la tienda de conveniencia',
-      'PT': 'Na loja de conveniência',
     },
     lines: [
       DialogueLine('영희', '안녕하세요. 교통카드 충전해 주세요.'),
       DialogueLine('철수', '네, 얼마 충전해 드릴까요?'),
       DialogueLine('영희', '2만 원 충전해 주세요.'),
-      DialogueLine('철수', '카드 위에 올려놓아 주세요.'),
+      DialogueLine('철수', '카드를 단말기 위에 올려놓아 주세요.'),
       DialogueLine('철수', '충전 완료되었습니다. 영수증 필요하세요?'),
       DialogueLine('영희', '아니요, 버려 주세요.'),
       DialogueLine('영희', '참, 봉투 하나만 주세요.'),
@@ -313,8 +295,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đi tàu điện ngầm',
       'ZH': '乘坐地铁',
       'JA': '地下鉄に乗る',
-      'ES': 'Viajar en metro',
-      'PT': 'Andando de metrô',
     },
     lines: [
       DialogueLine('철수', '영희 씨, 명동에 어떻게 가요?'),
@@ -338,8 +318,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Ở cửa hàng quần áo',
       'ZH': '在服装店',
       'JA': '服屋で',
-      'ES': 'En la tienda de ropa',
-      'PT': 'Na loja de roupas',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 찾으시는 옷 있으세요?'),
@@ -352,7 +330,7 @@ const List<Dialogue> dialogues = [
       DialogueLine('영희', '이게 딱 맞네요. 이걸로 살게요.'),
       DialogueLine('철수', '네, 계산대로 안내해 드릴게요.'),
       DialogueLine('영희', '교환이나 환불은 언제까지 돼요?'),
-      DialogueLine('철수', '일주일 안에 영수증 가지고 오시면 돼요.'),
+      DialogueLine('철수', '택을 떼지 않고 일주일 안에 영수증과 함께 가져오시면 돼요.'),
     ],
   ),
   Dialogue(
@@ -364,8 +342,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đi taxi',
       'ZH': '乘出租车',
       'JA': 'タクシーに乗る',
-      'ES': 'Tomar un taxi',
-      'PT': 'Pegando um táxi',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 어디로 모실까요?'),
@@ -390,8 +366,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Ở hiệu thuốc',
       'ZH': '在药店',
       'JA': '薬局で',
-      'ES': 'En la farmacia',
-      'PT': 'Na farmácia',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 어디가 불편하세요?'),
@@ -416,8 +390,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Hỏi về phòng trọ',
       'ZH': '一居室生活咨询',
       'JA': 'ワンルーム生活の相談',
-      'ES': 'Consultas sobre el apartamento',
-      'PT': 'Dúvidas sobre o kitnet',
     },
     lines: [
       DialogueLine('영희', '아주머니, 안녕하세요. 301호예요.'),
@@ -441,8 +413,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Thủ tục nhập cảnh sân bay',
       'ZH': '机场入境审查',
       'JA': '空港の入国審査',
-      'ES': 'Inmigración en el aeropuerto',
-      'PT': 'Imigração no aeroporto',
     },
     lines: [
       DialogueLine('철수', '여권과 입국 신고서 보여주세요.'),
@@ -466,8 +436,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Mua sắm mỹ phẩm tại Olive Young',
       'ZH': '在欧利芙洋选购化妆品',
       'JA': 'オリーブヤングでコスメを選ぶ',
-      'ES': 'Comprar cosméticos en Olive Young',
-      'PT': 'Comprando cosméticos na Olive Young',
     },
     lines: [
       DialogueLine('영희', '저기요, 요즘 제일 잘나가는 선크림이 뭐예요?'),
@@ -491,8 +459,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đặt vé tàu KTX',
       'ZH': '预订KTX高铁票',
       'JA': 'KTXの切符を予約する',
-      'ES': 'Reservar billete de tren KTX',
-      'PT': 'Reservando passagem de trem KTX',
     },
     lines: [
       DialogueLine('영희', '안녕하세요, 오늘 부산 가는 KTX 표 있어요?'),
@@ -516,8 +482,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Sử dụng tiệm giặt sấy tự động',
       'ZH': '使用无人投币洗衣房',
       'JA': 'コインランドリーを利用する',
-      'ES': 'Usar una lavandería autoservicio',
-      'PT': 'Usando uma lavanderia self-service',
     },
     lines: [
       DialogueLine('영희', '저기요, 여기 빨래방 처음인데 어떻게 해요?'),
@@ -541,8 +505,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Cắt tóc tại tiệm làm tóc',
       'ZH': '在美发沙龙理发',
       'JA': '美容室で髪を切る',
-      'ES': 'Cortarse el pelo en la peluquería',
-      'PT': 'Cortando o cabelo no salão',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 예약하셨나요?'),
@@ -566,8 +528,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Tìm thuê phòng trọ tại công ty bất động sản',
       'ZH': '在房产中介租单间公寓',
       'JA': '不動産でワンルームを探す',
-      'ES': 'Buscar un estudio en la inmobiliaria',
-      'PT': 'Procurando uma kitnet na imobiliária',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 어떤 방을 찾으시나요?'),
@@ -591,8 +551,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Bị cảm ở công ty',
       'ZH': '在公司感冒了',
       'JA': '会社で風邪気味',
-      'ES': 'Resfriado en el trabajo',
-      'PT': 'Resfriado no trabalho',
     },
     lines: [
       DialogueLine('철수', '영희 씨, 오늘 얼굴이 좀 창백해요. 어디 안 좋아요?'),
@@ -614,8 +572,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Mượn sách ở thư viện',
       'ZH': '在图书馆借书',
       'JA': '図書館で本を借りる',
-      'ES': 'Pedir prestado libros en la biblioteca',
-      'PT': 'Pegando livros emprestados na biblioteca',
     },
     lines: [
       DialogueLine('철수', '안녕하세요. 이 책들을 대출하고 싶어요.'),
@@ -639,8 +595,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Mở tài khoản ngân hàng',
       'ZH': '在银行开户',
       'JA': '銀行で口座を開設する',
-      'ES': 'Abrir una cuenta bancaria',
-      'PT': 'Abrindo uma conta bancária',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 어떤 업무를 도와드릴까요?'),
@@ -664,8 +618,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đặt giao đồ ăn ở công viên sông Hàn',
       'ZH': '在汉江公园叫外卖',
       'JA': '漢江公園で出前を頼む',
-      'ES': 'Pedir comida a domicilio en el parque Hangang',
-      'PT': 'Pedindo entrega no parque do Rio Han',
     },
     lines: [
       DialogueLine('철수', '날씨가 정말 좋다! 우리 치킨 시켜 먹을까?'),
@@ -689,8 +641,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đi taxi đến điểm đến',
       'ZH': '乘出租车去目的地',
       'JA': 'タクシーで目的地へ行く',
-      'ES': 'Tomar un taxi al destino',
-      'PT': 'Pegando um táxi até o destino',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 어디로 모실까요?'),
@@ -714,8 +664,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đăng ký tập gym',
       'ZH': '健身房咨询与登记',
       'JA': 'ジムの登録と相談',
-      'ES': 'Registrarse en el gimnasio',
-      'PT': 'Fazendo matrícula na academia',
     },
     lines: [
       DialogueLine('철수', '안녕하세요! 헬스장 회원 등록하러 왔는데요.'),
@@ -739,8 +687,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Khám mắt ở tiệm kính',
       'ZH': '在眼镜店检查视力',
       'JA': '眼鏡店で視力検査をする',
-      'ES': 'Revisión de la vista en la óptica',
-      'PT': 'Fazendo exame de vista na ótica',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 안경 맞추러 오셨나요?'),
@@ -764,8 +710,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đi chợ truyền thống',
       'ZH': '在传统市场买菜',
       'JA': '伝統市場で買い物をする',
-      'ES': 'Comprar en el mercado tradicional',
-      'PT': 'Compras na feira tradicional',
     },
     lines: [
       DialogueLine('철수', '어서 오세요! 싱싱한 사과랑 딸기 보고 가세요!'),
@@ -789,8 +733,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đi xông hơi Jjimjilbang',
       'ZH': '去汗蒸房',
       'JA': 'チムジルバンを利用する',
-      'ES': 'Visitar un Jjimjilbang',
-      'PT': 'Indo a um Jjimjilbang',
     },
     lines: [
       DialogueLine('철수', '찜질방 성인 한 명 결제할게요.'),
@@ -814,8 +756,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Mua bánh ở tiệm bánh',
       'ZH': '在面包店选购面包',
       'JA': 'パン屋でパンを選ぶ',
-      'ES': 'Comprar pan en la panadería',
-      'PT': 'Comprando pães na padaria',
     },
     lines: [
       DialogueLine('철수', '빵 냄새가 정말 좋다! 너는 어떤 빵 좋아해?'),
@@ -839,8 +779,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Khám định kỳ tại nha khoa',
       'ZH': '在牙科诊所定期检查',
       'JA': '歯科で定期検診を受ける',
-      'ES': 'Chequeo regular en el dentista',
-      'PT': 'Consulta de rotina no dentista',
     },
     lines: [
       DialogueLine('철수', '안녕하세요, 3시에 스케일링 예약한 이철수입니다.'),
@@ -864,8 +802,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Đặt vé và mua bỏng ngô ở rạp phim',
       'ZH': '在电影院买票和零食',
       'JA': '映画館でチケットとポップコーンを買う',
-      'ES': 'Entradas y palomitas en el cine',
-      'PT': 'No cinema comprando ingressos e pipoca',
     },
     lines: [
       DialogueLine('철수', '오늘 개봉한 한국 영화 예매했어?'),
@@ -889,8 +825,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Gửi bưu phẩm EMS tại bưu điện',
       'ZH': '在邮局寄国际特快(EMS)',
       'JA': '郵便局でEMSを送る',
-      'ES': 'Enviar paquete EMS en la oficina de correos',
-      'PT': 'Enviando encomenda EMS no correio',
     },
     lines: [
       DialogueLine('철수', '어서 오세요. 어떤 우편물 보내시나요?'),
@@ -914,8 +848,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Cắt tóc ở tiệm làm tóc',
       'ZH': '在美发沙龙理发',
       'JA': '美容室で髪を切る',
-      'ES': 'Cortarse el pelo en la peluquería',
-      'PT': 'Cortando o cabelo no salão',
     },
     lines: [
       DialogueLine('철수', '어서 오세요! 예약하셨나요?'),
@@ -939,12 +871,10 @@ const List<Dialogue> dialogues = [
       'VI': 'Gửi đồ ở tiệm giặt ủi',
       'ZH': '在洗衣店送洗衣物',
       'JA': 'クリーニング店で服を預ける',
-      'ES': 'En la tintorería',
-      'PT': 'Na lavanderia',
     },
     lines: [
       DialogueLine('철수', '안녕하세요! 패딩 점퍼와 정장 드라이클리닝 맡기러 왔어요.'),
-      DialogueLine('영희', '네, 코트와 패딩 먼저 상태 확인해 볼게요. 여기 소매에 얼룩이 있네요?'),
+      DialogueLine('영희', '네, 정장과 패딩 먼저 상태 확인해 볼게요. 여기 소매에 얼룩이 있네요?'),
       DialogueLine('철수', '아, 커피를 조금 쏟았는데 깨끗하게 지워질까요?'),
       DialogueLine('영희', '특수 세탁으로 최대한 흔적 없이 빼드리겠습니다.'),
       DialogueLine('철수', '언제쯤 찾으러 오면 될까요?'),
@@ -964,17 +894,15 @@ const List<Dialogue> dialogues = [
       'VI': 'Xin giấy tờ ở trung tâm hành chính',
       'ZH': '在居民中心办理证明',
       'JA': '住民センターで書類を発行する',
-      'ES': 'Obtener certificados en el centro comunitario',
-      'PT': 'Emitindo documentos no centro comunitário',
     },
     lines: [
       DialogueLine('철수', '번호표 뽑으셨나요? 45번 손님 창구로 오세요.'),
-      DialogueLine('영희', '안녕하세요. 외국인 거소증명서류를 발급받으러 왔어요.'),
-      DialogueLine('철수', '네, 신분증과 체류자격 확인할 수 있는 등록증 주세요.'),
+      DialogueLine('영희', '안녕하세요. 외국인등록 사실증명서를 발급받으러 왔어요.'),
+      DialogueLine('철수', '네, 신분증 확인을 위해 외국인등록증 주세요.'),
       DialogueLine('영희', '여기 외국인등록증 있습니다.'),
       DialogueLine('철수', '몇 통 필요하신가요?'),
-      DialogueLine('영희', '비자 연장용으로 두 통 필요합니다.'),
-      DialogueLine('철수', '수수료는 한 통당 천 원씩, 총 2,000원입니다.'),
+      DialogueLine('영희', '비자 연장 제출용으로 한 통 필요합니다.'),
+      DialogueLine('철수', '발급 수수료는 한 통당 2,000원입니다.'),
       DialogueLine('영희', '카드로 결제해도 되나요?'),
       DialogueLine('철수', '네, 앞쪽 단말기에 카드 꽂아주세요.'),
       DialogueLine('영희', '서류 바로 나오나요? 감사합니다.'),
@@ -989,14 +917,12 @@ const List<Dialogue> dialogues = [
       'VI': 'Chuyển tuyến xe buýt',
       'ZH': '换乘市内公交',
       'JA': 'バスを乗り換える',
-      'ES': 'Transbordar de autobús',
-      'PT': 'Fazendo baldeação de ônibus',
     },
     lines: [
       DialogueLine('철수', '영희야, 여기서 홍대입구역까지 어떻게 가?'),
       DialogueLine('영희', '여기서 271번 버스를 타고 가다가 신촌역에서 갈아타야 해.'),
       DialogueLine('철수', '버스에서 내릴 때도 교통카드를 찍어야 환승 할인이 되지?'),
-      DialogueLine('영희', '맞아! 하차 태그를 꼭 찍어야 30분 이내에 무료 환승이 돼.'),
+      DialogueLine('영희', '맞아! 하차 태그를 꼭 찍어야 30분 이내에 환승 할인이 적용돼.'),
       DialogueLine('철수', '환승은 몇 번까지 가능한 거야?'),
       DialogueLine('영희', '최대 네 번까지 환승 할인을 받을 수 있어.'),
       DialogueLine('철수', '저기 우리가 탈 버스가 오고 있다!'),
@@ -1014,8 +940,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Gửi bưu phẩm ở cửa hàng tiện lợi',
       'ZH': '在便利店寄快递',
       'JA': 'コンビニで宅配便を出す',
-      'ES': 'Enviar paquete en la tienda de conveniencia',
-      'PT': 'Enviando encomenda na loja de conveniência',
     },
     lines: [
       DialogueLine('철수', '편의점 택배 기계는 어디에 있나요?'),
@@ -1039,20 +963,18 @@ const List<Dialogue> dialogues = [
       'VI': 'Chụp ảnh hộ chiếu',
       'ZH': '拍护照证件照',
       'JA': 'パスポート写真を撮る',
-      'ES': 'Tomar fotos de pasaporte',
-      'PT': 'Tirando fotos para passaporte',
     },
     lines: [
       DialogueLine('철수', '어서 오세요! 어떤 사진 찍으러 오셨나요?'),
       DialogueLine('영희', '여권 갱신용 사진을 찍으려고요.'),
-      DialogueLine('철수', '여권 사진은 흰 배경이라 흰색 옷은 안 되고, 귀와 눈썹이 보여야 해요.'),
-      DialogueLine('영희', '아, 거울 보고 머리 좀 정리하고 올게요.'),
-      DialogueLine('철수', '네, 화장대 빗과 헤어 스프레이 편하게 쓰세요.'),
-      DialogueLine('영희', '준비 다 됐습니다. 어떻게 앉으면 될까요?'),
+      DialogueLine('철수', '어느 나라 여권이신가요? 국가마다 규정이 조금씩 다른데, 한국 여권 규격으로 찍어 드릴까요?'),
+      DialogueLine('영희', '네, 한국 여권 사진 규격에 맞춰서 찍어 주세요.'),
+      DialogueLine('철수', '흰 배경이라 흰색 옷은 피해야 하고, 귀와 눈썹이 잘 보여야 해요.'),
+      DialogueLine('영희', '아, 거울 보고 머리 좀 정리하고 올게요. 준비 다 됐습니다!'),
       DialogueLine('철수', '의자에 허리를 펴고 앉으시고 턱을 살짝만 당겨주세요.'),
-      DialogueLine('영희', '표정은 웃으면 안 되나요?'),
-      DialogueLine('철수', '치아가 보이지 않게 자연스러운 미소만 지어주세요. 자, 찍습니다! 하나, 둘, 셋!'),
-      DialogueLine('영희', '사진 보정하고 인화하는 데 시간 얼마나 걸려요?'),
+      DialogueLine('영희', '촬영할 때 살짝 웃어도 되나요?'),
+      DialogueLine('철수', '여권 사진은 치아가 보이지 않게 입을 다물고 무표정으로 찍어야 해요. 자, 찍습니다! 하나, 둘, 셋!'),
+      DialogueLine('영희', '사진 인화하는 데 시간 얼마나 걸려요?'),
     ],
   ),
   Dialogue(
@@ -1064,8 +986,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Giao dịch đồ cũ trực tiếp',
       'ZH': '二手物品线下交易',
       'JA': '中古品の直接取引をする',
-      'ES': 'Compraventa de segunda mano en persona',
-      'PT': 'Negociação de desapego presencial',
     },
     lines: [
       DialogueLine('철수', '당근마켓에서 전공 서적 구매하기로 한 분 맞으시죠?'),
@@ -1089,8 +1009,6 @@ const List<Dialogue> dialogues = [
       'VI': 'Chúc mừng sinh nhật',
       'ZH': '庆祝生日',
       'JA': '誕生日を祝う',
-      'ES': 'Celebrar un cumpleaños',
-      'PT': 'Comemorando um aniversário',
     },
     lines: [
       DialogueLine('철수', '영희야, 생일 축하해! 이거 네 생일 선물이야.'),

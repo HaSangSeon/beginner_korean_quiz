@@ -231,11 +231,14 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               const SizedBox(width: 16),
             ],
           ),
-          body: questions.isEmpty
-              ? _buildEmptyState(context, isDark)
-              : CustomScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  slivers: [
+          body: SafeArea(
+            top: false,
+            bottom: true,
+            child: questions.isEmpty
+                ? _buildEmptyState(context, isDark)
+                : CustomScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    slivers: [
                     // 1. 3 Main Categories (Tracks) Filter Tabs
                     SliverToBoxAdapter(
                       child: Padding(
@@ -321,8 +324,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                           ),
                         ),
                       ),
+                    const SliverToBoxAdapter(child: SizedBox(height: 28)),
                   ],
                 ),
+          ),
         );
       },
     );

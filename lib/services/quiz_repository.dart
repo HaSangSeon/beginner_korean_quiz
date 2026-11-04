@@ -73,30 +73,41 @@ class QuizRepository {
 
     var baseList = result.isNotEmpty ? result : List<QuizQuestion>.from(questions);
 
-    if (!shuffle || !enableShuffle) {
+    if (!enableShuffle) {
       if (limit != null && baseList.length > limit) {
         return baseList.sublist(0, limit);
       }
       return baseList;
     }
 
-    // Smart Duolingo-style Priority:
-    // 1) Unlearned questions first (always fresh content for the learner)
-    // 2) Mastered questions second (for spaced review)
-    final learned = ProgressService().learnedIds;
-    final unlearned = baseList.where((q) => !learned.contains(q.id)).toList()..shuffle();
-    final mastered = baseList.where((q) => learned.contains(q.id)).toList()..shuffle();
-    baseList = [...unlearned, ...mastered];
+    if (shuffle) {
+      // Smart Duolingo-style Priority:
+      // 1) Unlearned questions first (always fresh content for the learner)
+      // 2) Mastered questions second (for spaced review)
+      final learned = ProgressService().learnedIds;
+      final unlearned = baseList.where((q) => !learned.contains(q.id)).toList()..shuffle();
+      final mastered = baseList.where((q) => learned.contains(q.id)).toList()..shuffle();
+      baseList = [...unlearned, ...mastered];
+    }
 
     if (limit != null && baseList.length > limit) {
       baseList = baseList.sublist(0, limit);
     }
 
     // Dynamically shuffle options for each question so answers are always randomized
+    // even when question sequence is preserved (category mode / review mode)
     return baseList.map((q) {
       final correctAnswer = q.options[q.answerIndex];
       final shuffledOptions = List<String>.from(q.options)..shuffle();
       final newAnswerIndex = shuffledOptions.indexOf(correctAnswer);
+      final shuffledChips = q.chips != null ? (List<String>.from(q.chips!)..shuffle()) : null;
+      if (shuffledChips != null && shuffledChips.length > 1) {
+        final targetClean = correctAnswer.replaceAll(' ', '').trim();
+        if (shuffledChips.map((c) => c.replaceAll(' ', '').trim()).join() == targetClean) {
+          final first = shuffledChips.removeAt(0);
+          shuffledChips.add(first);
+        }
+      }
 
       return QuizQuestion(
         id: q.id,
@@ -110,7 +121,7 @@ class QuizRepository {
         options: shuffledOptions,
         answerIndex: newAnswerIndex >= 0 ? newAnswerIndex : q.answerIndex,
         explanations: q.explanations,
-        chips: q.chips != null ? List<String>.from(q.chips!) : null,
+        chips: shuffledChips,
       );
     }).toList();
   }

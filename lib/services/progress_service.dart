@@ -50,7 +50,9 @@ class ProgressService extends ChangeNotifier {
       _wrong = (_prefs!.getStringList(_kWrong) ?? [])
           .map(int.tryParse)
           .whereType<int>()
+          .toSet()
           .toList();
+      _learned.removeAll(_wrong);
       _favorites = (_prefs!.getStringList(_kFavorites) ?? [])
           .map(int.tryParse)
           .whereType<int>()
@@ -167,8 +169,10 @@ class ProgressService extends ChangeNotifier {
   bool get dailyGoalReached => xpToday >= dailyGoalXp;
   Set<int> get learnedIds => Set.unmodifiable(_learned);
   List<int> get wrongIds => List.unmodifiable(_wrong);
+  Set<int> get attemptedIds => Set.unmodifiable({..._learned, ..._wrong});
   Set<int> get favoriteIds => Set.unmodifiable(_favorites);
   bool isLearned(int id) => _learned.contains(id);
+  bool isAttempted(int id) => _learned.contains(id) || _wrong.contains(id);
   bool isFavorite(int id) => _favorites.contains(id);
 
   /// Toggle favorite status of a question. Returns true if added, false if removed.
@@ -199,17 +203,22 @@ class ProgressService extends ChangeNotifier {
     bool isReview = false,
   }) {
     if (isCorrect) {
-      _learned.add(questionId);
       if (!isRetry || isReview) {
+        _learned.add(questionId);
         _wrong.remove(questionId);
+      } else if (!_wrong.contains(questionId)) {
+        _learned.add(questionId);
       }
       if (_xpDate != _today) {
         _xpDate = _today;
         _xpToday = 0;
       }
       _xpToday += xpPerCorrect;
-    } else if (!_wrong.contains(questionId)) {
-      _wrong.add(questionId);
+    } else {
+      _learned.remove(questionId);
+      if (!_wrong.contains(questionId)) {
+        _wrong.add(questionId);
+      }
     }
     _persistAnswers();
     notifyListeners();

@@ -50,16 +50,12 @@ class _ResultScreenState extends State<ResultScreen> {
           return widget.isReviewMode
               ? '완벽합니다! 틀렸던 문제들을 완벽하게 이해하고 마스터하셨습니다.'
               : '원어민 수준의 자연스러운 뉘앙스 감각! 교과서에서는 배울 수 없는 진짜 한국어 감각을 완벽히 마스터하셨습니다.';
-        case 'ES':
-          return '¡Intuición de nivel nativo! Comprendes los matices reales del coreano que los libros no enseñan.';
         case 'ZH':
           return '母语级语感！你已经掌握了教科书里学不到的地道韩国语实际语感。';
         case 'JA':
           return 'ネイティブ級の感覚！教科書には載っていない生きた韓国語のニュアンスを掴んでいます。';
         case 'VI':
           return 'Trực giác chuẩn người bản xứ! Bạn đã hiểu được những sắc thái tiếng Hàn thực tế mà sách vở không dạy.';
-        case 'PT':
-          return 'Intuição de nível nativo! Você compreende as nuances reais do coreano que os livros não ensinam.';
         default:
           return 'Native-level Intuition! You understand real Korean nuances that textbooks never teach.';
       }
@@ -67,16 +63,12 @@ class _ResultScreenState extends State<ResultScreen> {
       switch (lang) {
         case 'KO':
           return '훌륭합니다! 교과서식의 어색한 함정을 피하고 한국인처럼 매우 자연스럽게 표현하고 계십니다.';
-        case 'ES':
-          return '¡Impresionante! Evitas las trampas comunes de los libros y suenas muy natural.';
         case 'ZH':
           return '令人印象深刻！你成功避开了教科书常见误区，韩语表达非常自然。';
         case 'JA':
           return '素晴らしい！教科書の不自然な落とし穴を避け、とても自然に表現できています。';
         case 'VI':
           return 'Thật ấn tượng! Bạn đã tránh được những lỗi dịch ngô nghê trong sách và nói rất tự nhiên.';
-        case 'PT':
-          return 'Impressionante! Você evita as armadilhas comuns dos livros e soa muito natural.';
         default:
           return 'Impressive! You avoid the common textbook traps and sound very natural.';
       }
@@ -84,16 +76,12 @@ class _ResultScreenState extends State<ResultScreen> {
       switch (lang) {
         case 'KO':
           return '좋은 진전입니다! 어색한 직역 습관에서 벗어나고 있습니다. 뉘앙스를 한 번 더 복습하면 완벽해집니다!';
-        case 'ES':
-          return '¡Buen progreso! Estás superando las traducciones forzadas. ¡Repasa los matices para dominarlos!';
         case 'ZH':
           return '进步很大！正在摆脱尴尬的直译思维。多复习几次即可彻底掌握！';
         case 'JA':
           return '順調にステップアップ！不自然な直訳から脱却できています。復習して定着させましょう！';
         case 'VI':
           return 'Tiến bộ tốt! Bạn đang dần thoát khỏi lối dịch gượng gạo. Hãy ôn lại để thành thạo hơn nhé!';
-        case 'PT':
-          return 'Bom progresso! Você está superando as traduções forçadas. Revise as nuances para dominá-las!';
         default:
           return 'Good progress! You are breaking free of awkward translations. Review the nuances to master them!';
       }
@@ -101,16 +89,12 @@ class _ResultScreenState extends State<ResultScreen> {
       switch (lang) {
         case 'KO':
           return '포기하지 마세요! 한국어의 뉘앙스는 깊은 문화와 맥락이 담겨 있습니다. 다시 한번 도전해 보세요!';
-        case 'ES':
-          return '¡Sigue aprendiendo! Los matices coreanos son sutiles y profundos. ¡Inténtalo de nuevo!';
         case 'ZH':
           return '继续加油！韩语实际语感非常细腻且蕴含文化背景。再做一次测验来锻炼敏锐度吧！';
         case 'JA':
           return '諦めずに挑戦！韓国語のニュアンスは奥深く文化が反映されています。もう一度挑戦してみましょう！';
         case 'VI':
           return 'Hãy kiên trì nhé! Sắc thái tiếng Hàn rất tinh tế và mang đậm văn hóa. Hãy thử lại để rèn luyện thêm!';
-        case 'PT':
-          return 'Continue praticando! As nuances do coreano são sutis e ricas culturalmente. Tente de novo!';
         default:
           return 'Keep learning! Korean nuances are subtle and culturally deep. Take the quiz again to sharpen your ear!';
       }
@@ -276,11 +260,14 @@ class _ResultScreenState extends State<ResultScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(24.0, 16.0, 24.0, 8.0),
+      body: SafeArea(
+        top: false,
+        bottom: true,
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(24.0, 16.0, 24.0, 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -629,14 +616,15 @@ class _ResultScreenState extends State<ResultScreen> {
                       ),
                     ),
                   ],
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
           ),
-          const BottomBannerAdWidget(fillSafeAreaWhenEmpty: true),
+          const BottomBannerAdWidget(fillSafeAreaWhenEmpty: false),
         ],
       ),
-    );
+    ),
+  );
   }
 }

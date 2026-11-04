@@ -141,6 +141,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String get _selectedLangCode => ProgressService().language;
+  String? _expandedCategoryTrack;
   String _selectedTrack = 'survival'; // Default to 'survival' (K-라이프 실전) for high immersion
   bool _isWordBookmarked = false;
   String _selectedDialogueFilter = 'all'; // 'all', 'food', 'transit', 'life', 'public', 'health'
@@ -199,61 +200,50 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, _) => Scaffold(
         backgroundColor: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
         appBar: _buildCustomAppBar(context, isDark),
-        body: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                padding: const EdgeInsets.fromLTRB(20.0, 14.0, 20.0, 0.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    // 1. Greeting + Daily Goal / Streak / Learned stats
+        body: SafeArea(
+          top: false,
+          bottom: true,
+          child: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.fromLTRB(20.0, 14.0, 20.0, 0.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                    _buildTrackSwitcherSection(context, isDark),
+                    const SizedBox(height: 12),
+                    _buildMainStartButton(context, isDark),
+                    const SizedBox(height: 18),
+
+                    if (_selectedTrack == 'dialogue')
+                      _buildDialogueSection(context, isDark)
+                    else
+                      _buildCategorySection(context, isDark),
+                    const SizedBox(height: 18),
+
+                    _buildWordOfTheDayCard(context, isDark),
+                    const SizedBox(height: 14),
+                    if (_selectedTrack != 'dialogue') ...[
+                      _buildReviewCard(context, isDark),
+                      _buildFavoritesCard(context, isDark),
+                    ],
                     _buildDailyGoalCard(context, isDark),
                     const SizedBox(height: 14),
-
-                    // 1.5. Hangul Alphabet Quick Learning Card (왕초보 한글 장벽 해소)
                     _buildHangulAlphabetBanner(context, isDark),
                     const SizedBox(height: 16),
-
-                    // 2. Word & Expression of the Day (오늘의 생존 한국어)
-                    _buildWordOfTheDayCard(context, isDark),
-                    const SizedBox(height: 18),
-
-                    // 3. Track Switcher Segmented Control (📚 기초 어휘 vs 💬 실전 문장·뉘앙스)
-                    _buildTrackSwitcherSection(context, isDark),
-                    const SizedBox(height: 18),
-
-                    // 4. Main Hero Card (Adapts to all 4 tracks: K-Life, Daily Sentences, Basic Words, Dialogues)
                     _buildHeroQuizCard(context, isDark),
-                    const SizedBox(height: 16),
-
-                    // 5. Prominent [Start] CTA Button (Adapts to all 4 tracks)
-                    _buildMainStartButton(context, isDark),
-                    const SizedBox(height: 24),
-
-                    // 6. Track specific content
-                    if (_selectedTrack == 'dialogue') ...[
-                      _buildDialogueSection(context, isDark),
-                    ] else ...[
-                      // Mistake Review (only when there are mistakes in this track)
-                      _buildReviewCard(context, isDark),
-
-                      // User Bookmarked Favorites Card (prominent when expressions are saved)
-                      _buildFavoritesCard(context, isDark),
-
-                      // Topic list with per-topic progress
-                      _buildCategorySection(context, isDark),
-                    ],
                     const SizedBox(height: 24),
                   ],
                 ),
               ),
             ),
-            const BottomBannerAdWidget(fillSafeAreaWhenEmpty: true),
+            const BottomBannerAdWidget(fillSafeAreaWhenEmpty: false),
           ],
         ),
       ),
+    ),
     );
   }
 
@@ -611,12 +601,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           activeThumbColor: const Color(0xFF3B82F6),
                           onChanged: (val) async {
                             if (val) {
-                              await NotificationService().requestPermission();
-                            }
-                            progress.setNotificationEnabled(val);
-                            if (val) {
+                              final granted = await NotificationService().requestPermission();
+                              if (!granted) {
+                                progress.setNotificationEnabled(false);
+                                await NotificationService().cancelAll();
+                                return;
+                              }
+                              progress.setNotificationEnabled(true);
                               await NotificationService().scheduleDailyReminder();
                             } else {
+                              progress.setNotificationEnabled(false);
                               await NotificationService().cancelAll();
                             }
                           },
@@ -1176,6 +1170,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildCategorySection(BuildContext context, bool isDark) {
     final categories = QuizRepository.getCategoriesByType(_selectedTrack);
+    const previewCount = 2;
+    final showAll = _expandedCategoryTrack == _selectedTrack;
+    final visibleCount = showAll || categories.length <= previewCount
+        ? categories.length
+        : previewCount;
     final progress = ProgressService();
 
     return Column(
@@ -1185,15 +1184,29 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const Icon(Icons.grid_view_rounded, size: 18, color: Color(0xFF2563EB)),
             const SizedBox(width: 8),
-            Text(
-              AppStrings.tr('categories_header', _selectedLangCode),
-              style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w800,
-                color: isDark ? Colors.white : const Color(0xFF0F172A),
-                letterSpacing: -0.3,
+            Expanded(
+              child: Text(
+                AppStrings.tr('categories_header', _selectedLangCode),
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w800,
+                  color: isDark ? Colors.white : const Color(0xFF0F172A),
+                  letterSpacing: -0.3,
+                ),
               ),
             ),
+            if (categories.length > previewCount)
+              TextButton(
+                onPressed: () => setState(() {
+                  _expandedCategoryTrack = showAll ? null : _selectedTrack;
+                }),
+                child: Text(
+                  AppStrings.tr(
+                    showAll ? 'dialogue_collapse_btn' : 'categories_view_all',
+                    _selectedLangCode,
+                  ),
+                ),
+              ),
           ],
         ),
         const SizedBox(height: 14),
@@ -1212,15 +1225,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSpacing: 12,
                 childAspectRatio: dynamicAspectRatio,
               ),
-              itemCount: categories.length,
+              itemCount: visibleCount,
               itemBuilder: (context, index) {
             final cat = categories[index];
             final catIds = QuizRepository.getIdsByCategory(cat);
             final total = catIds.length;
-            final learned = catIds.where((id) => progress.isLearned(id)).length;
-            final wrong = catIds.where((id) => progress.wrongIds.contains(id)).length;
-            final attempted = learned + wrong;
-            final ratio = total > 0 ? (attempted / total) : 0.0;
+            final wrongSet = progress.wrongIds.toSet();
+            final learned = catIds.where((id) => progress.isLearned(id) && !wrongSet.contains(id)).length;
+            final attempted = catIds.where((id) => progress.isLearned(id) || wrongSet.contains(id)).length;
+            final ratio = total > 0 ? (attempted / total).clamp(0.0, 1.0) : 0.0;
             final emoji = _categoryEmoji[cat] ?? '📌';
             final isComplete = learned == total && total > 0;
             final accentColor = _getCategoryAccentColor(cat);

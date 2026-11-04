@@ -57,8 +57,6 @@ class HangulData {
       'VI': 'Âm g nhẹ hoặc c/k cuối',
       'ZH': '轻读 g / 词尾读 k',
       'JA': '濁らないカ行 / 語尾のk',
-      'ES': 'g suave en "gato" / k al final',
-      'PT': 'g suave em "gato" / k no final',
     },
     'ㄴ': {
       'KO': '혀끝을 잇몸에 대는 ㄴ 소리',
@@ -66,26 +64,20 @@ class HangulData {
       'VI': 'Âm n như "nón"',
       'ZH': '类似汉语拼音 n',
       'JA': 'ナ行の n',
-      'ES': 'n como en "nariz"',
-      'PT': 'n como em "nariz"',
     },
     'ㄷ': {
       'KO': '부드러운 ㄷ 소리',
       'EN': 'd in "door" / t at end',
-      'VI': 'Âm đ nhẹ 또는 t cuối',
+      'VI': 'Âm đ nhẹ hoặc t cuối',
       'ZH': '轻读 d / 词尾读 t',
       'JA': 'タ行/ダ行の間 / 語尾のt',
-      'ES': 'd suave en "dedo" / t al final',
-      'PT': 'd suave em "dado" / t no final',
     },
     'ㄹ': {
       'KO': '혀를 가볍게 튕기는 ㄹ 소리',
       'EN': 'r in "run" / l at end',
-      'VI': 'Âm r nhẹ 또는 l cuối',
+      'VI': 'Âm r nhẹ hoặc l cuối',
       'ZH': '介于 r 与 l 之间',
       'JA': 'ラ行の音 / 語尾のl',
-      'ES': 'r suave / l al final',
-      'PT': 'r suave / l no final',
     },
     'ㅁ': {
       'KO': '두 입술을 다무는 ㅁ 소리',
@@ -93,17 +85,13 @@ class HangulData {
       'VI': 'Âm m như "mẹ"',
       'ZH': '类似汉语拼音 m',
       'JA': 'マ行の m',
-      'ES': 'm como en "mamá"',
-      'PT': 'm como em "mãe"',
     },
     'ㅂ': {
       'KO': '두 입술을 터뜨리는 ㅂ 소리',
       'EN': 'b in "boy" / p at end',
-      'VI': 'Âm b nhẹ 또는 p cuối',
+      'VI': 'Âm b nhẹ hoặc p cuối',
       'ZH': '轻读 b / 词尾读 p',
       'JA': 'バ行/パ行の間 / 語尾のp',
-      'ES': 'b suave en "barco" / p al final',
-      'PT': 'b suave em "barco" / p no final',
     },
     'ㅅ': {
       'KO': '가볍게 스치는 ㅅ 소리',
@@ -111,8 +99,6 @@ class HangulData {
       'VI': 'Âm s nhẹ',
       'ZH': '类似汉语拼音 s',
       'JA': 'サ行の s',
-      'ES': 's como en "sol"',
-      'PT': 's como em "sol"',
     },
     'ㅇ': {
       'KO': '첫소리 무음 / 받침 [ㅇ] 소리',
@@ -120,8 +106,6 @@ class HangulData {
       'VI': 'Đầu không đọc / cuối là ng',
       'ZH': '首字母不发音 / 收音为 ng',
       'JA': '語頭は無音 / 終声は ng',
-      'ES': 'muda al inicio / ng al final',
-      'PT': 'muda no início / ng no final',
     },
     'ㅈ': {
       'KO': '부드러운 ㅈ 소리',
@@ -129,8 +113,6 @@ class HangulData {
       'VI': 'Âm ch/j nhẹ',
       'ZH': '类似汉语拼音 j/z',
       'JA': 'チャ行/ジャ行の間',
-      'ES': 'j suave (como ch)',
-      'PT': 'j suave (como dj)',
     },
     'ㅊ': {
       'KO': '거세게 터지는 ㅊ 소리 💨',
@@ -138,8 +120,6 @@ class HangulData {
       'VI': 'Âm ch bật hơi mạnh 💨',
       'ZH': '强送气 ch (激音 💨)',
       'JA': '息を強く出すチ (激音 💨)',
-      'ES': 'ch fuerte con aire 💨',
-      'PT': 'tch forte com ar 💨',
     },
     'ㅋ': {
       'KO': '거세게 터지는 ㅋ 소리 💨',
@@ -147,8 +127,6 @@ class HangulData {
       'VI': 'Âm k bật hơi mạnh 💨',
       'ZH': '强送气 k (激音 💨)',
       'JA': '息を強く出すカ (激音 💨)',
-      'ES': 'k fuerte con aire 💨',
-      'PT': 'k forte com ar 💨',
     },
     'ㅌ': {
       'KO': '거세게 터지는 ㅌ 소리 💨',
@@ -156,8 +134,6 @@ class HangulData {
       'VI': 'Âm th bật hơi mạnh 💨',
       'ZH': '强送气 t (激音 💨)',
       'JA': '息を強く出すタ (激音 💨)',
-      'ES': 't fuerte con aire 💨',
-      'PT': 't forte com ar 💨',
     },
     'ㅍ': {
       'KO': '거세게 터지는 ㅍ 소리 💨',
@@ -165,8 +141,6 @@ class HangulData {
       'VI': 'Âm p bật hơi mạnh 💨',
       'ZH': '强送气 p (激音 💨)',
       'JA': '息を強く出すパ (激音 💨)',
-      'ES': 'p fuerte con aire 💨',
-      'PT': 'p forte com ar 💨',
     },
     'ㅎ': {
       'KO': '목구멍에서 나는 ㅎ 소리',
@@ -174,8 +148,6 @@ class HangulData {
       'VI': 'Âm h như "hoa"',
       'ZH': '类似汉语拼音 h',
       'JA': 'ハ行の h',
-      'ES': 'j suave / h en inglés',
-      'PT': 'r suave / h em inglês',
     },
 
     // 2. 5 Double Consonants (쌍자음 / 된소리)
@@ -185,8 +157,6 @@ class HangulData {
       'VI': 'Âm c/k căng, dồn lực ⚡',
       'ZH': '紧音 k，声带绷紧 ⚡',
       'JA': '喉を詰める鋭いカ ⚡',
-      'ES': 'k tensa y fuerte ⚡',
-      'PT': 'k tenso e forte ⚡',
     },
     'ㄸ': {
       'KO': '목에 힘을 주는 된소리 ⚡',
@@ -194,8 +164,6 @@ class HangulData {
       'VI': 'Âm đ/t căng, dồn lực ⚡',
       'ZH': '紧音 t，声带绷紧 ⚡',
       'JA': '喉を詰める鋭いタ ⚡',
-      'ES': 't tensa y fuerte ⚡',
-      'PT': 't tenso e forte ⚡',
     },
     'ㅃ': {
       'KO': '입술에 힘을 주는 된소리 ⚡',
@@ -203,8 +171,6 @@ class HangulData {
       'VI': 'Âm b/p căng, dồn lực ⚡',
       'ZH': '紧音 p，声带绷紧 ⚡',
       'JA': '喉を詰める鋭いパ ⚡',
-      'ES': 'p tensa y fuerte ⚡',
-      'PT': 'p tenso e forte ⚡',
     },
     'ㅆ': {
       'KO': '마찰을 강하게 내는 된소리 ⚡',
@@ -212,8 +178,6 @@ class HangulData {
       'VI': 'Âm s căng, dồn lực ⚡',
       'ZH': '紧音 s，用力摩擦 ⚡',
       'JA': '鋭く詰まったサ ⚡',
-      'ES': 's tensa y fuerte ⚡',
-      'PT': 'ss tenso e forte ⚡',
     },
     'ㅉ': {
       'KO': '목에 힘을 주는 된소리 ⚡',
@@ -221,8 +185,6 @@ class HangulData {
       'VI': 'Âm ch căng, dồn lực ⚡',
       'ZH': '紧音 j/z，声带绷紧 ⚡',
       'JA': '喉を詰める鋭いチャ ⚡',
-      'ES': 'ch tensa y fuerte ⚡',
-      'PT': 'dj tenso e forte ⚡',
     },
 
     // 3. 10 Basic Vowels (기본 모음)
@@ -232,8 +194,6 @@ class HangulData {
       'VI': 'Âm a như "ba"',
       'ZH': '类似汉语拼音 a',
       'JA': 'ア段の a',
-      'ES': 'a como en "padre"',
-      'PT': 'a como em "pai"',
     },
     'ㅑ': {
       'KO': 'y와 ㅏ가 합쳐진 [야] 소리',
@@ -241,8 +201,6 @@ class HangulData {
       'VI': 'Âm ya',
       'ZH': '类似汉语拼音 ya',
       'JA': 'ヤ段の ya',
-      'ES': 'ya como en "yate"',
-      'PT': 'ia como em "iate"',
     },
     'ㅓ': {
       'KO': '입을 살짝 벌리는 [어] 소리',
@@ -250,8 +208,6 @@ class HangulData {
       'VI': 'Âm ơ/o mở',
       'ZH': '类似汉语拼音 e',
       'JA': '口を縦に開けるオ',
-      'ES': 'eo (o abierta)',
-      'PT': 'ó aberto',
     },
     'ㅕ': {
       'KO': 'y와 ㅓ가 합쳐진 [여] 소리',
@@ -259,8 +215,6 @@ class HangulData {
       'VI': 'Âm yơ',
       'ZH': '类似汉语拼音 ye',
       'JA': '口を開くヨ',
-      'ES': 'yeo',
-      'PT': 'ió',
     },
     'ㅗ': {
       'KO': '입술을 동그랗게 모으는 [오] 소리',
@@ -268,8 +222,6 @@ class HangulData {
       'VI': 'Âm ô tròn môi',
       'ZH': '类似汉语拼音 o (圆唇)',
       'JA': '唇を丸めるオ',
-      'ES': 'o redonda como en "sol"',
-      'PT': 'ô redondo como em "sol"',
     },
     'ㅛ': {
       'KO': 'y와 ㅗ가 합쳐진 [요] 소리',
@@ -277,8 +229,6 @@ class HangulData {
       'VI': 'Âm yô tròn môi',
       'ZH': '类似汉语拼音 yo',
       'JA': '唇を丸めるヨ',
-      'ES': 'yo como en "yogur"',
-      'PT': 'io como em "iogurte"',
     },
     'ㅜ': {
       'KO': '입술을 앞으로 내미는 [우] 소리',
@@ -286,8 +236,6 @@ class HangulData {
       'VI': 'Âm u như "mùa"',
       'ZH': '类似汉语拼音 u',
       'JA': 'ウ段の u',
-      'ES': 'u como en "luna"',
-      'PT': 'u como em "lua"',
     },
     'ㅠ': {
       'KO': 'y와 ㅜ가 합쳐진 [유] 소리',
@@ -295,8 +243,6 @@ class HangulData {
       'VI': 'Âm yu',
       'ZH': '类似汉语拼音 you',
       'JA': 'ユ段の yu',
-      'ES': 'yu como en "yuca"',
-      'PT': 'iu como em "união"',
     },
     'ㅡ': {
       'KO': '입술을 옆으로 평평하게 펴는 [으] 소리',
@@ -304,8 +250,6 @@ class HangulData {
       'VI': 'Âm ư dẹt môi',
       'ZH': '类似拼音 ci/zi 的韵母',
       'JA': '唇を引いたウ',
-      'ES': 'u con labios planos',
-      'PT': 'u com lábios planos',
     },
     'ㅣ': {
       'KO': '입술을 옆으로 당기는 [이] 소리',
@@ -313,8 +257,6 @@ class HangulData {
       'VI': 'Âm i như "đi"',
       'ZH': '类似汉语拼音 i',
       'JA': 'イ段の i',
-      'ES': 'i como en "sí"',
-      'PT': 'i como em "sim"',
     },
 
     // 4. 11 Compound Vowels (복합 모음)
@@ -324,8 +266,6 @@ class HangulData {
       'VI': 'Âm e/ae',
       'ZH': '类似拼音 ai/e',
       'JA': '口を広く開くエ',
-      'ES': 'e abierta',
-      'PT': 'é aberto',
     },
     'ㅒ': {
       'KO': 'y와 ㅐ가 합쳐진 [얘] 소리',
@@ -333,8 +273,6 @@ class HangulData {
       'VI': 'Âm ye',
       'ZH': '类似拼音 yai',
       'JA': 'ヤエ',
-      'ES': 'yae',
-      'PT': 'ié',
     },
     'ㅔ': {
       'KO': '입을 작게 벌리는 [에] 소리',
@@ -342,8 +280,6 @@ class HangulData {
       'VI': 'Âm ê',
       'ZH': '类似拼音 ei/e',
       'JA': 'エ段の e',
-      'ES': 'e como en "mesa"',
-      'PT': 'ê fechado',
     },
     'ㅖ': {
       'KO': 'y와 ㅔ가 합쳐진 [예] 소리',
@@ -351,8 +287,6 @@ class HangulData {
       'VI': 'Âm yê',
       'ZH': '类似拼音 ye',
       'JA': 'イェ',
-      'ES': 'ye como en "hielo"',
-      'PT': 'ie como em "dieta"',
     },
     'ㅘ': {
       'KO': 'ㅗ와 ㅏ가 합쳐진 [와] 소리',
@@ -360,8 +294,6 @@ class HangulData {
       'VI': 'Âm oa',
       'ZH': '类似拼音 wa',
       'JA': 'ワ段の wa',
-      'ES': 'ua como en "agua"',
-      'PT': 'ua como em "água"',
     },
     'ㅙ': {
       'KO': 'ㅗ와 ㅐ가 합쳐진 [왜] 소리',
@@ -369,8 +301,6 @@ class HangulData {
       'VI': 'Âm oe',
       'ZH': '类似拼音 wai',
       'JA': 'ウェ',
-      'ES': 'ue abierta',
-      'PT': 'ué',
     },
     'ㅚ': {
       'KO': 'ㅗ와 ㅣ가 합쳐진 [외] 소리',
@@ -378,8 +308,6 @@ class HangulData {
       'VI': 'Âm uê',
       'ZH': '类似拼音 wei',
       'JA': 'ウェ',
-      'ES': 'ue',
-      'PT': 'ue',
     },
     'ㅝ': {
       'KO': 'ㅜ와 ㅓ가 합쳐진 [워] 소리',
@@ -387,8 +315,6 @@ class HangulData {
       'VI': 'Âm uơ',
       'ZH': '类似拼音 wo',
       'JA': 'ウォ',
-      'ES': 'uo',
-      'PT': 'uó',
     },
     'ㅞ': {
       'KO': 'ㅜ와 ㅔ가 합쳐진 [웨] 소리',
@@ -396,8 +322,6 @@ class HangulData {
       'VI': 'Âm uê',
       'ZH': '类似拼音 wei',
       'JA': 'ウェ',
-      'ES': 'ue',
-      'PT': 'uê',
     },
     'ㅟ': {
       'KO': 'ㅜ와 ㅣ가 합쳐진 [위] 소리',
@@ -405,8 +329,6 @@ class HangulData {
       'VI': 'Âm uy',
       'ZH': '类似拼音 ui/wi',
       'JA': 'ウィ',
-      'ES': 'ui como en "cuidar"',
-      'PT': 'ui como em "muito"',
     },
     'ㅢ': {
       'KO': 'ㅡ와 ㅣ가 합쳐진 [의] 소리',
@@ -414,8 +336,6 @@ class HangulData {
       'VI': 'Âm ưi',
       'ZH': '复合音 (eu + i)',
       'JA': 'ウイ',
-      'ES': 'ui (eu + i)',
-      'PT': 'ui (eu + i)',
     },
   };
 
@@ -427,8 +347,6 @@ class HangulData {
         'VI': 'Âm thường',
         'ZH': '平音',
         'JA': '平音',
-        'ES': 'Suave',
-        'PT': 'Suave',
       },
       'aspirated': {
         'KO': '격음 💨',
@@ -436,8 +354,6 @@ class HangulData {
         'VI': 'Bật hơi 💨',
         'ZH': '激音 💨',
         'JA': '激音 💨',
-        'ES': 'Aire 💨',
-        'PT': 'Ar 💨',
       },
       'tense': {
         'KO': '경음 ⚡',
@@ -445,8 +361,6 @@ class HangulData {
         'VI': 'Âm căng ⚡',
         'ZH': '浓音 ⚡',
         'JA': '浓音 ⚡',
-        'ES': 'Tensa ⚡',
-        'PT': 'Forte ⚡',
       },
       'vowel': {
         'KO': '모음',
@@ -454,8 +368,6 @@ class HangulData {
         'VI': 'Nguyên âm',
         'ZH': '元音',
         'JA': '母音',
-        'ES': 'Vocal',
-        'PT': 'Vogal',
       },
     };
     return tags[categoryType]?[langCode] ?? tags[categoryType]?['EN'] ?? '평음';
@@ -473,8 +385,6 @@ class HangulData {
         'VI': 'Con sông',
         'ZH': '江 / 河流',
         'JA': '川 (かわ)',
-        'ES': 'Río',
-        'PT': 'Rio',
       },
     ),
     '밥': DiscoveredWord(
@@ -487,8 +397,6 @@ class HangulData {
         'VI': 'Cơm / Bữa ăn',
         'ZH': '米饭 / 餐',
         'JA': 'ご飯 / 食事',
-        'ES': 'Arroz / Comida',
-        'PT': 'Arroz / Refeição',
       },
     ),
     '물': DiscoveredWord(
@@ -501,8 +409,6 @@ class HangulData {
         'VI': 'Nước',
         'ZH': '水',
         'JA': '水 (みず)',
-        'ES': 'Agua',
-        'PT': 'Água',
       },
     ),
     '발': DiscoveredWord(
@@ -515,8 +421,6 @@ class HangulData {
         'VI': 'Bàn chân',
         'ZH': '脚',
         'JA': '足 (あし)',
-        'ES': 'Pie',
-        'PT': 'Pé',
       },
     ),
     '봄': DiscoveredWord(
@@ -529,8 +433,6 @@ class HangulData {
         'VI': 'Mùa xuân',
         'ZH': '春天',
         'JA': '春 (はる)',
-        'ES': 'Primavera',
-        'PT': 'Primavera',
       },
     ),
     '눈': DiscoveredWord(
@@ -543,8 +445,6 @@ class HangulData {
         'VI': 'Tuyết / Mắt',
         'ZH': '雪 / 眼睛',
         'JA': '雪 / 目',
-        'ES': 'Nieve / Ojo',
-        'PT': 'Neve / Olho',
       },
     ),
     '산': DiscoveredWord(
@@ -557,8 +457,6 @@ class HangulData {
         'VI': 'Ngọn núi',
         'ZH': '大山',
         'JA': '山 (やま)',
-        'ES': 'Montaña',
-        'PT': 'Montanha',
       },
     ),
     '달': DiscoveredWord(
@@ -571,8 +469,6 @@ class HangulData {
         'VI': 'Mặt trăng / Tháng',
         'ZH': '月亮 / 月份',
         'JA': '月 (つき)',
-        'ES': 'Luna / Mes',
-        'PT': 'Lua / Mês',
       },
     ),
     '방': DiscoveredWord(
@@ -585,8 +481,6 @@ class HangulData {
         'VI': 'Căn phòng',
         'ZH': '房间',
         'JA': '部屋 (へや)',
-        'ES': 'Habitación',
-        'PT': 'Quarto / Sala',
       },
     ),
     '곰': DiscoveredWord(
@@ -599,8 +493,6 @@ class HangulData {
         'VI': 'Con gấu',
         'ZH': '熊',
         'JA': '熊 (くま)',
-        'ES': 'Oso',
-        'PT': 'Urso',
       },
     ),
     '손': DiscoveredWord(
@@ -613,8 +505,6 @@ class HangulData {
         'VI': 'Bàn tay',
         'ZH': '手',
         'JA': '手 (て)',
-        'ES': 'Mano',
-        'PT': 'Mão',
       },
     ),
     '불': DiscoveredWord(
@@ -627,8 +517,6 @@ class HangulData {
         'VI': 'Lửa / Đèn',
         'ZH': '火 / 灯光',
         'JA': '火 (ひ) / 明かり',
-        'ES': 'Fuego / Luz',
-        'PT': 'Fogo / Luz',
       },
     ),
     '말': DiscoveredWord(
@@ -641,8 +529,6 @@ class HangulData {
         'VI': 'Con ngựa / Lời nói',
         'ZH': '马 / 话语',
         'JA': '馬 / 言葉',
-        'ES': 'Caballo / Palabras',
-        'PT': 'Cavalo / Palavras',
       },
     ),
     '집': DiscoveredWord(
@@ -655,8 +541,6 @@ class HangulData {
         'VI': 'Ngôi nhà',
         'ZH': '房子 / 家',
         'JA': '家 (いえ)',
-        'ES': 'Casa / Hogar',
-        'PT': 'Casa / Lar',
       },
     ),
     '길': DiscoveredWord(
@@ -669,8 +553,6 @@ class HangulData {
         'VI': 'Con đường',
         'ZH': '道路 / 街',
         'JA': '道 (みち)',
-        'ES': 'Camino / Calle',
-        'PT': 'Caminho / Rua',
       },
     ),
     '문': DiscoveredWord(
@@ -683,8 +565,6 @@ class HangulData {
         'VI': 'Cánh cửa',
         'ZH': '门',
         'JA': 'ドア / 門',
-        'ES': 'Puerta',
-        'PT': 'Porta',
       },
     ),
     '밤': DiscoveredWord(
@@ -697,8 +577,6 @@ class HangulData {
         'VI': 'Ban đêm / Hạt dẻ',
         'ZH': '夜晚 / 栗子',
         'JA': '夜 (よる) / 栗',
-        'ES': 'Noche / Castaña',
-        'PT': 'Noite / Castanha',
       },
     ),
     '소': DiscoveredWord(
@@ -711,8 +589,6 @@ class HangulData {
         'VI': 'Con bò',
         'ZH': '黄牛',
         'JA': '牛 (うし)',
-        'ES': 'Vaca',
-        'PT': 'Vaca',
       },
     ),
     '비': DiscoveredWord(
@@ -725,8 +601,6 @@ class HangulData {
         'VI': 'Cơn mưa',
         'ZH': '雨水',
         'JA': '雨 (あめ)',
-        'ES': 'Lluvia',
-        'PT': 'Chuva',
       },
     ),
     '해': DiscoveredWord(
@@ -739,8 +613,6 @@ class HangulData {
         'VI': 'Mặt trời / Năm',
         'ZH': '太阳 / 年',
         'JA': '太陽 / 年',
-        'ES': 'Sol / Año',
-        'PT': 'Sol / Ano',
       },
     ),
     '나': DiscoveredWord(
@@ -753,8 +625,6 @@ class HangulData {
         'VI': 'Tôi / Mình',
         'ZH': '我',
         'JA': '私 (わたし)',
-        'ES': 'Yo',
-        'PT': 'Eu',
       },
     ),
     '가': DiscoveredWord(
@@ -767,8 +637,6 @@ class HangulData {
         'VI': 'Đi thôi!',
         'ZH': '走！',
         'JA': '行け！',
-        'ES': '¡Ve! / ¡Vamos!',
-        'PT': 'Vá!',
       },
     ),
     '꽃': DiscoveredWord(
@@ -781,8 +649,6 @@ class HangulData {
         'VI': 'Bông hoa',
         'ZH': '花朵',
         'JA': '花 (はな)',
-        'ES': 'Flor',
-        'PT': 'Flor',
       },
     ),
     '빵': DiscoveredWord(
@@ -795,8 +661,6 @@ class HangulData {
         'VI': 'Bánh mì',
         'ZH': '面包',
         'JA': 'パン',
-        'ES': 'Pan',
-        'PT': 'Pão',
       },
     ),
   };
@@ -818,8 +682,6 @@ class HangulData {
         'VI': 'Cái túi / Ba lô',
         'ZH': '包包',
         'JA': 'かばん',
-        'ES': 'Bolsa / Mochila',
-        'PT': 'Bolsa / Mochila',
       },
     ),
     HangulLetter(
@@ -837,8 +699,6 @@ class HangulData {
         'VI': 'Cây cối',
         'ZH': '树木',
         'JA': '木',
-        'ES': 'Árbol',
-        'PT': 'Árvore',
       },
     ),
     HangulLetter(
@@ -856,8 +716,6 @@ class HangulData {
         'VI': 'Cây cầu / Đôi chân',
         'ZH': '桥 / 腿',
         'JA': '橋 / 足',
-        'ES': 'Puente / Pierna',
-        'PT': 'Ponte / Perna',
       },
     ),
     HangulLetter(
@@ -875,8 +733,6 @@ class HangulData {
         'VI': 'Mì gói',
         'ZH': '拉面',
         'JA': 'ラーメン',
-        'ES': 'Ramen / Fideos',
-        'PT': 'Lámen / Macarrão',
       },
     ),
     HangulLetter(
@@ -894,8 +750,6 @@ class HangulData {
         'VI': 'Cái mũ / Nón',
         'ZH': '帽子',
         'JA': '帽子',
-        'ES': 'Gorra / Sombrero',
-        'PT': 'Boné / Chapéu',
       },
     ),
     HangulLetter(
@@ -913,8 +767,6 @@ class HangulData {
         'VI': 'Xe buýt',
         'ZH': '公交车',
         'JA': 'バス',
-        'ES': 'Autobús',
-        'PT': 'Ônibus',
       },
     ),
     HangulLetter(
@@ -932,8 +784,6 @@ class HangulData {
         'VI': 'Quả táo',
         'ZH': '苹果',
         'JA': 'りんご',
-        'ES': 'Manzana',
-        'PT': 'Maçã',
       },
     ),
     HangulLetter(
@@ -951,8 +801,6 @@ class HangulData {
         'VI': 'Sữa tươi',
         'ZH': '牛奶',
         'JA': '牛乳',
-        'ES': 'Leche',
-        'PT': 'Leite',
       },
     ),
     HangulLetter(
@@ -970,8 +818,6 @@ class HangulData {
         'VI': 'Bản đồ',
         'ZH': '地图',
         'JA': '地図',
-        'ES': 'Mapa',
-        'PT': 'Mapa',
       },
     ),
     HangulLetter(
@@ -989,8 +835,6 @@ class HangulData {
         'VI': 'Phô mai',
         'ZH': '奶酪',
         'JA': 'チーズ',
-        'ES': 'Queso',
-        'PT': 'Queijo',
       },
     ),
     HangulLetter(
@@ -1008,8 +852,6 @@ class HangulData {
         'VI': 'Cà phê',
         'ZH': '咖啡',
         'JA': 'コーヒー',
-        'ES': 'Café',
-        'PT': 'Café',
       },
     ),
     HangulLetter(
@@ -1027,8 +869,6 @@ class HangulData {
         'VI': 'Cà chua',
         'ZH': '西红柿',
         'JA': 'トマト',
-        'ES': 'Tomate',
-        'PT': 'Tomate',
       },
     ),
     HangulLetter(
@@ -1046,8 +886,6 @@ class HangulData {
         'VI': 'Pizza',
         'ZH': '披萨',
         'JA': 'ピザ',
-        'ES': 'Pizza',
-        'PT': 'Pizza',
       },
     ),
     HangulLetter(
@@ -1065,8 +903,6 @@ class HangulData {
         'VI': 'Bầu trời',
         'ZH': '天空',
         'JA': '空',
-        'ES': 'Cielo',
-        'PT': 'Céu',
       },
     ),
   ];
@@ -1088,8 +924,6 @@ class HangulData {
         'VI': 'Bông hoa',
         'ZH': '花朵',
         'JA': '花',
-        'ES': 'Flor',
-        'PT': 'Flor',
       },
     ),
     HangulLetter(
@@ -1107,8 +941,6 @@ class HangulData {
         'VI': 'Dâu tây',
         'ZH': '草莓',
         'JA': 'いちご',
-        'ES': 'Fresa',
-        'PT': 'Morango',
       },
     ),
     HangulLetter(
@@ -1126,8 +958,6 @@ class HangulData {
         'VI': 'Bánh mì',
         'ZH': '面包',
         'JA': 'パン',
-        'ES': 'Pan',
-        'PT': 'Pão',
       },
     ),
     HangulLetter(
@@ -1145,8 +975,6 @@ class HangulData {
         'VI': 'Rác thải',
         'ZH': '垃圾',
         'JA': 'ゴミ',
-        'ES': 'Basura',
-        'PT': 'Lixo',
       },
     ),
     HangulLetter(
@@ -1164,8 +992,6 @@ class HangulData {
         'VI': 'Canh hầm (Jjigae)',
         'ZH': '韩式锅物',
         'JA': 'チゲ',
-        'ES': 'Guiso coreano',
-        'PT': 'Ensopado coreano',
       },
     ),
   ];
@@ -1187,8 +1013,6 @@ class HangulData {
         'VI': 'Đứa trẻ',
         'ZH': '孩子',
         'JA': '子供',
-        'ES': 'Niño',
-        'PT': 'Criança',
       },
     ),
     HangulLetter(
@@ -1206,8 +1030,6 @@ class HangulData {
         'VI': 'Bóng chày',
         'ZH': '棒球',
         'JA': '野球',
-        'ES': 'Béisbol',
-        'PT': 'Beisebol',
       },
     ),
     HangulLetter(
@@ -1225,8 +1047,6 @@ class HangulData {
         'VI': 'Người mẹ',
         'ZH': '母亲',
         'JA': 'お母さん',
-        'ES': 'Madre',
-        'PT': 'Mãe',
       },
     ),
     HangulLetter(
@@ -1244,8 +1064,6 @@ class HangulData {
         'VI': 'Con cáo',
         'ZH': '狐狸',
         'JA': 'キツネ',
-        'ES': 'Zorro',
-        'PT': 'Raposa',
       },
     ),
     HangulLetter(
@@ -1263,8 +1081,6 @@ class HangulData {
         'VI': 'Dưa chuột',
         'ZH': '黄瓜',
         'JA': 'きゅうり',
-        'ES': 'Pepino',
-        'PT': 'Pepino',
       },
     ),
     HangulLetter(
@@ -1282,8 +1098,6 @@ class HangulData {
         'VI': 'Nấu ăn / Món ăn',
         'ZH': '料理 / 烹饪',
         'JA': '料理',
-        'ES': 'Cocina / Comida',
-        'PT': 'Culinária / Prato',
       },
     ),
     HangulLetter(
@@ -1301,8 +1115,6 @@ class HangulData {
         'VI': 'Chiếc ô / Dù',
         'ZH': '雨伞',
         'JA': '傘',
-        'ES': 'Paraguas',
-        'PT': 'Guarda-chuva',
       },
     ),
     HangulLetter(
@@ -1320,8 +1132,6 @@ class HangulData {
         'VI': 'Khăn giấy',
         'ZH': '纸巾',
         'JA': 'ティッシュ',
-        'ES': 'Pañuelo / Papel',
-        'PT': 'Lenço de papel',
       },
     ),
     HangulLetter(
@@ -1339,8 +1149,6 @@ class HangulData {
         'VI': 'Ngân hàng',
         'ZH': '银行',
         'JA': '銀行',
-        'ES': 'Banco',
-        'PT': 'Banco',
       },
     ),
     HangulLetter(
@@ -1358,8 +1166,6 @@ class HangulData {
         'VI': 'Răng',
         'ZH': '牙齿',
         'JA': '歯',
-        'ES': 'Diente',
-        'PT': 'Dente',
       },
     ),
   ];
@@ -1381,8 +1187,6 @@ class HangulData {
         'VI': 'Con chim',
         'ZH': '鸟',
         'JA': '鳥',
-        'ES': 'Pájaro',
-        'PT': 'Pássaro',
       },
     ),
     HangulLetter(
@@ -1400,8 +1204,6 @@ class HangulData {
         'VI': 'Câu chuyện',
         'ZH': '聊天 / 故事',
         'JA': '話',
-        'ES': 'Charla / Historia',
-        'PT': 'Conversa / História',
       },
     ),
     HangulLetter(
@@ -1419,8 +1221,6 @@ class HangulData {
         'VI': 'Cửa hàng',
         'ZH': '商店',
         'JA': '店',
-        'ES': 'Tienda',
-        'PT': 'Loja',
       },
     ),
     HangulLetter(
@@ -1438,8 +1238,6 @@ class HangulData {
         'VI': 'Đồng hồ',
         'ZH': '手表 / 钟',
         'JA': '時計',
-        'ES': 'Reloj',
-        'PT': 'Relógio',
       },
     ),
     HangulLetter(
@@ -1457,8 +1255,6 @@ class HangulData {
         'VI': 'Bánh kẹo',
         'ZH': '零食 / 饼干',
         'JA': 'お菓子',
-        'ES': 'Galleta / Snack',
-        'PT': 'Biscoito / Snack',
       },
     ),
     HangulLetter(
@@ -1476,8 +1272,6 @@ class HangulData {
         'VI': 'Con heo / lợn',
         'ZH': '猪',
         'JA': '豚',
-        'ES': 'Cerdo',
-        'PT': 'Porco',
       },
     ),
     HangulLetter(
@@ -1495,8 +1289,6 @@ class HangulData {
         'VI': 'Nước ngoài',
         'ZH': '外国',
         'JA': '外国',
-        'ES': 'Extranjero',
-        'PT': 'País estrangeiro',
       },
     ),
     HangulLetter(
@@ -1514,8 +1306,6 @@ class HangulData {
         'VI': 'Bệnh viện',
         'ZH': '医院',
         'JA': '病院',
-        'ES': 'Hospital',
-        'PT': 'Hospital',
       },
     ),
     HangulLetter(
@@ -1533,8 +1323,6 @@ class HangulData {
         'VI': 'Người bồi bàn',
         'ZH': '服务员',
         'JA': 'ウェイター',
-        'ES': 'Camarero',
-        'PT': 'Garçom',
       },
     ),
     HangulLetter(
@@ -1552,8 +1340,6 @@ class HangulData {
         'VI': 'Cái tai',
         'ZH': '耳朵',
         'JA': '耳',
-        'ES': 'Oreja',
-        'PT': 'Orelha',
       },
     ),
     HangulLetter(
@@ -1571,8 +1357,6 @@ class HangulData {
         'VI': 'Bác sĩ',
         'ZH': '医生',
         'JA': '医師',
-        'ES': 'Médico',
-        'PT': 'Médico',
       },
     ),
   ];

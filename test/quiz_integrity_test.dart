@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:beginner_korean_quiz/data/quiz_data.dart';
+import 'package:beginner_korean_quiz/data/hangul_data.dart';
+import 'package:beginner_korean_quiz/utils/korean_romanizer.dart';
 import 'dart:io';
 
 void main() {
@@ -78,8 +80,45 @@ void main() {
         final qJson = questions[i];
         final qMemory = sampleQuizQuestions[i];
         expect(qMemory.id, equals(qJson.id));
-        expect(qMemory.options[qMemory.answerIndex], equals(qJson.options[qJson.answerIndex]));
+        expect(qMemory.options, equals(qJson.options));
+        expect(qMemory.answerIndex, equals(qJson.answerIndex));
+        expect(qMemory.questions['KO'], equals(qJson.questions['KO']));
+        expect(qMemory.situations, equals(qJson.situations));
+        expect(qMemory.explanations, equals(qJson.explanations));
       }
+    });
+
+    test('Every question has exactly 1 blank and no slash particles around blanks', () {
+      final blankRegex = RegExp(r'\(\s*\)');
+      for (final q in questions) {
+        final ko = q.questions['KO'] ?? '';
+        final matches = blankRegex.allMatches(ko).length;
+        expect(matches, equals(1), reason: 'Question #${q.id} has $matches blanks: $ko');
+        expect(ko.contains('을/를'), isFalse, reason: 'Question #${q.id} still contains 을/를');
+        expect(ko.contains('이/가'), isFalse, reason: 'Question #${q.id} still contains 이/가');
+      }
+    });
+
+    test('Hangul Vietnamese soundTips do not contain untranslated Korean 또는', () {
+      for (final tip in HangulData.localizedSoundTips.values) {
+        expect(tip['VI']?.contains('또는'), isFalse,
+            reason: 'Hangul VI soundTip contains 또는: ${tip['VI']}');
+      }
+    });
+  });
+
+  group('KoreanRomanizer Regression Tests', () {
+    test('Handles liaison (연음), punctuation tokens, and phonological rules accurately', () {
+      expect(KoreanRomanizer.romanize('물이'), equals('muri'));
+      expect(KoreanRomanizer.romanize('밥을'), equals('babeul'));
+      expect(KoreanRomanizer.romanize('있어요'), equals('isseoyo'));
+      expect(KoreanRomanizer.romanize('있어요?'), equals('isseoyo?'));
+      expect(KoreanRomanizer.romanize('있어요!'), equals('isseoyo!'));
+      expect(KoreanRomanizer.romanize('먹어요'), equals('meogeoyo'));
+      expect(KoreanRomanizer.romanize('같이'), equals('gachi'));
+      expect(KoreanRomanizer.romanize('축하해요'), equals('chukahaeyo'));
+      expect(KoreanRomanizer.romanize('설날'), equals('seollal'));
+      expect(KoreanRomanizer.romanize('감사합니다.'), equals('gamsahamnida.'));
     });
   });
 }

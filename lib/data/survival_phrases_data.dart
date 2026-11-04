@@ -31,8 +31,6 @@ class SurvivalPhraseRepository {
         'VI': '“Từ chối lịch sự: 괜찮습니다 (Dạ thôi, tôi ổn rồi ạ)”',
         'ZH': '“礼貌婉拒：괜찮습니다（不用了，谢谢 / 没关系）”',
         'JA': '“丁寧な遠慮：괜찮습니다（結構です、大丈夫です）”',
-        'ES': '“Rechazo cortés: 괜찮습니다 (No, gracias / Estoy bien)”',
-        'PT': '“Recusa educada: 괜찮습니다 (Não, obrigado / Estou bem)”',
       },
       tip: {
         'KO': '식당이나 가게에서 직원의 제안을 거절할 때 \'싫어요\' 대신 \'괜찮습니다/괜찮아요\'를 쓰면 훨씬 정중합니다.',
@@ -40,8 +38,6 @@ class SurvivalPhraseRepository {
         'VI': 'Tại quán ăn hoặc cửa hàng, nói \'싫어요\' nghe rất cộc lốc. Hãy nói \'괜찮아요/괜찮습니다\' để từ chối khéo léo.',
         'ZH': '在餐厅或商店拒绝店员时，说\'싫어요\'会显得粗鲁，用\'괜찮아요/괜찮습니다\'更礼貌得体。',
         'JA': '店員さんの勧めを断る時は\'싫어요\'ではなく\'괜찮아요/괜찮습니다\'を使うと角が立たず上品です。',
-        'ES': 'En tiendas o restaurantes, di \'괜찮아요/괜찮습니다\' en vez de \'싫어요\' para rechazar amablemente.',
-        'PT': 'Em lojas ou restaurantes, diga \'괜찮아요/괜찮습니다\' em vez de \'싫어요\' para recusar educadamente.',
       },
     ),
     SurvivalPhraseItem(
@@ -52,8 +48,6 @@ class SurvivalPhraseRepository {
         'VI': '“Hỏi giá tiền: 얼마예요? (Bao nhiêu tiền ạ?)”',
         'ZH': '“询问价格：얼마예요?（多少钱？）”',
         'JA': '“値段を尋ねる：얼마예요?（いくらですか？）”',
-        'ES': '“Preguntar el precio: 얼마예요? (¿Cuánto cuesta?)”',
-        'PT': '“Perguntar o preço: 얼마예요? (Quanto custa?)”',
       },
       tip: {
         'KO': '물건을 손으로 가리키며 \'이거 얼마예요?\'라고 하면 가장 자연스럽습니다.',
@@ -61,8 +55,6 @@ class SurvivalPhraseRepository {
         'VI': 'Chỉ vào món đồ và nói \'이거 얼마예요?\' (Cái này bao nhiêu tiền ạ?) rất tự nhiên.',
         'ZH': '用手指着物品并说\'이거 얼마예요?\'（这个多少钱？）是最自然的地道表达。',
         'JA': '商品を指さしながら「이거 얼마예요?」（これいくらですか？）と聞くと自然です。',
-        'ES': 'Señala el producto y di \'이거 얼마예요?\' (¿Cuánto cuesta esto?) para que suene natural.',
-        'PT': 'Aponte para o item e diga \'이거 얼마예요?\' (Quanto custa isso?) de forma natural.',
       },
     ),
     SurvivalPhraseItem(
@@ -73,8 +65,6 @@ class SurvivalPhraseRepository {
         'VI': '“Hỏi đường: 화장실이 어디예요? (Nhà vệ sinh ở đâu ạ?)”',
         'ZH': '“询问位置：화장실이 어디예요?（洗手间在哪里？）”',
         'JA': '“場所を尋ねる：화장실이 어디예요?（トイレはどこですか？）”',
-        'ES': '“Preguntar ubicación: 화장실이 어디예요? (¿Dónde está el baño?)”',
-        'PT': '“Perguntar localização: 화장실이 어디예요? (Onde fica o banheiro?)”',
       },
       tip: {
         'KO': '카페나 식당에선 영수증 하단에 화장실 비밀번호가 적혀 있는 경우가 많으니 확인해 보세요.',
@@ -82,8 +72,6 @@ class SurvivalPhraseRepository {
         'VI': 'Ở quán cà phê, mật khẩu cửa nhà vệ sinh thường được in ở dưới cùng của hóa đơn.',
         'ZH': '在韩国咖啡厅，洗手间门禁密码通常印在收银小票的最下方，记得看一看。',
         'JA': 'カフェ等ではレシートの下部にトイレの暗証番号が印字されていることが多いです。',
-        'ES': 'En las cafeterías coreanas, la clave del baño suele estar impresa al final del recibo.',
-        'PT': 'Em cafés coreanos, a senha do banheiro costuma vir impressa no final do recibo.',
       },
     ),
     SurvivalPhraseItem(
@@ -94,8 +82,6 @@ class SurvivalPhraseRepository {
         'VI': '“Yêu cầu mang đi: 포장해 주세요 (Gói mang về giúp tôi)”',
         'ZH': '“打包要求：포장해 주세요（请帮我打包 / 外带）”',
         'JA': '“持ち帰り：포장해 주세요（テイクアウト／持ち帰りでお願いします）”',
-        'ES': '“Para llevar: 포장해 주세요 (Para llevar, por favor)”',
-        'PT': '“Para viagem: 포장해 주세요 (Para viagem, por favor)”',
       },
       tip: {
         'KO': '식당에서 남은 음식을 싸갈 때나, 카페 주문 시 테이크아웃을 원할 때 쓸 수 있습니다.',
@@ -103,8 +89,6 @@ class SurvivalPhraseRepository {
         'VI': 'Dùng khi mua mang về hoặc khi muốn đóng hộp đồ ăn thừa mang về tại nhà hàng.',
         'ZH': '点餐时要外带，或者吃完饭要把剩下的菜打包带走时都可以使用此句。',
         'JA': 'テイクアウト注文時や、レストランで食べきれなかった料理を持ち帰る時に使えます。',
-        'ES': 'Úsalo al pedir comida para llevar o para pedir que te empaqueten lo que sobró.',
-        'PT': 'Use ao pedir comida para viagem ou para embalar o que sobrou no restaurante.',
       },
     ),
     SurvivalPhraseItem(
@@ -115,8 +99,6 @@ class SurvivalPhraseRepository {
         'VI': '“Khi thanh toán: 영수증 버려주세요 (Bỏ hóa đơn giúp tôi ạ)”',
         'ZH': '“结账离开：영수증 버려주세요（发票/小票不用了，帮我扔掉吧）”',
         'JA': '“お会計時：영수증 버려주세요（レシートは捨ててください）”',
-        'ES': '“En la caja: 영수증 버려주세요 (Deseche el recibo, por favor)”',
-        'PT': '“No caixa: 영수증 버려주세요 (Pode descartar o recibo, por favor)”',
       },
       tip: {
         'KO': '한국 결제 시 \'영수증 필요하세요?\'라는 질문을 받을 때 흔히 답하는 생존 표현입니다.',
@@ -124,8 +106,6 @@ class SurvivalPhraseRepository {
         'VI': 'Câu trả lời quen thuộc khi nhân viên hỏi \'영수증 필요하세요?\' (Bạn có cần hóa đơn không?).',
         'ZH': '店员问\'영수증 필요하세요?\'（需要小票吗？）时，不需要就回答这句即可。',
         'JA': '店員さんに「영수증 필요하세요?（レシート必要ですか）」と聞かれた時の定番の返答です。',
-        'ES': 'Respuesta ideal cuando el cajero te pregunta si necesitas recibo (\'영수증 필요하세요?\').',
-        'PT': 'Resposta ideal quando o caixa pergunta se você quer o recibo (\'영수증 필요하세요?\').',
       },
     ),
     SurvivalPhraseItem(
@@ -136,8 +116,6 @@ class SurvivalPhraseRepository {
         'VI': '“Phương thức thanh toán: 카드 결제 되나요? (Có quẹt thẻ được không ạ?)”',
         'ZH': '“支付方式：카드 결제 되나요?（可以刷卡吗？）”',
         'JA': '“決済方法：카드 결제 되나요?（カード決済できますか？）”',
-        'ES': '“Método de pago: 카드 결제 되나요? (¿Puedo pagar con tarjeta?)”',
-        'PT': '“Forma de pagamento: 카드 결제 되나요? (Posso pagar com cartão?)”',
       },
       tip: {
         'KO': '한국은 거의 모든 곳에서 카드가 되지만, 전통시장이나 노점상에서 미리 확인하기 좋습니다.',
@@ -145,8 +123,6 @@ class SurvivalPhraseRepository {
         'VI': 'Hàn Quốc chấp nhận thẻ ở hầu hết mọi nơi, nhưng nên hỏi trước ở chợ truyền thống.',
         'ZH': '韩国绝大部分场所都能刷卡，但在传统市场或路边摊提前询问很保险。',
         'JA': '韓国はカード社会ですが、伝統市場や屋台では事前に確認すると安心です。',
-        'ES': 'En Corea se acepta tarjeta casi en todas partes, pero conviene preguntar en mercados callejeros.',
-        'PT': 'Na Coreia o cartão é aceito em quase tudo, mas vale perguntar em feiras tradicionais.',
       },
     ),
     SurvivalPhraseItem(
@@ -157,8 +133,6 @@ class SurvivalPhraseRepository {
         'VI': '“Giao tiếp: 천천히 말씀해 주세요 (Xin nói chậm lại một chút ạ)”',
         'ZH': '“沟通请求：천천히 말씀해 주세요（请说慢一点）”',
         'JA': '“お願い：천천히 말씀해 주세요（ゆっくり話してください）”',
-        'ES': '“Comunicación: 천천히 말씀해 주세요 (Por favor hable despacio)”',
-        'PT': '“Comunicação: 천천히 말씀해 주세요 (Por favor fale devagar)”',
       },
       tip: {
         'KO': '상대방의 말이 너무 빠를 때 당황하지 말고 정중하게 속도를 늦춰달라고 요청해 보세요.',
@@ -166,8 +140,6 @@ class SurvivalPhraseRepository {
         'VI': 'Nếu người bản xứ nói quá nhanh, hãy lịch sự dùng câu này để nhờ họ nói chậm lại.',
         'ZH': '如果韩国人说话语速太快听不懂，用这句礼貌地请求对方放慢语速吧。',
         'JA': '相手の韓国語が速すぎるときは、落ち着いてこのフレーズでゆっくり話してもらいましょう。',
-        'ES': 'Si te hablan muy rápido, usa esta frase cortés para pedir que bajen la velocidad.',
-        'PT': 'Se falarem muito rápido, use esta frase educada para pedir que falem mais devagar.',
       },
     ),
     SurvivalPhraseItem(
@@ -178,8 +150,6 @@ class SurvivalPhraseRepository {
         'VI': '“Tại quán ăn: 물 좀 더 주세요 (Cho tôi thêm chút nước với ạ)”',
         'ZH': '“餐厅加水：물 좀 더 주세요（请再给点水）”',
         'JA': '“お冷のおかわり：물 좀 더 주세요（お水をもう少しください）”',
-        'ES': '“En el restaurante: 물 좀 더 주세요 (Más agua, por favor)”',
-        'PT': '“No restaurante: 물 좀 더 주세요 (Mais água, por favor)”',
       },
       tip: {
         'KO': '한국 식당은 물이 무료이며 \'물은 셀프\'라고 적혀 있는 곳은 정수기에서 직접 떠 마십니다.',
@@ -187,8 +157,6 @@ class SurvivalPhraseRepository {
         'VI': 'Nước uống ở quán Hàn miễn phí. Nếu thấy biển \'물은 셀프\' thì bạn tự lấy nước nhé.',
         'ZH': '韩国餐厅水是免费的。如果写着\'물은 셀프\'，就需要在饮水机自行倒水。',
         'JA': '韓国の食堂はお水が無料です。「물은 셀프」とあれば自分で給水機から注ぎます。',
-        'ES': 'El agua es gratis en restaurantes coreanos. Si dice \'물은 셀프\', sírvete tú mismo.',
-        'PT': 'A água é de graça na Coreia. Se vir a placa \'물은 셀프\', sirva-se você mesmo.',
       },
     ),
     SurvivalPhraseItem(
@@ -199,8 +167,6 @@ class SurvivalPhraseRepository {
         'VI': '“Cửa hàng tiện lợi: 봉투 필요 없어요 (Tôi không cần túi nilon đâu ạ)”',
         'ZH': '“便利店拒袋：봉투 필요 없어요（不用袋子）”',
         'JA': '“レジ袋不要：봉투 필요 없어요（袋は要りません）”',
-        'ES': '“En el súper: 봉투 필요 없어요 (No necesito bolsa)”',
-        'PT': '“Na conveniência: 봉투 필요 없어요 (Não preciso de sacola)”',
       },
       tip: {
         'KO': '편의점이나 마트에서 봉투는 유상 판매되므로, 가방이 있다면 이 말을 쓰면 편리합니다.',
@@ -208,8 +174,6 @@ class SurvivalPhraseRepository {
         'VI': 'Ở Hàn túi nilon phải trả tiền mua, nếu có balo/túi sẵn hãy dùng câu này.',
         'ZH': '韩国便利店和超市塑料袋都是收费的，有自带包时说这句即可。',
         'JA': '韓国ではレジ袋は有料です。エコバッグなどがあればこのフレーズで断りましょう。',
-        'ES': 'Las bolsas de plástico se cobran en Corea. Dilo si ya traes tu propia mochila o bolsa.',
-        'PT': 'As sacolas plásticas são cobradas na Coreia. Diga isso se já tiver sua própria bolsa.',
       },
     ),
     SurvivalPhraseItem(
@@ -220,8 +184,6 @@ class SurvivalPhraseRepository {
         'VI': '“Hỏi Wi-Fi: 와이파이 비밀번호가 뭐예요? (Mật khẩu Wi-Fi là gì ạ?)”',
         'ZH': '“询问WiFi：와이파이 비밀번호가 뭐예요?（WiFi密码是多少？）”',
         'JA': '“Wi-Fi確認：와이파이 비밀번호가 뭐예요?（Wi-Fiのパスワードは何ですか？）”',
-        'ES': '“Pedir Wi-Fi: 와이파이 비밀번호가 뭐예요? (¿Cuál es la contraseña del Wi-Fi?)”',
-        'PT': '“Pedir Wi-Fi: 와이파이 비밀번호가 뭐예요? (Qual é a senha do Wi-Fi?)”',
       },
       tip: {
         'KO': '카페 벽면이나 카운터, 또는 영수증 하단에 미리 적혀 있는 경우도 많습니다.',
@@ -229,29 +191,23 @@ class SurvivalPhraseRepository {
         'VI': 'Thường mật khẩu Wi-Fi được dán trên tường, quầy thu ngân hoặc in dưới hóa đơn.',
         'ZH': '通常咖啡馆墙上、收银台或小票底部都会印有WiFi密码，也可以先看一眼。',
         'JA': 'カフェの壁やカウンター、レシート下部に記載されていることも多いです。',
-        'ES': 'A menudo la clave del Wi-Fi está pegada en la pared, mostrador o impresa en el recibo.',
-        'PT': 'Muitas vezes a senha está afixada na parede, balcão ou no rodapé da nota fiscal.',
       },
     ),
     SurvivalPhraseItem(
-      korean: '이거 추천해 주세요',
+      korean: '메뉴 좀 추천해 주세요',
       meaning: {
-        'KO': '“추천 요청: 이거 추천해 주세요 (Please recommend something)”',
-        'EN': '“Recommendation: 이거 추천해 주세요 (Could you recommend something?)”',
-        'VI': '“Nhờ gợi ý: 이거 추천해 주세요 (Làm ơn giới thiệu món/đồ này cho tôi)”',
-        'ZH': '“请求推荐：이거 추천해 주세요（请给我推荐一下）”',
-        'JA': '“おすすめ：이거 추천해 주세요（おすすめを教えてください）”',
-        'ES': '“Pedir recomendación: 이거 추천해 주세요 (¿Me puede recomendar algo?)”',
-        'PT': '“Pedir recomendação: 이거 추천해 주세요 (Pode me recomendar algo?)”',
+        'KO': '“추천 요청: 메뉴 좀 추천해 주세요 (Please recommend something on the menu)”',
+        'EN': '“Recommendation: 메뉴 좀 추천해 주세요 (Could you recommend something on the menu?)”',
+        'VI': '“Nhờ gợi ý: 메뉴 좀 추천해 주세요 (Làm ơn gợi ý món giúp tôi)”',
+        'ZH': '“请求推荐：메뉴 좀 추천해 주세요（请给我推荐一下菜单）”',
+        'JA': '“おすすめ：메뉴 좀 추천해 주세요（おすすめのメニューを教えてください）”',
       },
       tip: {
-        'KO': '메뉴가 너무 많아 고민될 때 \'여기 제일 잘 나가는 거 추천해 주세요\'라고 하면 최고 인기 메뉴를 알려줍니다.',
+        'KO': '메뉴가 너무 많아 고민될 때 \'여기 제일 잘 나가는 거 추천해 주세요\'라고 하면 인기 메뉴를 알려줍니다.',
         'EN': 'When overwhelmed by the menu, ask this to get the restaurant\'s best-selling specialty.',
         'VI': 'Khi không biết chọn món gì, nói câu này để nhân viên giới thiệu món \'best seller\' nhé.',
         'ZH': '菜单太多难以抉择时，问一句店里的招牌推荐准没错。',
         'JA': 'メニュー選びに迷ったら、これを使ってお店のイチ押しや人気メニューを聞いてみましょう。',
-        'ES': 'Si dudas qué pedir, usa esta frase para que te recomienden el plato estrella.',
-        'PT': 'Se não souber o que pedir, use esta frase para pedir o prato mais famoso da casa.',
       },
     ),
     SurvivalPhraseItem(
@@ -262,8 +218,6 @@ class SurvivalPhraseRepository {
         'VI': '“Xin phép: 잠시만요 (Xin lỗi, xin nhường đường / Chờ một chút ạ)”',
         'ZH': '“礼貌借光：잠시만요（不好意思，请借过一下 / 请稍等）”',
         'JA': '“通してください：잠시만요（ちょっと失礼します／すみません）”',
-        'ES': '“Pedir permiso: 잠시만요 (Disculpe / Un momento)”',
-        'PT': '“Com licença: 잠시만요 (Com licença / Só um instante)”',
       },
       tip: {
         'KO': '지하철이나 만원 엘리베이터에서 내릴 때 \'잠시만요\' 또는 \'내릴게요\'라고 하면 길을 터줍니다.',
@@ -271,8 +225,6 @@ class SurvivalPhraseRepository {
         'VI': 'Khi chen xuống tàu điện ngầm hoặc xe buýt đông đúc, hãy nói \'잠시만요\' để mọi người nhường đường.',
         'ZH': '在拥挤的地铁或电梯下车时，说一句\'잠시만요\'别人就会自然让出通道。',
         'JA': '混雑した地下鉄やエレベーターを降りる際、「잠시만요」と言えば道を譲ってくれます。',
-        'ES': 'Al bajar del metro o autobús abarrotado, di \'잠시만요\' para que te abran paso.',
-        'PT': 'Ao descer do metrô ou ônibus lotado, diga \'잠시만요\' para que deem passagem.',
       },
     ),
     SurvivalPhraseItem(
@@ -283,8 +235,6 @@ class SurvivalPhraseRepository {
         'VI': '“Thanh toán: 계산해 주세요 (Tính tiền giúp tôi ạ)”',
         'ZH': '“结账买单：계산해 주세요（请结账 / 买单）”',
         'JA': '“お会計：계산해 주세요（お会計お願いします）”',
-        'ES': '“Pedir la cuenta: 계산해 주세요 (La cuenta, por favor)”',
-        'PT': '“Pedir a conta: 계산해 주세요 (A conta, por favor)”',
       },
       tip: {
         'KO': '식사를 마친 후 카운터로 가면서 테이블 빌지(주문서)를 들고 카운터 직원에게 말하세요.',
@@ -292,8 +242,6 @@ class SurvivalPhraseRepository {
         'VI': 'Sau khi ăn xong, cầm phiếu gọi món ở bàn ra quầy thu ngân và nói câu này.',
         'ZH': '吃完饭后拿着桌上的点菜单走向收银台，对收银员说这句结账即可。',
         'JA': '食べ終わったらテーブルの伝票を持ってレジに向かい、このフレーズを言いましょう。',
-        'ES': 'Lleva la nota de tu mesa hacia la caja y dilo al pagar.',
-        'PT': 'Leve a comanda da mesa até o caixa e fale isso ao pagar.',
       },
     ),
     SurvivalPhraseItem(
@@ -304,8 +252,6 @@ class SurvivalPhraseRepository {
         'VI': '“Gọi gọi món: 주문할게요 (Cho tôi gọi món ạ)”',
         'ZH': '“呼叫点餐：주문할게요（我要点餐）”',
         'JA': '“注文の合図：주문할게요（注文お願いします）”',
-        'ES': '“Llamar al mesero: 주문할게요 (Para ordenar, por favor)”',
-        'PT': '“Fazer pedido: 주문할게요 (Gostaria de fazer o pedido)”',
       },
       tip: {
         'KO': '테이블에 호출 벨이 없으면 가볍게 손을 들며 \'저기요, 주문할게요\'라고 부르면 됩니다.',
@@ -313,8 +259,6 @@ class SurvivalPhraseRepository {
         'VI': 'Nếu trên bàn không có chuông bấm gọi, hãy giơ nhẹ tay và nói \'저기요, 주문할게요\'.',
         'ZH': '如果桌上没有呼叫铃，可以轻轻举手说\'저기요, 주문할게요\'招呼服务员。',
         'JA': 'テーブルに呼び出しボタンがない場合は、軽く手を挙げて「저기요, 주문할게요」と声掛けします。',
-        'ES': 'Si no hay timbre en la mesa, alza levemente la mano y di \'저기요, 주문할게요\'.',
-        'PT': 'Se não houver campainha na mesa, erga a mão de leve e diga \'저기요, 주문할게요\'.',
       },
     ),
     SurvivalPhraseItem(
@@ -325,8 +269,6 @@ class SurvivalPhraseRepository {
         'VI': '“Hỏi độ cay: 조금 매워요? (Món này có cay chút nào không ạ?)”',
         'ZH': '“确认辣度：조금 매워요?（会有点辣吗？）”',
         'JA': '“辛さの確認：조금 매워요?（少し辛いですか？）”',
-        'ES': '“Nivel de picante: 조금 매워요? (¿Pica un poco?)”',
-        'PT': '“Nível de pimenta: 조금 매워요? (É picante?)”',
       },
       tip: {
         'KO': '한국인 기준 \'안 매워요\'도 매울 수 있으니 매운 음식에 약하다면 \'신라면보다 매워요?\'라고 묻는 것도 꿀팁입니다.',
@@ -334,8 +276,6 @@ class SurvivalPhraseRepository {
         'VI': 'Người Hàn nói \'không cay\' có thể vẫn cay với bạn! Có thể hỏi \'Có cay hơn mì Shin không?\' để dễ hình dung.',
         'ZH': '韩国人说的\'一点都不辣\'对外国人可能挺辣的，问一句\'比辛拉面辣吗\'最管用。',
         'JA': '韓国人の「辛くない」は辛いことも！「辛ラーメンより辛いですか？」と聞くのが裏技です。',
-        'ES': 'Lo que para un coreano no pica, para ti sí puede picar. Puedes preguntar si pica más que el Shin Ramyun.',
-        'PT': 'O \'não apimentado\' dos coreanos pode queimar! Perguntar se é mais picante que Shin Ramyun é boa dica.',
       },
     ),
     SurvivalPhraseItem(
@@ -346,8 +286,6 @@ class SurvivalPhraseRepository {
         'VI': '“Hỏi chỗ ngồi: 여기 자리 있어요? (Chỗ này có ai ngồi chưa ạ?)”',
         'ZH': '“询问座位：여기 자리 있어요?（这里有人坐吗 / 有空位吗？）”',
         'JA': '“席の確認：여기 자리 있어요?（ここ空いてますか？）”',
-        'ES': '“Verificar asiento: 여기 자리 있어요? (¿Está ocupado este asiento?)”',
-        'PT': '“Verificar lugar: 여기 자리 있어요? (Esse lugar está ocupado?)”',
       },
       tip: {
         'KO': '카페나 푸드코트에서 빈자리에 앉기 전 옆 사람에게 가볍게 물어볼 때 사용합니다.',
@@ -355,8 +293,6 @@ class SurvivalPhraseRepository {
         'VI': 'Lịch sự hỏi người ngồi cạnh trước khi kéo ghế ngồi tại quán cà phê hoặc khu ăn uống.',
         'ZH': '在咖啡店或美食广场找空座时，坐下前先轻声问问旁边的人比较有礼貌。',
         'JA': 'カフェやフードコートで空席に座る前に、隣の人に軽く確認する時に使います。',
-        'ES': 'Pregúntale cortésmente a la persona de al lado antes de sentarte en una cafetería.',
-        'PT': 'Pergunte com gentileza a quem estiver perto antes de se sentar em uma cafeteria.',
       },
     ),
     SurvivalPhraseItem(
@@ -367,8 +303,6 @@ class SurvivalPhraseRepository {
         'VI': '“Hỏi tuyến xe: 버스 어디서 타요? (Bắt xe buýt ở đâu ạ?)”',
         'ZH': '“打听公交：버스 어디서 타요?（在哪里坐公交车？）”',
         'JA': '“バス乗り場：버스 어디서 타요?（バスはどこで乗れますか？）”',
-        'ES': '“Transporte: 버스 어디서 타요? (¿Dónde tomo el autobús?)”',
-        'PT': '“Transporte: 버스 어디서 타요? (Onde pego o ônibus?)”',
       },
       tip: {
         'KO': '버스 정류장 위치를 현지인에게 물어볼 때 목적지 명칭 뒤에 붙여 쓰기 좋습니다.',
@@ -376,8 +310,6 @@ class SurvivalPhraseRepository {
         'VI': 'Bạn có thể ghép thêm điểm đến: ví dụ \'강남역 가는 버스 어디서 타요?\'.',
         'ZH': '可以在前面加上目的地，例如\'강남역 가는 버스 어디서 타요?\'（去江南站的公交在哪里坐？）。',
         'JA': '行き先を前につけて「강남역 가는 버스 어디서 타요?」のように使うとスムーズです。',
-        'ES': 'Agrega el destino antes, por ejemplo: \'강남역 가는 버스 어디서 타요?\'.',
-        'PT': 'Adicione o destino antes: ex. \'강남역 가는 버스 어디서 타요?\'.',
       },
     ),
     SurvivalPhraseItem(
@@ -388,8 +320,6 @@ class SurvivalPhraseRepository {
         'VI': '“Nhờ chụp ảnh: 사진 좀 찍어주시겠어요? (Bạn chụp giúp tôi một tấm ảnh được không?)”',
         'ZH': '“请人拍照：사진 좀 찍어주시겠어요?（能帮我拍张照吗？）”',
         'JA': '“写真撮影：사진 좀 찍어주시겠어요?（写真を撮っていただけますか？）”',
-        'ES': '“Pedir una foto: 사진 좀 찍어주시겠어요? (¿Nos podría tomar una foto?)”',
-        'PT': '“Tirar foto: 사진 좀 찍어주시겠어요? (Poderia tirar uma foto nossa?)”',
       },
       tip: {
         'KO': '한국인들은 구도와 비율을 맞춰 사진을 정성껏 잘 찍어주기로 유명하니 편하게 부탁해 보세요.',
@@ -397,8 +327,6 @@ class SurvivalPhraseRepository {
         'VI': 'Người Hàn Quốc chụp ảnh căn góc và dáng cực kỳ có tâm, bạn cứ mạnh dạn nhờ nhé.',
         'ZH': '韩国人拍照找角度和构图非常走心，在景点大胆礼貌求助吧！',
         'JA': '韓国の人は構図やスタイル良く写真を撮るのが上手なので、気軽に頼んでみましょう。',
-        'ES': '¡Los coreanos tienen fama de tomar fotos geniales con ángulos perfectos! Pídelo sin pena.',
-        'PT': 'Coreanos são famosos por tirar fotos incríveis com ótimos ângulos! Peça sem receio.',
       },
     ),
     SurvivalPhraseItem(
@@ -409,8 +337,6 @@ class SurvivalPhraseRepository {
         'VI': '“Phân bua: 한국말 잘 못해요 (Tôi không giỏi tiếng Hàn lắm ạ)”',
         'ZH': '“提前说明：한국말 잘 못해요（我韩语说得不太好）”',
         'JA': '“謙遜・前置き：한국말 잘 못해요（韓国語が上手ではありません）”',
-        'ES': '“Aclaración: 한국말 잘 못해요 (No hablo bien coreano)”',
-        'PT': '“Esclarecimento: 한국말 잘 못해요 (Não falo bem coreano)”',
       },
       tip: {
         'KO': '대화 시작 전 미리 이 말을 하면 상대방이 더 쉬운 단어와 몸짓으로 친절하게 설명해 줍니다.',
@@ -418,8 +344,6 @@ class SurvivalPhraseRepository {
         'VI': 'Nói trước câu này sẽ giúp đối phương dùng từ đơn giản hoặc cử chỉ để hỗ trợ bạn nhiệt tình.',
         'ZH': '开口前先说这句，对方就会主动放慢语速并用更简单手势帮助你沟通。',
         'JA': '会話の初めに伝えておくと、相手も身振り手振りや簡単な単語で親切に応じてくれます。',
-        'ES': 'Decir esto al inicio hace que la otra persona hable más despacio y use gestos para ayudarte.',
-        'PT': 'Dizer isso no início faz com que usem palavras mais fáceis e gestos para ajudar.',
       },
     ),
     SurvivalPhraseItem(
@@ -430,8 +354,6 @@ class SurvivalPhraseRepository {
         'VI': '“Cứu trợ / Khẩn cấp: 도와주세요 (Xin hãy giúp tôi với ạ)”',
         'ZH': '“求助呼救：도와주세요（请帮帮我）”',
         'JA': '“助けを求める：도와주세요（助けてください／手伝ってください）”',
-        'ES': '“Auxilio / Ayuda: 도와주세요 (Por favor ayúdeme)”',
-        'PT': '“Pedido de socorro: 도와주세요 (Por favor me ajude)”',
       },
       tip: {
         'KO': '길을 잃었거나 곤란한 위급 상황일 때 주변 사람이나 경찰에게 크게 외치거나 전달하세요.',
@@ -439,8 +361,6 @@ class SurvivalPhraseRepository {
         'VI': 'Dùng khi bị lạc hoặc gặp tình huống khẩn cấp cần người xung quanh giúp đỡ ngay.',
         'ZH': '迷路或遇到紧急困难时，向身边的人或警察呼救的最直接生词。',
         'JA': '道に迷った時や緊急時に周囲の人や警察に助けを求める重要な表現です。',
-        'ES': 'Frase de auxilio indispensable si te pierdes o surge una emergencia.',
-        'PT': 'Frase essencial em emergências ou caso se perca na rua.',
       },
     ),
     SurvivalPhraseItem(
@@ -451,8 +371,6 @@ class SurvivalPhraseRepository {
         'VI': '“Tại quán ăn: 메뉴판 주세요 (Cho tôi xin thực đơn / menu ạ)”',
         'ZH': '“索取菜单：메뉴판 주세요（请给我菜单）”',
         'JA': '“メニュー：메뉴판 주세요（メニューをください）”',
-        'ES': '“Restaurante: 메뉴판 주세요 (El menú, por favor)”',
-        'PT': '“Restaurante: 메뉴판 주세요 (O cardápio, por favor)”',
       },
       tip: {
         'KO': '테이블에 메뉴판이 없을 때나 영어 메뉴판이 필요할 땐 \'영어 메뉴판 있어요?\'라고 덧붙여 보세요.',
@@ -460,8 +378,6 @@ class SurvivalPhraseRepository {
         'VI': 'Nếu cần thực đơn tiếng Anh, bạn có thể hỏi thêm \'영어 메뉴판 있어요?\'.',
         'ZH': '如果没有英文菜单，可以问一句\'영어 메뉴판 있어요?\'（有英文菜单吗？）。',
         'JA': '英語メニューが必要なら「영어 메뉴판 있어요?（英語のメニューはありますか）」と聞いてみましょう。',
-        'ES': 'Si requieres menú en inglés, añade: \'영어 메뉴판 있어요?\'.',
-        'PT': 'Se precisar de cardápio em inglês, pergunte: \'영어 메뉴판 있어요?\'.',
       },
     ),
     SurvivalPhraseItem(
@@ -472,8 +388,6 @@ class SurvivalPhraseRepository {
         'VI': '“Hỏi mang về: 포장 가능한가요? (Có đóng gói mang về được không ạ?)”',
         'ZH': '“询问外带：포장 가능한가요?（可以打包外带吗？）”',
         'JA': '“テイクアウト可否：포장 가능한가요?（持ち帰りは可能ですか？）”',
-        'ES': '“Consultar para llevar: 포장 가능한가요? (¿Se puede pedir para llevar?)”',
-        'PT': '“Consultar viagem: 포장 가능한가요? (É possível levar para viagem?)”',
       },
       tip: {
         'KO': '인기 맛집의 줄이 너무 길 때 포장이 되는지 먼저 확인하면 시간을 크게 아낄 수 있습니다.',
@@ -481,8 +395,6 @@ class SurvivalPhraseRepository {
         'VI': 'Khi quán quá đông phải xếp hàng dài, hỏi câu này để mua mang về nhanh hơn.',
         'ZH': '当网红餐厅排长队时，先问能不能打包，往往不需要排队就能很快拿到。',
         'JA': '人気店で大行列の時、テイクアウト可能か先に確認すると待ち時間を短縮できます。',
-        'ES': 'Si hay mucha fila en un lugar famoso, preguntar esto puede ahorrarte horas de espera.',
-        'PT': 'Se a fila do restaurante estiver enorme, pergunte isso para pegar viagem sem esperar.',
       },
     ),
     SurvivalPhraseItem(
@@ -493,8 +405,6 @@ class SurvivalPhraseRepository {
         'VI': '“Nhờ nhắc lại: 다시 한번 말씀해 주세요 (Xin nhắc lại một lần nữa được không ạ?)”',
         'ZH': '“请求重述：다시 한번 말씀해 주세요（请再说一次）”',
         'JA': '“聞き返し：다시 한번 말씀해 주세요（もう一度言っていただけますか？）”',
-        'ES': '“Pedir repetir: 다시 한번 말씀해 주세요 (¿Podría repetirlo otra vez?)”',
-        'PT': '“Repetir: 다시 한번 말씀해 주세요 (Poderia repetir mais uma vez?)”',
       },
       tip: {
         'KO': '소음 때문에 못 들었거나 한 번에 이해하지 못했을 때 자연스럽게 되물을 수 있는 표현입니다.',
@@ -502,8 +412,6 @@ class SurvivalPhraseRepository {
         'VI': 'Cách nói lịch sự để nhờ đối phương lặp lại mà không hề gây ngại ngùng.',
         'ZH': '因为环境吵杂没听清时，礼貌请对方重复一遍的最得体句子。',
         'JA': '聞き取れなかった時に、気まずくならずに丁寧にもう一度促せる表現です。',
-        'ES': 'Manera muy educada de pedir que repitan lo dicho si no se escuchó bien.',
-        'PT': 'Maneira educada de pedir para repetirem o que disseram sem constrangimento.',
       },
     ),
     SurvivalPhraseItem(
@@ -514,8 +422,6 @@ class SurvivalPhraseRepository {
         'VI': '“Gọi đồ uống: 얼음 적게 넣어주세요 (Cho tôi ít đá thôi nhé ạ)”',
         'ZH': '“饮料少冰：얼음 적게 넣어주세요（请少放点冰块 / 少冰）”',
         'JA': '“氷少なめ：얼음 적게 넣어주세요（氷少なめでお願いします）”',
-        'ES': '“Bebida: 얼음 적게 넣어주세요 (Poco hielo, por favor)”',
-        'PT': '“Bebidas: 얼음 적게 넣어주세요 (Com pouco gelo, por favor)”',
       },
       tip: {
         'KO': '한국 카페는 기본적으로 얼음 양이 많은 편이므로 찬 음료를 천천히 마실 때 유용합니다.',
@@ -523,8 +429,6 @@ class SurvivalPhraseRepository {
         'VI': 'Cà phê ở Hàn thường cho khá nhiều đá, hãy dùng câu này nếu bạn muốn uống đậm vị hơn.',
         'ZH': '韩国冰饮默认冰块较多，胃不好或喜欢浓郁口感的话记得加这句少冰。',
         'JA': '韓国のカフェは氷がたっぷり入ることが多いので、冷えすぎが苦手な時におすすめです。',
-        'ES': 'Los cafés coreanos suelen servir mucho hielo. Pide esto si quieres menos frío o más líquido.',
-        'PT': 'Os cafés na Coreia vêm com muito gelo. Peça isso se quiser saborear com calma.',
       },
     ),
     SurvivalPhraseItem(
@@ -535,8 +439,6 @@ class SurvivalPhraseRepository {
         'VI': '“Yêu cầu độ cay: 덜 맵게 해주세요 (Làm bớt cay giúp tôi nhé ạ)”',
         'ZH': '“调整微辣：덜 맵게 해주세요（请做得微辣/少辣一点）”',
         'JA': '“辛さ控えめ：덜 맵게 해주세요（辛さを控えめにしてください）”',
-        'ES': '“Ajuste de cocina: 덜 맵게 해주세요 (Menos picante, por favor)”',
-        'PT': '“Pedido de preparo: 덜 맵게 해주세요 (Menos apimentado, por favor)”',
       },
       tip: {
         'KO': '떡볶이나 찌개류 등 매운 음식을 주문할 때 조절해 달라고 요청할 수 있는 마법의 표현입니다.',
@@ -544,8 +446,6 @@ class SurvivalPhraseRepository {
         'VI': 'Câu thần chú khi ăn Tteokbokki hay các món canh lẩu cay ở các quán Hàn Quốc.',
         'ZH': '点炒年糕、辣炒猪肉或锅物料理时，想要少辣就直接说这句黄金口诀。',
         'JA': 'トッポッキやチゲなどを注文する際、辛さを和らげてもらうための魔法の合言葉です。',
-        'ES': 'Frase salvadora al pedir tteokbokki o caldos picantes en cualquier restaurante.',
-        'PT': 'Frase mágica ao pedir pratos como tteokbokki ou sopas picantes na Coreia.',
       },
     ),
     SurvivalPhraseItem(
@@ -556,8 +456,6 @@ class SurvivalPhraseRepository {
         'VI': '“Mua sắm: 다른 색상 있어요? (Có màu khác không ạ?)”',
         'ZH': '“商场挑选：다른 색상 있어요?（有别的颜色吗？）”',
         'JA': '“色違い確認：다른 색상 있어요?（他の色はありますか？）”',
-        'ES': '“De compras: 다른 색상 있어요? (¿Tienen en otros colores?)”',
-        'PT': '“Compras: 다른 색상 있어요? (Tem em outras cores?)”',
       },
       tip: {
         'KO': '의류 매장이나 신발 가게에서 마음에 드는 디자인의 다른 컬러를 찾을 때 물어보세요.',
@@ -565,8 +463,6 @@ class SurvivalPhraseRepository {
         'VI': 'Hỏi câu này khi bạn ưng kiểu dáng quần áo/giày dép nhưng muốn xem màu khác.',
         'ZH': '逛街看中衣服版型想挑其他颜色时，拿出手机展示或指着衣服问即可。',
         'JA': '洋服や雑貨店でデザインは気に入ったけれど別カラーが見たい時に重宝します。',
-        'ES': 'Ideal cuando te gusta el modelo de una prenda o calzado y buscas otro tono.',
-        'PT': 'Ótima para quando você gosta do modelo mas quer ver outras opções de cor.',
       },
     ),
     SurvivalPhraseItem(
@@ -577,17 +473,13 @@ class SurvivalPhraseRepository {
         'VI': '“Đổi hàng: 교환할 수 있나요? (Tôi có thể đổi sản phẩm này không ạ?)”',
         'ZH': '“换货咨询：교환할 수 있나요?（可以换货吗？）”',
         'JA': '“商品交換：교환할 수 있나요?（交換できますか？）”',
-        'ES': '“Cambio de producto: 교환할 수 있나요? (¿Puedo cambiar esto?)”',
-        'PT': '“Troca: 교환할 수 있나요? (Posso trocar isso?)”',
       },
       tip: {
-        'KO': '교환 시에는 영수증과 결제했던 카드, 뜯지 않은 태그(Tag)를 반드시 지참해야 합니다.',
-        'EN': 'Make sure to bring your receipt, payment card, and untouched price tags for exchanges.',
-        'VI': 'Khi đổi hàng nhớ mang theo hóa đơn, thẻ thanh toán và mác áo chưa bị cắt nhé.',
-        'ZH': '换货时一定要带上小票、支付银行卡以及未剪标的原包装商品。',
-        'JA': '交換の際は、レシート、決済したカード、タグを付けたままの商品の3点が必須です。',
-        'ES': 'Para cambios, lleva siempre el recibo, la tarjeta con que pagaste y las etiquetas intactas.',
-        'PT': 'Para trocar, leve a nota fiscal, o cartão do pagamento e mantenha as etiquetas intactas.',
+        'KO': '교환 시에는 보통 영수증과 결제했던 카드, 뜯지 않은 태그(Tag)를 지참해야 매장 규정에 따라 처리가 가능합니다.',
+        'EN': 'Usually, you need your receipt, payment card, and attached tags to exchange items according to store policy.',
+        'VI': 'Khi đổi hàng, thông thường bạn cần mang theo hóa đơn, thẻ thanh toán và giữ nguyên tem mác theo quy định cửa hàng.',
+        'ZH': '换货时通常需带上小票、支付卡及未剪吊牌的商品，按店铺规定办理。',
+        'JA': '交換の際は通常、レシート、決済したカード、タグ付きの商品の持参が必要で、店舗規定に従います。',
       },
     ),
     SurvivalPhraseItem(
@@ -598,17 +490,13 @@ class SurvivalPhraseRepository {
         'VI': '“Hoàn tiền: 환불해 주세요 (Hoàn tiền giúp tôi ạ)”',
         'ZH': '“退款要求：환불해 주세요（请帮我退款）”',
         'JA': '“返金のお願い：환불해 주세요（払い戻し／返品をお願いします）”',
-        'ES': '“Reembolso: 환불해 주세요 (Deseo un reembolso, por favor)”',
-        'PT': '“Reembolso: 환불해 주세요 (Gostaria do reembolso, por favor)”',
       },
       tip: {
-        'KO': '대부분의 매장은 구매 후 7일 또는 14일 이내 영수증 지참 시 전액 환불이 가능합니다.',
-        'EN': 'Most stores in Korea allow full refunds within 7 to 14 days with the receipt.',
-        'VI': 'Hầu hết các cửa hàng ở Hàn cho phép hoàn tiền trong vòng 7 đến 14 ngày kèm hóa đơn.',
-        'ZH': '大部分商店在购买后7~14天内凭小票可全额退款，食品除外。',
-        'JA': '多くの店舗で購入後7〜14日以内、レシート持参で全額返金対応してもらえます。',
-        'ES': 'La mayoría de tiendas permiten reembolso íntegro entre 7 y 14 días con recibo.',
-        'PT': 'A maioria das lojas permite reembolso integral em 7 a 14 dias com a nota fiscal.',
+        'KO': '매장마다 환불 기준이 다르지만, 보통 미개봉·미사용 상태에서 7일~14일 이내에 영수증을 지참하면 환불을 요청할 수 있습니다.',
+        'EN': 'Refund policies vary by store, but usually unopened/unused items can be refunded within 7 to 14 days with a receipt.',
+        'VI': 'Quy định hoàn tiền tùy từng cửa hàng, nhưng thường hàng chưa mở/chưa dùng có thể hoàn tiền trong 7~14 ngày kèm hóa đơn.',
+        'ZH': '各店退款规定不同，通常在商品未拆封、未使用且保留小票的情况下，可在7~14天内申请退款。',
+        'JA': '店舗ごとに規定は異なりますが、通常は未開封・未使用で7〜14日以内にレシートを持参すれば返金を依頼できます。',
       },
     ),
     SurvivalPhraseItem(
@@ -619,8 +507,6 @@ class SurvivalPhraseRepository {
         'VI': '“Thử đồ: 입어봐도 돼요? (Tôi mặc thử được không ạ?)”',
         'ZH': '“试衣询问：입어봐도 돼요?（可以试穿吗？）”',
         'JA': '“試着の確認：입어봐도 돼요?（試着してもいいですか？）”',
-        'ES': '“Probarse ropa: 입어봐도 돼요? (¿Me lo puedo probar?)”',
-        'PT': '“Provar roupa: 입어봐도 돼요? (Posso experimentar?)”',
       },
       tip: {
         'KO': '흰색 옷이나 니트류, 메이크업 착용 시에는 피팅이 제한될 수 있으니 피팅룸 앞에서 물어보세요.',
@@ -628,8 +514,6 @@ class SurvivalPhraseRepository {
         'VI': 'Áo màu trắng hoặc đồ len có thể bị hạn chế thử, nhớ hỏi nhân viên trước nhé.',
         'ZH': '白色上衣、针织衫由于易沾染粉底，部分店铺可能限制试穿，进试衣间前问一句最好。',
         'JA': '白物やニット類は試着制限がある場合があるので、試着室前で確認しましょう。',
-        'ES': 'En prendas blancas o tejidos finos a veces no permiten probarse; pregunta antes.',
-        'PT': 'Peças brancas ou de lã às vezes têm restrição para provar. Pergunte antes de entrar.',
       },
     ),
     SurvivalPhraseItem(
@@ -640,8 +524,6 @@ class SurvivalPhraseRepository {
         'VI': '“Đi taxi/xe: 도착하면 알려주세요 (Khi nào đến nơi nhờ báo tôi với nhé ạ)”',
         'ZH': '“乘车提醒：도착하면 알려주세요（到了请告诉我一声）”',
         'JA': '“到着時のお願い：도착하면 알려주세요（着いたら教えてください）”',
-        'ES': '“En taxi/transporte: 도착하면 알려주세요 (Avíseme cuando lleguemos, por favor)”',
-        'PT': '“No táxi: 도착하면 알려주세요 (Me avise quando chegarmos, por favor)”',
       },
       tip: {
         'KO': '택시나 버스 기사님께 목적지를 말씀드린 후 덧붙이면 놓치지 않고 내릴 수 있습니다.',
@@ -649,8 +531,6 @@ class SurvivalPhraseRepository {
         'VI': 'Nói câu này với tài xế taxi hoặc xe buýt để không sợ bị đi quá trạm dừng.',
         'ZH': '搭乘出租车或公交车时告诉司机目的地后加上一句，就不怕坐过站了。',
         'JA': 'タクシーやバスの運転手に行き先を伝えた後につけると、乗り過ごしを防げます。',
-        'ES': 'Díselo al taxista o chofer tras indicar tu destino para no pasarte de parada.',
-        'PT': 'Fale isso ao motorista de táxi para ter certeza de não passar do seu ponto.',
       },
     ),
     SurvivalPhraseItem(
@@ -661,8 +541,6 @@ class SurvivalPhraseRepository {
         'VI': '“Chào cảm ơn: 맛있게 잘 먹었습니다 (Bữa ăn rất ngon, tôi cảm ơn ạ)”',
         'ZH': '“餐后致谢：맛있게 잘 먹었습니다（吃得很好，多谢款待）”',
         'JA': '“ごちそうさま：맛있게 잘 먹었습니다（ごちそうさまでした）”',
-        'ES': '“Agradecer la comida: 맛있게 잘 먹었습니다 (Estuvo delicioso, muchas gracias)”',
-        'PT': '“Agradecer a refeição: 맛있게 잘 먹었습니다 (Estava uma delícia, obrigado)”',
       },
       tip: {
         'KO': '계산하고 식당 문을 나설 때 사장님께 웃으며 건네면 한국인들이 가장 좋아하는 최고의 인사입니다.',
@@ -670,8 +548,6 @@ class SurvivalPhraseRepository {
         'VI': 'Khi thanh toán xong và rời quán, hãy nở nụ cười và chào câu này, chủ quán sẽ rất vui lòng.',
         'ZH': '结账离开餐厅时微笑着对老板说这句，店主一定会笑逐颜开、倍感亲切。',
         'JA': 'お会計後にお店を出る際、店主さんに笑顔で挨拶するととても喜ばれます。',
-        'ES': 'Dilo sonriendo al salir del restaurante tras pagar; a los dueños les encanta.',
-        'PT': 'Diga isso com um sorriso ao sair do restaurante após pagar; eles vão adorar!',
       },
     ),
   ];
