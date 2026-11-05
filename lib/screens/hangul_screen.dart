@@ -17,7 +17,6 @@ class HangulScreen extends StatefulWidget {
 class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late String _langCode;
-  bool _isSlowAudio = false;
   String? _currentlyPlayingLetter;
   String _consonantFilter = 'all'; // 'all', 'plain', 'aspirated', 'tense'
 
@@ -55,7 +54,7 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
   void _playLetterAudio(String letter, String exampleKorean) async {
     HapticFeedback.lightImpact();
     setState(() => _currentlyPlayingLetter = letter);
-    await TtsService().speak('$letter. $exampleKorean', isSlow: _isSlowAudio);
+    await TtsService().speak('$letter. $exampleKorean');
     if (mounted) {
       Future.delayed(const Duration(milliseconds: 1400), () {
         if (mounted && _currentlyPlayingLetter == letter) {
@@ -144,52 +143,6 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
           ],
         ),
         actions: [
-          // Audio Speed Toggle (Normal 🐰 / Slow 🐢)
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(16),
-                onTap: () {
-                  HapticFeedback.selectionClick();
-                  setState(() => _isSlowAudio = !_isSlowAudio);
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: _isSlowAudio
-                        ? const Color(0xFF10B981).withValues(alpha: 0.16)
-                        : (isDark ? const Color(0xFF0F172A) : const Color(0xFFF1F5F9)),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                      color: _isSlowAudio
-                          ? const Color(0xFF10B981)
-                          : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
-                      width: 1.3,
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(_isSlowAudio ? '🐢' : '🐰', style: const TextStyle(fontSize: 13.5)),
-                      const SizedBox(width: 4),
-                      Text(
-                        _isSlowAudio ? '0.7x' : '1.0x',
-                        style: TextStyle(
-                          fontSize: 11.5,
-                          fontWeight: FontWeight.w800,
-                          color: _isSlowAudio
-                              ? const Color(0xFF10B981)
-                              : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569)),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
           // Language Switcher
           Padding(
             padding: const EdgeInsets.only(right: 14.0),
@@ -1008,7 +961,7 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
                             borderRadius: BorderRadius.circular(16),
                             onTap: () {
                               HapticFeedback.lightImpact();
-                              TtsService().speak(currentSyllable, isSlow: _isSlowAudio);
+                              TtsService().speak(currentSyllable);
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
@@ -1088,7 +1041,7 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
                       ),
                       onPressed: () {
                         HapticFeedback.lightImpact();
-                        TtsService().speak(currentSyllable, isSlow: _isSlowAudio);
+                        TtsService().speak(currentSyllable);
                       },
                       icon: const Icon(Icons.volume_up_rounded, size: 16),
                       label: Text(
@@ -1108,7 +1061,7 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
                       borderRadius: BorderRadius.circular(14),
                       onTap: () {
                         HapticFeedback.lightImpact();
-                        TtsService().speak(discoveredWord.word, isSlow: _isSlowAudio);
+                        TtsService().speak(discoveredWord.word);
                       },
                       child: Container(
                         width: double.infinity,
@@ -1406,7 +1359,7 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
                 _selectedFinalIdx = idx;
               }
             });
-            TtsService().speak(_buildCurrentSyllable(), isSlow: _isSlowAudio);
+            TtsService().speak(_buildCurrentSyllable());
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 160),
@@ -1528,7 +1481,7 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
                       if (step == 2) _selectedVowelIdx = idx;
                       if (step == 3) _selectedFinalIdx = idx;
                     });
-                    TtsService().speak(_buildCurrentSyllable(), isSlow: _isSlowAudio);
+                    TtsService().speak(_buildCurrentSyllable());
                   },
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 150),
@@ -1666,7 +1619,6 @@ class _HangulMiniQuizModalState extends State<_HangulMiniQuizModal> {
   int _score = 0;
   int? _selectedChoice;
   bool _isAnswered = false;
-  bool _isSlowAudio = false;
 
   late final List<Map<String, dynamic>> _allPool;
   late List<Map<String, dynamic>> _questions;
@@ -1944,7 +1896,7 @@ class _HangulMiniQuizModalState extends State<_HangulMiniQuizModal> {
   void _playCurrentAudio() {
     if (_questionIdx < _questions.length) {
       final q = _questions[_questionIdx];
-      TtsService().speak(q['target'] as String, isSlow: _isSlowAudio);
+      TtsService().speak(q['target'] as String);
     }
   }
 
@@ -2044,50 +1996,6 @@ class _HangulMiniQuizModalState extends State<_HangulMiniQuizModal> {
                     fontWeight: FontWeight.w900,
                     color: isDark ? Colors.white : const Color(0xFF0F172A),
                     letterSpacing: -0.2,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              // Audio Speed Toggle
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(14),
-                  onTap: () {
-                    HapticFeedback.selectionClick();
-                    setState(() => _isSlowAudio = !_isSlowAudio);
-                    _playCurrentAudio();
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.5, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: _isSlowAudio
-                          ? const Color(0xFF10B981).withValues(alpha: 0.18)
-                          : (isDark ? const Color(0xFF0F172A) : const Color(0xFFF1F5F9)),
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(
-                        color: _isSlowAudio
-                            ? const Color(0xFF10B981)
-                            : (isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1)),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(_isSlowAudio ? '🐢' : '🐰', style: const TextStyle(fontSize: 12)),
-                        const SizedBox(width: 3.5),
-                        Text(
-                          _isSlowAudio ? '0.7x' : '1.0x',
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w800,
-                            color: _isSlowAudio
-                                ? const Color(0xFF10B981)
-                                : (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B)),
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                 ),
               ),
