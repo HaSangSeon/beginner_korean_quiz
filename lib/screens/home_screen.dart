@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import '../data/app_localization.dart';
 import '../data/dialogue_data.dart';
 import '../data/quiz_data.dart';
-import '../data/survival_phrases_data.dart';
 import '../services/ad_service.dart';
 import '../services/notification_service.dart';
 import '../services/progress_service.dart';
@@ -143,7 +142,6 @@ class _HomeScreenState extends State<HomeScreen> {
   String get _selectedLangCode => ProgressService().language;
   String? _expandedCategoryTrack;
   String _selectedTrack = 'survival'; // Default to 'survival' (K-라이프 실전) for high immersion
-  bool _isWordBookmarked = false;
   String _selectedDialogueFilter = 'all'; // 'all', 'food', 'transit', 'life', 'public', 'health'
   bool _isDialogueExpanded = false;
 
@@ -212,10 +210,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                    _buildTrackSwitcherSection(context, isDark),
+                    _buildHangulAlphabetBanner(context, isDark),
                     const SizedBox(height: 12),
+                    _buildTrackSwitcherSection(context, isDark),
+                    const SizedBox(height: 10),
                     _buildMainStartButton(context, isDark),
-                    const SizedBox(height: 18),
+                    const SizedBox(height: 20),
 
                     if (_selectedTrack == 'dialogue')
                       _buildDialogueSection(context, isDark)
@@ -223,17 +223,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       _buildCategorySection(context, isDark),
                     const SizedBox(height: 18),
 
-                    _buildWordOfTheDayCard(context, isDark),
-                    const SizedBox(height: 14),
                     if (_selectedTrack != 'dialogue') ...[
                       _buildReviewCard(context, isDark),
                       _buildFavoritesCard(context, isDark),
                     ],
                     _buildDailyGoalCard(context, isDark),
-                    const SizedBox(height: 14),
-                    _buildHangulAlphabetBanner(context, isDark),
-                    const SizedBox(height: 16),
-                    _buildHeroQuizCard(context, isDark),
                     const SizedBox(height: 24),
                   ],
                 ),
@@ -826,105 +820,84 @@ class _HomeScreenState extends State<HomeScreen> {
     final done = progress.dailyGoalReached;
     final learned = progress.learnedIds.length;
     final total = QuizRepository.totalCount;
-    const accent = Color(0xFF22C55E);
 
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1E293B) : Colors.white,
+        // Luxury translucent ice-blue glass in Light mode, deep sapphire slate in Dark mode
+        gradient: LinearGradient(
+          colors: isDark
+              ? [
+                  const Color(0xFF1E293B).withValues(alpha: 0.95),
+                  const Color(0xFF0F172A).withValues(alpha: 0.95),
+                ]
+              : [
+                  const Color(0xFFEFF6FF), // Soft icy blue tint
+                  const Color(0xFFDBEAFE).withValues(alpha: 0.75),
+                  const Color(0xFFEEF2FF), // Gentle lavender-blue mist
+                ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         borderRadius: BorderRadius.circular(22),
         border: Border.all(
-          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+          color: isDark
+              ? const Color(0xFF38BDF8).withValues(alpha: 0.28)
+              : const Color(0xFF93C5FD).withValues(alpha: 0.65),
+          width: 1.2,
         ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF1E3A8A).withValues(alpha: isDark ? 0.18 : 0.06),
-            blurRadius: 14,
-            offset: const Offset(0, 5),
+            color: (isDark ? Colors.black : const Color(0xFF3B82F6))
+                .withValues(alpha: isDark ? 0.35 : 0.08),
+            blurRadius: 18,
+            offset: const Offset(0, 6),
           ),
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            AppStrings.tr('greeting_title', _selectedLangCode),
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w800,
-              color: isDark ? Colors.white : const Color(0xFF0F172A),
-              letterSpacing: -0.5,
-            ),
-          ),
-          const SizedBox(height: 3),
-          Text(
-            AppStrings.tr('greeting_sub', _selectedLangCode),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
-              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-            ),
-          ),
-          const SizedBox(height: 16),
           Row(
             children: [
-              // Daily goal ring
-              SizedBox(
-                width: 58,
-                height: 58,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    TweenAnimationBuilder<double>(
-                      tween: Tween(begin: 0, end: ratio),
-                      duration: const Duration(milliseconds: 700),
-                      curve: Curves.easeOutCubic,
-                      builder: (context, value, _) => SizedBox(
-                        width: 58,
-                        height: 58,
-                        child: CircularProgressIndicator(
-                          value: value,
-                          strokeWidth: 6,
-                          strokeCap: StrokeCap.round,
-                          backgroundColor: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            done ? const Color(0xFFF59E0B) : accent,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text(done ? '🏆' : '⚡', style: const TextStyle(fontSize: 22)),
-                  ],
+              Container(
+                padding: const EdgeInsets.all(7.5),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF3B82F6).withValues(alpha: isDark ? 0.2 : 0.12),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: const Color(0xFF3B82F6).withValues(alpha: 0.25),
+                  ),
+                ),
+                child: const Icon(
+                  Icons.insights_rounded,
+                  size: 19,
+                  color: Color(0xFF2563EB),
                 ),
               ),
-              const SizedBox(width: 14),
+              const SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      done
-                          ? AppStrings.tr('daily_goal_done', _selectedLangCode)
-                          : AppStrings.tr('daily_goal_title', _selectedLangCode),
+                      AppStrings.tr('dashboard_title', _selectedLangCode),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                        color: isDark ? Colors.white : const Color(0xFF0F172A),
+                        letterSpacing: -0.4,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      AppStrings.tr('dashboard_sub', _selectedLangCode),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 14.5,
-                        fontWeight: FontWeight.w800,
-                        color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A),
-                      ),
-                    ),
-                    const SizedBox(height: 3),
-                    Text(
-                      '$xp / $goal XP',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                        color: done
-                            ? const Color(0xFFF59E0B)
-                            : (isDark ? const Color(0xFF4ADE80) : const Color(0xFF16A34A)),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
                       ),
                     ),
                   ],
@@ -933,6 +906,97 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           const SizedBox(height: 14),
+
+          // Daily Goal XP Progress Card (Glass Tile)
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+            decoration: BoxDecoration(
+              color: isDark
+                  ? const Color(0xFF0F172A).withValues(alpha: 0.85)
+                  : Colors.white.withValues(alpha: 0.92),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: isDark
+                    ? const Color(0xFF334155)
+                    : const Color(0xFFBFDBFE).withValues(alpha: 0.7),
+                width: 1.0,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFF1E3A8A).withValues(alpha: isDark ? 0.15 : 0.04),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                // Goal Ring
+                SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      TweenAnimationBuilder<double>(
+                        tween: Tween(begin: 0, end: ratio),
+                        duration: const Duration(milliseconds: 700),
+                        curve: Curves.easeOutCubic,
+                        builder: (context, value, _) => SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            value: value,
+                            strokeWidth: 5,
+                            strokeCap: StrokeCap.round,
+                            backgroundColor: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              done ? const Color(0xFFF59E0B) : const Color(0xFF2563EB),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Text(done ? '🏆' : '⚡', style: const TextStyle(fontSize: 19)),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        done
+                            ? AppStrings.tr('daily_goal_done', _selectedLangCode)
+                            : AppStrings.tr('daily_goal_title', _selectedLangCode),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w800,
+                          color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A),
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        '$xp / $goal XP',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                          color: done
+                              ? const Color(0xFFF59E0B)
+                              : const Color(0xFF2563EB),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+
+          // Mini stat Row
           Row(
             children: [
               Expanded(
@@ -947,7 +1011,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(14),
                     onTap: () {
                       Navigator.push(
                         context,
@@ -969,20 +1033,36 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildMiniStat({required bool isDark, required String emoji, required String value}) {
+  Widget _buildMiniStat({
+    required bool isDark,
+    required String emoji,
+    required String value,
+  }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
-        borderRadius: BorderRadius.circular(12),
+        color: isDark
+            ? const Color(0xFF0F172A).withValues(alpha: 0.85)
+            : Colors.white.withValues(alpha: 0.92),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(
-          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
+          color: isDark
+              ? const Color(0xFF334155)
+              : const Color(0xFFBFDBFE).withValues(alpha: 0.7),
+          width: 1.0,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF1E3A8A).withValues(alpha: isDark ? 0.15 : 0.04),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         children: [
           Text(emoji, style: const TextStyle(fontSize: 14)),
-          const SizedBox(width: 6),
+          const SizedBox(width: 8),
           Expanded(
             child: FittedBox(
               fit: BoxFit.scaleDown,
@@ -994,7 +1074,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 12.5,
                   fontWeight: FontWeight.w700,
-                  color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF334155),
+                  color: isDark ? const Color(0xFFE2E8F0) : const Color(0xFF1E293B),
                 ),
               ),
             ),
@@ -1814,25 +1894,26 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: onTap,
         borderRadius: BorderRadius.circular(14),
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 220),
+          duration: const Duration(milliseconds: 200),
           curve: Curves.easeOutCubic,
-          padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 4),
+          padding: const EdgeInsets.symmetric(vertical: 8.5, horizontal: 4),
           decoration: BoxDecoration(
             color: isSelected
-                ? (isDark ? activeColor.withValues(alpha: 0.25) : Colors.white)
+                ? (isDark ? const Color(0xFF1E3A8A).withValues(alpha: 0.35) : Colors.white)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(14),
             border: isSelected
                 ? Border.all(
-                    color: isDark ? activeColor : activeColor.withValues(alpha: 0.6),
-                    width: 1.5,
+                    color: isDark
+                        ? const Color(0xFF3B82F6)
+                        : const Color(0xFF2563EB).withValues(alpha: 0.35),
+                    width: 1.3,
                   )
                 : null,
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                      color: (isDark ? Colors.black : activeColor)
-                          .withValues(alpha: isDark ? 0.3 : 0.12),
+                      color: const Color(0xFF1E3A8A).withValues(alpha: isDark ? 0.3 : 0.08),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -1847,8 +1928,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 emoji,
                 style: const TextStyle(fontSize: 17),
               ),
-              const SizedBox(height: 3.5),
-              // Bottom Label: Full width, clean, legible without truncation
+              const SizedBox(height: 3),
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
@@ -1857,7 +1937,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12.5,
+                    fontSize: 12,
                     fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
                     letterSpacing: -0.3,
                     color: isSelected
@@ -1873,387 +1953,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildHeroQuizCard(BuildContext context, bool isDark) {
-    final isWordTrack = _selectedTrack == 'word';
-    final isSurvivalTrack = _selectedTrack == 'survival';
-    final isDialogueTrack = _selectedTrack == 'dialogue';
-
-    final gradientColors = isWordTrack
-        ? const [
-            Color(0xFF064E3B), // Emerald 900
-            Color(0xFF0F766E), // Teal 700
-            Color(0xFF0369A1), // Sky 700
-          ]
-        : (isSurvivalTrack
-            ? const [
-                Color(0xFF431407), // Amber 950
-                Color(0xFFC2410C), // Orange 700
-                Color(0xFF7E22CE), // Purple 700
-              ]
-            : (isDialogueTrack
-                ? const [
-                    Color(0xFF500724), // Rose 950
-                    Color(0xFF9D174D), // Rose 700
-                    Color(0xFFDB2777), // Pink 600
-                  ]
-                : const [
-                    Color(0xFF0F172A), // Slate 900
-                    Color(0xFF1E3A8A), // Indigo 900
-                    Color(0xFF1D4ED8), // Blue 700
-                  ]));
-
-    final watermarkText = isWordTrack
-        ? '단어'
-        : (isSurvivalTrack ? 'K-생존' : (isDialogueTrack ? '회화' : '대화'));
-    final heroBadgeText = isWordTrack
-        ? AppStrings.tr('hero_vocab_badge', _selectedLangCode)
-        : (isSurvivalTrack
-            ? AppStrings.tr('hero_survival_badge', _selectedLangCode)
-            : (isDialogueTrack
-                ? AppStrings.tr('hero_dialogue_badge', _selectedLangCode)
-                : AppStrings.tr('hero_badge', _selectedLangCode)));
-    final heroTitleText = isWordTrack
-        ? AppStrings.tr('hero_vocab_title', _selectedLangCode)
-        : (isSurvivalTrack
-            ? AppStrings.tr('hero_survival_title', _selectedLangCode)
-            : (isDialogueTrack
-                ? AppStrings.tr('hero_dialogue_title', _selectedLangCode)
-                : AppStrings.tr('hero_title', _selectedLangCode)));
-    final heroDescText = isWordTrack
-        ? AppStrings.tr('hero_vocab_desc', _selectedLangCode)
-        : (isSurvivalTrack
-            ? AppStrings.tr('hero_survival_desc', _selectedLangCode)
-            : (isDialogueTrack
-                ? AppStrings.tr('hero_dialogue_desc', _selectedLangCode)
-                : AppStrings.tr('hero_desc', _selectedLangCode)));
-
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: gradientColors,
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(26),
-        boxShadow: [
-          BoxShadow(
-            color: (isWordTrack
-                    ? const Color(0xFF0F766E)
-                    : (isDialogueTrack ? const Color(0xFF9D174D) : const Color(0xFF1E3A8A)))
-                .withValues(alpha: 0.35),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            right: -10,
-            bottom: -15,
-            child: Opacity(
-              opacity: 0.08,
-              child: Text(
-                watermarkText,
-                style: const TextStyle(
-                  fontSize: 130,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
-                  fontFamily: 'serif',
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(22.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Hero Header Row: Badge + Total Count Pill
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        heroBadgeText,
-                        style: const TextStyle(
-                          color: Color(0xFFFDE047),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0.4,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.5, vertical: 3.5),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.16),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Colors.white.withValues(alpha: 0.28),
-                          width: 0.9,
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            isDialogueTrack ? Icons.forum_rounded : Icons.quiz_rounded,
-                            size: 13,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(width: 4.5),
-                          Text(
-                            isDialogueTrack
-                                ? AppStrings.tr('dialogue_count_badge', _selectedLangCode)
-                                    .replaceAll('{count}', '${dialogues.length}')
-                                : AppStrings.tr('cat_count_badge', _selectedLangCode).replaceAll(
-                                    '{count}',
-                                    '${isWordTrack ? QuizRepository.getCountByType('word') : (isSurvivalTrack ? QuizRepository.getCountByType('survival') : QuizRepository.getCountByType('sentence'))}',
-                                  ),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 11.5,
-                              fontWeight: FontWeight.w800,
-                              letterSpacing: -0.2,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 6),
-
-                // Main Title
-                Text(
-                  heroTitleText,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w900,
-                    height: 1.22,
-                    letterSpacing: -0.5,
-                  ),
-                ),
-                const SizedBox(height: 10),
-
-                // Subtitle
-                Text(
-                  heroDescText,
-                  style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.9),
-                    fontSize: 13.5,
-                    height: 1.45,
-                  ),
-                ),
-                const SizedBox(height: 18),
-
-                // Category Chips (Tap to start category quiz)
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: isWordTrack
-                      ? [
-                          _buildPillTag(
-                            icon: Icons.restaurant_rounded,
-                            label: AppStrings.category('음식·음료', _selectedLangCode),
-                            bgColor: Colors.white.withValues(alpha: 0.15),
-                            onTap: () => _onCategoryCardTap(context, '음식·음료', _categoryEmoji['음식·음료'] ?? '🍎', isDark),
-                          ),
-                          _buildPillTag(
-                            icon: Icons.favorite_rounded,
-                            label: AppStrings.category('신체·건강', _selectedLangCode),
-                            bgColor: Colors.white.withValues(alpha: 0.15),
-                            onTap: () => _onCategoryCardTap(context, '신체·건강', _categoryEmoji['신체·건강'] ?? '🩺', isDark),
-                          ),
-                          _buildPillTag(
-                            icon: Icons.checkroom_rounded,
-                            label: AppStrings.category('패션·의류', _selectedLangCode),
-                            bgColor: Colors.white.withValues(alpha: 0.15),
-                            onTap: () => _onCategoryCardTap(context, '패션·의류', _categoryEmoji['패션·의류'] ?? '👕', isDark),
-                          ),
-                          _buildPillTag(
-                            icon: Icons.park_rounded,
-                            label: AppStrings.category('자연·날씨', _selectedLangCode),
-                            bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
-                            iconColor: const Color(0xFFFDE047),
-                            onTap: () => _onCategoryCardTap(context, '자연·날씨', _categoryEmoji['자연·날씨'] ?? '🌿', isDark),
-                          ),
-                        ]
-                      : (isSurvivalTrack
-                          ? [
-                              _buildPillTag(
-                                icon: Icons.local_cafe_rounded,
-                                label: AppStrings.category('카페·식당·외식문화', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '카페·식당·외식문화', _categoryEmoji['카페·식당·외식문화'] ?? '☕', isDark),
-                              ),
-                              _buildPillTag(
-                                icon: Icons.storefront_rounded,
-                                label: AppStrings.category('편의점·마트·쇼핑', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '편의점·마트·쇼핑', _categoryEmoji['편의점·마트·쇼핑'] ?? '🏪', isDark),
-                              ),
-                              _buildPillTag(
-                                icon: Icons.subway_rounded,
-                                label: AppStrings.category('교통·길찾기·택시', _selectedLangCode),
-                                bgColor: Colors.white.withValues(alpha: 0.15),
-                                onTap: () => _onCategoryCardTap(context, '교통·길찾기·택시', _categoryEmoji['교통·길찾기·택시'] ?? '🚇', isDark),
-                              ),
-                              _buildPillTag(
-                                icon: Icons.local_hospital_rounded,
-                                label: AppStrings.category('병원·약국·응급', _selectedLangCode),
-                                bgColor: const Color(0xFFEF4444).withValues(alpha: 0.25),
-                                iconColor: const Color(0xFFFCA5A5),
-                                onTap: () => _onCategoryCardTap(context, '병원·약국·응급', _categoryEmoji['병원·약국·응급'] ?? '💊', isDark),
-                              ),
-                            ]
-                          : (isDialogueTrack
-                              ? dialogues.take(4).map((d) {
-                                  return _buildPillTag(
-                                    icon: Icons.chat_bubble_outline_rounded,
-                                    label: d.title(_selectedLangCode),
-                                    bgColor: Colors.white.withValues(alpha: 0.16),
-                                    onTap: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (_) => DialogueScreen(dialogue: d, langCode: _selectedLangCode),
-                                      ),
-                                    ),
-                                  );
-                                }).toList()
-                              : [
-                                  _buildPillTag(
-                                    icon: Icons.badge_rounded,
-                                    label: AppStrings.category('자기소개·직업', _selectedLangCode),
-                                    bgColor: Colors.white.withValues(alpha: 0.15),
-                                    onTap: () => _onCategoryCardTap(context, '자기소개·직업', _categoryEmoji['자기소개·직업'] ?? '👤', isDark),
-                                  ),
-                                  _buildPillTag(
-                                    icon: Icons.apartment_rounded,
-                                    label: AppStrings.category('일상생활·장소', _selectedLangCode),
-                                    bgColor: Colors.white.withValues(alpha: 0.15),
-                                    onTap: () => _onCategoryCardTap(context, '일상생활·장소', _categoryEmoji['일상생활·장소'] ?? '🏙️', isDark),
-                                  ),
-                                  _buildPillTag(
-                                    icon: Icons.restaurant_rounded,
-                                    label: AppStrings.category('식당·외식·이동', _selectedLangCode),
-                                    bgColor: Colors.white.withValues(alpha: 0.15),
-                                    onTap: () => _onCategoryCardTap(context, '식당·외식·이동', _categoryEmoji['식당·외식·이동'] ?? '🍽️', isDark),
-                                  ),
-                                  _buildPillTag(
-                                    icon: Icons.lightbulb_rounded,
-                                    label: AppStrings.category('핵심표현·의사소통', _selectedLangCode),
-                                    bgColor: Colors.white.withValues(alpha: 0.15),
-                                    onTap: () => _onCategoryCardTap(context, '핵심표현·의사소통', _categoryEmoji['핵심표현·의사소통'] ?? '💡', isDark),
-                                  ),
-                                  _buildPillTag(
-                                    icon: Icons.calendar_month_rounded,
-                                    label: AppStrings.category('시간·일정·문장완성', _selectedLangCode),
-                                    bgColor: const Color(0xFFF59E0B).withValues(alpha: 0.3),
-                                    iconColor: const Color(0xFFFDE047),
-                                    onTap: () => _onCategoryCardTap(context, '시간·일정·문장완성', _categoryEmoji['시간·일정·문장완성'] ?? '🗓️', isDark),
-                                  ),
-                                ])),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPillTag({
-    required IconData icon,
-    required String label,
-    required Color bgColor,
-    Color iconColor = Colors.white,
-    VoidCallback? onTap,
-  }) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          decoration: BoxDecoration(
-            color: bgColor,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: Colors.white.withValues(alpha: 0.2),
-              width: 0.8,
-            ),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(icon, size: 14, color: iconColor),
-              const SizedBox(width: 5),
-              Flexible(
-                child: Text(
-                  label,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              const SizedBox(width: 3),
-              const Icon(Icons.arrow_forward_ios_rounded, size: 10, color: Colors.white70),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget _buildMainStartButton(BuildContext context, bool isDark) {
     final isWordTrack = _selectedTrack == 'word';
     final isSurvivalTrack = _selectedTrack == 'survival';
     final isDialogueTrack = _selectedTrack == 'dialogue';
-
-    final buttonGradient = isWordTrack
-        ? const LinearGradient(
-            colors: [
-              Color(0xFF0D9488), // Teal 600
-              Color(0xFF0F766E), // Teal 700
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          )
-        : (isSurvivalTrack
-            ? const LinearGradient(
-                colors: [
-                  Color(0xFFEA580C), // Orange 600
-                  Color(0xFFC2410C), // Orange 700
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              )
-            : (isDialogueTrack
-                ? const LinearGradient(
-                    colors: [
-                      Color(0xFFDB2777), // Pink 600
-                      Color(0xFFBE185D), // Pink 700
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  )
-                : const LinearGradient(
-                    colors: [
-                      Color(0xFF2563EB), // Blue 600
-                      Color(0xFF1D4ED8), // Blue 700
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  )));
 
     final trackCount = QuizRepository.getCountByType(_selectedTrack);
     final buttonTitle = isDialogueTrack
@@ -2267,26 +1970,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 ? AppStrings.tr('btn_sub_dialogue', _selectedLangCode)
                 : AppStrings.tr('btn_sub_sentence', _selectedLangCode, {'count': '$trackCount'})));
 
-    final shadowColor = isWordTrack
-        ? const Color(0xFF0D9488)
-        : (isSurvivalTrack
-            ? const Color(0xFFEA580C)
-            : (isDialogueTrack ? const Color(0xFFDB2777) : const Color(0xFF2563EB)));
-
-    final playIconColor = isWordTrack
-        ? const Color(0xFF0F766E)
-        : (isSurvivalTrack
-            ? const Color(0xFFC2410C)
-            : (isDialogueTrack ? const Color(0xFFBE185D) : const Color(0xFF1D4ED8)));
+    // Luxury Royal Sapphire: Prestigious, consistent, and naturally integrated
+    final buttonGradient = isDark
+        ? const LinearGradient(
+            colors: [
+              Color(0xFF1E293B), // Slate 800
+              Color(0xFF1E3A8A), // Sapphire 900
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          )
+        : const LinearGradient(
+            colors: [
+              Color(0xFF1E3A8A), // Sapphire Blue 900
+              Color(0xFF2563EB), // Modern Royal Blue 600
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          );
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: shadowColor.withValues(alpha: 0.35),
-            blurRadius: 18,
-            offset: const Offset(0, 8),
+            color: (isDark ? Colors.black : const Color(0xFF1E3A8A))
+                .withValues(alpha: isDark ? 0.35 : 0.16),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -2295,10 +2006,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Ink(
           decoration: BoxDecoration(
             gradient: buttonGradient,
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(18),
             border: Border.all(
-              color: Colors.white.withValues(alpha: 0.3),
-              width: 1.5,
+              color: isDark
+                  ? const Color(0xFF3B82F6).withValues(alpha: 0.35)
+                  : Colors.white.withValues(alpha: 0.25),
+              width: 1.2,
             ),
           ),
           child: InkWell(
@@ -2316,23 +2029,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 _navigateToQuiz(context, quizType: _selectedTrack);
               }
             },
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(18),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 36,
-                    height: 36,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
+                    width: 34,
+                    height: 34,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.18),
                       shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.28),
+                        width: 1.0,
+                      ),
                     ),
-                    child: Icon(
+                    alignment: Alignment.center,
+                    child: const Icon(
                       Icons.play_arrow_rounded,
-                      color: playIconColor,
-                      size: 26,
+                      color: Colors.white,
+                      size: 22,
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -2346,9 +2063,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 15.5,
                             fontWeight: FontWeight.w800,
-                            letterSpacing: 0.3,
+                            letterSpacing: -0.2,
                           ),
                         ),
                         const SizedBox(height: 2),
@@ -2357,8 +2074,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            color: Colors.white.withValues(alpha: 0.85),
-                            fontSize: 12,
+                            color: Colors.white.withValues(alpha: 0.82),
+                            fontSize: 11.5,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -2367,15 +2084,33 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(width: 8),
                   Container(
-                    padding: const EdgeInsets.all(6),
+                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
                     decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.15),
-                      shape: BoxShape.circle,
+                      color: Colors.white.withValues(alpha: 0.16),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.22),
+                      ),
                     ),
-                    child: const Icon(
-                      Icons.arrow_forward_rounded,
-                      color: Colors.white,
-                      size: 18,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          isDialogueTrack ? 'START' : 'PLAY',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 10.5,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                        const SizedBox(width: 3),
+                        const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 9.5,
+                          color: Colors.white,
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -2387,12 +2122,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-
   Widget _buildHangulAlphabetBanner(BuildContext context, bool isDark) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(18),
         onTap: () {
           HapticFeedback.lightImpact();
           Navigator.push(
@@ -2401,24 +2135,33 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: isDark
-                  ? [const Color(0xFF1E293B), const Color(0xFF0F172A)]
-                  : [const Color(0xFFEEF2FF), const Color(0xFFE0E7FF)],
+                  ? [
+                      const Color(0xFF1E293B).withValues(alpha: 0.95),
+                      const Color(0xFF0F172A).withValues(alpha: 0.95),
+                    ]
+                  : [
+                      const Color(0xFFEFF6FF), // Translucent ice-blue
+                      const Color(0xFFDBEAFE).withValues(alpha: 0.75),
+                      const Color(0xFFEEF2FF),
+                    ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(18),
             border: Border.all(
-              color: isDark ? const Color(0xFF334155) : const Color(0xFFC7D2FE),
-              width: 1.3,
+              color: isDark
+                  ? const Color(0xFF38BDF8).withValues(alpha: 0.28)
+                  : const Color(0xFF93C5FD).withValues(alpha: 0.65),
+              width: 1.2,
             ),
             boxShadow: [
               BoxShadow(
-                color: (isDark ? Colors.black : const Color(0xFF4F46E5))
-                    .withValues(alpha: isDark ? 0.35 : 0.08),
+                color: (isDark ? Colors.black : const Color(0xFF3B82F6))
+                    .withValues(alpha: isDark ? 0.3 : 0.06),
                 blurRadius: 10,
                 offset: const Offset(0, 3),
               ),
@@ -2427,27 +2170,21 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: [
               Container(
-                width: 48,
-                height: 48,
+                width: 38,
+                height: 38,
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF3B82F6), Color(0xFF2563EB)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                  color: isDark
+                      ? const Color(0xFF3B82F6).withValues(alpha: 0.2)
+                      : const Color(0xFF2563EB).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(11),
+                  border: Border.all(
+                    color: const Color(0xFF3B82F6).withValues(alpha: 0.25),
                   ),
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0xFF2563EB).withValues(alpha: 0.3),
-                      blurRadius: 8,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
                 ),
                 alignment: Alignment.center,
-                child: const Text('🔤', style: TextStyle(fontSize: 24)),
+                child: const Text('🔤', style: TextStyle(fontSize: 19)),
               ),
-              const SizedBox(width: 13),
+              const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -2455,7 +2192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6.5, vertical: 2),
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1.5),
                           decoration: BoxDecoration(
                             color: isDark ? const Color(0xFF312E81) : const Color(0xFFDBEAFE),
                             borderRadius: BorderRadius.circular(6),
@@ -2463,7 +2200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Text(
                             'BEGINNER GUIDE',
                             style: TextStyle(
-                              fontSize: 9.5,
+                              fontSize: 9.0,
                               fontWeight: FontWeight.w900,
                               letterSpacing: 0.5,
                               color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF1D4ED8),
@@ -2472,23 +2209,23 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 3),
+                    const SizedBox(height: 2.5),
                     Text(
                       AppStrings.tr('hangul_home_banner_title', _selectedLangCode),
                       style: TextStyle(
-                        fontSize: 14.5,
+                        fontSize: 13.5,
                         fontWeight: FontWeight.w800,
-                        color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF1E1B4B),
+                        color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A),
                         letterSpacing: -0.2,
                       ),
                     ),
-                    const SizedBox(height: 2),
+                    const SizedBox(height: 1),
                     Text(
                       AppStrings.tr('hangul_home_banner_sub', _selectedLangCode),
                       style: TextStyle(
-                        fontSize: 11.5,
-                        fontWeight: FontWeight.w600,
-                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF4338CA),
+                        fontSize: 11,
+                        fontWeight: FontWeight.w500,
+                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
                       ),
                     ),
                   ],
@@ -2496,30 +2233,28 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(width: 6),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
                 decoration: BoxDecoration(
-                  color: isDark ? const Color(0xFF312E81) : Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: isDark ? const Color(0xFF4338CA) : const Color(0xFFC7D2FE),
-                  ),
+                  color: const Color(0xFF2563EB),
+                  borderRadius: BorderRadius.circular(9),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       'START',
                       style: TextStyle(
-                        fontSize: 11,
+                        fontSize: 10.5,
                         fontWeight: FontWeight.w900,
-                        color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF4F46E5),
+                        color: Colors.white,
+                        letterSpacing: 0.4,
                       ),
                     ),
-                    const SizedBox(width: 3),
+                    SizedBox(width: 2.5),
                     Icon(
                       Icons.arrow_forward_ios_rounded,
-                      size: 10,
-                      color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF4F46E5),
+                      size: 9,
+                      color: Colors.white,
                     ),
                   ],
                 ),
@@ -2527,200 +2262,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildWordOfTheDayCard(BuildContext context, bool isDark) {
-    final phrase = SurvivalPhraseRepository.getTodayPhrase();
-
-    return Container(
-      decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1E293B) : Colors.white,
-        borderRadius: BorderRadius.circular(22),
-        border: Border.all(
-          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF1E3A8A).withValues(alpha: 0.06),
-            blurRadius: 14,
-            offset: const Offset(0, 5),
-          ),
-        ],
-      ),
-      padding: const EdgeInsets.all(18.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Flexible(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF1F5F9),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(Icons.lightbulb_outline_rounded, size: 15, color: Color(0xFF2563EB)),
-                      const SizedBox(width: 5),
-                      Flexible(
-                        child: Text(
-                          AppStrings.tr('wotd_badge', _selectedLangCode),
-                          style: const TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w800,
-                            color: Color(0xFF2563EB),
-                            letterSpacing: 0.5,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              IconButton(
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                icon: Icon(
-                  _isWordBookmarked ? Icons.bookmark_rounded : Icons.bookmark_border_rounded,
-                  color: _isWordBookmarked ? const Color(0xFF2563EB) : const Color(0xFF94A3B8),
-                  size: 24,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _isWordBookmarked = !_isWordBookmarked;
-                  });
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        AppStrings.tr(
-                          _isWordBookmarked ? 'wotd_bookmarked' : 'wotd_unbookmarked',
-                          _selectedLangCode,
-                        ),
-                      ),
-                      duration: const Duration(seconds: 1),
-                      behavior: SnackBarBehavior.floating,
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
-
-          Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 10,
-            children: [
-              Text(
-                phrase.korean,
-                style: TextStyle(
-                  fontSize: 27,
-                  fontWeight: FontWeight.w900,
-                  color: isDark ? Colors.white : const Color(0xFF0F172A),
-                ),
-              ),
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: () {
-                    TtsService().speak(phrase.korean);
-                    final toastTemplate = AppStrings.tr('wotd_listen_toast', _selectedLangCode);
-                    final toastMsg = toastTemplate.contains('[')
-                        ? toastTemplate.replaceAll(RegExp(r'\[.*?\]'), '[${phrase.korean}]')
-                        : '$toastTemplate: [${phrase.korean}]';
-
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(toastMsg),
-                        duration: const Duration(milliseconds: 900),
-                        behavior: SnackBarBehavior.floating,
-                      ),
-                    );
-                  },
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF2563EB).withValues(alpha: 0.12),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: const Color(0xFF2563EB).withValues(alpha: 0.25),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(
-                          Icons.volume_up_rounded,
-                          size: 15,
-                          color: Color(0xFF2563EB),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          AppStrings.tr('wotd_listen', _selectedLangCode),
-                          style: const TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w700,
-                            color: Color(0xFF2563EB),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 6),
-
-          Text(
-            phrase.getMeaning(_selectedLangCode),
-            style: const TextStyle(
-              fontSize: 15.5,
-              fontWeight: FontWeight.w700,
-              color: Color(0xFF2563EB),
-            ),
-          ),
-          const SizedBox(height: 12),
-
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(
-                color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-              ),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('💡 ', style: TextStyle(fontSize: 14)),
-                Expanded(
-                  child: Text(
-                    phrase.getTip(_selectedLangCode),
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF1E293B),
-                      height: 1.35,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
