@@ -206,32 +206,32 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.fromLTRB(20.0, 14.0, 20.0, 0.0),
+                  padding: const EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 0.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                    _buildHangulAlphabetBanner(context, isDark),
-                    const SizedBox(height: 12),
-                    _buildTrackSwitcherSection(context, isDark),
-                    const SizedBox(height: 10),
-                    _buildMainStartButton(context, isDark),
-                    const SizedBox(height: 20),
+                      _buildTrackSwitcherSection(context, isDark),
+                      const SizedBox(height: 12),
+                      _buildMainStartButton(context, isDark),
+                      const SizedBox(height: 20),
 
-                    if (_selectedTrack == 'dialogue')
-                      _buildDialogueSection(context, isDark)
-                    else
-                      _buildCategorySection(context, isDark),
-                    const SizedBox(height: 18),
+                      if (_selectedTrack == 'dialogue')
+                        _buildDialogueSection(context, isDark)
+                      else
+                        _buildCategorySection(context, isDark),
+                      const SizedBox(height: 20),
 
-                    if (_selectedTrack != 'dialogue') ...[
-                      _buildReviewCard(context, isDark),
-                      _buildFavoritesCard(context, isDark),
+                      if (_selectedTrack != 'dialogue') ...[
+                        _buildReviewCard(context, isDark),
+                        _buildFavoritesCard(context, isDark),
+                      ],
+                      _buildHangulAlphabetBanner(context, isDark),
+                      const SizedBox(height: 12),
+                      _buildDailyGoalCard(context, isDark),
+                      const SizedBox(height: 24),
                     ],
-                    _buildDailyGoalCard(context, isDark),
-                    const SizedBox(height: 24),
-                  ],
+                  ),
                 ),
-              ),
             ),
             const BottomBannerAdWidget(fillSafeAreaWhenEmpty: false),
           ],
@@ -296,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(19),
+        borderRadius: BorderRadius.circular(20),
         onTap: () {
           Navigator.push(
             context,
@@ -304,37 +304,29 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
         child: Container(
-          height: 38,
+          height: 40,
           alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(horizontal: hasFav ? 10 : 9),
+          padding: EdgeInsets.symmetric(horizontal: hasFav ? 12 : 10),
           decoration: BoxDecoration(
             color: isDark ? const Color(0xFF1E293B) : Colors.white,
-            borderRadius: BorderRadius.circular(19),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: hasFav
                   ? const Color(0xFFF59E0B)
                   : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
-              width: 1.2,
+              width: 1.0,
             ),
-            boxShadow: [
-              BoxShadow(
-                color: (hasFav ? const Color(0xFFF59E0B) : (isDark ? Colors.black : const Color(0xFF64748B)))
-                    .withValues(alpha: hasFav ? 0.28 : (isDark ? 0.3 : 0.05)),
-                blurRadius: 4,
-                offset: const Offset(0, 1.5),
-              ),
-            ],
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text('⭐', style: TextStyle(fontSize: 14)),
+              const Text('⭐', style: TextStyle(fontSize: 15)),
               if (hasFav) ...[
-                const SizedBox(width: 4),
+                const SizedBox(width: 5),
                 Text(
                   '$favCount',
                   style: TextStyle(
-                    fontSize: 12.5,
+                    fontSize: 13,
                     fontWeight: FontWeight.w800,
                     color: isDark ? const Color(0xFFFCD34D) : const Color(0xFFB45309),
                   ),
@@ -351,32 +343,24 @@ class _HomeScreenState extends State<HomeScreen> {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(19),
+        borderRadius: BorderRadius.circular(20),
         onTap: () => _showSettingsBottomSheet(context),
         child: Container(
-          height: 38,
-          width: 38,
+          height: 40,
+          width: 40,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: isDark ? const Color(0xFF1E293B) : Colors.white,
-            borderRadius: BorderRadius.circular(19),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
-              width: 1.2,
+              width: 1.0,
             ),
-            boxShadow: [
-              BoxShadow(
-                color: (isDark ? Colors.black : const Color(0xFF64748B))
-                    .withValues(alpha: isDark ? 0.3 : 0.05),
-                blurRadius: 4,
-                offset: const Offset(0, 1.5),
-              ),
-            ],
           ),
           child: Icon(
             Icons.settings_outlined,
             size: 20,
-            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
+            color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF475569),
           ),
         ),
       ),
@@ -822,60 +806,25 @@ class _HomeScreenState extends State<HomeScreen> {
     final total = QuizRepository.totalCount;
 
     return Container(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        // Luxury translucent ice-blue glass in Light mode, deep sapphire slate in Dark mode
-        gradient: LinearGradient(
-          colors: isDark
-              ? [
-                  const Color(0xFF1E293B).withValues(alpha: 0.95),
-                  const Color(0xFF0F172A).withValues(alpha: 0.95),
-                ]
-              : [
-                  const Color(0xFFEFF6FF), // Soft icy blue tint
-                  const Color(0xFFDBEAFE).withValues(alpha: 0.75),
-                  const Color(0xFFEEF2FF), // Gentle lavender-blue mist
-                ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(22),
+        color: isDark ? const Color(0xFF1E293B) : Colors.white,
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: isDark
-              ? const Color(0xFF38BDF8).withValues(alpha: 0.28)
-              : const Color(0xFF93C5FD).withValues(alpha: 0.65),
-          width: 1.2,
+          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: (isDark ? Colors.black : const Color(0xFF3B82F6))
-                .withValues(alpha: isDark ? 0.35 : 0.08),
-            blurRadius: 18,
-            offset: const Offset(0, 6),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
             children: [
-              Container(
-                padding: const EdgeInsets.all(7.5),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF3B82F6).withValues(alpha: isDark ? 0.2 : 0.12),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: const Color(0xFF3B82F6).withValues(alpha: 0.25),
-                  ),
-                ),
-                child: const Icon(
-                  Icons.insights_rounded,
-                  size: 19,
-                  color: Color(0xFF2563EB),
-                ),
+              const Icon(
+                Icons.insights_rounded,
+                size: 20,
+                color: Color(0xFF2563EB),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 8),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -892,10 +841,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(height: 2),
                     Text(
                       AppStrings.tr('dashboard_sub', _selectedLangCode),
-                      maxLines: 1,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 13,
                         fontWeight: FontWeight.w500,
                         color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
                       ),
@@ -905,29 +854,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 12),
 
-          // Daily Goal XP Progress Card (Glass Tile)
+          // Daily Goal XP Progress
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             decoration: BoxDecoration(
-              color: isDark
-                  ? const Color(0xFF0F172A).withValues(alpha: 0.85)
-                  : Colors.white.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(
-                color: isDark
-                    ? const Color(0xFF334155)
-                    : const Color(0xFFBFDBFE).withValues(alpha: 0.7),
-                width: 1.0,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: const Color(0xFF1E3A8A).withValues(alpha: isDark ? 0.15 : 0.04),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+              color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
               children: [
@@ -969,10 +903,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         done
                             ? AppStrings.tr('daily_goal_done', _selectedLangCode)
                             : AppStrings.tr('daily_goal_title', _selectedLangCode),
-                        maxLines: 1,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.5,
                           fontWeight: FontWeight.w800,
                           color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A),
                         ),
@@ -1041,41 +975,23 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: isDark
-            ? const Color(0xFF0F172A).withValues(alpha: 0.85)
-            : Colors.white.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(
-          color: isDark
-              ? const Color(0xFF334155)
-              : const Color(0xFFBFDBFE).withValues(alpha: 0.7),
-          width: 1.0,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF1E3A8A).withValues(alpha: isDark ? 0.15 : 0.04),
-            blurRadius: 6,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        color: isDark ? const Color(0xFF0F172A) : const Color(0xFFF8FAFC),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
         children: [
           Text(emoji, style: const TextStyle(fontSize: 14)),
           const SizedBox(width: 8),
           Expanded(
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.centerLeft,
-              child: Text(
-                value,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 12.5,
-                  fontWeight: FontWeight.w700,
-                  color: isDark ? const Color(0xFFE2E8F0) : const Color(0xFF1E293B),
-                ),
+            child: Text(
+              value,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                height: 1.3,
+                color: isDark ? const Color(0xFFE2E8F0) : const Color(0xFF1E293B),
               ),
             ),
           ),
@@ -1092,22 +1008,14 @@ class _HomeScreenState extends State<HomeScreen> {
     if (wrongForTrack.isEmpty) return const SizedBox.shrink();
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 18),
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: isDark ? const Color(0xFF1E293B) : Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: isDark ? const Color(0xFFEF4444).withValues(alpha: 0.5) : const Color(0xFFFCA5A5),
-          width: 1.5,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFFEF4444).withValues(alpha: isDark ? 0.2 : 0.08),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: Row(
         children: [
@@ -1138,7 +1046,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   AppStrings.tr('review_desc', _selectedLangCode, {'count': '${wrongForTrack.length}'}),
                   style: TextStyle(
-                    fontSize: 12.5,
+                    fontSize: 13,
                     fontWeight: FontWeight.w600,
                     color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                   ),
@@ -1171,22 +1079,14 @@ class _HomeScreenState extends State<HomeScreen> {
     if (favoriteIds.isEmpty) return const SizedBox.shrink();
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 18),
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: isDark ? const Color(0xFF1E293B) : Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: isDark ? const Color(0xFFF59E0B).withValues(alpha: 0.5) : const Color(0xFFFCD34D),
-          width: 1.5,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFFF59E0B).withValues(alpha: isDark ? 0.2 : 0.08),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: Row(
         children: [
@@ -1217,7 +1117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   AppStrings.tr('favorites_desc', _selectedLangCode, {'count': '${favoriteIds.length}'}),
                   style: TextStyle(
-                    fontSize: 12.5,
+                    fontSize: 13,
                     fontWeight: FontWeight.w600,
                     color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                   ),
@@ -1294,15 +1194,15 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context) {
             final screenWidth = MediaQuery.sizeOf(context).width;
             final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
-            final double dynamicAspectRatio = (screenWidth < 360 || textScale > 1.1) ? 1.08 : 1.18;
+            final double dynamicAspectRatio = (screenWidth < 360 || textScale > 1.1) ? 1.0 : 1.12;
 
             return GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
                 childAspectRatio: dynamicAspectRatio,
               ),
               itemCount: visibleCount,
@@ -1320,120 +1220,52 @@ class _HomeScreenState extends State<HomeScreen> {
 
             return Material(
               color: isDark ? const Color(0xFF1E293B) : Colors.white,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
               child: InkWell(
                 onTap: () => _onCategoryCardTap(context, cat, emoji, isDark),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(16),
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        isDark ? const Color(0xFF1E293B) : Colors.white,
-                        accentColor.withValues(alpha: isDark ? 0.08 : 0.035),
-                      ],
-                    ),
+                    borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       color: isComplete
                           ? const Color(0xFF22C55E).withValues(alpha: 0.6)
                           : (isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0)),
-                      width: isComplete ? 1.5 : 1.0,
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.04),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // 1. Top row: Theme Accent Emoji Badge + Status Pill
+                      // 1. Top row: Emoji + Status
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            width: 38,
-                            height: 38,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: accentColor.withValues(alpha: isDark ? 0.20 : 0.12),
-                              borderRadius: BorderRadius.circular(11),
-                              border: Border.all(
-                                color: accentColor.withValues(alpha: isDark ? 0.35 : 0.22),
-                                width: 0.9,
-                              ),
-                            ),
-                            child: Text(emoji, style: const TextStyle(fontSize: 20)),
-                          ),
+                          Text(emoji, style: const TextStyle(fontSize: 24)),
                           if (isComplete)
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 7.5, vertical: 3.5),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF22C55E).withValues(alpha: isDark ? 0.2 : 0.12),
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: const Color(0xFF22C55E).withValues(alpha: 0.35),
-                                  width: 0.8,
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Icon(Icons.check_circle_rounded, size: 11, color: Color(0xFF22C55E)),
-                                  const SizedBox(width: 3),
-                                  Text(
-                                    AppStrings.tr('stage_completed', _selectedLangCode),
-                                    style: const TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w900,
-                                      color: Color(0xFF22C55E),
-                                      letterSpacing: 0.2,
-                                    ),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(Icons.check_circle_rounded, size: 14, color: Color(0xFF16A34A)),
+                                const SizedBox(width: 3),
+                                Text(
+                                  AppStrings.tr('stage_completed', _selectedLangCode),
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w800,
+                                    color: Color(0xFF16A34A),
                                   ),
-                                ],
-                              ),
-                            )
-                          else if (attempted > 0)
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 7.5, vertical: 3.5),
-                              decoration: BoxDecoration(
-                                color: accentColor.withValues(alpha: isDark ? 0.20 : 0.10),
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: accentColor.withValues(alpha: isDark ? 0.35 : 0.20),
-                                  width: 0.8,
                                 ),
-                              ),
-                              child: Text(
-                                '$attempted/$total',
-                                style: TextStyle(
-                                  fontSize: 10.5,
-                                  fontWeight: FontWeight.w800,
-                                  color: accentColor,
-                                ),
-                              ),
+                              ],
                             )
                           else
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-                              decoration: BoxDecoration(
-                                color: isDark ? const Color(0xFF334155) : const Color(0xFFF1F5F9),
-                                borderRadius: BorderRadius.circular(7),
-                              ),
-                              child: Text(
-                                '0/$total',
-                                style: TextStyle(
-                                  fontSize: 10.5,
-                                  fontWeight: FontWeight.w700,
-                                  color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
-                                ),
+                            Text(
+                              '$attempted/$total',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                                color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                               ),
                             ),
                         ],
@@ -1450,7 +1282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                fontSize: 13.5,
+                                fontSize: 14.5,
                                 fontWeight: FontWeight.w800,
                                 height: 1.25,
                                 letterSpacing: -0.2,
@@ -1469,8 +1301,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                           .replaceAll('{total}', total.toString())
                                       : AppStrings.tr('cat_count_badge', _selectedLangCode)
                                           .replaceAll('{count}', total.toString())),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                fontSize: 11,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w600,
                                 color: isComplete
                                     ? const Color(0xFF22C55E)
@@ -1510,22 +1344,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildTrackSwitcherSection(BuildContext context, bool isDark) {
     return Container(
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFF1F5F9),
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(
-          color: isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
-          width: 1.2,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: (isDark ? Colors.black : const Color(0xFF64748B))
-                .withValues(alpha: isDark ? 0.25 : 0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
         children: [
@@ -1896,39 +1718,24 @@ class _HomeScreenState extends State<HomeScreen> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeOutCubic,
-          padding: const EdgeInsets.symmetric(vertical: 8.5, horizontal: 4),
+          constraints: const BoxConstraints(minHeight: 60),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
           decoration: BoxDecoration(
             color: isSelected
-                ? (isDark ? const Color(0xFF1E3A8A).withValues(alpha: 0.35) : Colors.white)
+                ? (isDark ? const Color(0xFF334155) : Colors.white)
                 : Colors.transparent,
-            borderRadius: BorderRadius.circular(14),
-            border: isSelected
-                ? Border.all(
-                    color: isDark
-                        ? const Color(0xFF3B82F6)
-                        : const Color(0xFF2563EB).withValues(alpha: 0.35),
-                    width: 1.3,
-                  )
-                : null,
-            boxShadow: isSelected
-                ? [
-                    BoxShadow(
-                      color: const Color(0xFF1E3A8A).withValues(alpha: isDark ? 0.3 : 0.08),
-                      blurRadius: 8,
-                      offset: const Offset(0, 2),
-                    ),
-                  ]
-                : null,
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 emoji,
-                style: const TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 18),
               ),
-              const SizedBox(height: 3),
+              const SizedBox(height: 4),
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
@@ -1937,7 +1744,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 13,
                     fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
                     letterSpacing: -0.3,
                     color: isSelected
@@ -1970,49 +1777,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ? AppStrings.tr('btn_sub_dialogue', _selectedLangCode)
                 : AppStrings.tr('btn_sub_sentence', _selectedLangCode, {'count': '$trackCount'})));
 
-    // Luxury Royal Sapphire: Prestigious, consistent, and naturally integrated
-    final buttonGradient = isDark
-        ? const LinearGradient(
-            colors: [
-              Color(0xFF1E293B), // Slate 800
-              Color(0xFF1E3A8A), // Sapphire 900
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          )
-        : const LinearGradient(
-            colors: [
-              Color(0xFF1E3A8A), // Sapphire Blue 900
-              Color(0xFF2563EB), // Modern Royal Blue 600
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          );
-
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: [
-          BoxShadow(
-            color: (isDark ? Colors.black : const Color(0xFF1E3A8A))
-                .withValues(alpha: isDark ? 0.35 : 0.16),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
+      constraints: const BoxConstraints(minHeight: 64),
       child: Material(
         color: Colors.transparent,
         child: Ink(
           decoration: BoxDecoration(
-            gradient: buttonGradient,
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(
-              color: isDark
-                  ? const Color(0xFF3B82F6).withValues(alpha: 0.35)
-                  : Colors.white.withValues(alpha: 0.25),
-              width: 1.2,
-            ),
+            color: const Color(0xFF2563EB),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: InkWell(
             onTap: () {
@@ -2029,28 +1801,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 _navigateToQuiz(context, quizType: _selectedTrack);
               }
             },
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(16),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
               child: Row(
                 children: [
-                  Container(
-                    width: 34,
-                    height: 34,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.18),
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.white.withValues(alpha: 0.28),
-                        width: 1.0,
-                      ),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Icon(
-                      Icons.play_arrow_rounded,
-                      color: Colors.white,
-                      size: 22,
-                    ),
+                  const Icon(
+                    Icons.play_circle_fill_rounded,
+                    color: Colors.white,
+                    size: 32,
                   ),
                   const SizedBox(width: 12),
                   Expanded(
@@ -2059,59 +1818,36 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Text(
                           buttonTitle,
-                          maxLines: 1,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 15.5,
+                            fontSize: 16.5,
                             fontWeight: FontWeight.w800,
                             letterSpacing: -0.2,
+                            height: 1.25,
                           ),
                         ),
-                        const SizedBox(height: 2),
+                        const SizedBox(height: 3),
                         Text(
                           buttonSub,
-                          maxLines: 1,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            color: Colors.white.withValues(alpha: 0.82),
-                            fontSize: 11.5,
+                            color: Colors.white.withValues(alpha: 0.9),
+                            fontSize: 13,
                             fontWeight: FontWeight.w500,
+                            height: 1.3,
                           ),
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.16),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.white.withValues(alpha: 0.22),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          isDialogueTrack ? 'START' : 'PLAY',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 10.5,
-                            fontWeight: FontWeight.w900,
-                            letterSpacing: 0.5,
-                          ),
-                        ),
-                        const SizedBox(width: 3),
-                        const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: 9.5,
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
+                  const Icon(
+                    Icons.arrow_forward_rounded,
+                    size: 22,
+                    color: Colors.white,
                   ),
                 ],
               ),
@@ -2135,129 +1871,50 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: isDark
-                  ? [
-                      const Color(0xFF1E293B).withValues(alpha: 0.95),
-                      const Color(0xFF0F172A).withValues(alpha: 0.95),
-                    ]
-                  : [
-                      const Color(0xFFEFF6FF), // Translucent ice-blue
-                      const Color(0xFFDBEAFE).withValues(alpha: 0.75),
-                      const Color(0xFFEEF2FF),
-                    ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(18),
+            color: isDark ? const Color(0xFF1E293B) : Colors.white,
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: isDark
-                  ? const Color(0xFF38BDF8).withValues(alpha: 0.28)
-                  : const Color(0xFF93C5FD).withValues(alpha: 0.65),
-              width: 1.2,
+              color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
             ),
-            boxShadow: [
-              BoxShadow(
-                color: (isDark ? Colors.black : const Color(0xFF3B82F6))
-                    .withValues(alpha: isDark ? 0.3 : 0.06),
-                blurRadius: 10,
-                offset: const Offset(0, 3),
-              ),
-            ],
           ),
           child: Row(
             children: [
-              Container(
-                width: 38,
-                height: 38,
-                decoration: BoxDecoration(
-                  color: isDark
-                      ? const Color(0xFF3B82F6).withValues(alpha: 0.2)
-                      : const Color(0xFF2563EB).withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(11),
-                  border: Border.all(
-                    color: const Color(0xFF3B82F6).withValues(alpha: 0.25),
-                  ),
-                ),
-                alignment: Alignment.center,
-                child: const Text('🔤', style: TextStyle(fontSize: 19)),
-              ),
+              const Text('🔤', style: TextStyle(fontSize: 24)),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1.5),
-                          decoration: BoxDecoration(
-                            color: isDark ? const Color(0xFF312E81) : const Color(0xFFDBEAFE),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Text(
-                            'BEGINNER GUIDE',
-                            style: TextStyle(
-                              fontSize: 9.0,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 0.5,
-                              color: isDark ? const Color(0xFFA5B4FC) : const Color(0xFF1D4ED8),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 2.5),
                     Text(
                       AppStrings.tr('hangul_home_banner_title', _selectedLangCode),
                       style: TextStyle(
-                        fontSize: 13.5,
+                        fontSize: 15,
                         fontWeight: FontWeight.w800,
                         color: isDark ? const Color(0xFFF1F5F9) : const Color(0xFF0F172A),
                         letterSpacing: -0.2,
+                        height: 1.3,
                       ),
                     ),
-                    const SizedBox(height: 1),
+                    const SizedBox(height: 2),
                     Text(
                       AppStrings.tr('hangul_home_banner_sub', _selectedLangCode),
                       style: TextStyle(
-                        fontSize: 11,
+                        fontSize: 13,
                         fontWeight: FontWeight.w500,
+                        height: 1.35,
                         color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF475569),
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(width: 6),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF2563EB),
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                child: const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'START',
-                      style: TextStyle(
-                        fontSize: 10.5,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.white,
-                        letterSpacing: 0.4,
-                      ),
-                    ),
-                    SizedBox(width: 2.5),
-                    Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      size: 9,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
+              const SizedBox(width: 8),
+              Icon(
+                Icons.chevron_right_rounded,
+                size: 24,
+                color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
               ),
             ],
           ),
