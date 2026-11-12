@@ -1,3 +1,5 @@
+import 'learning_order.dart';
+
 /// 상황별 일상 대화문 (암기용)
 /// - 대화 본문은 언어 설정과 무관하게 100% 한국어로 고정
 /// - 제목(상황명)만 선택한 언어로 표시
@@ -31,6 +33,8 @@ class Dialogue {
       case 3:
       case 24:
       case 30:
+      case 42:
+      case 43:
         return 'food';
       case 4:
       case 10:
@@ -39,6 +43,8 @@ class Dialogue {
       case 17:
       case 25:
       case 37:
+      case 44:
+      case 45:
         return 'transit';
       case 1:
       case 6:
@@ -52,6 +58,9 @@ class Dialogue {
       case 38:
       case 40:
       case 41:
+      case 46:
+      case 47:
+      case 51:
         return 'life';
       case 14:
       case 19:
@@ -64,6 +73,8 @@ class Dialogue {
       case 35:
       case 36:
       case 39:
+      case 48:
+      case 49:
         return 'public';
       case 5:
       case 13:
@@ -72,6 +83,7 @@ class Dialogue {
       case 29:
       case 31:
       case 32:
+      case 50:
         return 'health';
       default:
         return 'life';
@@ -1023,4 +1035,222 @@ const List<Dialogue> dialogues = [
       DialogueLine('영희', '축하해 줘서 정말 고마워, 철수야!'),
     ],
   ),
+  Dialogue(
+    id: 42,
+    emoji: '🍱',
+    titles: {
+      'KO': '도시락 고르기',
+      'EN': 'Choosing a Lunch Box',
+      'VI': 'Chọn cơm hộp',
+      'ZH': '挑选便当',
+      'JA': 'お弁当を選ぶ',
+    },
+    lines: [
+      DialogueLine('철수', '어서 오세요. 어떤 도시락을 찾으세요?'),
+      DialogueLine('영희', '고기가 없는 도시락이 있어요?'),
+      DialogueLine('철수', '네, 이 도시락에는 밥과 채소, 달걀이 들어 있어요.'),
+      DialogueLine('영희', '좋아요. 이걸로 하나 주세요.'),
+      DialogueLine('철수', '지금 데워 드릴까요?'),
+      DialogueLine('영희', '아니요, 집에 가서 먹을 거예요.'),
+      DialogueLine('철수', '네, 여기 있습니다.'),
+      DialogueLine('영희', '감사합니다.'),
+    ],
+  ),
+  Dialogue(
+    id: 43,
+    emoji: '🍵',
+    titles: {
+      'KO': '카페에서 컵 바꾸기',
+      'EN': 'Changing a Cup at a Café',
+      'VI': 'Đổi cốc ở quán cà phê',
+      'ZH': '在咖啡店换杯子',
+      'JA': 'カフェでカップを替えてもらう',
+    },
+    lines: [
+      DialogueLine('철수', '실례합니다. 컵이 조금 더러워요.'),
+      DialogueLine('영희', '죄송합니다. 새 컵으로 바꿔 드릴게요.'),
+      DialogueLine('철수', '감사합니다. 물도 조금 주실 수 있어요?'),
+      DialogueLine('영희', '네, 차가운 물로 드릴까요?'),
+      DialogueLine('철수', '아니요, 따뜻한 물로 주세요.'),
+      DialogueLine('영희', '네, 새 컵과 따뜻한 물 여기 있습니다.'),
+      DialogueLine('철수', '감사합니다.'),
+      DialogueLine('영희', '불편하게 해 드려서 죄송합니다.'),
+    ],
+  ),
+  Dialogue(
+    id: 44,
+    emoji: '🚌',
+    titles: {
+      'KO': '버스 정류장 확인하기',
+      'EN': 'Finding the Right Bus Stop',
+      'VI': 'Tìm đúng trạm xe buýt',
+      'ZH': '确认公交车站',
+      'JA': 'バス停を確認する',
+    },
+    lines: [
+      DialogueLine('철수', '실례합니다. 여기서 시청 가는 버스를 타요?'),
+      DialogueLine('영희', '아니요, 길 건너편에서 타세요.'),
+      DialogueLine('철수', '저쪽 정류장 말씀이세요?'),
+      DialogueLine('영희', '네, 빵집 앞에 있는 정류장이에요.'),
+      DialogueLine('철수', '어디에서 길을 건너면 돼요?'),
+      DialogueLine('영희', '오른쪽에 횡단보도가 있어요.'),
+      DialogueLine('철수', '알려 주셔서 감사합니다.'),
+      DialogueLine('영희', '네, 조심히 가세요.'),
+    ],
+  ),
+  Dialogue(
+    id: 45,
+    emoji: '🚶',
+    titles: {
+      'KO': '걸어서 약속 장소 가기',
+      'EN': 'Walking to a Meeting Place',
+      'VI': 'Đi bộ đến điểm hẹn',
+      'ZH': '步行前往见面地点',
+      'JA': '待ち合わせ場所まで歩く',
+    },
+    lines: [
+      DialogueLine('철수', '지금 어디예요?'),
+      DialogueLine('영희', '도서관 앞에 있어요. 카페가 가까워요?'),
+      DialogueLine('철수', '네, 걸어서 오 분쯤 걸려요.'),
+      DialogueLine('영희', '어느 쪽으로 가요?'),
+      DialogueLine('철수', '도서관에서 나와서 왼쪽으로 오세요.'),
+      DialogueLine('영희', '카페 옆에 뭐가 있어요?'),
+      DialogueLine('철수', '꽃집이 있어요. 제가 카페 앞에서 기다릴게요.'),
+      DialogueLine('영희', '네, 곧 갈게요.'),
+    ],
+  ),
+  Dialogue(
+    id: 46,
+    emoji: '🔌',
+    titles: {
+      'KO': '충전기 빌리기',
+      'EN': 'Borrowing a Charger',
+      'VI': 'Mượn bộ sạc',
+      'ZH': '借充电器',
+      'JA': '充電器を借りる',
+    },
+    lines: [
+      DialogueLine('철수', '휴대폰 배터리가 거의 없어요.'),
+      DialogueLine('영희', '제 충전기를 빌려 드릴까요?'),
+      DialogueLine('철수', '네, 잠깐 빌려도 돼요?'),
+      DialogueLine('영희', '그럼요. 여기 있어요.'),
+      DialogueLine('철수', '고마워요. 어디에 꽂으면 돼요?'),
+      DialogueLine('영희', '책상 아래에 콘센트가 있어요.'),
+      DialogueLine('철수', '다 쓰고 바로 돌려드릴게요.'),
+      DialogueLine('영희', '네, 천천히 쓰세요.'),
+    ],
+  ),
+  Dialogue(
+    id: 47,
+    emoji: '🏠',
+    titles: {
+      'KO': '집에 친구 초대하기',
+      'EN': 'Inviting a Friend Home',
+      'VI': 'Mời bạn đến nhà',
+      'ZH': '邀请朋友来家里',
+      'JA': '友達を家に招く',
+    },
+    lines: [
+      DialogueLine('철수', '토요일에 우리 집에 놀러 올래요?'),
+      DialogueLine('영희', '좋아요. 몇 시에 갈까요?'),
+      DialogueLine('철수', '오후 두 시는 어때요?'),
+      DialogueLine('영희', '괜찮아요. 집이 어디예요?'),
+      DialogueLine('철수', '학교 앞 편의점 옆 건물이에요.'),
+      DialogueLine('영희', '제가 간식을 좀 가져갈게요.'),
+      DialogueLine('철수', '고마워요. 저는 차를 준비할게요.'),
+      DialogueLine('영희', '네, 토요일에 봐요.'),
+    ],
+  ),
+  Dialogue(
+    id: 48,
+    emoji: '📚',
+    titles: {
+      'KO': '도서관에서 반납 장소 묻기',
+      'EN': 'Returning a Library Book',
+      'VI': 'Hỏi nơi trả sách ở thư viện',
+      'ZH': '询问图书馆还书地点',
+      'JA': '図書館で返却場所を聞く',
+    },
+    lines: [
+      DialogueLine('철수', '안녕하세요. 이 책을 반납하려고요.'),
+      DialogueLine('영희', '네, 책을 여기 올려 주세요.'),
+      DialogueLine('철수', '다음에는 밖에 있는 반납함에 넣어도 돼요?'),
+      DialogueLine('영희', '네, 도서관이 닫혀 있을 때는 거기에 넣으세요.'),
+      DialogueLine('철수', '오늘은 몇 시에 문을 닫아요?'),
+      DialogueLine('영희', '오늘은 오후 여섯 시에 닫아요.'),
+      DialogueLine('철수', '네, 알려 주셔서 감사합니다.'),
+      DialogueLine('영희', '안녕히 가세요.'),
+    ],
+  ),
+  Dialogue(
+    id: 49,
+    emoji: '🧑‍🏫',
+    titles: {
+      'KO': '한국어 수업 준비하기',
+      'EN': 'Preparing for Korean Class',
+      'VI': 'Chuẩn bị cho lớp tiếng Hàn',
+      'ZH': '准备韩语课',
+      'JA': '韓国語の授業の準備',
+    },
+    lines: [
+      DialogueLine('철수', '안녕하세요. 오늘 처음 수업을 들어요.'),
+      DialogueLine('영희', '반가워요. 이름이 어떻게 되세요?'),
+      DialogueLine('철수', '저는 민수예요. 어디에 앉으면 돼요?'),
+      DialogueLine('영희', '창문 옆 빈자리에 앉으세요.'),
+      DialogueLine('철수', '책은 몇 쪽을 펴요?'),
+      DialogueLine('영희', '십 쪽을 펴세요. 공책도 준비해 주세요.'),
+      DialogueLine('철수', '네, 연필로 써도 돼요?'),
+      DialogueLine('영희', '그럼요. 연필로 쓰세요.'),
+    ],
+  ),
+  Dialogue(
+    id: 50,
+    emoji: '🤒',
+    titles: {
+      'KO': '몸이 안 좋아 약속 바꾸기',
+      'EN': 'Rescheduling When Feeling Unwell',
+      'VI': 'Đổi lịch hẹn vì không khỏe',
+      'ZH': '因身体不适更改约定',
+      'JA': '体調が悪くて約束を変更する',
+    },
+    lines: [
+      DialogueLine('철수', '미안해요. 오늘은 만나기 어려울 것 같아요.'),
+      DialogueLine('영희', '무슨 일 있어요?'),
+      DialogueLine('철수', '몸이 좀 안 좋아요. 집에서 쉬려고요.'),
+      DialogueLine('영희', '알겠어요. 오늘은 푹 쉬세요.'),
+      DialogueLine('철수', '고마워요. 다음 주에 만나도 될까요?'),
+      DialogueLine('영희', '네, 괜찮아요. 괜찮아지면 연락해 주세요.'),
+      DialogueLine('철수', '네, 다시 연락할게요.'),
+      DialogueLine('영희', '무리하지 말고 잘 쉬세요.'),
+    ],
+  ),
+  Dialogue(
+    id: 51,
+    emoji: '🧢',
+    titles: {
+      'KO': '잃어버린 모자 찾기',
+      'EN': 'Looking for a Lost Hat',
+      'VI': 'Tìm mũ bị mất',
+      'ZH': '寻找丢失的帽子',
+      'JA': 'なくした帽子を探す',
+    },
+    lines: [
+      DialogueLine('철수', '실례합니다. 여기 모자 두고 간 것 없나요?'),
+      DialogueLine('영희', '어떤 색 모자예요?'),
+      DialogueLine('철수', '파란색이에요. 앞에 하얀 글씨가 있어요.'),
+      DialogueLine('영희', '혹시 이 모자예요?'),
+      DialogueLine('철수', '네, 제 모자예요. 어디에 있었어요?'),
+      DialogueLine('영희', '창가 의자 위에 있었어요.'),
+      DialogueLine('철수', '찾아 주셔서 정말 감사합니다.'),
+      DialogueLine('영희', '다행이네요. 여기 있습니다.'),
+    ],
+  ),
 ];
+
+/// A copy so sorting never changes source IDs or recorded-audio mappings.
+List<Dialogue> get dialoguesInLearningOrder => List<Dialogue>.from(dialogues)
+  ..sort((a, b) {
+    final order = LearningOrder.dialoguePriority(a.id)
+        .compareTo(LearningOrder.dialoguePriority(b.id));
+    return order != 0 ? order : a.id.compareTo(b.id);
+  });

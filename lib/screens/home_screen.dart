@@ -1429,9 +1429,10 @@ class _HomeScreenState extends State<HomeScreen> {
       {'key': 'health', 'emoji': '🏥', 'labelKey': 'dialogue_filter_health'},
     ];
 
+    final orderedDialogues = dialoguesInLearningOrder;
     final filteredDialogues = _selectedDialogueFilter == 'all'
-        ? dialogues
-        : dialogues.where((d) => d.category == _selectedDialogueFilter).toList();
+        ? orderedDialogues
+        : orderedDialogues.where((d) => d.category == _selectedDialogueFilter).toList();
 
     const int initialVisibleCount = 8;
     final bool hasMore = filteredDialogues.length > initialVisibleCount;
@@ -1793,7 +1794,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => DialogueScreen(dialogue: dialogues.first, langCode: _selectedLangCode),
+                      builder: (_) => DialogueScreen(dialogue: dialoguesInLearningOrder.first, langCode: _selectedLangCode),
                     ),
                   );
                 }

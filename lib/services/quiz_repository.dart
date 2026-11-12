@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../data/quiz_data.dart';
+import '../data/learning_order.dart';
 import 'progress_service.dart';
 
 class QuizRepository {
@@ -80,14 +81,22 @@ class QuizRepository {
       return baseList;
     }
 
-    if (shuffle) {
-      // Smart Duolingo-style Priority:
-      // 1) Unlearned questions first (always fresh content for the learner)
-      // 2) Mastered questions second (for spaced review)
+    // Reviews keep their existing order. Normal learning starts with the
+    // editorial beginner sequence; learned items follow unseen items.
+    if (ids == null) {
       final learned = ProgressService().learnedIds;
-      final unlearned = baseList.where((q) => !learned.contains(q.id)).toList()..shuffle();
-      final mastered = baseList.where((q) => learned.contains(q.id)).toList()..shuffle();
-      baseList = [...unlearned, ...mastered];
+      baseList.sort((a, b) {
+        if (shuffle) {
+          final progressOrder = (learned.contains(a.id) ? 1 : 0)
+              .compareTo(learned.contains(b.id) ? 1 : 0);
+          if (progressOrder != 0) return progressOrder;
+        }
+        final priority = LearningOrder.questionPriority(a.id)
+            .compareTo(LearningOrder.questionPriority(b.id));
+        if (priority != 0) return priority;
+        final levelOrder = a.level.compareTo(b.level);
+        return levelOrder != 0 ? levelOrder : a.id.compareTo(b.id);
+      });
     }
 
     if (limit != null && baseList.length > limit) {
@@ -113,6 +122,7 @@ class QuizRepository {
         id: q.id,
         category: q.category,
         type: q.type,
+        level: q.level,
         visual: q.visual,
         keyword: q.keyword,
         speechBubble: q.speechBubble,
